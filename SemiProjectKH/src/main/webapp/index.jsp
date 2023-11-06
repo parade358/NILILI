@@ -334,7 +334,7 @@ a {
 				<div id="menus">
 					<a class="same2" href="${contextPath}/game.pl" title="본인의 여행취향이 궁금하신가요?"><img
 						src="resources/mainIndex/01_1con.png" id="con1" alt="여행취향"></a>
-					<a class="same2" href="" title="어딜갈지 모르시겠나요?"><img
+					<a class="same2" href="${contextPath}/reco.pl" title="어딜갈지 모르시겠나요?"><img
 						src="resources/mainIndex/01_2con.png" id="con2" alt="여행지추천"></a>
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>

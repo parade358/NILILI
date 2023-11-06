@@ -46,7 +46,7 @@ public class ReplyInsertController extends HttpServlet {
 			//Member loginUser = (Member)request.getSession().getAttribute("loginUser"); //로그인 정보
 			//int replyWriter = loginUser.getUserNo();//댓글작성자 번호 추출
 			
-			int replyWriter = 1;
+			int replyWriter = 2;
 					
 			Reply r = new Reply();
 			r.setRefBno(bno);
