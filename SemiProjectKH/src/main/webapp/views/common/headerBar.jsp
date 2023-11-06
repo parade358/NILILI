@@ -100,16 +100,32 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             float: left;
         }
         
-        #header .utility p{
+        #header .utility .nonp{
             font-weight: 700;
             font-size: 10px;
             color:#626262;
             padding-top: -15px;
         }
-        .utility #logout{padding-right: 700px;}
-        .utility #mypage{padding-right: 550px;}
-        .utility #notice{padding-right: 400px;}
-        .utility #qna{padding-right: 270px;}
+        
+        .utility #logout{
+        padding-right: 390px;
+        }
+        
+        .utility #mypage{
+        padding-right: 290px;
+        }
+        
+        .utility #notice{
+        padding-right: 200px;
+        }
+ 
+        .utility #qna{
+        padding-right: 130px;
+        }
+        
+        .nonp{
+        	fl
+        }
 
 			
 			
@@ -141,34 +157,37 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             <div id="logo">
       		<a href="http://localhost:8888/semi/"><img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"></a>     
           </div>
+          
+          
+          
+          
            <ul class="utility">
                 <!--로그아웃 버튼 영역-->
-           
-           	
+
             <li>
-                <a href="/logout.mb" id="logout">
+                <a href="${contextPath }/logout.mb" id="logout" class="nonp">
              <img src="${contextPath }/resources/mainIndex/logout_ui.png" alt="logout_ui">
-                <p>로그아웃</p>
+                로그아웃
                 </a>
              </li>
             
             <!--마이페이지 버튼 영역-->
             <li>
-               <a href="" id="mypage">
+               <a href="" id="mypage" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/myp_ui.png "alt="mypage_ui"> 
-                <p>마이페이지</p>
+                마이페이지
                </a>  
             </li>
             <li>
-              <a href="" id="notice">
+              <a href="" id="notice" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/notice_ui.png" alt="notice"> 
-                <p>공지사항</p>
-              </a>  
+                공지사항
+              </a>
             </li>
             <li>
-              <a href="" id="qna">
+              <a href="" id="qna" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/qna_ui.png" alt="qna_ui"> 
-                <p>Q&A</p>
+               Q&A
               </a>  
             </li>
             </ul>
