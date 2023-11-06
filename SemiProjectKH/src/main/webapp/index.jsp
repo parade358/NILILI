@@ -279,10 +279,7 @@ a {
      
             <li style="font-size: 24px;">"${loginMember.memberName }"님 환영합니다.</li>
             <li> <br> </li>
-      
-       
-
-            <c:choose>
+           <c:choose>
             <c:when test="${loginMember.memberSubscribe eq 'Y'}">
             <li>정기구독 회원입니다.</li>
             </c:when>

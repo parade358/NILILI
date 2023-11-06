@@ -271,8 +271,6 @@
                 </div>
                 
             </div>
-            
-            
             <!--*******************************하단텍스트!!!!!!!!!***********************************-->
             <div id="conText04">
                 
@@ -292,18 +290,8 @@
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 				  구독하기
 				</button>
-
-      
                 </div>
-
-
          </div>
-         
-         
-         <!-- Button trigger modal -->
-
-
-<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -328,7 +316,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" id="closeBtn"class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="button" id="submitBtn" class="btn btn-primary">로그인</button>
+        <button type="button" id="submitBtn2" class="btn btn-primary">로그인</button>
         </c:otherwise>
  </c:choose>
         
@@ -336,15 +324,12 @@
     </div>
   </div>
 </div>
-         
- 
-         
          	<%@ include file="../common/footerBar.jsp"%>
-         	
          	<script>
+         	$("#submitBtn2").click(function(){
+         		window.location.href = "../../index.jsp";
+         	});
          	$("#submitBtn").click(function(){
-         		
-        
          		$.ajax({
          			url : "${contextPath}/subscribe.mb",
          			data :{
@@ -365,13 +350,6 @@
          			type:"post"
          		});
          	});
-         	
-         	
-         	
-         	
-         	
          	</script>
-         	
-         	
 </body>
 </html>
