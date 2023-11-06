@@ -347,7 +347,7 @@
          			success: function(result){
          				if(result>0){
          					$("#closeBtn").click();
-         					window.location.href = "${contextPath}/src/main/webapp/views/menu/serviceFinal.jsp";
+         					window.location.href = "serviceFinal.jsp";
          					
          				}else{
          					

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -146,27 +146,9 @@
 <body>
     <div class="wrap">
         <!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
-        <div id="header">
-            <div id="line"></div>
-            <div id="logo">
-          <img src="resource/00_main/logo.png" alt="3조로고"> 
-​
-            <span>
-                <!--로그아웃 버튼 영역-->
-           <a href="" id="logout">
-                <img src="resource/00_main/logout_ui.png" alt="logout_ui"> 
-                <span style="vertical-align: top; padding-left: 5px; margin-right: 20px; color: #444444; font-size: 12px; ">로그아웃</span>
-           </a>
-            <!--마이페이지 버튼 영역-->
-            <a href="" id="mypage">
-                <img src="resource/00_main/myp_ui.png" alt="mypage_ui"> 
-                <span style="vertical-align: top; padding-left: 5px; color: #444444; font-size: 12px;">마이페이지</span>
-             </a>  
-        </span> 
-           
-         </div>    
-         </div>
-         <!--*************************헤더 영역 끄으으으으으으읕***********************-->
+   	<%@ include file="/views/common/headerBar.jsp" %>	
+   
+     
 ​
          <!--서브페이지 타이틀 -->
          <div id="title">
@@ -185,21 +167,13 @@
 </div>
 <button type="text" id="serviceBtn"> 여행 추천 서비스로 가기</button>
 ​
+
+
 ​
 </div>
 ​
-<!--*****************푸우우ㅜ우우우ㅜㅇ터어어어어어ㅓ어어어어어*******************-->
-         <div id="footer">
-            <hr>
-    
-            <span id="f_text"  style="align : center" >
-                고객문의  |  이용약관  | 개인정보취급방침  |  사이트맵
-                <br><br>
-                서울시 영등포구 선유동 2로 57 이레빌딩 20층 E강의장  TEL 1544-9970
-                <br>
-                COPYRIGHT ⓒ  1988-2023 KH IEI ALL Right Reserved
-                
-            </span>
-        </div>
+	<%@ include file="../common/footerBar.jsp"%>
+
+
 </body>
 </html>

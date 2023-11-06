@@ -139,16 +139,19 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         <div id="header">
             <div id="line"></div>
             <div id="logo">
-          <img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"> 
+      		<a href="http://localhost:8888/semi/"><img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"></a>     
           </div>
            <ul class="utility">
                 <!--로그아웃 버튼 영역-->
+           
+           	
             <li>
-                <a href="" id="logout">
-                <img src="${contextPath }/resources/mainIndex/logout_ui.png" alt="logout_ui"> 
+                <a href="/logout.mb" id="logout">
+             <img src="${contextPath }/resources/mainIndex/logout_ui.png" alt="logout_ui">
                 <p>로그아웃</p>
                 </a>
              </li>
+            
             <!--마이페이지 버튼 영역-->
             <li>
                <a href="" id="mypage">

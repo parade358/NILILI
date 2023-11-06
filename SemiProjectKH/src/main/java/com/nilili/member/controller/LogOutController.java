@@ -22,6 +22,8 @@ public class LogOutController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("안녕하구리");
+		
 		HttpSession session = request.getSession();
 		
 		session.removeAttribute("loginMember");
