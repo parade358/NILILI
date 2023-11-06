@@ -314,7 +314,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-  
+      <c:choose>
+  <c:when test="${loginMember }">
     "${loginMember.memberName }" 님 구독을 하시겠습니까?
      <br><br>
      (확인을 누르시면 자동으로 구독이 되십니다)
@@ -322,8 +323,13 @@
       <div class="modal-footer">
         <button type="button" id="closeBtn"class="btn btn-secondary" data-bs-dismiss="modal">구독 취소</button>
         <button type="button" id="submitBtn" class="btn btn-primary">구독 하기</button>
+        </c:when>
+        <c:otherwise>
+        회원가입 부터하세여 
         
- 
+        </c:otherwise>
+        
+ </c:choose>
         
       </div>
     </div>

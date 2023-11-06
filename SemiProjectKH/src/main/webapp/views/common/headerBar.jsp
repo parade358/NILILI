@@ -123,12 +123,6 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         padding-right: 130px;
         }
         
-        .nonp{
-        	fl
-        }
-
-			
-			
 			</c:otherwise>
 	</c:choose>
 </style>
