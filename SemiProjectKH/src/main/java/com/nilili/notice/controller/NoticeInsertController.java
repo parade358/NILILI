@@ -69,7 +69,7 @@ public class NoticeInsertController extends HttpServlet {
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
 			
-			String boardWriter = "1";
+			String boardWriter = "2";
 			
 			Notice n = new Notice();
 			n.setBoardContent(content);
