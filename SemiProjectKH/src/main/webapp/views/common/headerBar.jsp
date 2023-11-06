@@ -1,0 +1,205 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<% 
+String contextPath = request.getContextPath();
+String alertMsg = (String)session.getAttribute("alertMsg");
+%>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+<!-- 기본 필요한 라이브러리 입니다 -->
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style >
+
+
+      .wrap{
+            width: 1920px;
+              text-align: center;
+        }
+        .wrap > div{
+            width: 100%;
+        }
+        
+        <c:choose>
+			<c:when test="${empty loginMember }">
+        
+        #header{
+            /* border: 1px solid black; */
+            height: 165px;
+        }
+        #line{
+            height: 35px;
+            background-color: black;
+        }
+        #logo{
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            padding-top:30px ;
+            margin-left:882.5px
+        }
+        </c:when>
+			<c:otherwise>
+			
+	 *{font-family: 'Noto sans KR' sans-serif;}
+        /*헤어 영역 사이즈값 (높이/세로영역)*/
+        #header{
+            /* border: 1px solid black; */
+            height: 165px;
+            position: relative;
+            text-align: center;
+            z-index: 100;
+        }
+ 
+        /*상단 블랙라인 */
+        #line{         
+            height: 35px;
+            background-color: black;
+        }
+        /*헤더 중앙 로고 위치값 */
+        #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            /* margin-left:882.5px; */
+            left: 50%;
+            margin: 0 auto;
+        }
+        
+        /*오른쪽상단 a태그 텍스트밑줄 제거*/
+        #header a{text-decoration: none;}
+        /*오른쪽 상단 메뉴 */
+       #haeder ul,li{
+           position: absolute;
+            list-style: none;
+            float: right;
+            top: 100px;
+            right: -17px;
+            margin-left: 10px;
+        }
+        
+        #header .utility li{
+            text-align: center;
+            float: left;
+        }
+        
+        #header .utility p{
+            font-weight: 700;
+            font-size: 10px;
+            color:#626262;
+            padding-top: -15px;
+        }
+        .utility #logout{padding-right: 700px;}
+        .utility #mypage{padding-right: 550px;}
+        .utility #notice{padding-right: 400px;}
+        .utility #qna{padding-right: 270px;}
+
+			
+			
+			</c:otherwise>
+	</c:choose>
+</style>
+</head>
+<body>
+
+<!--인클루드 하실때 제일 위에다가 해주세요 -->
+	<c:choose>
+			<c:when test="${empty loginMember }">
+			
+		    <div class="wrap">
+		        <div id="header">
+		            <div id="line"></div>
+		            <div id="logo">
+		                <a href="http://localhost:8888/semi/"> <img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"/></a>
+		         	</div>
+		        </div>
+			</c:when>
+			<c:otherwise>
+			
+			
+	 <div class="wrap">
+        <!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
+        <div id="header">
+            <div id="line"></div>
+            <div id="logo">
+          <img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"> 
+          </div>
+           <ul class="utility">
+                <!--로그아웃 버튼 영역-->
+            <li>
+                <a href="" id="logout">
+                <img src="${contextPath }/resources/mainIndex/logout_ui.png" alt="logout_ui"> 
+                <p>로그아웃</p>
+                </a>
+             </li>
+            <!--마이페이지 버튼 영역-->
+            <li>
+               <a href="" id="mypage">
+                <img src="${contextPath }/resources/mainIndex/myp_ui.png "alt="mypage_ui"> 
+                <p>마이페이지</p>
+               </a>  
+            </li>
+            <li>
+              <a href="" id="notice">
+                <img src="${contextPath }/resources/mainIndex/notice_ui.png" alt="notice"> 
+                <p>공지사항</p>
+              </a>  
+            </li>
+            <li>
+              <a href="" id="qna">
+                <img src="${contextPath }/resources/mainIndex/qna_ui.png" alt="qna_ui"> 
+                <p>Q&A</p>
+              </a>  
+            </li>
+            </ul>
+            
+         </div>
+			</c:otherwise>
+	
+
+
+
+		</c:choose>
+		
+		
+		<!-- 전체영역 잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		</div>
+		
+		
+	<script>
+
+
+var msg = "<%=alertMsg%>";
+
+
+if(msg!='null'){ 
+	alert(msg);
+	
+	<%session.removeAttribute("alertMsg");%>
+}
+
+</script>	
+		
+</body>
+
+
+
+
+</html>
