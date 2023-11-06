@@ -122,7 +122,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 <!--인클루드 하실때 제일 위에다가 해주세요 -->
 	<c:choose>
 			<c:when test="${empty loginMember }">
-			
+			<!-- 테스트 -->
 		    <div class="wrap">
 		        <div id="header">
 		            <div id="line"></div>
