@@ -206,7 +206,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		
 		
 	<script>
-
+//왜이러지
 
 var msg = "<%=alertMsg%>";
 
