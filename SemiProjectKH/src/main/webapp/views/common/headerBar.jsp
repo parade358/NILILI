@@ -151,11 +151,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             <div id="logo">
       		<a href="http://localhost:8888/semi/"><img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"></a>     
           </div>
-          
-          
-          
-          
-           <ul class="utility">
+                  <ul class="utility">
                 <!--로그아웃 버튼 영역-->
 
             <li>
@@ -186,6 +182,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             </li>
             </ul>
             
+      
          </div>
 			</c:otherwise>
 	
@@ -196,7 +193,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		
 		
 		<!-- 전체영역 잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		</div>
+		
 		
 		
 	<script>

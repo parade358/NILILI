@@ -134,6 +134,7 @@ width: 1035px;
     margin-bottom: 15px;
     
 }
+.userInfo{border:none;}
 
 
 /*------------------------회원 구독 정보 ------------------------------*/
@@ -190,6 +191,11 @@ table tr{
     color: #333333;
     
 }
+.btnInput{
+		width: 400px; 
+		height: 42px; 
+		border: 1px solid #dcdcdc;
+}
 
 /*---------------------푸터--------------------------------------*/
 
@@ -199,6 +205,8 @@ table tr{
 </style>
 </head>
 <%@ include file="../common/headerBar.jsp"%>
+
+
 <body>
 
 <!--인클루드 하실때 제일 위에다가 해주세요 -->
@@ -233,7 +241,7 @@ table tr{
                 기본정보 입력
             </div>
         
-        <form action="" id="contents">
+        <form action="${contextPath }/update.mb" id="contents" method="post">
             <table id="content1">
                 <colgroup>
                     <col width="288px"><col width="764px">
@@ -242,11 +250,11 @@ table tr{
                  <tbody align="left">
                     <tr>
                         <th>아이디</th>
-                        <td></td>
+                        <td> <input type="text" class="userInfo" value=" ${loginMember.memberId }" readonly></td>
                     </tr>
                     <tr>
                         <th>이름</th>
-                        <td></td>
+                        <td><input type="text" class="userInfo" value="${loginMember.memberName }" readonly></td>
                         
                     </tr>
                     <tr>
@@ -255,8 +263,8 @@ table tr{
                             <select class="pbox" id="front">
                             <option disabled selected>010</option>
                              </select>
-                          <input type="phone" class="pmiddle">
-                         <input type="phone" class="plast"></td>
+                          <input type="phone" class="pmiddle" value="${loginMember.memberEmail.substring(4,7) }">
+                         <input type="phone" class="plast" value="${loginMember.memberEmail.substring(8) }"></td>
                         
                     </tr>
                     <tr>
@@ -284,19 +292,19 @@ table tr{
                         <th rowspan="2" >주소</th>
                        <td style="border: none;">
                         <span>
-                        <input type="text" id="custAddress" readonly="readonly" value="">
+                        <input type="text" id="custAddress" readonly="readonly" value="${loginMember.memberAddress }">
                        <input type="button" id="btnPostCode" class="btn_post_search" style="width: 140px; height: 45px; background-color: #7d7d7d; border: none; color: aliceblue;" value="우편번호 검색">
                        <input type="text" name="custAddress" id="custInputAddress" readonly>  </span>  
                     </td>
                     
                     </tr>
-                    <tr>
-                    </tr>
+               
                  </tbody>
 
             </table>
            
-            <button id="btnInfoChange" class="btn" >나의 정보 수정</button>
+            <button type="submit" id="btnInfoChange" class="btn" >나의 정보 수정</button>
+            </form>
 
 
          <!--************************회원구독정보********************************************-->
@@ -379,26 +387,42 @@ table tr{
         <tbody align="left" >
             <tr>
                 <th>기존 비밀번호</th>
-                <td><input type="password" style="width: 400px; height: 42px; border: 1px solid #dcdcdc;"></td>
+                <td><input type="password" class="pwdInput" ></td>
             </tr>
       
             <tr> 
                 <th>새 비밀번호</th>
-                <td><input type="password" placeholder="영문+숫자+특수문자 조합 8~16자리" style="width: 400px; height: 42px; border: 1px solid #dcdcdc;"></td>
+                <td><input type="password" class="updatePwd"  placeholder="영문+숫자+특수문자 조합 8~16자리"></td>
 
             </tr>
             <tr> 
                 <th>새 비밀번호 확인</th>
-                <td><input type="password" placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다." style="width: 400px; height: 42px; border: 1px solid #dcdcdc;"></td>
+                <td><input type="password" class="pwdInput"  placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다." ></td>
         
             </tr>
           
         </tbody>
      </table>    
 
-     <button id="chPwd" class="btn">비밀번호 수정</button>
+     <button id="chPwd" class="btn" onclick="return pwdCheck();">비밀번호 수정</button>
      
     </form>
+    
+    <script >
+   
+    function pwdCheck(){
+    	var cPwd = $("input[name = updatePwd]");
+    	var chkPwd = $("#pwdInput");
+    	
+    	if(cPwd.val()!=chkPwd.val()){
+    		alert("변경할 비밀번호와 비밀번호 확인이 일치하지 않습니다.")
+    		cPwd.select();
+    		
+    		return false; //기본이벤트 실행되지 않기 
+    	}
+    	
+    }
+    </script>
 
 
 
