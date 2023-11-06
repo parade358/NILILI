@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
-
 <html>
 <head>
 
@@ -313,9 +311,9 @@
         <h1 class="modal-title fs-5" id="staticBackdropLabel">구독 결제하기</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-      <c:choose>
-  <c:when test="${loginMember }">
+       <c:choose>
+  <c:when test="${not empty loginMember }">
+         <div class="modal-body">
     "${loginMember.memberName }" 님 구독을 하시겠습니까?
      <br><br>
      (확인을 누르시면 자동으로 구독이 되십니다)
@@ -325,10 +323,13 @@
         <button type="button" id="submitBtn" class="btn btn-primary">구독 하기</button>
         </c:when>
         <c:otherwise>
-        회원가입 부터하세여 
-        
+     <div class="modal-body">
+    <mark>로그인을 먼저 진행해주세요</mark>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="closeBtn"class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" id="submitBtn" class="btn btn-primary">로그인</button>
         </c:otherwise>
-        
  </c:choose>
         
       </div>
@@ -354,13 +355,9 @@
          				if(result>0){
          					$("#closeBtn").click();
          					window.location.href = "serviceFinal.jsp";
-         					
          				}else{
-         					
-         					
+         					alert("비정상적인 이유로 구독에 실패하였습니다");
          				}
-         	
-         				
          			},
          			error: function(){
          				alert("서버와의 통신중 비정상적인 이유로 실패");
