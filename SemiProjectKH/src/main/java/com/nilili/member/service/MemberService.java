@@ -83,6 +83,29 @@ public class MemberService {
 		return result;
 		
 	}
+	
+public int SubscribeChange(String memberName, String memberNo) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+			int result=new MemberDao().SubscribeChange(conn,memberName,memberNo);
+	
+			if(result>0) {
+				
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+			JDBCTemplate.close(conn);
+			
+			return result;
+	}
+
+	
+	
+	
+	
 
 
 }
