@@ -338,7 +338,7 @@ a {
 						src="resources/mainIndex/01_2con.png" id="con2" alt="여행지추천"></a>
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>
-					<a class="same2" href="" title="여행이 편안해지는 당신"><img
+					<a class="same2" href="views/menu/service.jsp" title="여행이 편안해지는 당신"><img
 						src="resources/mainIndex/01_4_con.png" id="con4" alt="구독지서비스"></a>
 				</div>
 				<!--콘텐츠2 (이미지)-->
