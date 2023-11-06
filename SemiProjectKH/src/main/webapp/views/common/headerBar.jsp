@@ -173,7 +173,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             
             <!--마이페이지 버튼 영역-->
             <li>
-               <a href="" id="mypage" class="nonp">
+               <a href="mypage.mb" id="mypage" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/myp_ui.png "alt="mypage_ui"> 
                 마이페이지
                </a>  

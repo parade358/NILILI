@@ -314,7 +314,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-     
+  
     "${loginMember.memberName }" 님 구독을 하시겠습니까?
      <br><br>
      (확인을 누르시면 자동으로 구독이 되십니다)

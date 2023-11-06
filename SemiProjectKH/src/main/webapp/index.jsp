@@ -220,18 +220,14 @@ a {
 }
 </style>
 </head>
-<%@ include file="views/common/headerBar.jsp"%>
-
-<c:choose>
-<c:when test=""></c:when>
 
 
-</c:choose>
+
 
 <body>
 <!---------------- 로그인전메뉴바--------------- -->
 	<div class="wrap">
-		<!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
+	<%@ include file="views/common/headerBar.jsp"%>	<!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
 		
 		<!--TOP상단 이미지 영역 (로그인 부분  ) 로그인전 ------------------------->
 		
@@ -243,7 +239,7 @@ a {
 			<div class="login">
 				<img src="resources/mainIndex/top_img_blure.png" alt="블러">
 					
-					<c:choose>
+					<c:choose> 
 			<c:when test="${empty loginMember }">
 					
 				<form action="${contextPath }/login.mb" method="post"><!-- 로그인 폼입니다.  -->
@@ -275,9 +271,6 @@ a {
 		
 		<c:otherwise>
 		
-		
-		
-		
 		    <div id="user_info" class="log">
       
          <ul style="list-style-type: none;">
@@ -286,7 +279,9 @@ a {
      
             <li style="font-size: 24px;">"${loginMember.memberName }"님 환영합니다.</li>
             <li> <br> </li>
-          
+      
+       
+
             <c:choose>
             <c:when test="${loginMember.memberSubscribe eq 'Y'}">
             <li>정기구독 회원입니다.</li>
