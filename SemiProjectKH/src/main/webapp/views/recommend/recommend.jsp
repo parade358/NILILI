@@ -80,7 +80,7 @@
 
 		<section id="main" class="mx-auto my-5 py-5 px-3">
 			<h2>
-				<b>여행지 추천받기</b>
+				<b>서울 여행지 추천받기</b>
 			</h2>
 
 			<div class="col-lg-10 col-md-10 col-sm-6 col-12 mx-auto py-5">
