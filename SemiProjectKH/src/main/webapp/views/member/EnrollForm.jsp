@@ -387,18 +387,18 @@
 				<div id="email">
 					<label for="custEmailId">*이메일</label>
 					 <input type="text" id="custEmailId" name="custId" placeholder="이메일아이디" style="height: 42px;" required>
-					  <span class="txt_emil"></span>
+					  <span class="txt_emil">@</span>
 					   <input type="text"class="duplicate_email" id="custEmailDomain" style="width: 125px; height: 42px;" readonly> 
 							<select class="normal" name="domain" id="selectEmail">
 								<option disabled selected>선택</option>
-								<option value="@naver.com">naver</option>
-								<option value="@gmail.com">gmail</option>
-								<option value="@daum.net">daum</option>
-								<option value="@nate.com">nate</option>
-								<option value="@khacademy.com">KH</option>
+								<option value="naver.com">naver</option>
+								<option value="gmail.com">gmail</option>
+								<option value="daum.net">daum</option>
+								<option value="nate.com">nate</option>
+								<option value="khacademy.com">KH</option>
 								<option value="custom">직접입력</option>
 							</select>
-							<span id="emailOverLap">* 이메일중복기능입니다 구현아직안함</span>
+							<span id="emailOverLap"></span>
 					<div style="width: 114px; height: 42px; outline-style: none;"class="select-list-box" wck="selectEmail" tabindex="0"></div>
 					<div tabindex="0" title="" class="selected-headline" nstyle="width: 114px;"></div>
 
@@ -559,32 +559,22 @@
 				&& regExp3.test(nameInput) && regExp4.test(custEmailId)
 				&& $("#overLapId").text()=="* 사용 가능한 아이디입니다"
 				&& $("#pwdCk2").text()== "* 비밀번호가 일치합니다"
-				&& $(".radioBoxCh").is(":checked")){//조건이 다 맞을때 버튼을 submit로 바꿔서 서버로 전송
-				
+				&& $(".radioBoxCh").is(":checked")
+				&& $("#emailOverLap").html()== ""){//조건이 다 맞을때 버튼을 submit로 바꿔서 서버로 전송	
 				 $('#btnConfirm').prop('type', 'submit');
 			}
-
 			else if (!regExp1.test(idInput) || $("#overLapId").text()=="* 사용중인 아이디입니다."){//아이디 틀렸을때 
-				
 				$("#idInput").focus();
 				if(!regExp1.test(idInput)){
 					$("#overLapId").text("* 영문/숫자/'_'만입력가능 4~16자리만 입력가능");
 					$("#overLapId").css("color","red");
 				}
-			
 				$("#idInput").css("border", "1px solid #FF0000");
 				$("#idInput").addClass("shake-input");
-				
-
 				$("#idInput").on("input", function() {
-
 				$("#idInput").css("border", "1px solid #dcdcdc");
-				
-
 				});
-
 			}
-
 			if (!regExp2.test(pwdInput) || $("#pwdCk2").text()=="* 비밀번호가 일치하지않습니다" ) {//비번틀렸을때 비번확인 틀렸을때
 				$("#pwdInput").focus();
 				$("#pwdCk1").text("* 영문+숫자+특수문자 조합 8~16자리만 입력가능")	
@@ -597,7 +587,6 @@
 					$("#pwdInputCk,#pwdInput").on("input", function() {
 						$("#pwdCk2").text("");
 						$("#pwdInputCk").css("border", "1px solid #dcdcdc");
-					
 				});
 				}
 				
@@ -607,11 +596,8 @@
 				$("#pwdInput").on("input", function() {
 					$("#pwdCk1").text("");
 					$("#pwdInput").css("border", "1px solid #dcdcdc");
-
 				});
-
 			}
-
 			if (!regExp3.test(nameInput)) {//이름틀렸을떄
 				$("#nameInput").focus();
 				$("#nameCk").text("* 입력양식에 맞게 입력해주세요");
@@ -622,7 +608,6 @@
 				$("#nameInput").on("input", function() {
 					$("#nameInput").css("border", "1px solid #dcdcdc");
 					$("#nameCk").text("");
-					
 				});
 			}
 			if (!regExp4.test(custEmailId)) {//이메일 틀렸을때
@@ -633,7 +618,6 @@
 							$("#custEmailId").css("border", "1px solid #dcdcdc");
 				});
 			}
-			
 			if(!$(".radioBoxCh").is(":checked")){//성별체크안했을때
 				$("#radibBoxChspan").html("성별입력란을 체크해주세요");
 				$("#radibBoxChspan").css("color","red");
@@ -643,7 +627,6 @@
 				        $("#radibBoxChspan").html("");
 				    } 
 				});
-			
 			}			
 		   if($("#chkAgree4").prop("checked") && $("#chkAgree1").prop("checked") && $("#cumtom-check-1").prop("checked") ){
 				$("#btnConfirm").prop("disabled",false);//필수이용약관동의 안했을때
@@ -653,40 +636,65 @@
 				}
 		};
 	</script>
-
-
+	
 	<script>
+	
+	// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
+		$("#selectEmail").on("change", function(){
+			var selectedValue = $(this).val();
+			$("#custEmailDomain").val(selectedValue);
+		});
+		$(function() {// 이메일 펑션
+			$("#selectEmail").change(function(){
+				let selectOption = $(this).val();
+				if (selectOption == 'custom') {//custom이 직접입력이다
+					$("#custEmailDomain").prop("readonly", false);
+					$("#custEmailDomain").val("");
+					$("#custEmailDomain").on("input",function(){
+					if($("#custEmailDomain").val().includes('@')){
+					$("#emailOverLap").html("이메일형식으로 입력해주세요");
+					$("#emailOverLap").css("color","red");
+					}else{
+						$("#emailOverLap").html("");
+					}
+				
+					});
+					//자동으로 @를 붙혀주면서 사용자가 입력하게끔
+				} else {
+					$("#custEmailDomain").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
+				}
+			});
+		})
+		
+		$("#custEmailId").on("input",function(){
+			if($("#custEmailId").val().includes('@') ||$("#custEmailId").val().includes('.')){
+				$("#emailOverLap").html("이메일의 아이디만 입력해주세요");
+				$("#emailOverLap").css("color","red");
+			}else{
+				$("#emailOverLap").html("");
+			}
+		});		
+		
+		
+	</script>
+		<script>
 		
 		$(function(){
 			//중간번호 입력시 자동으로 끝번호입력하게 만듬 핸드폰번호관련 함수
-			$("#midPNum").on("input",function(){
-				
+			$("#midPNum").on("input",function(){	
 				if(this.value.length == this.maxLength){
 					$("#lastPNum").focus();
 				}
-			})
-			
-			
-			
+			})		
 		});
-	
-	
-	
-	
 	</script>
-
-
 		<script>
 		//폰번호 숫자 외 이상한 문자 들어갈시에 막는 함수		
 		$("#midPNum,#lastPNum").on("input", function() {
 	        // 숫자 이외의 문자 제거
 	        this.value = this.value.replace(/[^0-9]/g, '');
 	    });
-		
-		
 		</script>
-
-
 	<script>//생년월일 셀렉트태그 함수 월에 맞게 맞는 일수 선택
 		var start_year = "1960";// 시작할 년도
 		var today = new Date();
@@ -703,15 +711,11 @@
 					m, m);
 			index++;
 		}
-
 		lastday();
-
 		function lastday() { //년과 월에 따라 마지막 일 구하기 
 			var Year = document.getElementById('birth_year').value;
 			var Month = document.getElementById('birth_month').value;
 			var day = new Date(new Date(Year, Month, 1) - 86400000).getDate();
-		
-
 			var dayindex_len = document.getElementById('birth_day').length;
 			if (day > dayindex_len) {
 				for (var i = (dayindex_len + 1); i <= day; i++) {
@@ -725,56 +729,17 @@
 			}
 		}
 	</script>
-
 	<script>
-		// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
-		$("#selectEmail").on("change", function() {
-			var selectedValue = $(this).val();
-			$("#custEmailDomein").val(selectedValue);
-		});
-
-		$(function() {// 이메일 펑션
-
-			$("#selectEmail").change(function() {
-				let selectOption = $(this).val();
-
-				if (selectOption == 'custom') {//custom이 직접입력이다 
-
-					$("#custEmailDomain").prop("readonly", false);
-					$("#custEmailDomain").val("@"+$("#custEmailDomain").val());//자동으로 @를 붙혀주면서 사용자가 입력하게끔
-					$("#custEmailDomain").on('input',function(){//@못지우게 하는 함수
-						if (!$("#custEmailDomain").val().includes('@')) {
-						$("#custEmailDomain").val('@'+$("#custEmailDomain").val());
-					        }
-					});
-				} else {
-					$("#custEmailDomain").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
-				}
-				$("#selectEmail option[value='custom']").val($("#custEmailDomain").val());
-
-			});
-		})
-		
-			
 	</script>
-	
 	<script>
-	
 	function selectAll(){//체크박스 전체선택
-		
 	if($("#chkAll").prop("checked")){
-		
 		$("#chkAgree4,#chkAgree1,#cumtom-check-1,#chkAgree3").prop("checked",true);
-	
 	}else{
-		
 		$("#chkAgree4,#chkAgree1,#cumtom-check-1,#chkAgree3").prop("checked",false);
 	}
-		
 	}
-	
 	</script>
-	
 	<script>
 	$(function(){//비밀번호랑 비밀번호 확인이랑 다를때 발생하는 함수
 		  $("#pwdInput, #pwdInputCk").on("input", function() {
@@ -785,31 +750,8 @@
 			      $("#pwdCk2").text("* 비밀번호가 일치하지 않습니다");
 			      $("#pwdCk2").css("color", "red");
 			    }
-			  });
-		
-		
-		
+			  });	
 	});
-	
-	
-	
-
-	
-	
 	</script>
-	
-	
-	<script>
-	
-	
-	
-	
-	
-	</script>
-
-
-
-
-
 </body>
 </html>
