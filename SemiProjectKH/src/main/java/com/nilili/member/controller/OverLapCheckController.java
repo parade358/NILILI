@@ -43,7 +43,7 @@ public class OverLapCheckController extends HttpServlet {
 		
 	int count=	new MemberService().overLapCk(idInput);
 	
-	System.out.println(count);
+
 		
 		if(count>0) {
 			response.getWriter().print("NNNNN");
