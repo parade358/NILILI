@@ -309,7 +309,6 @@ color:#e6e6e6;
       
        
 
-            <c:choose>
             <p id="welcome">"${loginMember.memberName }"님 환영합니다.<p>
            
            <c:choose>
