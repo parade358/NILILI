@@ -388,7 +388,7 @@
 					<label for="custEmailId">*이메일</label>
 					 <input type="text" id="custEmailId" name="custId" placeholder="이메일아이디" style="height: 42px;" required>
 					  <span class="txt_emil"></span>
-					   <input type="text"class="duplicate_email" id="custEmailDomein" style="width: 125px; height: 42px;" readonly> 
+					   <input type="text"class="duplicate_email" id="custEmailDomain" style="width: 125px; height: 42px;" readonly> 
 							<select class="normal" name="domain" id="selectEmail">
 								<option disabled selected>선택</option>
 								<option value="@naver.com">naver</option>
@@ -740,24 +740,22 @@
 
 				if (selectOption == 'custom') {//custom이 직접입력이다 
 
-					$("#custEmailDomein").prop("readonly", false);
-					$("#custEmailDomein").val("@");//자동으로 @를 붙혀주면서 사용자가 입력하게끔
-					
-				
-					$("#custEmailDomein").on('input',function(){//@못지우게 하는 함수
-						if (!$("#custEmailDomein").val().includes('@')) {
-							$("#selectEmail").eq(6).val() =  $("#custEmailDomein").val('@' + $("#custEmailDomein").val());
+					$("#custEmailDomain").prop("readonly", false);
+					$("#custEmailDomain").val("@"+$("#custEmailDomain").val());//자동으로 @를 붙혀주면서 사용자가 입력하게끔
+					$("#custEmailDomain").on('input',function(){//@못지우게 하는 함수
+						if (!$("#custEmailDomain").val().includes('@')) {
+						$("#custEmailDomain").val('@'+$("#custEmailDomain").val());
 					        }
 					});
-
 				} else {
-					$("#custEmailDomein").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
+					$("#custEmailDomain").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
 				}
-				
+				$("#selectEmail option[value='custom']").val($("#custEmailDomain").val());
 
 			});
-
 		})
+		
+			
 	</script>
 	
 	<script>
