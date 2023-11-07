@@ -80,6 +80,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             top:60px ;
             /* margin-left:882.5px; */
             left: 50%;
+            translate: -50%;
             margin: 0 auto;
         }
         
