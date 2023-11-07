@@ -349,7 +349,6 @@
 							<option disabled selected>월</option>
 						</select>
 						 <select class="bBox" id="birth_day" name="userDay">
-							<option disabled selected>일</option>
 						</select>
 
 					</div>
@@ -360,8 +359,14 @@
 				</div>
 				<div id="gender">
 					<span>* 성별</span> 
-					<input type="radio" name="userGender" value="F" id="f"> <label for="f">여자</label>
-					<input type="radio" name="userGender" value="M" id="m"><label for="m">남자</label>
+					<input type="radio" class="radioBoxCh" name="userGender" value="F" id="f"><label for="f">여자</label>
+					<input type="radio" class="radioBoxCh" name="userGender" value="M" id="m"><label for="m">남자</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="radibBoxChspan"></span>
 				</div>
 
 
@@ -385,7 +390,7 @@
 					  <span class="txt_emil"></span>
 					   <input type="text"class="duplicate_email" id="custEmailDomein" style="width: 125px; height: 42px;" readonly> 
 							<select class="normal" name="domain" id="selectEmail">
-								<option  selected>선택</option>
+								<option disabled selected>선택</option>
 								<option value="@naver.com">naver</option>
 								<option value="@gmail.com">gmail</option>
 								<option value="@daum.net">daum</option>
@@ -553,7 +558,8 @@
 			if(regExp1.test(idInput) && regExp2.test(pwdInput) 
 				&& regExp3.test(nameInput) && regExp4.test(custEmailId)
 				&& $("#overLapId").text()=="* 사용 가능한 아이디입니다"
-				&& $("#pwdCk2").text()== "* 비밀번호가 일치합니다"){//조건이 다 맞을때 버튼을 submit로 바꿔서 서버로 전송
+				&& $("#pwdCk2").text()== "* 비밀번호가 일치합니다"
+				&& $(".radioBoxCh").is(":checked")){//조건이 다 맞을때 버튼을 submit로 바꿔서 서버로 전송
 				
 				 $('#btnConfirm').prop('type', 'submit');
 			}
@@ -628,8 +634,19 @@
 				});
 			}
 			
+			if(!$(".radioBoxCh").is(":checked")){//성별체크안했을때
+				$("#radibBoxChspan").html("성별입력란을 체크해주세요");
+				$("#radibBoxChspan").css("color","red");
+				$("#radibBoxChspan").focus();
+				$(".radioBoxCh").on("change", function() {
+				    if ($(this).is(":checked")) {
+				        $("#radibBoxChspan").html("");
+				    } 
+				});
+			
+			}			
 		   if($("#chkAgree4").prop("checked") && $("#chkAgree1").prop("checked") && $("#cumtom-check-1").prop("checked") ){
-				$("#btnConfirm").prop("disabled",false);
+				$("#btnConfirm").prop("disabled",false);//필수이용약관동의 안했을때
 		     }else{
 				alert("필수항목에대한 동의를 해주세요")
 				return false;
@@ -671,7 +688,7 @@
 
 
 	<script>//생년월일 셀렉트태그 함수 월에 맞게 맞는 일수 선택
-		var start_year = "1930";// 시작할 년도
+		var start_year = "1960";// 시작할 년도
 		var today = new Date();
 		var today_year = today.getFullYear();
 		var index = 0;
@@ -725,10 +742,18 @@
 
 					$("#custEmailDomein").prop("readonly", false);
 					$("#custEmailDomein").val("@");//자동으로 @를 붙혀주면서 사용자가 입력하게끔
+					
+				
+					$("#custEmailDomein").on('input',function(){//@못지우게 하는 함수
+						if (!$("#custEmailDomein").val().includes('@')) {
+							$("#selectEmail").eq(6).val() =  $("#custEmailDomein").val('@' + $("#custEmailDomein").val());
+					        }
+					});
 
 				} else {
 					$("#custEmailDomein").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
 				}
+				
 
 			});
 
@@ -771,6 +796,15 @@
 	
 	
 
+	
+	
+	</script>
+	
+	
+	<script>
+	
+	
+	
 	
 	
 	</script>
