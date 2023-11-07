@@ -1,15 +1,19 @@
+<%@page import="com.nilili.member.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 	//로그인 정보 꺼내놓기 
 	//session객체에 loginUser 객체와 alertMsg 메세지를 담아놓음 
-	//Member loginUser = (Member)session.getAttribute("loginUser");
+		//Member loginMember = (Member)session.getAttribute("loginMember");
 	//로그인 전 menubar.jsp 로딩되면 loginUser == null
 	//로그인 후 menubar.jsp 로딩되면 로그인한 회원정보담긴 Member객체
 	//로그인 전 menubar.jsp 로딩되면 alertMsg == null
 	//로그인 후 menubar.jsp 로딩되면 alertMsg == 성공메세지 
+	Member loginMember = (Member)session.getAttribute("loginMember");
 %>    
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -224,59 +228,61 @@
         <!--게시글 작성 테이블-->
         
         <form action="${contextPath }/insert.no" method="post" id="enroll-area" enctype="multipart/form-data">
-        
-        <table class="list-area" align="center">
-			<thead>
-				<tr id="trtitle">
-                    <th width="30">공지유형</th>
-                    <td>
-                        <select name="tripselect" id="tripselect">
-                            <c:forEach items="${cList}" var="c">
-								<option value="${c.categoryNo }">${c.categoryName }</option>
-							</c:forEach>
-                        </select>
-                    </td>
-					
-					
-					<th>제목</th>
-                    <td id="tdtitle" width="700"><input type="text" name="title" id="title"></td>
-                </tr>
-                
-                
-                <tr>
-                    <th width="100" height="280">내용</th>
-                    <td colspan="4">
-                        <textarea name = "content" id="content" cols="30"
-                        rows="10" style="resize: none;"></textarea></td>
-                        
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                        <td colspan="4" >
-                            <label for="input-file" id="file">첨부하기</label>
-                            <input type="file" name="uploadFile" id="input-file" style="display: none;">   
-                        </td>
-
-                </tr>
-            </tbody>
+	        
+	        <input type="hidden" name="memberNO" value="<%=loginMember.getMemberNO()%>">
+	     
+	        <table class="list-area" align="center">
+				<thead>
+					<tr id="trtitle">
+	                    <th width="30">공지유형</th>
+	                    <td>
+	                        <select name="tripselect" id="tripselect">
+	                            <c:forEach items="${cList}" var="c">
+									<option value="${c.categoryNo }">${c.categoryName }</option>
+								</c:forEach>
+	                        </select>
+	                    </td>
+						
+						
+						<th>제목</th>
+	                    <td id="tdtitle" width="700"><input type="text" name="title" id="title"></td>
+	                </tr>
+	                
+	                
+	                <tr>
+	                    <th width="100" height="280">내용</th>
+	                    <td colspan="4">
+	                        <textarea name = "content" id="content" cols="30"
+	                        rows="10" style="resize: none;"></textarea></td>
+	                        
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr>
+	                        <td colspan="4" >
+	                            <label for="input-file" id="file">첨부하기</label>
+	                            <input type="file" name="uploadFile" id="input-file" style="display: none;">   
+	                        </td>
+	
+	                </tr>
+	            </tbody>
+				
+	
+			</table>
+	
 			
-
-		</table>
-
-		
+				
+		   <!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
+	       <!--<c:if test="${not empty loginUser}"></c:if> -->
 			
-	   <!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
-       <!--<c:if test="${not empty loginUser}"></c:if> -->
-		
-       <!--버튼-->
-       <div align="center" id="bottondiv">
-            
-            <button type="button" id="button1" onclick="history.back();">뒤로가기</button>
-            
-            <button type="submit" id="button2">작성하기</button>
-			
-		</div>
+	       <!--버튼-->
+	       <div align="center" id="bottondiv">
+	            
+	            <button type="button" id="button1" onclick="history.back();">뒤로가기</button>
+	            
+	            <button type="submit" id="button2">작성하기</button>
+				
+			</div>
 		
         </form>
         

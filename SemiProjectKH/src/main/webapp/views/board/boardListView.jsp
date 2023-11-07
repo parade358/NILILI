@@ -73,6 +73,7 @@
         .list-area{
             border-top: 3px solid #313131;
             text-align: center;
+            margin-bottom: 50px;
         }
 		
 		.list-area>tbody tr:hover{
@@ -130,7 +131,6 @@
         }
 
         #write{
-            padding-top: 30px;
             padding-left: 850px;
         }
 
@@ -198,10 +198,12 @@
 		
 			
 		<!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
-       <!--<c:if test="${not empty loginUser}"></c:if> --> 
-		<div align="center" id="write">
-			<a id="insertBo" class="btn btn-dark" href="${contextPath }/insert.bo">글작성</a>
-		</div>
+       
+       <c:if test="${not empty loginMember}">
+			<div align="center" id="write">
+				<a id="insertBo" class="btn btn-dark" href="${contextPath }/insert.bo">글작성</a>
+			</div>
+       </c:if>
 		
 		 <script>
         	//글 클릭했을때 글번호를 detail.bo 로 전달하며 페이지 요청하기
