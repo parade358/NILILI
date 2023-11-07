@@ -730,7 +730,7 @@
 		// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
 		$("#selectEmail").on("change", function() {
 			var selectedValue = $(this).val();
-			$("#custEmailDomein").val(selectedValue);
+			$("#custEmailDomain").val(selectedValue);
 		});
 
 		$(function() {// 이메일 펑션
