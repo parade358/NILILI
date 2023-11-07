@@ -80,6 +80,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             top:60px ;
             /* margin-left:882.5px; */
             left: 50%;
+            translate: -50%;
             margin: 0 auto;
         }
         
@@ -140,11 +141,12 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		                <a href="http://localhost:8888/semi/"> <img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"/></a>
 		         	</div>
 		        </div>
+		        </div>
 			</c:when>
 			<c:otherwise>
 			
 			
-	 <div class="wrap">
+	
         <!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
         <div id="header">
             <div id="line"></div>
