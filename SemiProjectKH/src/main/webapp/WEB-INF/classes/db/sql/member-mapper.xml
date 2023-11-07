@@ -96,9 +96,45 @@ AND MEMBER_USE_YN = 'Y'
 	
 	</entry>
 	
+	<entry key="updateMember">
+	UPDATE MEMBER 
+	SET MEMBER_PHONE=?
+       ,MEMBER_EMAIL=?
+       ,MEMBER_MODI_DATE=SYSDATE
+     WHERE MEMBER_NO = ?
 	
+	</entry>
+	
+	<entry key = "selectMember">
+	SELECT *
+	FROM MEMBER
+	WHERE MEMBER_ID = ?
+	AND MEMBER_USE_YN = 'Y'
+	
+	</entry>
 
+<entry key="myUpdatePwd">
+ UPDATE MEMBER
+ SET MEMBER_PWD =?
+ WHERE MEMBER_PWD =?
+ AND MEMBER_NO=?
+ AND MEMBER_USE_YN='Y'
+</entry>
+
+
+<entry key="selectMember2">
+SELECT *
+FROM MEMBER
+WHERE MEMBER_NO =?
+AND MEMBER_USE_YN = 'Y'
+</entry>
+<entry key="mypageSubscribeChange">
+	UPDATE MEMBER
+	 SET MEMBER_SUBSCRIBE = 'N'
+	 WHERE MEMBER_NAME = ?
+	 AND MEMBER_NO = ?
 	
+</entry>
 	
 	
 </properties>

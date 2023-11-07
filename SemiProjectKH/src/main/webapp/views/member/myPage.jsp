@@ -1,5 +1,9 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+    pageEncoding="UTF-8" import="com.nilili.subscribe.vo.Subscribe"%> 
+    
+    <%
+      Subscribe mySub = (Subscribe)session.getAttribute("mySub");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +47,8 @@ width: 1035px;
 
 }
 /*-----버튼 스타일지정-------*/
-.btn{
+
+#btnInfoChange,#btnsubCancle,#chPwd{
     width: 195px;
     height: 50px;
     background-color: #A90000;
@@ -54,8 +59,8 @@ width: 1035px;
     margin-left: 427px;
     margin-top: 40px;
     margin-bottom: 70px;
-}
 
+}
 /*콘텐츠 1,2,3, 영역 설정 (간격설정) */
 #content1 tr{ height: 71px;
 }
@@ -242,6 +247,7 @@ table tr{
             </div>
         
         <form action="${contextPath }/update.mb" id="contents" method="post">
+        <input type="hidden" name="memberNo" value="${loginMember.memberNO}">
             <table id="content1">
                 <colgroup>
                     <col width="288px"><col width="764px">
@@ -250,7 +256,7 @@ table tr{
                  <tbody align="left">
                     <tr>
                         <th>아이디</th>
-                        <td> <input type="text" class="userInfo" value=" ${loginMember.memberId }" readonly></td>
+                        <td> <input type="text" name="memberId" class="userInfo" value="${loginMember.memberId }" readonly></td>
                     </tr>
                     <tr>
                         <th>이름</th>
@@ -263,38 +269,38 @@ table tr{
                             <select class="pbox" id="front">
                             <option disabled selected>010</option>
                              </select>
-                          <input type="phone" class="pmiddle" value="${loginMember.memberEmail.substring(4,7) }">
-                         <input type="phone" class="plast" value="${loginMember.memberEmail.substring(8) }"></td>
+                          <input type="phone" name="fnum" class="pmiddle" value="${loginMember.memberPhone.substring(4,8) }">
+                         <input type="phone" name="lnum" class="plast" value="${loginMember.memberPhone.substring(9) }"></td>
                         
                     </tr>
                     <tr>
                         <th>이메일</th>
                         <td>
                             <span>
-                            <input type="email" id="custEmailId" name="custid" placeholder="이메일아이디" style="height: 42px;" required >
+                            <input type="text" id="custEmailId" name="eid" value="${loginMember.memberEmail.substring(0,loginMember.memberEmail.indexOf('@')) }" name="custid" placeholder="이메일아이디" style="height: 42px;" required >
                        
-                            <input type="txt" class="duplicate_email" id="custEmailDomein" style="width: 125px; height: 42px;"   readonly="readonly" placeholder>
+                            <input type="text" class="duplicate_email" name="domain" value="${loginMember.memberEmail.substring(loginMember.memberEmail.indexOf('@')) }" id="custEmailDomein" style="width: 125px; height: 42px;"   readonly="readonly" placeholder>
                        
                              <select class="normal"  name="" id="selectEmail">
                               <option value selected >선택</option>
-                              <option value="naver.com">naver</option>
-                              <option value="gmail.com">gmail</option>
-                              <option value="hanmeil.com">hanmail</option>
-                              <option value="nate.com">nate</option>
-                              <option value="daum.com">daum</option>
-                              <option value="write">직접입력</option>
+             					<option value="@naver.com">naver</option>
+								<option value="@gmail.com">gmail</option>
+								<option value="@daum.net">daum</option>
+								<option value="@nate.com">nate</option>
+								<option value="@khacademy.com">KH</option>
+								<option value="custom">직접입력</option>
                            </select>
                           </span>
                         </td>
 
                     </tr>
-                    <tr>
-                        <th rowspan="2" >주소</th>
+                    <tr style="height:142px;">
+                        <th >주소</th>
                        <td style="border: none;">
                         <span>
-                        <input type="text" id="custAddress" readonly="readonly" value="${loginMember.memberAddress }">
-                       <input type="button" id="btnPostCode" class="btn_post_search" style="width: 140px; height: 45px; background-color: #7d7d7d; border: none; color: aliceblue;" value="우편번호 검색">
-                       <input type="text" name="custAddress" id="custInputAddress" readonly>  </span>  
+                        <input type="text" id="custAddress" name="fads" readonly="readonly" value="${loginMember.memberAddress }">
+                       <input type="button" id="btnPostCode" name="anum"  class="btn_post_search" style="width: 140px; height: 45px; background-color: #7d7d7d; border: none; color: aliceblue;" value="우편번호 검색">
+                       <input type="text" name="custAddress" name="dads" id="custInputAddress" readonly>  </span>  
                     </td>
                     
                     </tr>
@@ -308,6 +314,7 @@ table tr{
 
 
          <!--************************회원구독정보********************************************-->
+         
          <div class="con2_1" class="infoCon2">
      
                 <span class="tTitle" >회원 구독 정보</span>
@@ -321,12 +328,12 @@ table tr{
                 
                 <tr>
                     <th>구독 번호</th>
-                    <td>NO.54546546</td>
+                    <td>N0.${mySub.subNo }</td>
                 </tr>
                 <tr> 
                     
                     <th>구독 기간</th>
-                    <td>2023-11-15 ~ 2023-12-14</td>
+                    <td>${mySub.regiDate } ~ ${mySub.moiDate }</td>
                 </tr>
             </tbody>
             
@@ -352,9 +359,9 @@ table tr{
         <tbody align="left" >
             <tr> 
                 <td>1</td>
-                <td>2023-11-03~2023-12-03</td>
-                <td>23.11월 호</td>
-                <td>2023-11-03</td>
+                <td>${mySub.regiDate } ~ ${mySub.moiDate }</td>
+                <td>${mySub.regiDate.substring(0,1) }${mySub.regiDate.substring(2,3) }월 호</td>
+                <td>${mySub.regiDate} </td>
                 <td>신용카드</td>
                 <td><span class="red">사용중</span></td>
             </tr>
@@ -373,12 +380,53 @@ table tr{
 
      <button id="btnsubCancle" class="btn" >해지하기</button>
     </div>
+    
+    
+
+    
+    <script >
+   
+//     $(function(){
+//     	selectSubscribe();
+//     });
+    
+//     function selectSubscribe(){
+//     	//구독 목록 조회 함수 
+//     	$.ajax({
+//     		url: "subList.sc",
+//     		data: {
+//     			sno: ${mySub.subNo}
+//     		},
+//     		success: function(result){
+    			
+//     			var str = "";
+//     			for( var i in result){
+//     				str += "<tr>"
+//     				    +"<td>" + result[i].${mySub.regiDate }~ result[i].${mySub.modiDate }+"</td>"
+//     				    +"<td>" + ${mySub.regiDate.substring(0,1) }.${mySub.regiDate.substring(2,3) }월 호+"</td>"
+//     				    +"<td>"+${mySub.regiDate}+"</td>"
+//     				    +"<td>"+신용카드+"</td>"
+//     				    +"<td>"+사용중+"</td>"
+//     				    +"</tr>";
+    				    
+//     			}
+//     			$(".tCon2>tbody").html(str);
+//     		},
+//     		error: function(){
+//     			console.log("통신오류");
+//     		}
+//     	});
+//     }
+    
+    
+    
+    </script>
 
 
      <!--*************************비밀번호 수정******************************** -->
 
      
-     <form action="" method="post" id="con2_3" class="infoCon2">
+     <form action="${contextPath }/updatePwd.mp" method="post" id="con2_3" class="infoCon2">
          <span class="tTitle" >비밀번호 수정</span>
          <table id="tCon2" class="cont3">
         <colgroup>
@@ -387,24 +435,24 @@ table tr{
         <tbody align="left" >
             <tr>
                 <th>기존 비밀번호</th>
-                <td><input type="password" class="pwdInput" ></td>
+                <td><input type="password" class="pwdInput" name="memberPwd"></td>
             </tr>
       
             <tr> 
                 <th>새 비밀번호</th>
-                <td><input type="password" class="updatePwd"  placeholder="영문+숫자+특수문자 조합 8~16자리"></td>
+                <td><input type="password" class="updatePwd" name="updatePwd" placeholder="영문+숫자+특수문자 조합 8~16자리"></td>
 
             </tr>
             <tr> 
                 <th>새 비밀번호 확인</th>
-                <td><input type="password" class="pwdInput"  placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다." ></td>
+                <td><input type="password" class="pwdInput" id="pwdInput" name="updateChkPwd" placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다." ></td>
         
             </tr>
           
         </tbody>
      </table>    
 
-     <button id="chPwd" class="btn" onclick="return pwdCheck();">비밀번호 수정</button>
+     <button id="chPwd" class="btn" onclick="return pwdCheck();" >비밀번호 수정</button>
      
     </form>
     
