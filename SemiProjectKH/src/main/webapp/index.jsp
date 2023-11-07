@@ -30,6 +30,10 @@
 #header {
 	/* border: 1px solid black; */
 	height: 165px;
+	position: absolute;
+	text-align: center;
+	z-index: 100;
+
 }
 
 #line {
@@ -39,14 +43,21 @@
 
 #logo {
 	/* border:1px solid black; */
+
 	width: 155px;
 	height: 70px;
-	padding-top: 30px;
-	margin-left: 882.5px
+
+	z-index: 101;
+	top: 60px;
+	left: 50%;
+	translate: -50%;
+
 }
 
 #top {
 	height: 641px;
+    padding-top:160px;
+	margin-bottom: 40px;
 }
 
 #top_bg {
@@ -148,32 +159,46 @@ a {
  /*----------------------------로그인 후 페이지 --------------------------------*/
 
 /* 로그인 후 user정보 입력창 스타일 설정 */
-       #user_info{
- 
-        position: absolute;
-        z-index: 1500px;
-        height: 282px;
-        padding-top: 40px;
-         font-family: 'Nanum Gothic',sans-serif;
-         color: aliceblue;
-         font-size: 14px;
 
-         
-       }
-       /*--로그인후 텍스트 행간 --*/
-       #user_info li{
-        padding-bottom: 4px;
-       }
-
-
-       #user_info button{
-        margin-left: 30px;
-        width: 147px;
-        height: 42px;
-       }
-
- 
- 
+#user_info{
+position: absolute;
+z-index: 500;
+width: 365px;
+height: 273px;
+padding-top: 40px;
+font-size: 14px;
+color:#e6e6e6;
+}
+     .user{
+     text-align:left;
+     }
+     
+     #userId{
+      	font-size: 30px;
+     }
+     #welcome,#reguralMem,#generalMem,#date{
+     	margin-top:-10px;
+     }
+     
+     .logout_btn{
+      	background-color:#9a0a0a;
+      	color: #ffecec;
+      	font-size: 16px;
+      	width: 148px;
+      	height: 42px;
+      	border: none;
+      	margin-right: 20px;
+     }
+     
+     .mp_btn{
+       background-color: #717171;
+       color: #f7f7f7;
+       font-size: 16px;
+       width: 148px;
+       height:42px;
+       border: none;
+       
+     }
  
  
  </c:otherwise>
@@ -183,6 +208,8 @@ a {
 	/* border: 1px solid black; */
 	height: 354px;
 	float: left;
+
+
 }
 
 #title {
@@ -273,33 +300,40 @@ a {
 		
 		    <div id="user_info" class="log">
       
-         <ul style="list-style-type: none;">
-            <li style="font-size: 30px;">${loginMember.memberName }</li> 
-            <li> <br> </li>
+         <div class ="user">
+            <p id="userId">${loginMember.memberName }</p> 
      
-            <li style="font-size: 24px;">"${loginMember.memberName }"님 환영합니다.</li>
-            <li> <br> </li>
+
+           
+            
+      
+       
+
+            <c:choose>
+            <p id="welcome">"${loginMember.memberName }"님 환영합니다.<p>
+           
            <c:choose>
+
             <c:when test="${loginMember.memberSubscribe eq 'Y'}">
-            <li>정기구독 회원입니다.</li>
+            <p id="regularMem">정기구독 회원입니다.</p>
             </c:when>
             <c:otherwise>
-            <li> 일반회원 입니다.</li>
+            <p id="generalMem"> 일반회원 입니다.</p>
             </c:otherwise>
             </c:choose>
              <!--일반회원일 경우-->
-            <li> 구독기간 | 예시입니다 2023-11-10 ~ 2023 -12 -10</li>
+            <p id="date"> 구독기간 | 예시입니다 2023-11-10 ~ 2023 -12 -10</p>
       
-         <li>
+    	</div>
+       
 			<form action="${contextPath }/logout.mb" style="display: inline;">
-            <button type="submit" class="user_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700; border: none; margin-right: 10px">로그아웃</button>
+            <button type="submit" class="logout_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700; border: none; margin-right: 10px">로그아웃</button>
             </form>
             
             <form action="mypage.mb" style="display: inline;">
-            <button type="submit" class="user_btn" style="background-color: #717171; color: aliceblue; font-size: 16px; font-weight: 700; border: none;">마이페이지</button>
+            <button type="submit" class="mp_btn" style="background-color: #717171; color: aliceblue; font-size: 16px; font-weight: 700; border: none;">마이페이지</button>
 			</form>
-			</li>
-    	</ul>
+		
       </div>
            
 			</c:otherwise>
