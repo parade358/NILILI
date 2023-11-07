@@ -43,6 +43,8 @@ public class BoardDetailController extends HttpServlet {
 				if(result>0) {
 					//게시글 정보 조회
 					Board b = new BoardService().selectBoard(boardNo);
+					
+					System.out.println(b);
 					//첨부파일 정보 조회 selectAttachment();
 					//파일번호,원본이름,변경이름,경로
 					//해당 게시글에 첨부파일이 있다면 조회를 해와야하니 게시글번호를 전달하여야한다.

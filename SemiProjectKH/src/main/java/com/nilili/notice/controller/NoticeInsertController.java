@@ -16,6 +16,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Category;
 import com.nilili.common.model.vo.MyFileRenamePolicy;
+import com.nilili.member.vo.Member;
 import com.nilili.notice.model.service.NoticeService;
 import com.nilili.notice.model.vo.Notice;
 import com.oreilly.servlet.MultipartRequest;
@@ -55,11 +56,12 @@ public class NoticeInsertController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		//넘어온 데이터 타입이 multipart인지 확인하기 
+		HttpSession session = request.getSession();
+		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
-			int maxSize = 10 * 1024 * 1024; 
+			int maxSize = 10 * 1024 * 1024;
 			
 			String savePath = request.getSession().getServletContext().getRealPath("/resources/uploadFiles/");
 			
@@ -68,8 +70,9 @@ public class NoticeInsertController extends HttpServlet {
 			String category = multiRequest.getParameter("tripselect");
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
+			String boardWriter = String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
 			
-			String boardWriter = "2";
+			
 			
 			Notice n = new Notice();
 			n.setBoardContent(content);
