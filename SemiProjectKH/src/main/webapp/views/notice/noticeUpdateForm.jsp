@@ -300,7 +300,7 @@
 							<input type="hidden" name="originFileName" value="${at.changeName }">
 						</c:if>
                             <label for="input-file" id="file">첨부하기</label>
-                            <input type="file" name="uploadFile" id="input-file" style="display: none;">   
+                            <input type="file" name="reUploadFile" id="input-file" style="display: none;">   
                         </td>
 
                 </tr>
