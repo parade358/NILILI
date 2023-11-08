@@ -68,12 +68,6 @@ public class EmrollController extends HttpServlet {
 		String memberPhone = request.getParameter("firstPNum").concat("-").concat(request.getParameter("midPNum").concat("-").concat(request.getParameter("lastPNum")));
 		String memberEmail = request.getParameter("custId")+"@"+request.getParameter("domain");
 		String memberAddress = request.getParameter("custAddress");
-
-		System.out.println(memberEmail);
-
-//		재혁님 키보드 이쁘네여
-		System.out.println("재혁님 키보드 이쁘네요 언젠가 훔쳐가겠습니다.");
-	
 		Member member = new Member(memberId,memberPwd,memberName,memberBirth,memberGender,memberPhone,memberEmail,memberAddress);
 		
 		int result =new MemberService().insertMember(member);

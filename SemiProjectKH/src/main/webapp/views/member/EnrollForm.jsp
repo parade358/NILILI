@@ -637,8 +637,9 @@
 	</script>
 	
 	<script>
-<<<<<<< HEAD
+
 	 $(function() {
+		 //이게보이면 정상입니다 안보이면 큰일나쒀..
          // 이메일 주소 선택 옵션 변경 시
          $("#selectEmail").change(function() {
              let selectedValue = $(this).val();
@@ -670,7 +671,7 @@
              }
          });
      });
-=======
+
 	
 // 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
 			$("#selectEmail").on("change", function(){
@@ -680,7 +681,7 @@
 		$(function() {// 이메일 펑션
 			$("#selectEmail").change(function(){
 				let selectOption = $(this).val();
-				if (selectOption == 'custom') {//custom이 직접입력이다
+				if (selectOption == '직접입력') {//custom이 직접입력이다
 					$("#custEmailDomain").prop("readonly", false);
 					$("#custEmailDomain").val("");
 					$("#custEmailDomain").on("input",function(){			
@@ -715,7 +716,7 @@
 				$("#emailOverLap").html("");
 			}
 		});		
->>>>>>> branch 'jh' of https://github.com/parade358/SemiProject.git
+
 		
 		
 		
