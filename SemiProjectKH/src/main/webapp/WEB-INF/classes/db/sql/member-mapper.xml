@@ -90,7 +90,6 @@ AND MEMBER_USE_YN = 'Y'
 		<entry key="SubscribeChange">
 
 		UPDATE MEMBER
-
 		 SET MEMBER_SUBSCRIBE = 'Y'
 		 WHERE MEMBER_NAME = ?
 		 AND MEMBER_NO = ?
@@ -109,6 +108,7 @@ AND MEMBER_USE_YN = 'Y'
        ,MEMBER_MODI_DATE=SYSDATE
      WHERE MEMBER_NO = ?
 	
+
 	</entry>
 	
 	<entry key = "selectMember">
@@ -141,7 +141,6 @@ AND MEMBER_USE_YN = 'Y'
 	 AND MEMBER_NO = ?
 	
 </entry>
-	
 	
 </properties>
 
