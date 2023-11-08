@@ -238,7 +238,7 @@ public class MemberDao {
 		
 		
 	}
-
+//주석
 	public int SubscribeChange(Connection conn, String memberName, String memberNo) {
 		
 		PreparedStatement pstmt = null;
@@ -475,6 +475,27 @@ public int updateMember(Connection conn, Member m) {
 		}finally {
 			JDBCTemplate.close(pstmt);
 		}
+		return result;
+	}
+
+	public int memberDelete(Connection conn, String memberName, String memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("memberDelete");
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+	
 		return result;
 	}
 

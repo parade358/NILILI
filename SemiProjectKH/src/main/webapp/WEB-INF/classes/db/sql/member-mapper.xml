@@ -108,7 +108,6 @@ AND MEMBER_USE_YN = 'Y'
        ,MEMBER_MODI_DATE=SYSDATE
      WHERE MEMBER_NO = ?
 	
-
 	</entry>
 	
 	<entry key = "selectMember">
@@ -142,6 +141,13 @@ AND MEMBER_USE_YN = 'Y'
 	
 </entry>
 	
+	<entry key="memberDelete">
+	UPDATE MEMBER
+	SET MEMBER_USE_YN='N'
+	WHERE MEMBER_NAME =?
+	AND MEMBER_NO=?
+	</entry>
+
 </properties>
 
 
