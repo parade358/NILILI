@@ -85,7 +85,8 @@ public class MemberDao {
 				
 			}
 			
-			
+			//주석
+
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

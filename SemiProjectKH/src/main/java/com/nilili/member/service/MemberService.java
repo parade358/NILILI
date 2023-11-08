@@ -158,7 +158,8 @@ public int mypageAbandon(String memberName, String memberNo) {
 	
 	
 	
-	
+//주석
+
 
 
 }

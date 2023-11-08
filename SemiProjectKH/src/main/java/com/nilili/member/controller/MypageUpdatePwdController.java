@@ -18,7 +18,8 @@ import com.nilili.member.vo.Member;
 @WebServlet("/updatePwd.mp")
 public class MypageUpdatePwdController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	//주석
+
     /**
      * @see HttpServlet#HttpServlet()
      */

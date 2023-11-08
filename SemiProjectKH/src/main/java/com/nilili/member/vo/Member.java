@@ -19,7 +19,7 @@ private Date memberRegiDate;//최초 회원가입일
 private Date memberModidate;//수정일
 private String memberUseYn;//탈퇴한 회원들 정보 조회 x (컨셉은 몇일뒤 삭제)
 
-
+//주석
 
 
 

@@ -46,5 +46,6 @@ public class myPageAbandonController extends HttpServlet {
 			response.setContentType("text/html;charset=UTF-8");
 			response.getWriter().print(result);
 	}
+	//주석
 
 }

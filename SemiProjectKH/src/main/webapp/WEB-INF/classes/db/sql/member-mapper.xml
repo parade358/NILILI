@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="insertMember">
-
+<!-- 주석 -->
 INSERT INTO MEMBER(MEMBER_NO
                    ,MEMBER_ID
                    ,MEMBER_PWD
