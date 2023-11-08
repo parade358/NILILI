@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -305,6 +306,10 @@ color:#e6e6e6;
      
 
            
+            
+      
+       
+
             <p id="welcome">"${loginMember.memberName }"님 환영합니다.<p>
            
            <c:choose>
@@ -426,6 +431,5 @@ color:#e6e6e6;
 
 	});
 </script>
-
 
 </html>

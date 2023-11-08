@@ -6,6 +6,7 @@
 <% 
 String contextPath = request.getContextPath();
 String alertMsg = (String)session.getAttribute("alertMsg");
+
 %>
 
   <!-- Latest compiled and minified CSS -->
@@ -19,6 +20,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
     
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+    
 <!-- 기본 필요한 라이브러리 입니다 -->
 
 <meta charset="UTF-8">
@@ -171,7 +173,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
                </a>  
             </li>
             <li>
-              <a href="" id="notice" class="nonp">
+              <a href="${contextPath}/list.no?currentPage=1" id="notice" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/notice_ui.png" alt="notice"> 
                 공지사항
               </a>
