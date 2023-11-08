@@ -168,7 +168,7 @@
         <div id="header">
                <div id="line"></div>
                 <div id="logo">
-                    <a href="http://127.0.0.1:5500/enrollform.html"> <img
+                    <a href="http://localhost:8888/semi/"> <img
                        src="../../resources/mainIndex/logo.png" alt="3조로고"></a>    
                </div>
         </div>  
