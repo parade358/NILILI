@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%
-String contextPath = request.getContextPath();
-%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,9 +24,9 @@ String contextPath = request.getContextPath();
 
 <!--favicon-->
 <link rel="shortcut icon"
-	href="${contextPath }resources/img/favicon.ico" type="image/x-icon">
+	href="${contextPath }resources/img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon-precomposed"
-	href="${contextPath }resources/img/favicon.ico" type="image/x-icon">
+	href="${contextPath }resources/img/favicon.ico" type="image/x-icon" />
 
 <title>늴리리</title>
 
@@ -43,13 +40,14 @@ String contextPath = request.getContextPath();
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous">
 <link rel="stylesheet"
-	href="${contextPath }resources/css/defaultReco.css">
-<link rel="stylesheet" href="${contextPath }resources/css/mainReco.css">
-<link rel="stylesheet" href="${contextPath }resources/css/qnaReco.css">
+	href="${contextPath }resources/css/defaultReco.css" />
+<link rel="stylesheet" href="${contextPath }resources/css/mainReco.css" />
+<link rel="stylesheet" href="${contextPath }resources/css/qnaReco.css" />
+
 <link rel="stylesheet"
-	href="${contextPath }resources/css/animationReco.css">
+	href="${contextPath }resources/css/animationReco.css" />
 <link rel="stylesheet"
-	href="${contextPath }resources/css/resultReco.css">
+	href="${contextPath }resources/css/resultReco.css" />
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <style>
@@ -76,17 +74,17 @@ String contextPath = request.getContextPath();
 </head>
 <body>
 
-
+	<%@ include file="../common/headerBar.jsp"%>
 
 	<div id="container" class="container">
 
 		<section id="main" class="mx-auto my-5 py-5 px-3">
 			<h2>
-				<b>여행지 추천받기</b>
+				<b>서울 여행지 추천받기</b>
 			</h2>
 
-			<div class="col-lg-6 col-md-6 col-sm-6 col-12 mx-auto py-5">
-				<img src="${contextPath }resources/img/mainPh.jpg" alt="mainImage"
+			<div class="col-lg-10 col-md-10 col-sm-6 col-12 mx-auto py-5">
+				<img src="${contextPath }/resources/img/recoImg/seoulBotanicPark2.jpg" alt="mainImage"
 					class="img-fluid">
 			</div>
 
@@ -151,9 +149,9 @@ String contextPath = request.getContextPath();
 			</div>
 		</section>
 
-		<script src="${contextPath }resources/js/dataReco.js" charset="UTF-8"></script>
-		<script src="${contextPath }resources/js/startReco.js" charset="UTF-8"></script>
-		<script src="${contextPath }resources/js/share.js" charset="utf-8"></script>
+		<script src="${contextPath }/resources/js/dataReco.js" charset="UTF-8" ></script>
+		<script src="${contextPath }/resources/js/startReco.js" charset="UTF-8"></script>
+		<script src="${contextPath }/resources/js/share.js" charset="utf-8"></script>
 	</div>
 
 

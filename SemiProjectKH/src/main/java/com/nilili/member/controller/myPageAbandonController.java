@@ -1,6 +1,7 @@
 package com.nilili.member.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.nilili.member.service.MemberService;
 
 /**
- * Servlet implementation class MypageSubDeleteController
+ * Servlet implementation class myPageAbandonController
  */
-@WebServlet("/subscribe.sb")
-public class MypageSubDeleteController extends HttpServlet {
+@WebServlet("/abandon.mb")
+public class myPageAbandonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageSubDeleteController() {
+    public myPageAbandonController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,19 +37,14 @@ public class MypageSubDeleteController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.setCharacterEncoding("UTF-8");
-		
-		String memberName = request.getParameter("memberName");
-		String memberNo = request.getParameter("memberNo");
-		
+			request.setCharacterEncoding("UTF-8");
 			
-	int result=	new MemberService().mypageSubscribeChange(memberName,memberNo);
-	
-	response.setContentType("text/html;charset =UTF-8");//인코딩
-	
-	response.getWriter().print(result);
-
+			String memberName = request.getParameter("memberName");
+			String memberNo = request.getParameter("memberNo");
 			
+			int result = new MemberService().mypageAbandon(memberName,memberNo);
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().print(result);
 	}
 
 }

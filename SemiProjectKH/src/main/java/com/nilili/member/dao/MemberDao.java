@@ -424,7 +424,27 @@ public class MemberDao {
 
 	}
 	
-	
+	public int mypageAbandon(Connection conn,String memberName,String memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("mypageAbandon");
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,memberName);
+			pstmt.setString(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 
 	
 	

@@ -128,7 +128,7 @@ FROM MEMBER
 WHERE MEMBER_NO =?
 AND MEMBER_USE_YN = 'Y'
 </entry>
-<entry key="mypageSubscribeChange">
+<entry key="mypageAbandon">
 	UPDATE MEMBER
 	 SET MEMBER_SUBSCRIBE = 'N'
 	 WHERE MEMBER_NAME = ?

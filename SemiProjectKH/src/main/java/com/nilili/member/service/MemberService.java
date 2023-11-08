@@ -137,10 +137,11 @@ public Member mypageUpdatePwd(int memberNo, String memberPwd, String updatePwd) 
 	return mpUpdateMem;
 }
 
-public int mypageSubscribeChange(String memberName, String memberNo) {
+
+public int mypageAbandon(String memberName, String memberNo) {
 	Connection conn = JDBCTemplate.getConnection();
 	
-	int result=new MemberDao().mypageSubscribeChange(conn,memberName,memberNo);
+	int result=new MemberDao().mypageAbandon(conn,memberName,memberNo);
 
 	if(result>0) {
 		
@@ -152,7 +153,6 @@ public int mypageSubscribeChange(String memberName, String memberNo) {
 	JDBCTemplate.close(conn);
 	
 	return result;
-
 }
 
 	

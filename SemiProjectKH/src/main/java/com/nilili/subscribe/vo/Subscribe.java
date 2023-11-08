@@ -12,11 +12,28 @@ public class Subscribe {
 	private Date regiDate;
 	private Date modiDate;
 	private String userYn;
+	private Date experationDate;
 	
 	
 	
 	
 	
+	public Subscribe(int subNo, int memberNo, int tasteFirst, int tasteSecond, int tasteThird, String desctription,
+			Date regiDate, Date modiDate, String userYn, Date experationDate) {
+		super();
+		this.subNo = subNo;
+		this.memberNo = memberNo;
+		this.tasteFirst = tasteFirst;
+		this.tasteSecond = tasteSecond;
+		this.tasteThird = tasteThird;
+		this.desctription = desctription;
+		this.regiDate = regiDate;
+		this.modiDate = modiDate;
+		this.userYn = userYn;
+		this.experationDate = experationDate;
+	}
+
+
 	public Subscribe() {
 		super();
 	}

@@ -9,6 +9,10 @@
 <head>
 
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <title>Insert title here</title>
 <style >
 
@@ -204,7 +208,86 @@ table tr{
 
 /*---------------------푸터--------------------------------------*/
 
+  /*----------------- 모달 스타일------------------------------*/
+  .modal_bg{
+   display:none;
+   width:100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0,0,0,0.6);
+   z-index: 999;
+  }
   
+  .modal_wrap{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 260px;
+    background-color: #f7f7f7;
+    z-index: 1000;
+      text-align: center;
+  }
+  
+  .modal_wrap img{
+    padding-top : 50px;
+  }
+  
+  .modal_wrap pre{
+  	font-family: 'Noto Sans KR', sans-serif;
+  	padding-top:20px;
+  padding-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  color:#4d4d4d;
+ /* text-align: center;*/
+  }
+  
+  
+  /*--- 팝업버튼-----	*/
+ 
+  .btn_box .btn_open{
+  	display: block;
+  	width: 195px;
+  	height: 50px;
+  	border:none;
+  	margin: 0 auto;
+  	line-height: 50px;
+  	background: #a90000;
+  	text-align: center;
+  	box-sizing: border-box;
+  }
+  
+  .btn_box .btn_open p{
+      color: #fff;
+  }
+  
+  #aban_no{
+     width: 180px;
+     height: 50px;
+     background-color: #a90000;
+     border:none;
+     color: #ffecec;
+     font-weight:400;
+     font-size: 16px;
+     margin-left: 15px;
+  
+  }
+  
+  #abandon{
+    width: 180px;
+    height: 50px;
+    background-color: #444444;
+    border:none;
+    color:#fefefe;
+    font-weight: 400;
+    font-size: 16px;
+  }
 			
 	
 </style>
@@ -218,15 +301,9 @@ table tr{
 
 			
 	 <div class="wrap">
-
-
-
 		
 		<!-- 전체영역 잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 		</div>
-		
-
-
 
         <!--********************************콘텐츠영역*********************************-->
         <!--*************************콘텐츠 타이틀 부분 ****************************************-->
@@ -234,12 +311,8 @@ table tr{
 
          <div id="title">
             <br>
-
             <p id="title">마이페이지</p>
-
          </div>
-
-
 
          <!--***********************************콘텐츠 영역***************************************-->
             <div class="tTitle">
@@ -331,9 +404,8 @@ table tr{
                     <td>N0.${mySub.subNo }</td>
                 </tr>
                 <tr> 
-                    
                     <th>구독 기간</th>
-                    <td>${mySub.regiDate } ~ ${mySub.moiDate }</td>
+                    <td>${mySub.regiDate } ~ ${mySub.expirationDate }</td>
                 </tr>
             </tbody>
             
@@ -359,7 +431,7 @@ table tr{
         <tbody align="left" >
             <tr> 
                 <td>1</td>
-                <td>${mySub.regiDate } ~ ${mySub.moiDate }</td>
+                <td>${mySub.regiDate } ~ ${mySub.expirationDate }</td>
                 <td>${mySub.regiDate.substring(0,1) }${mySub.regiDate.substring(2,3) }월 호</td>
                 <td>${mySub.regiDate} </td>
                 <td>신용카드</td>
@@ -378,13 +450,68 @@ table tr{
         </tbody>
      </table>    
 
-     <button id="btnsubCancle" class="btn" >해지하기</button>
+     <button id="btnsubCancle" class="btn" onclick="javascript:popOpen();" >해지하기</button>
     </div>
     
+    <!-- **********************************구독해지 모달 !!!*********************************** -->
     
+     <div class="modal_bg" onclick="javascript:popClose();"></div>
+     <div class="modal_wrap">
+        <img src="${contextPath }/resources/myPage/alert_ui.png"></img>
+       <pre> 구독을 해지하시겠습니까? </pre> 
+       <button class="modal_btn" id="aban_no" onclick="javascript:popClose();">해지 취소하기</button>
+       <button class="modal_btn" id="abandon" onclick="javascript:popClose();" >해지하기</button>
+     </div>
+
+
+
+
+
 
     
     <script >
+    
+	function popOpen(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).show();
+		$(modalBg).show();
+	};
+	
+
+	$("#abandon").click(function(){
+		$.ajax({
+			url: "${contextPath}/abandon.mb",
+			data: {
+				memberName:"${loginMember.memberName}",
+				memberNo:"${loginMember.memberNO}",
+			},
+			suceess: function(result){
+				if(result>0){
+					$("#closeBtn").click();
+				$("#abandon").click();
+					
+				}else{
+					alert("구독해지실패");
+				}
+			},
+			error:function(){
+				alert("서버와통신실패");
+			},
+				type: "post"
+		});
+	});
+	
+	
+	
+	function popClose(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).hide();
+		$(modalBg).hide();
+	}
    
 //     $(function(){
 //     	selectSubscribe();
