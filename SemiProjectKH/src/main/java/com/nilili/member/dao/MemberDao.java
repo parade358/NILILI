@@ -10,6 +10,7 @@ import java.util.Properties;
 
 import com.nilili.common.JDBCTemplate;
 import com.nilili.member.vo.Member;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 public class MemberDao {
 
@@ -476,6 +477,56 @@ public int updateMember(Connection conn, Member m) {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public Subscribe findSubcribe(Connection conn, int memberNo) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findSubcribe");
+		Subscribe sub = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				sub = new Subscribe(rset.getInt("SUB_NO")
+									,rset.getInt("MEMBER_NO")
+									,rset.getInt("TASTE_1")
+									,rset.getInt("TASTE_2")
+									,rset.getInt("TASTE_3")
+									,rset.getString("DESCRIPTION")
+									,rset.getDate("REGI_DATE")
+									,rset.getDate("MODI_DATE")
+									,rset.getString("USE_YN")
+									,rset.getDate("EXPIRATION_DATE"));
+				
+				
+				
+			}
+			
+			
+			
+		
+		
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		return sub;
+		
+		
+		
 	}
 
 	

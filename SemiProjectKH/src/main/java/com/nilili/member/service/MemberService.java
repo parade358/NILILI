@@ -5,6 +5,7 @@ import java.sql.Connection;
 import com.nilili.common.JDBCTemplate;
 import com.nilili.member.dao.MemberDao;
 import com.nilili.member.vo.Member;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 public class MemberService {
 
@@ -168,6 +169,19 @@ public class MemberService {
 		JDBCTemplate.close(conn);
 		
 		return result;
+	}
+
+	public Subscribe findSubcribe(int memberNo) {
+	
+		Connection conn = JDBCTemplate.getConnection();
+		
+	Subscribe sub=	new MemberDao().findSubcribe(conn,memberNo);
+		
+	JDBCTemplate.close(conn);
+	
+	return sub;
+		
+		
 	}
 
 

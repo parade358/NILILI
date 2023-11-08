@@ -48,6 +48,8 @@ public class LoginController extends HttpServlet {
 		
 		Member member = new MemberService().loginMember(memberId,memberPwd);
 				
+		
+		System.out.println(member);
 		HttpSession session = request.getSession();
 	
 	if(member == null) {

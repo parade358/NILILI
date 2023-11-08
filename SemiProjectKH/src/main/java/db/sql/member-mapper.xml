@@ -141,6 +141,25 @@ AND MEMBER_USE_YN = 'Y'
 	
 </entry>
 	
+	<entry key="findSubcribe">
+	
+SELECT SUB_NO
+        ,MEMBER_NO
+        ,TASTE_1
+        ,TASTE_2
+        ,TASTE_3
+        ,DESCRIPTION
+        ,REGI_DATE
+        ,MODI_DATE
+        ,USE_YN
+        ,EXPIRATION_DATE
+FROM SUBSCRIBE S
+JOIN MEMBER USING (MEMBER_NO)
+WHERE MEMBER_NO= ?
+	</entry>
+	
+	
+	
 	
 
 </properties>
