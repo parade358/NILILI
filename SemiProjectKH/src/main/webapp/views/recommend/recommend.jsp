@@ -99,7 +99,7 @@
 
 		<section id="qna" class="my-auto">
 
-			<div style="margin-top: 225px;">
+			<div style="margin-top: 100px;">
 
 				<!-- 
 					
@@ -112,15 +112,16 @@
                      -->
 				<div class="depth" style="margin-bottom: 100px;">
 					<div class="depthTextBox">
-						<p class="depthText korean"
-							style="font-size: 28px; color: #A90000;">1단계 선택하기</p>
+					
+					<!-- 	<p class="depthText korean"
+							style="font-size: 28px; color: #A90000;"><span id="depthNo"></span>단계 선택하기</p>
+					 -->		
 					</div>
 				</div>
 
 				<div class="qBox my-5 py-3 mx-auto"></div>
 				<div class="answerBox"></div>
 			</div>
-
 
 		</section>
 

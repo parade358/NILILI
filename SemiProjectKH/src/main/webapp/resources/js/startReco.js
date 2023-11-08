@@ -6,7 +6,7 @@ const result = document.querySelector("#result");
 const endPoint = 4; //질문이 총 4개이므로 endPoint를 4으로 설정해둔다
 
 const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //12개의 장소를 하나의 배열에 넣고 밸류값이 큰순서대로 정렬하기위해 배열 선언
-
+const depthNo = document.getElementById("depthNo");
 
 //시작 함수
 function begin(){
@@ -22,6 +22,20 @@ function begin(){
     let qIdx = 0; //진행 정도를 알수있게 qIdx 설정
     goNext(qIdx);
   }, 450);
+  
+	//span에 단계 숫자 넣기 안되네요!!!!! 다음에 확인 (일단은 단계 선택하기 뺐음)
+	document.addEventListener("DOMContentLoaded", function() {
+		if (qIdx == 1) {
+			depthNo.innerHTML = qIdx;
+		} else if (qIdx == 2) {
+			depthNo.innerText = "2";
+		} else if (qIdx == 3) {
+			depthNo.innerText = "3";
+		} else if (qIdx == 4) {
+			depthNo.innerText = "4";
+		}
+
+	});
 }
 
 
@@ -99,6 +113,7 @@ function addAnswer(answerText, qIdx, idx){
     },450)
   }, false);
 }
+
 
 // 10개 질문 다 한후 결과페이지로 (endPoint==qIdx)
 function goResult(){
