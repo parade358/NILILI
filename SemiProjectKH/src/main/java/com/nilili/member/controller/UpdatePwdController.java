@@ -45,11 +45,6 @@ public class UpdatePwdController extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String userEmail = request.getParameter("userEmailId").concat(request.getParameter("userDomain"));
 		
-		System.out.println(updatePwd);
-		System.out.println(userId);
-		System.out.println(userName);
-		System.out.println(userEmail);
-
 		
 		int result=  new MemberService().updatePwd(userId,userName,userEmail,updatePwd);
 	
