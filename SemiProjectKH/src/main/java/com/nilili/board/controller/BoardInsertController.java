@@ -18,6 +18,7 @@ import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
 import com.nilili.board.model.vo.Category;
 import com.nilili.common.model.vo.MyFileRenamePolicy;
+import com.nilili.member.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
@@ -70,7 +71,7 @@ public class BoardInsertController extends HttpServlet {
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
 			
-			String boardWriter = "2";
+			String boardWriter = String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
 			
 			Board b = new Board();
 			b.setBoardContent(content);

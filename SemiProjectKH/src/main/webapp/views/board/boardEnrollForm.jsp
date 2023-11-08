@@ -1,3 +1,4 @@
+<%@page import="com.nilili.member.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,6 +10,7 @@
 	//로그인 후 menubar.jsp 로딩되면 로그인한 회원정보담긴 Member객체
 	//로그인 전 menubar.jsp 로딩되면 alertMsg == null
 	//로그인 후 menubar.jsp 로딩되면 alertMsg == 성공메세지 
+	Member loginMember = (Member)session.getAttribute("loginMember");
 %>    
 <!DOCTYPE html>
 <html>
@@ -226,6 +228,8 @@
         <!--게시글 작성 테이블-->
         
         <form action="${contextPath }/insert.bo" method="post" id="enroll-area" enctype="multipart/form-data">
+        
+         <input type="hidden" name="memberNO" value="<%=loginMember.getMemberNO()%>">
         
         <table class="list-area" align="center">
 			<thead>

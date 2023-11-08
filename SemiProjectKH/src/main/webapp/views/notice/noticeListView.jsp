@@ -198,17 +198,20 @@
 		</table>
 		
 			
-		<!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
-       <!--<c:if test="${not empty loginUser}"></c:if> --> 
+		<!-- 글작성 버튼은 admin만 볼수 있도록 작업 -->
+		
 		<div align="center" id="write">
-			<a id="insertNo" class="btn btn-dark" href="${contextPath }/insert.no">글작성</a>
+			<c:if test="${loginMember.memberId eq 'admin'}">
+			    <!-- admin일 경우 링크 표시 -->
+				<a id="insertNo" class="btn btn-dark" href="${contextPath }/insert.no">글작성</a>
+			</c:if>
 		</div>
 		
 		 <script>
-        	//글 클릭했을때 글번호를 detail.bo 로 전달하며 페이지 요청하기
+        	//글 클릭했을때 글번호를 detail.no 로 전달하며 페이지 요청하기
         	$(function(){
         		
-        		//테이블에 tbody -> tr이 클릭되었을때 해당 글번호를 추출하여 detail.bo?bno=글번호
+        		//테이블에 tbody -> tr이 클릭되었을때 해당 글번호를 추출하여 detail.no?nno=글번호
         		$(".list-area>tbody>tr").click(function(){
         			//$(this).children().eq(0).text() : 글번호 추출
         			location.href="detail.no?nno="+ $(this).children().eq(0).text();

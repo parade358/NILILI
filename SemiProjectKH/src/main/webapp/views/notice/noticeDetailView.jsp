@@ -291,9 +291,13 @@
        <!--버튼-->
       	 <div align="center" id="bottondiv">
             
-		 	<button id="button1" onclick="confirmDelete()">삭제하기</button>
+		 	
+		 	<c:if test="${loginMember.memberId eq 'admin'}">
+			    <!-- admin일 경우 링크 표시 -->
+				<button id="button2" onclick="location.href='${contextPath}/update.no?nno=${n.boardNo }'">수정하기</button>
+		 		<button id="button1" onclick="confirmDelete()">삭제하기</button>
+			</c:if>
            
-			<button id="button2" onclick="location.href='${contextPath}/update.no?nno=${n.boardNo }'">수정하기</button>
 		 </div>
 		
 

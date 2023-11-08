@@ -277,6 +277,8 @@
          	$("#submitBtn2").click(function(){
          		window.location.href = "../../index.jsp";
          	});
+         	
+         	
          	$("#submitBtn").click(function(){
          		$.ajax({
          			url : "${contextPath}/subscribe.mb",
@@ -288,6 +290,26 @@
          				if(result>0){
          					$("#closeBtn").click();
          					window.location.href = "serviceFinal.jsp";
+         				}else{
+         					alert("비정상적인 이유로 구독에 실패하였습니다");
+         				}
+         			},
+         			error: function(){
+         				alert("서버와의 통신중 비정상적인 이유로 실패");
+         			},
+         			type:"post"
+         		});
+         	});
+         	
+         	$("#submitBtn").click(function(){
+         		$.ajax({
+         			url : "${contextPath}/insert.sb",
+         			data :{
+         				memberNo : "${loginMember.memberNO}",
+         			},
+         			success: function(result){
+         				if(result>0){
+         					console.log("구독완료")
          				}else{
          					alert("비정상적인 이유로 구독에 실패하였습니다");
          				}

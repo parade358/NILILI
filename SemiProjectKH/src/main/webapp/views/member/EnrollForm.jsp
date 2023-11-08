@@ -639,8 +639,8 @@
 	
 	<script>
 	
-	// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
-		$("#selectEmail").on("change", function(){
+// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
+			$("#selectEmail").on("change", function(){
 			var selectedValue = $(this).val();
 			$("#custEmailDomain").val(selectedValue);
 		});
@@ -650,21 +650,29 @@
 				if (selectOption == 'custom') {//custom이 직접입력이다
 					$("#custEmailDomain").prop("readonly", false);
 					$("#custEmailDomain").val("");
-					$("#custEmailDomain").on("input",function(){
-					if($("#custEmailDomain").val().includes('@')){
+					$("#custEmailDomain").on("input",function(){			
+						   if (!$("#custEmailDomain").val().includes('@')) {
+			                    // "@" 문자를 입력하지 않은 경우만 값 설정
+			                    $("#selectEmail option[value=custom]").val($("#custEmailDomain").val());
+			                }
+						if($("#custEmailDomain").val().includes('@')){
 					$("#emailOverLap").html("이메일형식으로 입력해주세요");
 					$("#emailOverLap").css("color","red");
 					}else{
+					
 						$("#emailOverLap").html("");
+						
 					}
-				
+						
+						
 					});
 					//자동으로 @를 붙혀주면서 사용자가 입력하게끔
 				} else {
 					$("#custEmailDomain").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
+			
 				}
 			});
-		})
+		});
 		
 		$("#custEmailId").on("input",function(){
 			if($("#custEmailId").val().includes('@') ||$("#custEmailId").val().includes('.')){
@@ -674,6 +682,7 @@
 				$("#emailOverLap").html("");
 			}
 		});		
+		
 		
 		
 	</script>
@@ -729,8 +738,7 @@
 			}
 		}
 	</script>
-	<script>
-	</script>
+
 	<script>
 	function selectAll(){//체크박스 전체선택
 	if($("#chkAll").prop("checked")){
