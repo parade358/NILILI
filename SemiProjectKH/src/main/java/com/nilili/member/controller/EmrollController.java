@@ -67,7 +67,9 @@ public class EmrollController extends HttpServlet {
 		String memberGender = request.getParameter("userGender");
 		String memberPhone = request.getParameter("firstPNum").concat("-").concat(request.getParameter("midPNum").concat("-").concat(request.getParameter("lastPNum")));
 		String memberEmail = request.getParameter("custId")+"@"+request.getParameter("domain");
-		String memberAddress = request.getParameter("custAddress");
+		
+		String memberAddress ="("+request.getParameter("memberPostCode")+")"+ "  "+request.getParameter("memberAddress")+", "+request.getParameter("memberDetailAddress")+request.getParameter("memberExtraAddress");
+		System.out.println(memberAddress);
 		Member member = new Member(memberId,memberPwd,memberName,memberBirth,memberGender,memberPhone,memberEmail,memberAddress);
 		
 		int result =new MemberService().insertMember(member);
