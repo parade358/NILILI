@@ -95,6 +95,12 @@ AND MEMBER_USE_YN = 'Y'
 		 WHERE MEMBER_NAME = ?
 		 AND MEMBER_NO = ?
 		</entry>
+		
+		<entry key="overLapCkEmail">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE MEMBER_EMAIL = ?
+		</entry>
 	
 	
 

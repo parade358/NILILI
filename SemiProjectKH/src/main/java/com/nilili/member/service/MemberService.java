@@ -57,55 +57,63 @@ public class MemberService {
 	}
 
 	public int findPwd(String userId, String userName, String userEmail) {
-			Connection conn = JDBCTemplate.getConnection();
-		
-			
-		int count=	new MemberDao().findPwd(conn,userId,userName,userEmail);
-		
+		Connection conn = JDBCTemplate.getConnection();
+
+		int count = new MemberDao().findPwd(conn, userId, userName, userEmail);
+
 		JDBCTemplate.close(conn);
 		return count;
 	}
 
 	public int updatePwd(String userId, String userName, String userEmail, String updatePwd) {
+
+		Connection conn = JDBCTemplate.getConnection();
+
+		int result = new MemberDao().updatePwd(conn, userId, userName, userEmail, updatePwd);
+
+		if (result > 0) {
+
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+
+		}
+
+		return result;
+
+	}
+
+	public int SubscribeChange(String memberName, String memberNo) {
+
+		Connection conn = JDBCTemplate.getConnection();
+
+		int result = new MemberDao().SubscribeChange(conn, memberName, memberNo);
+
+		if (result > 0) {
+
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+
+		JDBCTemplate.close(conn);
+
+		return result;
+	}
+
 	
+	public int overLapCkEmail(String email) {
+		
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int result=  new MemberDao().updatePwd(conn,userId,userName,userEmail,updatePwd);
+	int result = new MemberDao().overLapCkEmail(conn,email);
 		
-		if(result>0) {
-			
-			JDBCTemplate.commit(conn);
-		}else {
-			JDBCTemplate.rollback(conn);
-			
-		}
+		JDBCTemplate.close(conn);
 		
 		return result;
 		
-	}
-	
-public int SubscribeChange(String memberName, String memberNo) {
 		
-		Connection conn = JDBCTemplate.getConnection();
-		
-			int result=new MemberDao().SubscribeChange(conn,memberName,memberNo);
-	
-			if(result>0) {
-				
-				JDBCTemplate.commit(conn);
-			}else {
-				JDBCTemplate.rollback(conn);
-			}
-			
-			JDBCTemplate.close(conn);
-			
-			return result;
+
 	}
-
-	
-	
-	
-	
-
 
 }

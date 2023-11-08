@@ -530,12 +530,53 @@
 					 
 			 });
 			 });
-	
+		 
+		 $("#custEmailId,#custEmailDomain,#selectEmail").on("input change",function(){
+		 
+		 $.ajax({
+			url : "${contextPath}/overLapEmail.mb",
+			data : {
+				
+				emailId : $("#custEmailId").val(),
+				custEmailDomain : $("#custEmailDomain").val(),
+				
+			},
+			
+			success : function(count){
+				
+				if(count=="NNNNN"){//중복된거있을때
+					$("#emailOverLap").text("* 사용중인 이메일입니다.");
+					$("#emailOverLap").css("color","red");
+				
+						
+				}else{
+					$("#emailOverLap").text("* 사용 가능한 이메일입니다");
+					$("#emailOverLap").css("color","green");
+				
+				}
+				
+			},
+			
+			error : function(){
+				console.log("서버오류구리");
+				
+			},
+			type : "post"//url노출방지
+			 
+			 
+			 
+			 
+		 });
+		 
+		 
+		 });
 	 
 	 
 	 });
 	
 	
+	
+	 
 	
 		//회원가입 제출 스크립트 
 		//밑에 함수에서 회원가입 버튼을누르면 오류를 판별해주고 어디가 이상이있는지 확인해준다  오류가 없으면 서버로 전송
@@ -646,7 +687,7 @@
              // 선택한 옵션 값을 input 요소의 value로 설정
              $("#custEmailDomain").val(selectedValue);
              // 아이디 입력 필드 초기화
-             $("#custEmailId").val("");
+            
              // 이메일 중복 메시지 초기화
              $("#emailOverLap").html("");
 
@@ -671,8 +712,6 @@
              }
          });
      });
-
-	
 // 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
 			$("#selectEmail").on("change", function(){
 			var selectedValue = $(this).val();

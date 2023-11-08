@@ -268,6 +268,38 @@ public class MemberDao {
 		
 	}
 
+	public int overLapCkEmail(Connection conn, String email) {
+	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int count = 0;
+		String sql = prop.getProperty("overLapCkEmail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+		
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+			
+				count = rset.getInt("count");
+					
+			}
+		
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return count;
+		
+	}
+
 	
 	
 	
