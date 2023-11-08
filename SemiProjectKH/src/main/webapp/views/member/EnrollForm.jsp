@@ -384,25 +384,24 @@
 
 
 				<!--******************************************이메일*************************************************************************************-->
-				<div id="email">
-					<label for="custEmailId">*이메일</label>
-					 <input type="text" id="custEmailId" name="custId" placeholder="이메일아이디" style="height: 42px;" required>
-					  <span class="txt_emil">@</span>
-					   <input type="text"class="duplicate_email" id="custEmailDomain" style="width: 125px; height: 42px;" readonly> 
-							<select class="normal" name="domain" id="selectEmail">
-								<option disabled selected>선택</option>
-								<option value="naver.com">naver</option>
-								<option value="gmail.com">gmail</option>
-								<option value="daum.net">daum</option>
-								<option value="nate.com">nate</option>
-								<option value="khacademy.com">KH</option>
-								<option value="custom">직접입력</option>
-							</select>
-							<span id="emailOverLap"></span>
-					<div style="width: 114px; height: 42px; outline-style: none;"class="select-list-box" wck="selectEmail" tabindex="0"></div>
-					<div tabindex="0" title="" class="selected-headline" nstyle="width: 114px;"></div>
-
-				</div>
+			    <div id="email">
+        <label for="custEmailId">*이메일</label>
+        <input type="text" id="custEmailId" name="custId" placeholder="이메일아이디" style="height: 42px;" required>
+        <span class="txt_emil">@</span>
+        <input type="text" class="duplicate_email" id="custEmailDomain" name="domain" style="width: 125px; height: 42px;" readonly>
+        <select class="normal" name="domain" id="selectEmail">
+            <option disabled selected>선택</option>
+            <option value="naver.com">naver</option>
+            <option value="gmail.com">gmail</option>
+            <option value="daum.net">daum</option>
+            <option value="nate.com">nate</option>
+            <option value="khacademy.com">KH</option>
+            <option value="직접입력">직접입력</option>
+        </select>
+        <span id="emailOverLap"></span>
+        <div style="width: 114px; height: 42px; outline-style: none;" class="select-list-box" wck="selectEmail" tabindex="0"></div>
+        <div tabindex="0" title="" class="selected-headline" nstyle="width: 114px;"></div>
+    </div>
 				<!--**********************************************************주소****************************************************************************************-->
 				<div id="address">
 
@@ -638,6 +637,40 @@
 	</script>
 	
 	<script>
+<<<<<<< HEAD
+	 $(function() {
+         // 이메일 주소 선택 옵션 변경 시
+         $("#selectEmail").change(function() {
+             let selectedValue = $(this).val();
+             // 선택한 옵션 값을 input 요소의 value로 설정
+             $("#custEmailDomain").val(selectedValue);
+             // 아이디 입력 필드 초기화
+             $("#custEmailId").val("");
+             // 이메일 중복 메시지 초기화
+             $("#emailOverLap").html("");
+
+             if (selectedValue === '직접입력') {
+                 // custom 옵션 선택 시
+                 $("#custEmailDomain").prop("readonly", false);
+             } else {
+                 // 다른 옵션 선택 시
+                 $("#custEmailDomain").prop("readonly", true);
+             }
+         });
+         // 이메일 아이디 입력 필드 변경 시
+         $("#custEmailId").on("input", function() {
+             let emailId = $("#custEmailId").val();
+             if (emailId.includes('@') || emailId.includes('.')) {
+                 // "@" 또는 "." 포함 시 이메일 아이디만 입력해야 함
+                 $("#emailOverLap").html("이메일의 아이디만 입력해주세요");
+                 $("#emailOverLap").css("color", "red");
+             } else {
+                 // 이메일 아이디 형식이 올바른 경우
+                 $("#emailOverLap").html("");
+             }
+         });
+     });
+=======
 	
 // 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
 			$("#selectEmail").on("change", function(){
@@ -682,6 +715,7 @@
 				$("#emailOverLap").html("");
 			}
 		});		
+>>>>>>> branch 'jh' of https://github.com/parade358/SemiProject.git
 		
 		
 		

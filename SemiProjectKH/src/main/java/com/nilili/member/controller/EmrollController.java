@@ -66,9 +66,10 @@ public class EmrollController extends HttpServlet {
 		String memberBirth = dateFormat.format(date);		
 		String memberGender = request.getParameter("userGender");
 		String memberPhone = request.getParameter("firstPNum").concat("-").concat(request.getParameter("midPNum").concat("-").concat(request.getParameter("lastPNum")));
-		String memberEmail = request.getParameter("custId").concat(request.getParameter("domain"));
+		String memberEmail = request.getParameter("custId")+"@"+request.getParameter("domain");
 		String memberAddress = request.getParameter("custAddress");
-		
+
+		System.out.println(memberEmail);
 
 //		재혁님 키보드 이쁘네여
 		System.out.println("재혁님 키보드 이쁘네요 언젠가 훔쳐가겠습니다.");
