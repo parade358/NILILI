@@ -21,9 +21,39 @@ private String memberUseYn;//탈퇴한 회원들 정보 조회 x (컨셉은 몇�
 
 
 
-public Member() {
+
+
+
+public Member(int memberNO, String memberId, String memberPhone, String memberEmail, String memberAddress) {
 	super();
+	this.memberNO = memberNO;
+	this.memberId = memberId;
+	this.memberPhone = memberPhone;
+	this.memberEmail = memberEmail;
+	this.memberAddress = memberAddress;
 }
+
+
+
+
+
+
+
+
+
+
+public Member(String memberId, String memberPhone, String memberEmail, String memberAddress) {
+	super();
+	this.memberId = memberId;
+	this.memberPhone = memberPhone;
+	this.memberEmail = memberEmail;
+	this.memberAddress = memberAddress;
+}
+
+
+
+
+
 
 
 

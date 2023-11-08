@@ -224,7 +224,7 @@ public class MemberDao {
 			pstmt.setString(4, userEmail);
 			
 			result = pstmt.executeUpdate();
-		
+		//주석
 		
 		
 		} catch (SQLException e) {
@@ -298,6 +298,184 @@ public class MemberDao {
 		
 		return count;
 		
+	}
+
+public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateMember");
+		
+		System.out.println("dao:" + m);
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getMemberPhone());
+			pstmt.setString(2, m.getMemberEmail());
+			pstmt.setInt(3, m.getMemberNO());
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public Member selectMember(Connection conn, String memberId) {
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		Member m = null;
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			rset= pstmt.executeQuery();
+			
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("MEMBER_NO"),
+						       rset.getString("MEMBER_ID"),
+						       rset.getString("MEMBER_PWD"),
+						       rset.getString("MEMBER_NAME"),
+						       rset.getString("MEMBER_BIRTH"),
+						       rset.getString("MEMBER_GENDER"),
+						       rset.getString("MEMBER_PHONE"),
+						       rset.getString("MEMBER_EMAIL"),
+						       rset.getString("MEMBER_ADDRESS"),
+						       rset.getString("MEMBER_SUBSCRIBE"),
+						       rset.getString("MEMBER_DESCRIPTION"),
+						       rset.getDate("MEMBER_REGI_DATE"),
+						       rset.getDate("MEMBER_MODI_DATE"),
+						       rset.getString("MEMBER_USE_YN"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return m;
+	}
+
+	public int mypageUpdatePwd(Connection conn, int memberNo, String memberPwd, String updatePwd) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("myUpdatePwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,updatePwd);
+			pstmt.setString(2, memberPwd);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		return result;
+	}
+	
+	public Member selectMember2(Connection conn,int memberNo) {
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		Member m = null;
+		
+		String sql =prop.getProperty("selectMember2");
+		
+		try {
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("MEMBER_NO"),
+					       rset.getString("MEMBER_ID"),
+					       rset.getString("MEMBER_PWD"),
+					       rset.getString("MEMBER_NAME"),
+					       rset.getString("MEMBER_BIRTH"),
+					       rset.getString("MEMBER_GENDER"),
+					       rset.getString("MEMBER_PHONE"),
+					       rset.getString("MEMBER_EMAIL"),
+					       rset.getString("MEMBER_ADDRESS"),
+					       rset.getString("MEMBER_SUBSCRIBE"),
+					       rset.getString("MEMBER_DESCRIPTION"),
+					       rset.getDate("MEMBER_REGI_DATE"),
+					       rset.getDate("MEMBER_MODI_DATE"),
+					       rset.getString("MEMBER_USE_YN"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return m;
+	}
+
+	public int mypageSubscribeChange(Connection conn, String memberName, String memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("mypageSubscribeChange");
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+
+	}
+	
+	public int mypageAbandon(Connection conn,String memberName,String memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("mypageAbandon");
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,memberName);
+			pstmt.setString(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 
 	

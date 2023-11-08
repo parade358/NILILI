@@ -115,5 +115,62 @@ public class MemberService {
 		
 
 	}
+	
+	
+	public Member updateMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new MemberDao().updateMember(conn,m);
+		
+		Member updateMem = null;
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			updateMem = new MemberDao().selectMember(conn,m.getMemberId());
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		return updateMem;
+	}
 
-}
+	public Member mypageUpdatePwd(int memberNo, String memberPwd, String updatePwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new MemberDao().mypageUpdatePwd(conn, memberNo, memberPwd, updatePwd);
+		Member mpUpdateMem =null; //회원정보 담을 변수
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			mpUpdateMem = new MemberDao().selectMember2(conn,memberNo);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		return mpUpdateMem;
+	}
+
+
+	public int mypageAbandon(String memberName, String memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result=new MemberDao().mypageAbandon(conn,memberName,memberNo);
+
+		if(result>0) {
+			
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
+
+	}
+
+
