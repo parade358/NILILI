@@ -614,7 +614,7 @@ if(msg!='null'){
 	
 	<%session.removeAttribute("alertMsg");%>
 }
-
+//주석
 </script>	
 		
 </body>

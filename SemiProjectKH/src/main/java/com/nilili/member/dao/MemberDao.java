@@ -224,7 +224,7 @@ public class MemberDao {
 			pstmt.setString(4, userEmail);
 			
 			result = pstmt.executeUpdate();
-		
+		//주석
 		
 		
 		} catch (SQLException e) {
