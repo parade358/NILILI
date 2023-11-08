@@ -122,7 +122,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         padding-right: 200px;
         }
  
-        .utility #qna{
+        .utility #QnA{
         padding-right: 130px;
         }
         
@@ -179,7 +179,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
               </a>
             </li>
             <li>
-              <a href="" id="qna" class="nonp">
+              <a href="views/qna/qnaListView.jsp" id="QnA" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/qna_ui.png" alt="qna_ui"> 
                Q&A
               </a>  

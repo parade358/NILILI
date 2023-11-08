@@ -301,22 +301,28 @@
 		
        <!--버튼-->
        
-		<%
-		    if(b.getBoardWriter().equals(loginMember.getMemberId())) {
-		%>
-      	 <div align="center" id="bottondiv">
-            
-		 	<button id="button1" onclick="confirmDelete()">삭제하기</button>
-           
-			<button id="button2" onclick="location.href='${contextPath}/update.bo?bno=${b.boardNo }'">수정하기</button>
-		 </div>
-		<%
-		    };
-		%>
        
        
        
-		
+       <!-- 트라이캐치 -->
+			<%try {
+				
+				 if(b.getBoardWriter().equals(loginMember.getMemberId())) {
+					%>
+			      	 <div align="center" id="bottondiv">
+			            
+					 	<button id="button1" onclick="confirmDelete()">삭제하기</button>
+			           
+						<button id="button2" onclick="location.href='${contextPath}/update.bo?bno=${b.boardNo }'">수정하기</button>
+					 </div>
+					<%
+					    };
+					%>
+			   
+			<%} catch(NullPointerException e){
+			}%>
+       <!-- 트라이캐치 -->
+    
 
 		<script>
 		    function confirmDelete() {
