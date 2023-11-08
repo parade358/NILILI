@@ -152,7 +152,7 @@ public class MemberService {
 		return mpUpdateMem;
 	}
 
-
+//주석
 	public int mypageAbandon(String memberName, String memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		
@@ -167,6 +167,19 @@ public class MemberService {
 		
 		JDBCTemplate.close(conn);
 		
+		return result;
+	}
+
+	public int memberDelete(String memberName, String memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().memberDelete(conn,memberName,memberNo);
+		if(result>0){
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
 		return result;
 	}
 

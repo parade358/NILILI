@@ -65,6 +65,20 @@ width: 1035px;
     margin-bottom: 70px;
 
 }
+
+#drop{
+ 	width:195px;
+ 	height: 50px;
+ 	background-color:#7d7d7d;
+ 	border: none;
+ 	font-weight: 400;
+ 	color:#fefefe;
+ 	font-size: 16px;
+ 	margin-left: 427px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+ 	
+}
 /*콘텐츠 1,2,3, 영역 설정 (간격설정) */
 #content1 tr{ height: 71px;
 }
@@ -267,7 +281,7 @@ table tr{
       color: #fff;
   }
   
-  #aban_no{
+  #aban_no,#mbdele_no{
      width: 180px;
      height: 50px;
      background-color: #a90000;
@@ -279,7 +293,7 @@ table tr{
   
   }
   
-  #abandon{
+  #abandon,#mbdele{
     width: 180px;
     height: 50px;
     background-color: #444444;
@@ -288,7 +302,8 @@ table tr{
     font-weight: 400;
     font-size: 16px;
   }
-			
+		
+
 	
 </style>
 </head>
@@ -582,6 +597,17 @@ table tr{
      <button id="chPwd" class="btn" onclick="return pwdCheck();" >비밀번호 수정</button>
      
     </form>
+    <button id="drop" onclick="javascript:mbDeleOpen();">회원 탈퇴하기</button>
+    
+    
+       <div class="modal_bg" onclick="javascript:mbDeleClose();"></div>
+     <div class="modal_wrap">
+        <img src="${contextPath }/resources/img/00_mypage/alert_ui.png"></img>
+       <pre> 회원 탈퇴하시겠습니까? </pre> 
+       <button class="modal_btn" id="mbdele_no" onclick="javascript:mbDeleClose();">회원 유지하기</button>
+       <button class="modal_btn" id="mbdele" onclick="javascript:mbDeleClose();" >탈퇴하기</button>
+     </div>
+    
     
     <script >
    
@@ -597,6 +623,52 @@ table tr{
     	}
     	
     }
+    
+    
+    function mbDeleOpen(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).show();
+		$(modalBg).show();
+	};
+	
+
+	$("#mbdele").click(function(){
+		$.ajax({
+			url: "${contextPath}/mbdele.mb",
+			data: {
+				memberName:"${loginMember.memberName}",
+				memberNo:"${loginMember.memberNO}",
+			},
+			suceess: function(result){
+				if(result>0){
+					$("#closeBtn").click();
+					window.location.href = "index.jsp";
+					
+				}else{
+					alert("회원탈퇴실패");
+				}
+			},
+			error:function(){
+				alert("서버와통신실패");
+			},
+				type: "post"
+		});
+	});
+	
+	
+	
+	function mbDeleClose(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).hide();
+		$(modalBg).hide();
+	}
+    
+    
+    
     </script>
 
 

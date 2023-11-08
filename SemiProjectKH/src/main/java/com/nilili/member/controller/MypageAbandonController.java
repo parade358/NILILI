@@ -13,6 +13,8 @@ import com.nilili.member.service.MemberService;
 /**
  * Servlet implementation class MypageAbandonController
  */
+
+//주석
 @WebServlet("/abandon.mb")
 public class MypageAbandonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

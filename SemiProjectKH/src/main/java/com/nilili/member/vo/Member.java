@@ -3,7 +3,7 @@ package com.nilili.member.vo;
 import java.sql.Date;
 
 public class Member {
-
+//주석
 private int memberNO;//회원 번호
 private String memberId;//회원아이디
 private String memberPwd;//회원비번
