@@ -146,7 +146,6 @@
     </style>
 </head>
 <body>
-	<!-- ../ 상위폴더로 이동 -->
 	
 	
 
@@ -160,8 +159,32 @@
         <div id="title1">서울 여행 정보 공유 사이트</div>
 
         <div id="title2">늴리리 커뮤니티</div>
+        
+        
+        <div class="container" align="center">
+			<div>
+					<table>
+						<tr>
+							<td align="center">
+								<select class="form-control" name="searchField" id="searchField">
+									<option value="title">제목</option>
+									<option value="id">작성자</option>
+									<option value="category">카테고리</option>
+								</select>
+							</td>
+							<td>
+								<input type="text" class="form-control"placeholder="검색어 입력" name="searchText" id="searchText" maxlength="100">
+							</td>
+							<td align="center">
+								<button class="btn" name="searchButton" id="searchButton">검색</button>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</div>
+        
 
-		<table class="list-area" align="center">
+		<table class="list-area" id="list-area" align="center" style= "margin-top: 50px">
 			<thead>
 				<tr>
 					<th width="50">번호</th>
@@ -271,6 +294,54 @@
         </div>
         
         </div>
+        
+        
+        <script>
+			$(document).ready(function() {
+			    $("#searchButton").click(function() {
+			        // 검색 조건과 검색어 값을 가져옴
+			        var searchField = $("#searchField").val();
+			        var searchText = $("#searchText").val();
+			        
+			        // AJAX 요청을 보냄
+			        $.ajax({
+			            type: "POST", // 또는 "GET" 요청 선택
+			            url: "search.bo", // 요청을 처리할 서블릿 URL
+			            data: {
+			                searchField: searchField,
+			                searchText: searchText
+			            },
+			            success: function(data) {
+			            	console.log(data);
+			            	if (data.length > 0) {
+			            	    // 검색 결과가 있는 경우
+			            	    $("#list-area tbody").empty(); // 기존 목록 비우기
+
+			            	    // 검색 결과를 반복하면서 행을 추가
+			            	    for (var i = 0; i < data.length; i++) {
+			            	        var row = data[i];
+			            	        var newRow = "<tr>" +
+			            	            "<td>" + row.boardNo + "</td>" +
+			            	            "<td>" + row.boardCategory + "</td>" +
+			            	            "<td>" + row.boardTitle + "</td>" +
+			            	            "<td>" + row.memberId + "</td>" +
+			            	            "<td>" + row.regiDate + "</td>" +
+			            	            "<td>" + row.count + "</td>" +
+			            	            "</tr>";
+
+			            	        $("#list-area tbody").append(newRow);
+			            	    }
+			            	} else {
+			            	    alert("검색된 게시글이 없습니다.");
+			            	}
+			            },
+			            error: function(xhr, status, error) {
+			                // 에러 처리를 원하는 대로 여기에 추가
+			            }
+			        });
+			    });
+			});
+		</script>
 	
 </body>
 </html>

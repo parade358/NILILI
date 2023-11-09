@@ -426,6 +426,136 @@ public class BoardDao {
 			
 			return rlist;
 		}
+
+		public ArrayList<Board> searchTitleList(Connection conn, PageInfo pi, String searchText) {
+			//준비물
+			ArrayList<Board> list = new ArrayList<>();
+			ResultSet rset = null;
+			PreparedStatement pstmt = null;
+			
+			System.out.println(searchText);
+			
+			String sql = prop.getProperty("titleList");
+			//1페이지 : 1~10 / 5페이지 : 41~50  / 10페이지 91~100
+			//2페이지 : 11~20
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit() + 1;
+			int endRow = pi.getCurrentPage() * pi.getBoardLimit();
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, searchText);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Board(rset.getInt("BOARD_NO")
+									  ,rset.getString("CATEGORY_NAME")
+									  ,rset.getString("BOARD_TITLE")
+									  ,rset.getString("MEMBER_ID")
+									  ,rset.getInt("COUNT")
+									  ,rset.getDate("REGI_DATE")));
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(rset);
+				JDBCTemplate.close(pstmt);
+			}
+			
+			return list;
+		}
+
+		public ArrayList<Board> searchIdList(Connection conn, PageInfo pi, String searchText) {
+			//준비물
+			ArrayList<Board> list = new ArrayList<>();
+			ResultSet rset = null;
+			PreparedStatement pstmt = null;
+			
+			String sql = prop.getProperty("idList");
+			//1페이지 : 1~10 / 5페이지 : 41~50  / 10페이지 91~100
+			//2페이지 : 11~20
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit() + 1;
+			int endRow = pi.getCurrentPage() * pi.getBoardLimit();
+			
+			System.out.println(searchText);
+			System.out.println(startRow);
+			System.out.println(endRow);
+			
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, searchText);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Board(rset.getInt("BOARD_NO")
+									  ,rset.getString("CATEGORY_NAME")
+									  ,rset.getString("BOARD_TITLE")
+									  ,rset.getString("MEMBER_ID")
+									  ,rset.getInt("COUNT")
+									  ,rset.getDate("REGI_DATE")));
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(rset);
+				JDBCTemplate.close(pstmt);
+			}
+			
+			return list;
+		}
+
+		public ArrayList<Board> searchCategoryList(Connection conn, PageInfo pi, String searchText) {
+			//준비물
+			ArrayList<Board> list = new ArrayList<>();
+			ResultSet rset = null;
+			PreparedStatement pstmt = null;
+			
+			String sql = prop.getProperty("categoryList");
+			//1페이지 : 1~10 / 5페이지 : 41~50  / 10페이지 91~100
+			//2페이지 : 11~20
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit() + 1;
+			int endRow = pi.getCurrentPage() * pi.getBoardLimit();
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, searchText);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Board(rset.getInt("BOARD_NO")
+									  ,rset.getString("CATEGORY_NAME")
+									  ,rset.getString("BOARD_TITLE")
+									  ,rset.getString("MEMBER_ID")
+									  ,rset.getInt("COUNT")
+									  ,rset.getDate("REGI_DATE")));
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(rset);
+				JDBCTemplate.close(pstmt);
+			}
+			
+			return list;
+		}
 		
 	
 }

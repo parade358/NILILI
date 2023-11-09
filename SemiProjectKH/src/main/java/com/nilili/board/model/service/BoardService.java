@@ -198,4 +198,34 @@ public class BoardService {
 			return rlist;
 		}
 
+		public ArrayList<Board> searchTitleList(PageInfo pi, String searchText) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			ArrayList<Board> list = new BoardDao().searchTitleList(conn,pi,searchText);
+			
+			JDBCTemplate.close(conn);
+			
+			return list; 
+		}
+
+		public ArrayList<Board> searchIdList(PageInfo pi, String searchText) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			ArrayList<Board> list = new BoardDao().searchIdList(conn,pi,searchText);
+			
+			JDBCTemplate.close(conn);
+			
+			return list; 
+		}
+
+		public ArrayList<Board> searchCategoryList(PageInfo pi, String searchText) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			ArrayList<Board> list = new BoardDao().searchCategoryList(conn,pi,searchText);
+			
+			JDBCTemplate.close(conn);
+			
+			return list; 
+		}
+
 }

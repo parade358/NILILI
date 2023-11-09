@@ -164,6 +164,63 @@
 	
 	</entry>
 	
+	<entry key="titleList">
+		SELECT *
+		FROM (SELECT ROWNUM RNUM,A.*
+      		  FROM
+		            (SELECT BOARD_NO
+		                   ,CATEGORY_NAME
+		                   ,BOARD_TITLE
+		                   ,MEMBER_ID
+		                   ,COUNT
+		                   ,B.REGI_DATE
+		            FROM BOARD B 
+		            JOIN MEMBER M ON (BOARD_WRITER=MEMBER_NO)
+		            JOIN CATEGORY ON (BOARD_CATEGORY = CATEGORY_NO)
+		            WHERE B.USE_YN = 'Y' AND BOARD_TYPE = 3 AND B.BOARD_TITLE LIKE '%'||?||'%'
+		            ORDER BY B.REGI_DATE DESC) A
+              )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="idList">
+		SELECT *
+		FROM (SELECT ROWNUM RNUM,A.*
+      		  FROM
+		            (SELECT BOARD_NO
+		                   ,CATEGORY_NAME
+		                   ,BOARD_TITLE
+		                   ,MEMBER_ID
+		                   ,COUNT
+		                   ,B.REGI_DATE
+		            FROM BOARD B 
+		            JOIN MEMBER M ON (BOARD_WRITER=MEMBER_NO)
+		            JOIN CATEGORY ON (BOARD_CATEGORY = CATEGORY_NO)
+		            WHERE B.USE_YN = 'Y' AND BOARD_TYPE = 3 AND M.MEMBER_ID = ?
+		            ORDER BY B.REGI_DATE DESC) A
+              )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="categoryList">
+		SELECT *
+		FROM (SELECT ROWNUM RNUM,A.*
+      		  FROM
+		            (SELECT BOARD_NO
+		                   ,CATEGORY_NAME
+		                   ,BOARD_TITLE
+		                   ,MEMBER_ID
+		                   ,COUNT
+		                   ,B.REGI_DATE
+		            FROM BOARD B 
+		            JOIN MEMBER M ON (BOARD_WRITER=MEMBER_NO)
+		            JOIN CATEGORY ON (BOARD_CATEGORY = CATEGORY_NO)
+		            WHERE B.USE_YN = 'Y' AND BOARD_TYPE = 3 AND CATEGORY_NAME = ?
+		            ORDER BY B.REGI_DATE DESC) A
+              )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
 	
 
 

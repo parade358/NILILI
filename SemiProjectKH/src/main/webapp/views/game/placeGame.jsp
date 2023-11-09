@@ -81,7 +81,7 @@
 
             <section id="qna" class="my-auto">
                 
-                <div style="margin-top: 225px;">
+                <div style="margin-top: 125px;">
 
                     <div class="status mx-auto mt-5" style="margin-bottom: 100px;">
                         <div class="statusBar">
