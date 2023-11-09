@@ -11,18 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.nilili.member.service.MemberService;
 
 /**
- * Servlet implementation class MypageAbandonController
+ * Servlet implementation class MemberDeleteController
  */
-
-//주석
-@WebServlet("/abandon.mb")
-public class MypageAbandonController extends HttpServlet {
+@WebServlet("/mbdele.mb")
+public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageAbandonController() {
+    public MemberDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,9 +42,9 @@ public class MypageAbandonController extends HttpServlet {
 		String memberName = request.getParameter("memberName");
 		String memberNo = request.getParameter("memberNo");
 		
-		int result = new MemberService().mypageAbandon(memberName,memberNo);
+		int result = new MemberService().memberDelete(memberName,memberNo);
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().print(result);
-}
+	}
 
 }

@@ -239,7 +239,7 @@ public class MemberDao {
 		
 		
 	}
-
+//주석
 	public int SubscribeChange(Connection conn, String memberName, String memberNo) {
 		
 		PreparedStatement pstmt = null;
@@ -479,6 +479,7 @@ public int updateMember(Connection conn, Member m) {
 		return result;
 	}
 
+
 	public Subscribe findSubcribe(Connection conn, int memberNo) {
 		
 		PreparedStatement pstmt = null;
@@ -502,17 +503,21 @@ public int updateMember(Connection conn, Member m) {
 									,rset.getDate("MODI_DATE")
 									,rset.getString("USE_YN")
 									,rset.getDate("EXPIRATION_DATE"));
-				
-				
-				
+
 			}
+
+	public int memberDelete(Connection conn, String memberName, String memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("memberDelete");
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberNo);
 			
-			
-			
-		
-		
-		
-		
+			result = pstmt.executeUpdate();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -524,16 +529,11 @@ public int updateMember(Connection conn, Member m) {
 		
 		
 		return sub;
-		
-		
-		
+
+			JDBCTemplate.close(pstmt);
+		}
+	
+		return result;
+
 	}
-
-	
-	
-	
-
-	
-	
-	
 }

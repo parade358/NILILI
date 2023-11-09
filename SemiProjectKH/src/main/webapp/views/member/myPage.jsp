@@ -68,6 +68,20 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	margin-top: 40px;
 	margin-bottom: 70px;
 }
+
+#drop{
+ 	width:195px;
+ 	height: 50px;
+ 	background-color:#7d7d7d;
+ 	border: none;
+ 	font-weight: 400;
+ 	color:#fefefe;
+ 	font-size: 16px;
+ 	margin-left: 427px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+ 	
+}
 /*콘텐츠 1,2,3, 영역 설정 (간격설정) */
 #content1 tr {
 	height: 71px;
@@ -304,6 +318,88 @@ table tr {
 	font-weight: 400;
 	font-size: 16px;
 }
+=======
+  /*----------------- 모달 스타일------------------------------*/
+  .modal_bg{
+   display:none;
+   width:100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0,0,0,0.6);
+   z-index: 999;
+  }
+  
+  .modal_wrap{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 260px;
+    background-color: #f7f7f7;
+    z-index: 1000;
+      text-align: center;
+  }
+  
+  .modal_wrap img{
+    padding-top : 50px;
+  }
+  
+  .modal_wrap pre{
+  	font-family: 'Noto Sans KR', sans-serif;
+  	padding-top:20px;
+  padding-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  color:#4d4d4d;
+ /* text-align: center;*/
+  }
+  
+  
+  /*--- 팝업버튼-----	*/
+ 
+  .btn_box .btn_open{
+  	display: block;
+  	width: 195px;
+  	height: 50px;
+  	border:none;
+  	margin: 0 auto;
+  	line-height: 50px;
+  	background: #a90000;
+  	text-align: center;
+  	box-sizing: border-box;
+  }
+  
+  .btn_box .btn_open p{
+      color: #fff;
+  }
+  
+  #aban_no,#mbdele_no{
+     width: 180px;
+     height: 50px;
+     background-color: #a90000;
+     border:none;
+     color: #ffecec;
+     font-weight:400;
+     font-size: 16px;
+     margin-left: 15px;
+  
+  }
+  
+  #abandon,#mbdele{
+    width: 180px;
+    height: 50px;
+    background-color: #444444;
+    border:none;
+    color:#fefefe;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
 </style>
 </head>
 <%@ include file="../common/headerBar.jsp"%>
@@ -594,45 +690,52 @@ table tr {
     
     </script>
 
+     <!--*************************비밀번호 수정******************************** -->
 
-		<!--*************************비밀번호 수정******************************** -->
+     
+     <form action="${contextPath }/updatePwd.mp" method="post" id="con2_3" class="infoCon2">
+         <span class="tTitle" >비밀번호 수정</span>
+         <table id="tCon2" class="cont3">
+        <colgroup>
+        <col  style="width: 288px;">
+        </colgroup>
+        <tbody align="left" >
+            <tr>
+                <th>기존 비밀번호</th>
+                <td><input type="password" class="pwdInput" name="memberPwd"></td>
+            </tr>
+      
+            <tr> 
+                <th>새 비밀번호</th>
+                <td><input type="password" class="updatePwd" name="updatePwd" placeholder="영문+숫자+특수문자 조합 8~16자리"></td>
 
+            </tr>
+            <tr> 
+                <th>새 비밀번호 확인</th>
+                <td><input type="password" class="pwdInput" id="pwdInput" name="updateChkPwd" placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다." ></td>
+        
+            </tr>
+          
+        </tbody>
+     </table>    
 
-		<form action="${contextPath }/updatePwd.mp" method="post" id="con2_3"
-			class="infoCon2">
-			<span class="tTitle">비밀번호 수정</span>
-			<table id="tCon2" class="cont3">
-				<colgroup>
-					<col style="width: 288px;">
-				</colgroup>
-				<tbody align="left">
-					<tr>
-						<th>기존 비밀번호</th>
-						<td><input type="password" class="pwdInput" name="memberPwd"></td>
-					</tr>
+     <button id="chPwd" class="btn" onclick="return pwdCheck();" >비밀번호 수정</button>
+     
+    </form>
+    <button id="drop" onclick="javascript:mbDeleOpen();">회원 탈퇴하기</button>
+    
+    
+       <div class="modal_bg" onclick="javascript:mbDeleClose();"></div>
+     <div class="modal_wrap">
+        <img src="${contextPath }/resources/img/00_mypage/alert_ui.png"></img>
+       <pre> 회원 탈퇴하시겠습니까? </pre> 
+       <button class="modal_btn" id="mbdele_no" onclick="javascript:mbDeleClose();">회원 유지하기</button>
+       <button class="modal_btn" id="mbdele" onclick="javascript:mbDeleClose();" >탈퇴하기</button>
+     </div>
+    
+    
+    <script >
 
-					<tr>
-						<th>새 비밀번호</th>
-						<td><input type="password" class="updatePwd" name="updatePwd"
-							placeholder="영문+숫자+특수문자 조합 8~16자리"></td>
-
-					</tr>
-					<tr>
-						<th>새 비밀번호 확인</th>
-						<td><input type="password" class="pwdInput" id="pwdInput"
-							name="updateChkPwd" placeholder="비밀번호 확인을 위해 한 번 더 입력해 주시기 바랍니다."></td>
-
-					</tr>
-
-				</tbody>
-			</table>
-
-			<button id="chPwd" class="btn" onclick="return pwdCheck();">비밀번호
-				수정</button>
-
-		</form>
-
-		<script>
    
     function pwdCheck(){
     	var cPwd = $("input[name = updatePwd]");
@@ -646,6 +749,52 @@ table tr {
     	}
     	
     }
+    
+    
+    function mbDeleOpen(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).show();
+		$(modalBg).show();
+	};
+	
+
+	$("#mbdele").click(function(){
+		$.ajax({
+			url: "${contextPath}/mbdele.mb",
+			data: {
+				memberName:"${loginMember.memberName}",
+				memberNo:"${loginMember.memberNO}",
+			},
+			suceess: function(result){
+				if(result>0){
+					$("#closeBtn").click();
+					window.location.href = "index.jsp";
+					
+				}else{
+					alert("회원탈퇴실패");
+				}
+			},
+			error:function(){
+				alert("서버와통신실패");
+			},
+				type: "post"
+		});
+	});
+	
+	
+	
+	function mbDeleClose(){
+		var modalPop = $('.modal_wrap');
+		var modalBg = $('.modal_bg');
+		
+		$(modalPop).hide();
+		$(modalBg).hide();
+	}
+    
+    
+    
     </script>
 
 

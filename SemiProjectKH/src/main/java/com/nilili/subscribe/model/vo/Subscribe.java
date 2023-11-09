@@ -112,7 +112,7 @@ EXPIRATION_DATE	DATE
 	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
-	
+	//주석
 	
 	
 	
