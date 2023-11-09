@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import com.nilili.member.service.MemberService;
 import com.nilili.member.vo.Member;
+import com.nilili.subscribe.model.service.SubscribeService;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 /**
  * Servlet implementation class LoginController
@@ -42,29 +44,29 @@ public class LoginController extends HttpServlet {
 	
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession session = request.getSession();
+	
 		String memberId = request.getParameter("memberId");
 		String memberPwd = request.getParameter("memberPwd");
 		String before = request.getHeader("referer");
 		
 		Member member = new MemberService().loginMember(memberId,memberPwd);
-				
+		//구독정보도 꺼내오기 (받아온 멤버객체에서 memberNO 꺼내오기)
 		
-		System.out.println(member);
-		HttpSession session = request.getSession();
-	
-	if(member == null) {
 		
-		session.setAttribute("alertMsg","아이디와 비밀번호를 다시 확인해주세요" );
-		response.sendRedirect(before);
-		
-	}else {
-		
+		if(member != null) {
+			
+		int memberNo = member.getMemberNO();
+		Subscribe sub =	new SubscribeService().updateSubscribe(memberNo);
 		session.setAttribute("loginMember", member);
-
+		session.setAttribute("sub", sub);
 		response.sendRedirect(before);
 		
-	}
-		
+		}else {
+			session.setAttribute("alertMsg","아이디와 비밀번호를 다시 확인해주세요" );
+			response.sendRedirect(before);
+			
+		}
 		
 		
 		

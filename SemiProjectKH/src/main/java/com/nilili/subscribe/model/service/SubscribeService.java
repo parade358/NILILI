@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import com.nilili.common.JDBCTemplate;
 import com.nilili.subscribe.model.dao.SubscribeDao;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 public class SubscribeService {
 
@@ -23,5 +24,20 @@ public class SubscribeService {
 		
 		return result;
 	}
+
+	public Subscribe updateSubscribe(int memberNo) { 
+		//구독에 변경이 있을시에 사용 하는 메소드 
+		Connection conn = JDBCTemplate.getConnection();
+		
+	Subscribe sub =	new SubscribeDao().updateSubscribe(conn, memberNo);
+		
+	JDBCTemplate.close(conn);
+	
+	
+	return sub;	
+	}
+	
+	
+	
 
 }

@@ -20,16 +20,16 @@ EXPIRATION_DATE	DATE
  * */
 	
 	
-	private int subNo;
-	private int memberNo;
-	private int tasteFirst;
-	private int tasteSecond;
-	private int tasteThird;
-	private String description;
-	private Date regiDate;
-	private Date modiDate;
-	private String useYn;
-	private Date expirationDate;
+	private int subNo;//구독번호
+	private int memberNo;//회원번호
+	private int tasteFirst;//여행취향1
+	private int tasteSecond;//여행취향2
+	private int tasteThird;//여행취향3
+	private String description;//정보..?
+	private Date regiDate;//최초시작일
+	private Date modiDate;// 수정일 (필요할까?)
+	private String useYn;//구독해지
+	private Date expirationDate;//마감날짜
 	public Subscribe() {
 		super();
 	}

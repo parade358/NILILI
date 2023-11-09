@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import com.nilili.member.service.MemberService;
 import com.nilili.member.vo.Member;
+import com.nilili.subscribe.model.service.SubscribeService;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 /**
  * Servlet implementation class SubscribeController
@@ -52,9 +54,14 @@ public class SubscribeController extends HttpServlet {
 	 //위에서 한번에 하고 싶었으나 jsp까지 건들어야하는 관계로 일단 따로 가겠습니다 -재혁
 	 Member loginMember = new MemberService().updateLoginMember(memberNo);
 	 
+	 //그리고 바로 매인인덱스에 구독기간 뜨게 subscribe도 세션영역에 업데이트 해놓겠습니다
+	Subscribe sub = new SubscribeService().updateSubscribe(memberNo);
+	 
 	HttpSession session = request.getSession();
 	//세션에 저장되어있는 loginMember를 수정후의 loginMember로 교체
 	session.setAttribute("loginMember", loginMember);
+	
+	session.setAttribute("sub", sub);
 	
 	response.setContentType("text/html;charset =UTF-8");//인코딩
 	

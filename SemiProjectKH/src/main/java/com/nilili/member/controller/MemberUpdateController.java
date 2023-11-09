@@ -42,7 +42,10 @@ public class MemberUpdateController extends HttpServlet {
 request.setCharacterEncoding("UTF-8");
 		
 		int memberNO = Integer.parseInt(request.getParameter("memberNo"));
+		
+		
 		String memberId = request.getParameter("memberId");
+		
 		String fnum = request.getParameter("fnum");
 		String lnum = request.getParameter("lnum");
 		String memberPhone = "010-"+ fnum+"-"+ lnum;
@@ -50,7 +53,7 @@ request.setCharacterEncoding("UTF-8");
 		String eid=request.getParameter("eid");
 		String domain = request.getParameter("domain");
 	
-		String memberEmail =eid+domain;
+		String memberEmail =eid+"@"+domain;
 		String fads = request.getParameter("fads");
 		String anum = request.getParameter("anum");
 		String lads = request.getParameter("lads");

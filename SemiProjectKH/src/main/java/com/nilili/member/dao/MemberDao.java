@@ -405,7 +405,7 @@ public class MemberDao {
 
 	}
 
-	public int mypageAbandon(Connection conn, String memberName, String memberNo) {
+	public int mypageAbandon(Connection conn, String memberName, int memberNo) {
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("mypageAbandon");
 		int result = 0;
@@ -413,7 +413,7 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberName);
-			pstmt.setString(2, memberNo);
+			pstmt.setInt(2, memberNo);
 
 			result = pstmt.executeUpdate();
 
@@ -427,6 +427,7 @@ public class MemberDao {
 	}
 
 	public Subscribe findSubcribe(Connection conn, int memberNo) {
+		//원래 subscribe에 가야하지만 유지보수할때 애매모호해서 그냥 멤버dao에 해놨습니다(마이페이지에서 구독 정보 뜨는 메소드) --재혁
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -476,6 +477,47 @@ public class MemberDao {
 
 		}
 		return result;
+	}
+
+	public int myPageMemberPwdCheck(Connection conn, int memberNo, String memberPwd) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int count = 0;
+		String sql = prop.getProperty("myPageMemberPwdCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+		
+			pstmt.setString(1, memberPwd);
+			pstmt.setInt(2, memberNo);
+		
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				count = rset.getInt("COUNT");
+			
+				
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		return count;
+		
+		
+		
+		
+		
+		
 	}
 
 
