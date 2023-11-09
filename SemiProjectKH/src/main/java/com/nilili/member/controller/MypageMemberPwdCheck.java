@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.nilili.member.service.MemberService;
 
 /**
- * Servlet implementation class OverLapCheckEmailController
+ * Servlet implementation class MypageMemberPwdCheck
  */
-@WebServlet("/overLapEmail.mb")
-public class OverLapCheckEmailController extends HttpServlet {
+@WebServlet("/memberPwdCk.mb")
+public class MypageMemberPwdCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OverLapCheckEmailController() {
+    public MypageMemberPwdCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,24 +40,14 @@ public class OverLapCheckEmailController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String emailId = request.getParameter("emailId");
-		String custEmailDomain = request.getParameter("custEmailDomain");
+		String memberPwd = request.getParameter("memberPwd");
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		  
+		int count = new MemberService().myPageMemberPwdCheck(memberNo,memberPwd);
+		
+		response.setContentType("text/html;charset=UTF-8");// 인코딩
 
-		
-	
-		String email=	emailId+"@"+custEmailDomain;
-			
-		int count =	new MemberService().overLapCkEmail(email);
-		
-		if(count>0) {
-			response.getWriter().print("NNNNN");
-		}else {
-			response.getWriter().print("NNNNY");
-		}
-		
-
-	
-		
+		response.getWriter().print(count);// 서버에서 처리한 걸 jsp로 보내는 작업
 		
 		
 	}

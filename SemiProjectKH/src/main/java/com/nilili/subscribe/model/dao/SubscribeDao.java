@@ -4,11 +4,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import com.nilili.common.JDBCTemplate;
 import com.nilili.member.dao.MemberDao;
+import com.nilili.subscribe.model.vo.Subscribe;
 
 public class SubscribeDao {
 	
@@ -51,5 +53,71 @@ public class SubscribeDao {
 		
 		return result;
 	}
+	public int subscribeDelete(Connection conn, int memberNo) {
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("subscribeDelete");
+			int result = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memberNo);
+				
+				result = pstmt.executeUpdate();
+			
+			
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		return result;
+		
+	}
+
+	public Subscribe updateSubscribe(Connection conn, int memberNo) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateSubscribe");
+		ResultSet rset = null;
+		Subscribe sub = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+		
+			pstmt.setInt(1, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			
+			if(rset.next()) {
+				
+				sub = new Subscribe(rset.getInt("SUB_NO"), rset.getInt("MEMBER_NO"), rset.getInt("TASTE_1"),
+						rset.getInt("TASTE_2"), rset.getInt("TASTE_3"), rset.getString("DESCRIPTION"),
+						rset.getDate("REGI_DATE"), rset.getDate("MODI_DATE"), rset.getString("USE_YN"),
+						rset.getDate("EXPIRATION_DATE"));
+				
+				
+			}
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		return sub;
+		
+		
+	}
+
+	
+	
 
 }

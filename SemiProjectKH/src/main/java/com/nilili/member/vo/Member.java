@@ -35,13 +35,6 @@ public Member(int memberNO, String memberId, String memberPhone, String memberEm
 
 
 
-
-
-
-
-
-
-
 public Member(String memberId, String memberPhone, String memberEmail, String memberAddress) {
 	super();
 	this.memberId = memberId;
@@ -49,11 +42,6 @@ public Member(String memberId, String memberPhone, String memberEmail, String me
 	this.memberEmail = memberEmail;
 	this.memberAddress = memberAddress;
 }
-
-
-
-
-
 
 
 

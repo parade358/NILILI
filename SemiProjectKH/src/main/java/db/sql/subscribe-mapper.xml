@@ -13,6 +13,24 @@
 
 	</entry>
 	
+	<entry key="subscribeDelete">
+	
+	UPDATE SUBSCRIBE
+	 SET USE_YN = 'N'
+	 WHERE MEMBER_NO = ?
+	
+	</entry>
+	
+	<entry key="updateSubscribe">
+
+	 SELECT *
+     FROM SUBSCRIBE
+     WHERE MEMBER_NO = ?
+     AND USE_YN ='Y'
+     
+	</entry>
+	
+	
 </properties>
 
 

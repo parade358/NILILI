@@ -138,6 +138,8 @@ AND MEMBER_USE_YN = 'Y'
 	 SET MEMBER_SUBSCRIBE = 'N'
 	 WHERE MEMBER_NAME = ?
 	 AND MEMBER_NO = ?
+	 
+	 
 	
 </entry>
 	
@@ -156,6 +158,7 @@ SELECT SUB_NO
 FROM SUBSCRIBE S
 JOIN MEMBER USING (MEMBER_NO)
 WHERE MEMBER_NO= ?
+AND USE_YN = 'Y'
 	</entry>
 	
 
@@ -165,6 +168,13 @@ WHERE MEMBER_NO= ?
 	SET MEMBER_USE_YN='N'
 	WHERE MEMBER_NAME =?
 	AND MEMBER_NO=?
+	</entry>
+	
+	<entry key="myPageMemberPwdCheck">
+	SELECT COUNT(*) COUNT
+     FROM MEMBER
+     WHERE MEMBER_PWD = ?
+     AND MEMBER_NO= ?
 	</entry>
 
 

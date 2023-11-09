@@ -318,8 +318,8 @@ table tr {
 	font-weight: 400;
 	font-size: 16px;
 }
-=======
-  /*----------------- 모달 스타일------------------------------*/
+
+  /*----------------- 모달 회원탈퇴 스타일------------------------------*/
   .modal_bg{
    display:none;
    width:100%;
@@ -350,6 +350,45 @@ table tr {
   }
   
   .modal_wrap pre{
+  	font-family: 'Noto Sans KR', sans-serif;
+  	padding-top:20px;
+  padding-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  color:#4d4d4d;
+ /* text-align: center;*/
+  }
+    /*----------------- 모달 구독해지 스타일------------------------------*/
+   .modal_bg1{
+   display:none;
+   width:100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0,0,0,0.6);
+   z-index: 999;
+  }
+  
+  .modal_wrap1{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 260px;
+    background-color: #f7f7f7;
+    z-index: 1000;
+      text-align: center;
+  }
+  
+  .modal_wrap1 img{
+    padding-top : 50px;
+  }
+  
+  .modal_wrap1 pre{
   	font-family: 'Noto Sans KR', sans-serif;
   	padding-top:20px;
   padding-bottom: 30px;
@@ -428,7 +467,7 @@ table tr {
 		<div class="tTitle">기본정보 입력</div>
 
 		<form action="${contextPath }/update.mb" id="contents" method="post">
-			<input type="hidden" name="memberNo" value="${loginMember.memberNO}">
+			<input type="hidden" name="memberNo" id="memberNo" value="${loginMember.memberNO}">
 			<table id="content1">
 				<colgroup>
 					<col width="288px">
@@ -451,32 +490,33 @@ table tr {
 						<th>전화번호</th>
 						<td><select class="pbox" id="front">
 								<option disabled selected>010</option>
-						</select> <input type="phone" name="fnum" class="pmiddle"
-							value="${loginMember.memberPhone.substring(4,8) }"> <input
-							type="phone" name="lnum" class="plast"
-							value="${loginMember.memberPhone.substring(9) }"></td>
+						</select>
+						 <input type="phone" name="fnum" id="midPnum" class="pmiddle" maxlength="4" value="${loginMember.memberPhone.substring(4,8) }"> 
+							<input type="phone" name="lnum" class="plast" id="lastPnum"  maxlength="4"value="${loginMember.memberPhone.substring(9) }"></td>
 
 					</tr>
+
+					
 					<tr>
 						<th>이메일</th>
-						<td><span> <input type="text" id="custEmailId"
-								name="eid"
+						<td><span>
+						 <input type="text" id="custEmailId"name="eid"
 								value="${loginMember.memberEmail.substring(0,loginMember.memberEmail.indexOf('@')) }"
-								name="custid" placeholder="이메일아이디" style="height: 42px;"
-								required> <input type="text" class="duplicate_email"
-								name="domain"
-								value="${loginMember.memberEmail.substring(loginMember.memberEmail.indexOf('@')) }"
-								id="custEmailDomein" style="width: 125px; height: 42px;"
-								readonly="readonly" placeholder> <select class="normal"
-								name="" id="selectEmail">
+								placeholder="이메일아이디" style="height: 42px;"
+								required>@
+								<input type="text" class="duplicate_email" name="domain"
+								value="${loginMember.memberEmail.substring(loginMember.memberEmail.indexOf('@')+1) }"
+								id="custEmailDomain" style="width: 125px; height: 42px;"
+								readonly="readonly" placeholder>
+								 <select class="normal" name="" id="selectEmail">
 									<option value selected>선택</option>
-									<option value="@naver.com">naver</option>
-									<option value="@gmail.com">gmail</option>
-									<option value="@daum.net">daum</option>
-									<option value="@nate.com">nate</option>
-									<option value="@khacademy.com">KH</option>
-									<option value="custom">직접입력</option>
-							</select>
+									<option value="naver.com">네이버</option>
+									<option value="gmail.com">구글</option>
+									<option value="daum.net">다음</option>
+									<option value="nate.com">네이트</option>
+									<option value="khacademy.com">KH</option>
+									<option value="직접입력">직접입력</option>
+							</select><span id="emailOverLap"></span>
 						</span></td>
 
 					</tr>
@@ -498,8 +538,72 @@ table tr {
 
 			</table>
 
-			<button type="submit" id="btnInfoChange" class="btn">나의 정보수정</button>
+			<button type="button" id="btnInfoChange" class="btn">나의 정보수정</button>
 		</form>
+		
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+		
+		
+		
+		<script>
+	
+		$("#btnInfoChange").click(function(){
+		if($("#emailOverLap").text() == ""){
+			 $('#btnInfoChange').prop('type', 'submit');
+			
+		}
+		});
+		</script>
+		
 
 
 		<!--************************회원구독정보********************************************-->
@@ -575,14 +679,13 @@ table tr {
 		
 		<!-- **********************************구독해지 모달 !!!*********************************** -->
 
-		<div class="modal_bg" onclick="javascript:popClose();"></div>
-		<div class="modal_wrap">
+		<div class="modal_bg1" onclick="javascript:popClose();"></div>
+		<div class="modal_wrap1">
 			<img src="${contextPath }/resources/img/00_mypage/alert_ui.png"></img>
 			<pre> 구독을 해지하시겠습니까? </pre>
 			<button class="modal_btn" id="aban_no"
 				onclick="javascript:popClose();">해지 취소하기</button>
-			<button class="modal_btn" id="abandon"
-				onclick="javascript:popClose();">해지하기</button>
+			<button class="modal_btn" id="abandon" onclick="javascript:popClose();">해지하기</button>
 		</div>
 		</c:when>
 		<c:otherwise>
@@ -603,8 +706,8 @@ table tr {
 							</tr>
 							<tr>
 								<th>구독정보</th>
-								<td><button type="button" class="btn" style="width:195px; height:50px; background-color:#A90000;
-								border:none; color:#FFECEC; font-weight:400; font-size:16px;" >구독하기</button></td>
+								<td><button type="button" id="goSubscribe"class="btn" style="width:195px; height:50px; background-color:#A90000;
+								border:none; color:#FFECEC; font-weight:400; font-size:16px;" >구독하기</button></td>					
 							</tr>
 						</tbody>
 					</table>
@@ -612,9 +715,15 @@ table tr {
 		</c:otherwise>
 		</c:choose>
 		<script>
+	$("#goSubscribe").click(function(){
+	
+		location.href ="views/menu/service.jsp";
+	
+	});
+		
 	function popOpen(){
-		var modalPop = $('.modal_wrap');
-		var modalBg = $('.modal_bg');
+		var modalPop = $('.modal_wrap1');
+		var modalBg = $('.modal_bg1');
 		
 		$(modalPop).show();
 		$(modalBg).show();
@@ -630,9 +739,8 @@ table tr {
 			},
 			suceess: function(result){
 				if(result>0){
-					$("#closeBtn").click();
-				$("#abandon").click();
-					
+				alert("정상적으로 해지가 완료 되었습니다");
+				$("#abandon").click();		
 				}else{
 					alert("구독해지실패");
 				}
@@ -647,8 +755,8 @@ table tr {
 	
 	
 	function popClose(){
-		var modalPop = $('.modal_wrap');
-		var modalBg = $('.modal_bg');
+		var modalPop = $('.modal_wrap1');
+		var modalBg = $('.modal_bg1');
 		
 		$(modalPop).hide();
 		$(modalBg).hide();
@@ -687,6 +795,20 @@ table tr {
 //     }
     
     
+    		//폰번호 숫자 외 이상한 문자 들어갈시에 막는 함수		
+		$("#midPnum,#lastPnum").on("input", function() {
+	        // 숫자 이외의 문자 제거
+	        this.value = this.value.replace(/[^0-9]/g, '');
+	    });
+    
+		$(function(){
+			//중간번호 입력시 자동으로 끝번호입력하게 만듬 핸드폰번호관련 함수
+			$("#midPnum").on("input",function(){	
+				if(this.value.length == this.maxLength){
+					$("#lastPnum").focus();
+				}
+			})		
+		});
     
     </script>
 
@@ -702,7 +824,7 @@ table tr {
         <tbody align="left" >
             <tr>
                 <th>기존 비밀번호</th>
-                <td><input type="password" class="pwdInput" name="memberPwd"></td>
+                <td><input type="password" id="memberPwd" class="pwdInput" name="memberPwd"><span id="pwdMemberCk"></span></td>
             </tr>
       
             <tr> 
@@ -735,19 +857,50 @@ table tr {
     
     
     <script >
-
+    $("#memberPwd").on("input", function(){
+        $.ajax({
+            url: "${contextPath}/memberPwdCk.mb",
+            data: {
+                memberPwd: $("#memberPwd").val(),
+                memberNo: $("#memberNo").val()
+            },
+            success: function (count) {
+                console.log("안녕하세요");
+                if (count > 0) {
+                    $("#pwdMemberCk").text(" * 입력하신 비밀번호가 일치합니다");
+                    $("#pwdMemberCk").css("color", "green");
+                  
+                } else {
+                    $("#pwdMemberCk").text(" * 입력하신 비밀번호가 다릅니다");
+                    $("#pwdMemberCk").css("color", "red");
+                }
+            },
+            error: function () {
+                // Handle error if needed
+            },
+            type: "post"
+        });
+    });
+		
+    	
+   
+    
    
     function pwdCheck(){
     	var cPwd = $("input[name = updatePwd]");
     	var chkPwd = $("#pwdInput");
     	
+    	if($("#pwdMemberCk").text() ==" * 입력하신 비밀번호가 다릅니다"){
+    		alert("현재 비밀번호가 일치하지 않습니다");
+    		
+    		return false
+    	}
     	if(cPwd.val()!=chkPwd.val()){
     		alert("변경할 비밀번호와 비밀번호 확인이 일치하지 않습니다.")
     		cPwd.select();
     		
-    		return false; //기본이벤트 실행되지 않기 
+    		return false; //기본이벤트 실행되지 않기  
     	}
-    	
     }
     
     
@@ -803,9 +956,29 @@ table tr {
 
 		<script>
 
+		 $("#custEmailId,#custEmailDomain,#selectEmail").on("input change",function(){
+			 $.ajax({
+				url : "${contextPath}/overLapEmail.mb",
+				data : {
+					emailId : $("#custEmailId").val(),
+					custEmailDomain : $("#custEmailDomain").val(),
+				},
+				success : function(count){
+					if(count=="NNNNN"){//중복된거있을때
+						$("#emailOverLap").text("* 사용중인 이메일입니다.");
+						$("#emailOverLap").css("color","red");
+					}else{
+					}
+				},
+				error : function(){
+					console.log("서버오류구리");
+				},
+				type : "post"//url노출방지
+			 });
+			 });
+		
 
-var msg = "<%=alertMsg%>
-			";
+var msg = "<%=alertMsg%>";
 
 			if (msg != 'null') {
 				alert(msg);
@@ -814,6 +987,49 @@ var msg = "<%=alertMsg%>
 			//주석
 		</script>
 </body>
+
+<script>//이메일 펑션
+$(document).ready(function () {
+    $("#selectEmail").change(function () {
+        let selectedValue = $(this).val();
+        $("#custEmailDomain").val(selectedValue);
+        $("#emailOverLap").html("");
+        
+        if (selectedValue === '직접입력') {
+            $("#custEmailDomain").prop("readonly", false);
+            $("#custEmailDomain").val("");
+            
+            $("#custEmailDomain").on("input", function () {
+                if (!$("#custEmailDomain").val().includes('@')) {
+                    $("#selectEmail option[value=custom]").val($("#custEmailDomain").val());
+                }
+
+                if ($("#custEmailDomain").val().includes('@')) {
+                    $("#emailOverLap").html("이메일 형식으로 입력해주세요");
+                    $("#emailOverLap").css("color", "red");
+                } else {
+                    $("#emailOverLap").html("");
+                }
+            });
+        } else {
+            $("#custEmailDomain").prop("readonly", true);
+        }
+    });
+
+    $("#custEmailId").on("input", function () {
+        if ($("#custEmailId").val().includes('@') || $("#custEmailId").val().includes('.')) {
+            $("#emailOverLap").html("이메일의 아이디만 입력해주세요");
+            $("#emailOverLap").css("color", "red");
+        } else {
+            $("#emailOverLap").html("");
+        }
+    });
+});
+	
+		
+		
+	</script>
+
 
 
 

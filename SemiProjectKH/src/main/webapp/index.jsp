@@ -313,9 +313,9 @@ color:#e6e6e6;
             <p id="generalMem"> 일반회원 입니다.</p>
             </c:otherwise>
             </c:choose>
-             <!--일반회원일 경우-->
-            <p id="date"> 구독기간 | 예시입니다 2023-11-10 ~ 2023 -12 -10</p>
-      
+          	<c:if test="${sub.useYn eq 'Y'}">
+            <p id="date"> 구독기간 |  "${sub.regiDate}" ~ "${sub.expirationDate}"</p>
+      		</c:if>
     	</div>
        
 			<form action="${contextPath }/logout.mb" style="display: inline;">
@@ -353,7 +353,7 @@ color:#e6e6e6;
 				<div id="menus">
 					<a class="same2" href="${contextPath}/game.pl" title="본인의 여행취향이 궁금하신가요?"><img
 						src="resources/mainIndex/01_1con.png" id="con1" alt="여행취향"></a>
-					<a class="same2" href="${contextPath}/reco.pl" title="어딜갈지 모르시겠나요?"><img
+					<a class="same2" href="${contextPath}/reco.pl" title="어딜가실지 모르시겠나요?"><img
 						src="resources/mainIndex/01_2con.png" id="con2" alt="여행지추천"></a>
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>

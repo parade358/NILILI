@@ -5,6 +5,7 @@ import java.sql.Connection;
 import com.nilili.common.JDBCTemplate;
 import com.nilili.member.dao.MemberDao;
 import com.nilili.member.vo.Member;
+import com.nilili.subscribe.model.dao.SubscribeDao;
 import com.nilili.subscribe.model.vo.Subscribe;
 
 public class MemberService {
@@ -150,21 +151,33 @@ public class MemberService {
 	}
 
 //주석
-	public int mypageAbandon(String memberName, String memberNo) {
+	public int mypageAbandon(String memberName, int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 
 		int result = new MemberDao().mypageAbandon(conn, memberName, memberNo);
 
 		if (result > 0) {
-
-			JDBCTemplate.commit(conn);
-		} else {
+			
+			int result2 =	new SubscribeDao().subscribeDelete(conn,memberNo);
+			     
+			if(result * result2>0) {
+						JDBCTemplate.commit(conn);
+			
+			}else {
+						JDBCTemplate.rollback(conn);
+			}
+			
+			JDBCTemplate.close(conn);
+				return result *result2; // 멤버에서 subscribe 도 n으로 고쳐지고 subscribe에서 use도 n으로 고쳐지면 보내라
+		
+		}else {
 			JDBCTemplate.rollback(conn);
 		}
-
+		
 		JDBCTemplate.close(conn);
-
-		return result;
+		
+		return 0;//만약에 이프문을 안타면 0으로 가라
+		
 	}
 
 	public Subscribe findSubcribe(int memberNo) {
@@ -199,5 +212,20 @@ public class MemberService {
 	return memberLogin;
 		
 	}
+
+	public int myPageMemberPwdCheck(int memberNo, String memberPwd) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+	int count =	new MemberDao().myPageMemberPwdCheck(conn,memberNo,memberPwd);
+		
+	JDBCTemplate.close(conn);
+		
+		
+		return count;
+		
+	}
+
+
 
 }

@@ -471,19 +471,6 @@
         }).open();
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 			<!--**************************************************동의영역***************************************************************-->
 			<div id="content2">
 				<div class="joinAgreement">
@@ -593,51 +580,26 @@
 			 });
 		 
 		 $("#custEmailId,#custEmailDomain,#selectEmail").on("input change",function(){
-		 
 		 $.ajax({
 			url : "${contextPath}/overLapEmail.mb",
 			data : {
-				
 				emailId : $("#custEmailId").val(),
 				custEmailDomain : $("#custEmailDomain").val(),
-				
 			},
-			
 			success : function(count){
-				
 				if(count=="NNNNN"){//중복된거있을때
 					$("#emailOverLap").text("* 사용중인 이메일입니다.");
 					$("#emailOverLap").css("color","red");
-				
-						
 				}else{
-				
-				
 				}
-				
 			},
-			
 			error : function(){
 				console.log("서버오류구리");
-				
 			},
 			type : "post"//url노출방지
-			 
-			 
-			 
-			 
 		 });
-		 
-		 
 		 });
-	 
-	 
 	 });
-	
-	
-	
-	 
-	
 		//회원가입 제출 스크립트 
 		//밑에 함수에서 회원가입 버튼을누르면 오류를 판별해주고 어디가 이상이있는지 확인해준다  오류가 없으면 서버로 전송
 		function enroll() {
@@ -739,85 +701,42 @@
 	
 	<script>
 
-	 $(function() {
-		 //이게보이면 정상입니다 안보이면 큰일나쒀..
-         // 이메일 주소 선택 옵션 변경 시
-         $("#selectEmail").change(function() {
-             let selectedValue = $(this).val();
-             // 선택한 옵션 값을 input 요소의 value로 설정
-             $("#custEmailDomain").val(selectedValue);
-             // 아이디 입력 필드 초기화
-            
-             // 이메일 중복 메시지 초기화
-             $("#emailOverLap").html("");
+	$(document).ready(function () {
+	    $("#selectEmail").change(function () {
+	        let selectedValue = $(this).val();
+	        $("#custEmailDomain").val(selectedValue);
+	        $("#emailOverLap").html("");
+	        
+	        if (selectedValue === '직접입력') {
+	            $("#custEmailDomain").prop("readonly", false);
+	            $("#custEmailDomain").val("");
+	            
+	            $("#custEmailDomain").on("input", function () {
+	                if (!$("#custEmailDomain").val().includes('@')) {
+	                    $("#selectEmail option[value=custom]").val($("#custEmailDomain").val());
+	                }
 
-             if (selectedValue === '직접입력') {
-                 // custom 옵션 선택 시
-                 $("#custEmailDomain").prop("readonly", false);
-             } else {
-                 // 다른 옵션 선택 시
-                 $("#custEmailDomain").prop("readonly", true);
-             }
-         });
-         // 이메일 아이디 입력 필드 변경 시
-         $("#custEmailId").on("input", function() {
-             let emailId = $("#custEmailId").val();
-             if (emailId.includes('@') || emailId.includes('.')) {
-                 // "@" 또는 "." 포함 시 이메일 아이디만 입력해야 함
-                 $("#emailOverLap").html("이메일의 아이디만 입력해주세요");
-                 $("#emailOverLap").css("color", "red");
-             } else {
-                 // 이메일 아이디 형식이 올바른 경우
-                 $("#emailOverLap").html("");
-             }
-         });
-     });
-// 선택한 옵션의 값을 가져와서 input 요소의 value로 설정
-			$("#selectEmail").on("change", function(){
-			var selectedValue = $(this).val();
-			$("#custEmailDomain").val(selectedValue);
-		});
-		$(function() {// 이메일 펑션
-			$("#selectEmail").change(function(){
-				let selectOption = $(this).val();
-				if (selectOption == '직접입력') {//custom이 직접입력이다
-					$("#custEmailDomain").prop("readonly", false);
-					$("#custEmailDomain").val("");
-					$("#custEmailDomain").on("input",function(){			
-						   if (!$("#custEmailDomain").val().includes('@')) {
-			                    // "@" 문자를 입력하지 않은 경우만 값 설정
-			                    $("#selectEmail option[value=custom]").val($("#custEmailDomain").val());
-			                }
-						if($("#custEmailDomain").val().includes('@')){
-					$("#emailOverLap").html("이메일형식으로 입력해주세요");
-					$("#emailOverLap").css("color","red");
-					}else{
-					
-						$("#emailOverLap").html("");
-						
-					}
-						
-						
-					});
-					//자동으로 @를 붙혀주면서 사용자가 입력하게끔
-				} else {
-					$("#custEmailDomain").prop("readonly", true);//네이버 구글 다음 이런거 고르면 수정 못하게 막아둠
-			
-				}
-			});
-		});
-		
-		$("#custEmailId").on("input",function(){
-			if($("#custEmailId").val().includes('@') ||$("#custEmailId").val().includes('.')){
-				$("#emailOverLap").html("이메일의 아이디만 입력해주세요");
-				$("#emailOverLap").css("color","red");
-			}else{
-				$("#emailOverLap").html("");
-			}
-		});		
+	                if ($("#custEmailDomain").val().includes('@')) {
+	                    $("#emailOverLap").html("이메일 형식으로 입력해주세요");
+	                    $("#emailOverLap").css("color", "red");
+	                } else {
+	                    $("#emailOverLap").html("");
+	                }
+	            });
+	        } else {
+	            $("#custEmailDomain").prop("readonly", true);
+	        }
+	    });
 
-		
-		
+	    $("#custEmailId").on("input", function () {
+	        if ($("#custEmailId").val().includes('@') || $("#custEmailId").val().includes('.')) {
+	            $("#emailOverLap").html("이메일의 아이디만 입력해주세요");
+	            $("#emailOverLap").css("color", "red");
+	        } else {
+	            $("#emailOverLap").html("");
+	        }
+	    });
+	});
 		
 	</script>
 		<script>
