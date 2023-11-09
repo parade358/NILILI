@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -18,7 +19,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style >
- /*콘텐츠 타이을 영역 설정*/
+ /*콘텐츠 타이틀 영역 설정*/
         #title{
             position: relative;
             /* border: 1px solid black; */
@@ -27,11 +28,13 @@
         }
         /*콘텐츠 타이틀 스타일, 영역(중앙정렬) 설정*/
         #contitle{
-            font-family: 'Nanum Gothic', sans-serif;
+
             font-size: 30px;
-            font-weight:800;
+            font-weight:300;
             margin: 0 30 auto;
          }
+         
+         *{font-family: 'Noto sans KR', sans-serif;}
          /*콘텐츠 텍스트 1 영역 설정*/
 /*-------------------콘텐츠 위치값 설정(가운데 정렬 기준잡아두기)-----------------------------------*/
          #contents,#content_img,#susbtn{
@@ -41,11 +44,11 @@
          }
          /*--------------------------상단텍스트------------------------------------------*/
          #conText01{
-            font-family: 'Nanum Gothic', sans-serif;
-            letter-spacing: -3.5px;
-            line-height: 50px;
-            color: #333333;
-            /* font-weight: 600; */
+			font-family: 'Noto sans KR', sans-serif;
+            letter-spacing: -2.5px;
+            line-height: 40px;
+            color: #595959;
+            font-weight: 500; 
             font-size: 28px;
             margin: 0 auto;
          }
@@ -54,20 +57,19 @@
             margin: 0 auto;
          }
          #conText02 th{
-            font-family: 'Nanum Gothic' sans-serif;
             font-size: 26px;
             font-weight: 800;
             letter-spacing: -2px;
             text-align: left;
+            margin-left: 30px;
             color: #333333;
          }
          #conText02 td{
-            font-family: 'Nanum Gothic' sans-serif;
             font-size: 17px;
             color: #4d4d4d;
             letter-spacing: -1.3px;
             padding-top: 100px;
-            padding-left: 150px;
+            padding-left: 80px;
             line-height: 30px;
          }
          /*--------------------------------하단텍스트---------------------------------------------*/
@@ -84,9 +86,6 @@
             height: 204px;
                     /* border: 1px solid #cdcdcd; */
              }
-            #conText03 table{
-                margin: 0 auto;
-             }
              #conText03 th{
                 font-size: 18px;
                 font-weight: bolder;
@@ -96,13 +95,14 @@
                 color: #a90000;
              }
              #conText03 td{
+             	font-family: 'Noto sans KR', sans-serif;
                 font-size: 17px;
-                font-weight: 600;
+                font-weight: 400;
                 color: #4d4d4d;
-                letter-spacing: -1.3px;
-                padding-top: 30px;
-                padding-left: 150px;
-                line-height: 25px;
+                letter-spacing: -1.2px;
+                padding-top: 10px;
+                padding-left: 50px;
+                line-height: 28px;
                 text-align: left;
              }
          
@@ -131,12 +131,13 @@
              }
              #conText04 tbody{
                 border-bottom: 2px solid black;
+                text-align:center;
              }
                      /*--------------구독버튼-----------------------------*/
          #susbtn button{
-            font-family: 'Nanum Gothic' sans-serif;
+      
             font-size: 16px;
-            font-weight: 800;
+            font-weight: 400;
             width: 300px;
             height: 67px;
             margin: 70px auto;
@@ -208,13 +209,14 @@
                     <tr>
                         <th>구독 회원 여행 정보 제공 서비스</th>
                         <td >
-                            <ul>
-                                <li>나만의 맞춤 여행지 : 나의 성향에 따른 맞춤형 여행지를 추천해 드립니다. <br>
-                                    <small>(※로그인 후 대한민국 구석구석을 이용하면 더 풍성한 여행지를 추천 받을 수 있습니다.)</li>
-                                        <li>우연한 발견 추천 여행지 : 서울 구석구석 운영자가 추천하는 여행지 입니다.</li>
-                                        <li>나의 관심 지역 추천여행지 : 나와 같은 지역 성향의 사용자들이 관심 갖는 여행지입니다.</li>
-                                        <li>서울 구석구석 인기 맛짐 : 서울 구석구석 사용자들에게 인기있는 음식점입니다.</li>
-                                    </ul>
+                            <pre>
+                            나만의 맞춤 여행지 - 나의 성향에 따른 맞춤형 여행지를 추천 해 드립니다.
+                            <small>(※로그인 후 대한민국 구석구석을 이용하면 더 풍성한 여행지를 추천받을 수 있습니다.)</small>
+                            우연한 발견 추천 여행지 - 서울 구석구석 운영자가 추천하는 여행지입니다.
+                            나의 관심 지역 추천 여행지 - 나와 같은 지역 성향의 사용자들이 관심을 갖는 여행지추천입니다. 
+                            서울 구석구석 인기 맛집 - 서울 구석구석 사용자들에게 인기있는 음식점 추천입니다. 
+                            
+                            </pre>
                                 </td>
                             </tr>
                         </tbody>
@@ -309,7 +311,6 @@
          			},
          			success: function(result){
          				if(result>0){
-         					
          					console.log("구독완료")
          				}else{
          					alert("비정상적인 이유로 구독에 실패하였습니다");
