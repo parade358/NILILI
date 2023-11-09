@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nilili.member.service.MemberService;
+import com.nilili.member.vo.Member;
 
 /**
  * Servlet implementation class SubscribeController
@@ -41,10 +43,18 @@ public class SubscribeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String memberName = request.getParameter("memberName");
-		String memberNo = request.getParameter("memberNo");
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		
-			
+	//이거는 구독한거 Y로 바꿔주는  update 를 위한 코드
 	int result=	new MemberService().SubscribeChange(memberName,memberNo);
+	
+	//이거는 사용자 편의를 위해 session 영역에있는 loginMember의 subscribe를 update하는 코드
+	 //위에서 한번에 하고 싶었으나 jsp까지 건들어야하는 관계로 일단 따로 가겠습니다 -재혁
+	 Member loginMember = new MemberService().updateLoginMember(memberNo);
+	 
+	HttpSession session = request.getSession();
+	//세션에 저장되어있는 loginMember를 수정후의 loginMember로 교체
+	session.setAttribute("loginMember", loginMember);
 	
 	response.setContentType("text/html;charset =UTF-8");//인코딩
 	

@@ -84,7 +84,7 @@ public class MemberService {
 
 	}
 
-	public int SubscribeChange(String memberName, String memberNo) {
+	public int SubscribeChange(String memberName, int memberNo) {
 
 		Connection conn = JDBCTemplate.getConnection();
 
@@ -102,53 +102,49 @@ public class MemberService {
 		return result;
 	}
 
-	
 	public int overLapCkEmail(String email) {
-		
+
 		Connection conn = JDBCTemplate.getConnection();
-		
-	int result = new MemberDao().overLapCkEmail(conn,email);
-		
+
+		int result = new MemberDao().overLapCkEmail(conn, email);
+
 		JDBCTemplate.close(conn);
-		
+
 		return result;
-		
-		
 
 	}
-	
-	
+
 	public Member updateMember(Member m) {
 		Connection conn = JDBCTemplate.getConnection();
-		
-		int result = new MemberDao().updateMember(conn,m);
-		
+
+		int result = new MemberDao().updateMember(conn, m);
+
 		Member updateMem = null;
-		
-		if(result>0) {
+
+		if (result > 0) {
 			JDBCTemplate.commit(conn);
-			updateMem = new MemberDao().selectMember(conn,m.getMemberId());
-		}else {
+			//밑에 selectMember2 랑 겹쳐서 둘중에 하나 지워도 될것같습니다. 돌아가는데 이상은 xxxxx - 재혁-
+			updateMem = new MemberDao().selectMember(conn, m.getMemberId());
+		} else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
-		
-		
+
 		return updateMem;
 	}
 
 	public Member mypageUpdatePwd(int memberNo, String memberPwd, String updatePwd) {
 		Connection conn = JDBCTemplate.getConnection();
-		
+
 		int result = new MemberDao().mypageUpdatePwd(conn, memberNo, memberPwd, updatePwd);
-		Member mpUpdateMem =null; //회원정보 담을 변수
-		if(result>0) {
+		Member mpUpdateMem = null; // 회원정보 담을 변수
+		if (result > 0) {
 			JDBCTemplate.commit(conn);
-			mpUpdateMem = new MemberDao().selectMember2(conn,memberNo);
-		}else {
+			mpUpdateMem = new MemberDao().selectMember2(conn, memberNo);
+		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+
 		JDBCTemplate.close(conn);
 		return mpUpdateMem;
 	}
@@ -156,46 +152,52 @@ public class MemberService {
 //주석
 	public int mypageAbandon(String memberName, String memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
-		
-		int result=new MemberDao().mypageAbandon(conn,memberName,memberNo);
 
-		if(result>0) {
-			
+		int result = new MemberDao().mypageAbandon(conn, memberName, memberNo);
+
+		if (result > 0) {
+
 			JDBCTemplate.commit(conn);
-		}else {
+		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+
 		JDBCTemplate.close(conn);
-		
+
 		return result;
 	}
-
 
 	public Subscribe findSubcribe(int memberNo) {
-	
+
 		Connection conn = JDBCTemplate.getConnection();
-		
-	Subscribe sub=	new MemberDao().findSubcribe(conn,memberNo);
-		
-	JDBCTemplate.close(conn);
-	
-	return sub;
-		
+
+		Subscribe sub = new MemberDao().findSubcribe(conn, memberNo);
+
+		JDBCTemplate.close(conn);
+
+		return sub;
+	}
+
 	public int memberDelete(String memberName, String memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new MemberDao().memberDelete(conn,memberName,memberNo);
-		if(result>0){
+		int result = new MemberDao().memberDelete(conn, memberName, memberNo);
+		if (result > 0) {
 			JDBCTemplate.commit(conn);
-		}else {
+		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+
 		JDBCTemplate.close(conn);
 		return result;
 	}
 
-
+	public Member updateLoginMember(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		//구독 업데이트나 회원 정보의 수정이 있을때 사용하는 메소드입니다(바로 세션영역의loginMember의 정보를 교체하는 작업)
+	Member memberLogin = new MemberDao().selectMember2(conn, memberNo);
+	
+	return memberLogin;
+		
 	}
 
-
+}

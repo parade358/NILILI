@@ -158,8 +158,8 @@ JOIN MEMBER USING (MEMBER_NO)
 WHERE MEMBER_NO= ?
 	</entry>
 	
-	
-	
+
+
 	<entry key="memberDelete">
 	UPDATE MEMBER
 	SET MEMBER_USE_YN='N'
