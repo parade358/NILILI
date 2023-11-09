@@ -309,6 +309,7 @@
          			},
          			success: function(result){
          				if(result>0){
+         					
          					console.log("구독완료")
          				}else{
          					alert("비정상적인 이유로 구독에 실패하였습니다");

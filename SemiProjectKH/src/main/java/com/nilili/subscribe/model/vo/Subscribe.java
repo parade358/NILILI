@@ -33,6 +33,11 @@ EXPIRATION_DATE	DATE
 	public Subscribe() {
 		super();
 	}
+	
+	
+	
+	
+	
 	public Subscribe(int subNo, int memberNo, int tasteFirst, int tasteSecond, int tasteThird, String description,
 			Date regiDate, Date modiDate, String useYn, Date expirationDate) {
 		super();

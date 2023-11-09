@@ -303,15 +303,7 @@ color:#e6e6e6;
       
          <div class ="user">
             <p id="userId">${loginMember.memberName }</p> 
-     
-
-           
-            
-      
-       
-
             <p id="welcome">"${loginMember.memberName }"님 환영합니다.<p>
-           
            <c:choose>
 
             <c:when test="${loginMember.memberSubscribe eq 'Y'}">
@@ -365,7 +357,7 @@ color:#e6e6e6;
 						src="resources/mainIndex/01_2con.png" id="con2" alt="여행지추천"></a>
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>
-					<a class="same2" href="views/menu/service.jsp" title="여행이 편안해지는 당신"><img
+					<a class="same2" href="views/menu/service.jsp" onclick="return hasSubscribe();" title="여행이 편안해지는 당신"><img
 						src="resources/mainIndex/01_4_con.png" id="con4" alt="구독지서비스"></a>
 				</div>
 				<!--콘텐츠2 (이미지)-->
@@ -379,6 +371,17 @@ color:#e6e6e6;
 		</div>
 </body>
 <script>
+function hasSubscribe(){
+	if("${loginMember.memberSubscribe}"==='Y'){
+		alert("이미 구독을 하셨습니다");
+		return false;
+	}	
+};
+
+
+
+
+
 	$(function() {
 
 		$("#con1").on("mouseenter", function() {
