@@ -19,6 +19,7 @@
 <title>Document</title>
 <!--  -->
 
+
 <style>
 .wrap {
 	width: 1920px;
@@ -247,16 +248,18 @@ color:#e6e6e6;
 	margin-left: 20px
 }
 </style>
+
+
 </head>
 
 
-
+<%@ include file="views/common/chatBot.jsp"%>
 
 <body>
 <!---------------- 로그인전메뉴바--------------- -->
 	<div class="wrap">
 	<%@ include file="views/common/headerBar.jsp"%>	<!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
-		
+
 		<!--TOP상단 이미지 영역 (로그인 부분  ) 로그인전 ------------------------->
 		
 		
