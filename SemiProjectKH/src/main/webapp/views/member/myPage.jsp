@@ -18,7 +18,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 <title>Insert title here</title>
 <style>
-.wrap {
+.wrap {  
 	width: 1920px;
 }
 
@@ -986,6 +986,7 @@ var msg = "<%=alertMsg%>";
 			}
 			//주석
 		</script>
+		<%@ include file="../common/footerBar.jsp"%>
 </body>
 
 <script>//이메일 펑션
@@ -1029,7 +1030,6 @@ $(document).ready(function () {
 		
 		
 	</script>
-
 
 
 

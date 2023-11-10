@@ -55,7 +55,8 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             width: 155px;
             height: 70px;
             padding-top:30px ;
-            margin-left:882.5px
+/*             margin-left:882.5px */
+			margin: 0 auto;
         }
         </c:when>
 			<c:otherwise>
