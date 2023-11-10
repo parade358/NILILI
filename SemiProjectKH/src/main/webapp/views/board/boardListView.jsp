@@ -296,11 +296,13 @@
             </span>
         </div>
         </div>
+
         <script>
 	        $(document).on('click', '.list-area>tbody>tr', function() {
 	            // $(this).children().eq(0).text() : 글번호 추출
 	            location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
 	        });
+
 			$(document).ready(function() {
 			    $("#searchButton").click(function() {
 			        // 검색 조건과 검색어 값을 가져옴
@@ -345,20 +347,7 @@
 			});
 		</script>
 		
-		 <script>
-        	//글 클릭했을때 글번호를 detail.bo 로 전달하며 페이지 요청하기
-        	$(function(){
-        		
-        		//테이블에 tbody -> tr이 클릭되었을때 해당 글번호를 추출하여 detail.bo?bno=글번호
-        		$(".list-area>tbody>tr").click(function(){
-        			//$(this).children().eq(0).text() : 글번호 추출
-        			location.href="detail.bo?bno="+ $(this).children().eq(0).text();
-        			
-        		});
-        		
-        		
-        	});
-        </script>
+
         <script>
         	//글 클릭했을때 글번호를 detail.bo 로 전달하며 페이지 요청하기
         	$(function(){
