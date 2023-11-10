@@ -54,7 +54,7 @@
 	/* border: 1px solid black; */
 	align-items: center;
 	width: 1035px;
-	margin-left: 435px;
+	margin:0 auto;
 }
 
 #subtitle {
@@ -222,12 +222,12 @@
 .custInputAddress {
 	width: 400px;
 	height: 42px;
-	
 	margin-left: 269px;
 	margin-top: 24px;
 	margin-bottom: 15px;
 }
 /*--------------------------------------동의영역------------------------------*/
+
 .allChk {
 	padding-left: 30px;
 }
@@ -237,7 +237,9 @@
 }
 
 .microBtnOpenLayer {
-	margin-right: 0%;
+	border:none;
+	float:right;
+	margin-right: 20px;
 }
 
 #chkAgree1, #chkAgree2, #chkAgree3, #chkAgree4 {
@@ -254,25 +256,54 @@
 	background-color: #f5f5f5;
 }
 
-#contents #content2 .microBtnOpenLayer {
-	position: absolute;
-	/* right: -10; */
-	/* top: 0px; */
-	left: 1400px;
-}
-
 .material-symbols-outlined {
 	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
 }
-/*--------------푸터----------------------*/
-#footer {
-	margin-top: 60px;
-	color: gray;
+
+/*-------------동의 모달영역-----------------------*/
+.mWrp{
+	position: fixed;
+	z-index: 200;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.3);
+	display: none;
+}
+.mBody{
+ 	width: 700px;
+ 	height: 600px;
+ 	padding: 40px 40px;
+ 	margin: 0 auto;
+ 	border: 1px solid #777;
+ 	background-color: #fff;
+ 	overflow : auto;
 }
 
-#f_text {
-	padding-top: 40px;
+.cBtn{
+	float: right;
+	font-weight: bold;
+	color : #777;
+	font-size: 25px;
+	cursor: pointer;
 }
+#c2modalBody table{
+	
+	width: 600px;
+	height: 56px;
+	border-bottom: 1px solid #343434;
+	border-top: 1px solid #343434;
+	text-align: center;
+}
+#c2modalBody th{
+	border-bottom: 1px solid #dfdfe4;
+}
+	
+/*--------------푸터----------------------*/
+
 
  @keyframes shake {
   0% { transform: translateX(0); }
@@ -287,7 +318,7 @@
   animation: shake 0.5s;
   animation-iteration-count: 3;
 }
-      
+
 
 </style>
 </head>
@@ -296,34 +327,30 @@
 
 	<!--****************************콘텐츠 영역******************************-->
 	<div id="title">
-		<br>
-		<hr>
-
+		<br> <hr>
 		<p id="title">회원가입</p>
-
 	</div>
 	<div id="contents">
 		<div id="subtitle">기본정보 입력</div>
-
 		<form action="${contextPath }/enrollForm.mb" method="post">
 			<div id="content1">
-
+			
 				<!--**********************************************아이디*************************************************-->
 				<div id="id">
 					 <label for="idInput">* 아이디</label>
 					<input type="text" id="idInput" name="userId" required placeholder="영문/숫자/'_' 만 입력가능 4~16자리">
 					<span id="overLapId">영문/숫자/'_' 만 입력가능 4~16자리</span>
 					<!-- <button type="submit" class="chkId">중복확인</button>-->
-
 				</div>
 
-
 				<!--************************************************비밀번호 , 이름*******************************************************-->
+				
 				<div id="pwd">
 					<label for="pwdInput">* 비밀번호</label>
 					<input type="password" id="pwdInput" name="userPwd" required placeholder="영문+숫자+특수문자 조합 8~16자리" maxlength="16">
 					<span id="pwdCk1"></span>
 				</div>
+				
 				<div id="chkpwd">
 					 <label for="pwdInputCk">* 비밀번호 확인</label>
 					<input type="password" required placeholder="영문+숫자+특수문자 조합 8~16자리" maxlength="16" id="pwdInputCk">
@@ -471,6 +498,10 @@
         }).open();
     }
 </script>
+
+
+
+
 			<!--**************************************************동의영역***************************************************************-->
 			<div id="content2">
 				<div class="joinAgreement">
@@ -489,31 +520,36 @@
 					</p>
 
 					<!-- ****************************동의 목록******************************* -->
-					<ul style="list-style-type: none;">
-						<li><span class="inpuBtnchk"> <input type="checkbox"
-								id="chkAgree4" name="chkAgree04"> <label for="chkAgree4"
+					<ul id="agreePart" style="list-style-type: none;">
+						<li>
+						   <span class="inpuBtnchk"> 
+						   <input type="checkbox" id="chkAgree4" name="chkAgree04"> <label for="chkAgree4"
 								style="font-size: 16px; font-weight: 500; font-family: 'Nanum Gothic', sans-serif;">
 									만 14세 이상입니다. (필수) </label>
-						</span></li>
-						<li><span class="inpuBtnchk"> <input type="checkbox"
-								id="chkAgree1" name="chkAgree01"> <label for="chkAgree1"
+						   </span>
+						</li>
+						<li>
+						    <span class="inpuBtnchk"> <input type="checkbox" id="chkAgree1" name="chkAgree01"> <label for="chkAgree1"
 								style="font-size: 16px; font-weight: 500; font-family: 'Nanum Gothic', sans-serif;">
 									"이용약관 동의 (필수)" </label>
-						</span>
-							<button type="button" class="microBtnOpenLayer">내용보기</button></li>
-						<li><span class="inpuBtnchk"> <input type="checkbox"
-								class="material-symbols-outlined" id="cumtom-check-1"
+						    </span>
+						    <button type="button" class="microBtnOpenLayer" id="openuseInfo" >내용보기</button>
+						</li>
+						<li>
+						     <span class="inpuBtnchk"> <input type="checkbox" class="material-symbols-outlined" id="cumtom-check-1"
 								name="chkAgree02"> <label for="chkAgree2"
 								style="font-size: 16px; font-weight: 500; font-family: 'Nanum Gothic', sans-serif;">
 									"개인정보 수집 및 이용에 대한 동의 (필수)" </label>
-						</span>
-							<button type="button" class="microBtnOpenLayer">내용보기</button></li>
-						<li><span class="inpuBtnchk"> <input type="checkbox"
-								id="chkAgree3" name="chkAgree03"> <label for="chkAgree3"
+						     </span>
+							<button type="button" class="microBtnOpenLayer" id="openCollect">내용보기</button>
+						</li>
+						<li>
+						     <span class="inpuBtnchk"> <input type="checkbox" id="chkAgree3" name="chkAgree03"> <label for="chkAgree3"
 								style="font-size: 16px; font-weight: 500; font-family: 'Nanum Gothic', sans-serif;">
 									"개인정보 수집 및 이용안내(선택)" </label>
-						</span>
-							<button type="button" class="microBtnOpenLayer">내용보기</button></li>
+						    </span>
+							<button type="button" class="microBtnOpenLayer" id="openCollect2">내용보기</button>
+						</li>
 					</ul>
 
 
@@ -532,6 +568,88 @@
 				</div>
 
 			</div>
+			
+			
+			<!-- *******************************모달팝업(이용약관)*************************************** -->
+			<div id="modalWrap" class="mWrp">
+			  <div id="modalBody" class="mBody">
+			    <span id="closeBtn" class="cBtn"> &times;</span>
+			    <p> <h3>이용약관</h3> </p>
+			    <p><b>제 1장 총칙</b></p>
+			    <p><b>제 1조(목적)</b></p>
+			    <p>본 약관은 ㈜닐리리(이하 "회사"라 합니다.)가 제공하는 인터넷 서비스(이하 "서비스"라 합니다.)의 이용과 관련하여 회사와 회원의 권리, 의무 및 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+			    <br>
+			    <p><b>제 2조 (용어의 정의)</b></p>
+			    <p>본 약관에서 사용하는 주요한 용어의 정의는 다음과 같습니다.</p>
+			    <p>1. 회원: 회사와 서비스 이용 계약을 체결하고 회원 아이디(ID)를 부여 받은 자를 말합니다.</p>
+			    <p>2. 아이디: 회원의 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 문자나 숫자 혹은 그 조합을 말합니다.(이하 "ID"라 합니다.)</p>
+			    <p>3. 비밀번호 : 회원이 부여 받은 ID와 일치 된 회원임을 확인하고, 회원 자신의 비밀을 보호하기 위하여 회원이 정한 문자와 숫자의 조합을 말합니다.</p>
+			    <p>4. 닉네임: 서비스 이용을 위하여 회원이 선정하고 회사가 승인한 문자나 숫자 혹은 그 조합으로 서비스 이용 시 회원을 구분하고 지칭하고 나타내는 명칭을 말합니다.</p>
+			    <p>5. 이용제한: 회사가 약과넹 의거하여 회원의 서비스 이용을 제한하는 것을 말하며,일정 기간 서비스 이용중지, 영구적인 서비스 이용 중지,서비스 중 일부에 대한 이용 중지를 포함합니다.</p>
+			    <p>6. 포인트: 각 회원에게 부여되는 점수로 서비스 내에서의 활동 정도 및 서비스의 이용 에 따라 증감되는 수치를 말합니다. </p>
+			  </div>  
+			
+			</div>
+<!-- 			<!-- *******************************모달팝업(개인정보 수집 및 이용)*************************************** -->
+			<div id="cmodalWrap" class="mWrp">
+			  <div id="cmodalBody" class="mBody">
+			    <span id="closeBtn1" class="cBtn"> &times;</span>
+			    <p> <h3>개인정보 수집 및 이용에 대한 동의 (필수)</h3> </p>
+			    <hr>
+			    <br>
+			    <p>이용목적</p>
+			    <br><p>가상자산 거래 서비스 제공 및 고객 불만 등 민원처리</p>
+			   <br>	 <p>수집항목</p>
+			    <p> <ul>
+			    <li>필수 항목 : 이메일 주소(ID),비밀번호</li>
+			    <li>선택항목: 추천인 코드(UID)</li>
+			    <li>자동 수집 항목: 서비스 이용기록,접속로그,방문일시,기기정보 ,접속IP,쿠키</li>
+			    </ul> </p>
+			    <p>보유 및 이용기간</p>
+			    <br><p>회원탈퇴 시까지</p>
+			    <br>
+			    <p>※회원님은 동의를 거부할 권리는 있으나, 동의를 거부할 경우 회원가입에 제한 될 수 있습니다.</p>
+			   
+		
+			    
+			  </div>  
+			
+			</div>
+			
+			<!-- *******************************모달팝업(개인정보 수집 및 이용)*************************************** --> 
+			<div id="c2modalWrap" class="mWrp">
+			  <div id="c2modalBody" class="mBody">
+			    <span id="closeBtn2" class="cBtn"> &times;</span>
+			    <p> <h3>개인정보 수집 및 이용안내 (선택)</h3> </p>
+			    <hr>
+			    <br>
+			   <p> <table>
+			   <thead>
+			   <tr>
+			   <th>구분</th>
+			   <th>수집항목</th>
+			   <th>이용목적</th>
+			   </tr>
+			   </thead>
+			   
+			   <tbody>
+			   	<tr>
+			   	<td>기타서비스</td>
+			   	<td>휴대폰번호</td>
+			   	<td>앱 설치URL전송</td>
+			   	</tr>
+			   </tbody>
+			   
+			   </table>  </p>
+			    <p>개인정보의 보유 및 이용 기간: 회원 탈퇴 시 30일 뒤 또는 법정 의무 보유기간</p>
+			    <br><p>선택사항의 동의를 거부하시는 경우에도 회원가입 및 구매결정 등 필수 서비스는 이용할 수 있습니다. 단, 일부 부가서비스는 제한될 수 있습니다.</p>
+		
+			    
+			  </div>  
+			
+			</div>
+			
+			
 	</form>
 	</div>
 
@@ -541,6 +659,72 @@
 
 
 	<script>
+   //이용약관 모달창 열기 	
+	const btn = document.getElementById('openuseInfo');
+	const modal = document.getElementById('modalWrap');
+	const closeBtn = document.getElementById('closeBtn');
+	
+	btn.onclick = function(){
+		modal.style.display = 'block';
+	}
+	
+	closeBtn.onclick = function(){
+		modal.style.display = 'none';
+	}
+	window.onclick = function(event){
+		if(event.target == modal){
+			modal.style.display = "none";
+		}
+	}
+	
+	
+	//개인정보 수집 및 이용에 대한 동의 약관 보기 
+	const btn1 = document.getElementById('openCollect');
+	const cmodal = document.getElementById('cmodalWrap');
+	const closeBtn1 = document.getElementById('closeBtn1');
+	
+	btn1.onclick = function(){
+		cmodal.style.display = 'block';
+		
+	}
+	
+	closeBtn1.onclick = function(){
+		cmodal.style.display = 'none';
+		
+	}
+	window.onclick = function(event){
+		if(event.target == modal){
+			cmodal.style.display = "none";
+		}
+	}
+	
+	
+	//개인정보 수집 및 이용 동의
+	const btn2 = document.getElementById('openCollect2');
+	const c2modal = document.getElementById('c2modalWrap');
+	const closeBtn2 = document.getElementById('closeBtn2');
+	
+	btn2.onclick = function(){
+		c2modal.style.display = 'block';
+		
+	}
+	
+	closeBtn2.onclick = function(){
+		c2modal.style.display = 'none';
+		
+	}
+	window.onclick = function(event){
+		if(event.target == modal){
+			c2modal.style.display = "none";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	//아이디 이메일 중복 ajax (일단 아이디부터 구현)
 	 $(function(){
 	
@@ -815,4 +999,5 @@
 	});
 	</script>
 </body>
+	<%@ include file="../common/footerBar.jsp"%>
 </html>

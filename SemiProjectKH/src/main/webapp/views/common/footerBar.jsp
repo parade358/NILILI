@@ -14,6 +14,7 @@
         }
       #footer{
         margin-top: 60px;
+        width: 1920px;
         color: gray;
       }
       #f_text{
