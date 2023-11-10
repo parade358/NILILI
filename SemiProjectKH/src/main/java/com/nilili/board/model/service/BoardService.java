@@ -239,6 +239,50 @@ public class BoardService {
 			return list; 
 		}
 
+		public int checkLike(int bno, int memberNo) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			int result = new BoardDao().checkLike(conn,bno,memberNo);
+			
+			return result;
+		}
+
+		public int updateLike(int bno, int memberNo) {
+			Connection conn = JDBCTemplate.getConnection();
+
+			int num = new BoardDao().updateLike(conn,bno,memberNo);
+		
+			if(num>0) {
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+			return num;
+		}
+
+		public int deleteLike(int bno, int memberNo) {
+			Connection conn = JDBCTemplate.getConnection();
+
+			int num = new BoardDao().deleteLike(conn,bno,memberNo);
+			
+			if(num>0) {
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+			return num;
+		}
+
+		public int countLike(int bno) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			int result = new BoardDao().countLike(conn, bno);
+			
+			return result;
+		}
+
 
 
 

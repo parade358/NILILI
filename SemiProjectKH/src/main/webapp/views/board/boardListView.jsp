@@ -347,7 +347,7 @@
 			});
 		</script>
 		
-
+        
         <script>
         	//글 클릭했을때 글번호를 detail.bo 로 전달하며 페이지 요청하기
         	$(function(){
@@ -362,6 +362,8 @@
         		
         	});
         </script>
+        
+        
 	
 </body>
 </html>

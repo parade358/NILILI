@@ -613,6 +613,126 @@ public class BoardDao {
 		
 		return list;
 	}
+
+	public int checkLike(Connection conn, int bno, int memberNo) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("checkLike");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			pstmt.setInt(2, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				result = rset.getInt("COUNT");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateLike(Connection conn, int bno, int memberNo) {
+		
+		int num = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		
+		String sql = prop.getProperty("updateLike");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			pstmt.setInt(2, memberNo);
+			
+			num = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return num;
+	}
+
+	public int deleteLike(Connection conn, int bno, int memberNo) {
+		
+		int num = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		
+		String sql = prop.getProperty("deleteLike");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			pstmt.setInt(2, memberNo);
+			
+			num = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return num;
+	}
+
+	public int countLike(Connection conn, int bno) {
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		int result = 0;
+		
+		String sql = prop.getProperty("countLike");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
 	
 
 }

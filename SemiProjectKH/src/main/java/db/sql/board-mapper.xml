@@ -3,7 +3,7 @@
 <properties>
 
 
-		<entry key="listCount">
+	<entry key="listCount">
 		SELECT COUNT(*) COUNT
 		FROM BOARD
 	</entry>
@@ -257,6 +257,25 @@
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<entry key="checkLike">
+		SELECT COUNT(*) COUNT
+		FROM BO_LIKE WHERE BOARD_NO = ? AND MEMBER_NO = ?
+	</entry>
+	
+	<entry key="updateLike">
+		INSERT INTO BO_LIKE (BOARD_NO, MEMBER_NO) VALUES (?,?)
+	</entry>
+	
+	
+	<entry key="deleteLike">
+		DELETE FROM BO_LIKE 
+		WHERE BOARD_NO =? AND MEMBER_NO = ?
+	</entry>
+	
+	<entry key="countLike">
+		SELECT COUNT(*) COUNT
+		FROM BO_LIKE WHERE BOARD_NO = ?
+	</entry>
 	
 
 
