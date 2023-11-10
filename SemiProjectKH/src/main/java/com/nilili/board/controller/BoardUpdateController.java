@@ -2,6 +2,7 @@ package com.nilili.board.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -13,10 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.nilili.board.model.dao.BoardDao;
 import com.nilili.board.model.service.BoardService;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
 import com.nilili.board.model.vo.Category;
+import com.nilili.common.JDBCTemplate;
 import com.nilili.common.model.vo.MyFileRenamePolicy;
 import com.oreilly.servlet.MultipartRequest;
 
@@ -40,7 +43,7 @@ public class BoardUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-int bno = Integer.parseInt(request.getParameter("bno"));
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		
 		BoardService bs = new BoardService();
 		//수정페이지에 띄워줄 데이터 조회해오기
@@ -48,15 +51,16 @@ int bno = Integer.parseInt(request.getParameter("bno"));
 		//카테고리 목록
 		ArrayList<Category> list = bs.selectCategoryList();
 		//첨부파일 정보 
-		Attachment at = bs.selectAttachment(bno);
-		
-		
+		ArrayList<Attachment> atlist = bs.selectAttachmentList(bno);
+	
+
 		request.setAttribute("b", b);
 		request.setAttribute("cList", list);
-		request.setAttribute("at", at);
+		request.setAttribute("atlist", atlist);
 		
 		request.getRequestDispatcher("views/board/boardUpdateForm.jsp").forward(request, response);
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -94,64 +98,79 @@ int bno = Integer.parseInt(request.getParameter("bno"));
 			b.setBoardCategory(category);
 			
 			//만약 새로운 첨부파일이 전달되었다면 
-			Attachment at = null;
+			ArrayList<Attachment> atlist = new ArrayList<Attachment>();
 			
 			//기존첨부파일이 있을때 새로운 첨부파일이 들어온경우 (기존 첨부파일 삭제해주기)
 			boolean flag = false;
 			
+			String key = "";
+			
 			//새로 전달된 파일명이 있을때
-			if(multiRequest.getOriginalFileName("reUploadFile") != null) {
-				at = new Attachment(); //객체 생성
-				//전달된 파일명 
-				at.setOriginName(multiRequest.getOriginalFileName("reUploadFile"));
-				//서버에 업로드된 파일명
-				at.setChangeName(multiRequest.getFilesystemName("reUploadFile"));
-				//저장 경로 넣기
-				at.setFilePath("/resources/uploadFiles/");
-				
-				//만약 기존에도 파일이 있었다면 파일번호와 파일명을 전달받기 
-				if(multiRequest.getParameter("originFileNo") != null) {
-					//새로 첨부된 파일이 있고 기존 파일도 있다면 
-					//파일정보가 등록된 데이터에서 변경작업을 한다 update
-					//파일번호(식별자)를 이용하여 기존데이터에서 변경하기.(덮어쓰기)
-					at.setFileNo(Integer.parseInt(multiRequest.getParameter("originFileNo")));
+			for(int i=1; i<=4; i++) {
+				key = "file"+i;
+		
+				if(multiRequest.getOriginalFileName(key) != null) {
+					Attachment at = new Attachment(); //객체 생성
+					//전달된 파일명 
+					at.setOriginName(multiRequest.getOriginalFileName(key));
+					//서버에 업로드된 파일명
+					at.setChangeName(multiRequest.getFilesystemName(key));
+					//저장 경로 넣기
+					at.setFilePath("/resources/uploadFiles/");
 					
-					//기존 첨부파일 삭제 플래그
-					flag = true;
-					
-				}else {//새로 전달된 파일은 있지만 기존에는 파일이 없었을때 
-					//데이터베이스에 Attachment정보를 추가해야한다.
-					//참조 게시글 번호를 세팅 
-					at.setRefBno(boardNo);
+					//만약 기존에도 파일이 있었다면 파일번호와 파일명을 전달받기 
+					if(multiRequest.getParameter("originFileNo"+i) != null) {
+						//새로 첨부된 파일이 있고 기존 파일도 있다면 
+						//파일정보가 등록된 데이터에서 변경작업을 한다 update
+						//파일번호(식별자)를 이용하여 기존데이터에서 변경하기.(덮어쓰기)
+						at.setFileNo(Integer.parseInt(multiRequest.getParameter("originFileNo"+i)));
+						
+						//기존 첨부파일 삭제 플래그
+						flag = true;
+						
+					}else {//새로 전달된 파일은 있지만 기존에는 파일이 없었을때 
+						//데이터베이스에 Attachment정보를 추가해야한다.
+						//참조 게시글 번호를 세팅 
+						at.setRefBno(boardNo);
+					}
+					//있을때만 추가하기 
+					atlist.add(at);
 				}
+				
 				
 			}
 			
 			
-			//서비스로 요청보내기 
-			//b,at 
-			//새로운 첨부파일이 없는경우 b,at(null) - b : update 
-			//새로운 첨부파일이 있고 기존에 첨부파일이 있는경우 b,at(fileNo) : b : update -at: update
-			//새로운 첨부파일이 있고 기존에 첨부파일이 없는경우 b,at(refBno) : b : update -at: insert
+		//서비스로 요청보내기 
+		//b,at 
+		//새로운 첨부파일이 없는경우 b,at(null) - b : update 
+		//새로운 첨부파일이 있고 기존에 첨부파일이 있는경우 b,at(fileNo) : b : update -at: update
+		//새로운 첨부파일이 있고 기존에 첨부파일이 없는경우 b,at(refBno) : b : update -at: insert
+		
+		
+		int result = new BoardService().updateBoard(b,atlist);
+		HttpSession session = request.getSession();
+		//성공시에 상세페이지로 성공메세지와 함께
+		if(result>0) {
 			
-			int result = new BoardService().updateBoard(b,at);
-			HttpSession session = request.getSession();
-			//성공시에 상세페이지로 성공메세지와 함께
-			if(result>0) {
-				
-				//기존에 있었던 파일이 지워져야한다면 
-				if(flag) {
-					//기존 파일 삭제 해주기 (저장경로 + 원본파일명)-원본파일명은 view에서 넘겨줌
-					new File(savePath+multiRequest.getParameter("originFileName")).delete();
-				}
-				
-				session.setAttribute("alertMsg", "게시글 수정 성공");
-				response.sendRedirect(request.getContextPath()+"/list.bo?currentPage=1");
-			}else {
-				session.setAttribute("alertMsg", "게시글 수정 실패");
-				response.sendRedirect(request.getContextPath()+"/detail.bo?bno="+boardNo);
+			//기존에 있었던 파일이 지워져야한다면 
+			if(flag) {
+				//기존 파일 삭제 해주기 (저장경로 + 원본파일명)-원본파일명은 view에서 넘겨줌
+				new File(savePath+multiRequest.getParameter("originFileName")).delete();
 			}
-	}
+			session.setAttribute("alertMsg", "게시글 수정 성공");
+			response.sendRedirect(request.getContextPath()+"/list.bo?currentPage=1");
+		}else {
+			
+			session.setAttribute("alertMsg", "게시글 수정 실패");
+			response.sendRedirect(request.getContextPath());
+		}
+
+
+
+
+
+		}
 
 }
 }
