@@ -4,11 +4,18 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   <style>
         /* 새로 추가한 스타일 */
+        
 .chat-toggle-button {
     position: fixed;
     bottom: -25px;
@@ -17,7 +24,7 @@
     height: 80px;
     background-color: #9A0A0A;
     color: #ffffff;
-    border-radius: 40%;
+    border-radius: 50%;
     text-align: center;
     line-height: 50px;
     font-size: 24px;
@@ -32,6 +39,7 @@
         0px 30px 60px rgba(0, 0, 0, 0.3),
         0px -2px 10px rgba(10, 37, 64, 0.35) inset;
         }
+      
 
 
         .chat-toggle-button:hover {
@@ -85,10 +93,22 @@
         .chat-container.visible {
             display: block;
         }
+        
+          *{font-family: 'Noto sans KR', sans-serif;}
+          
+        
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
     </style>
 </head>
 <body>
-    <div class="chat-toggle-button" onclick="toggleChat()">NILILI</div>
+    <div class="chat-toggle-button material-symbols-outlined" onclick="toggleChat()"><img src="resources/mainIndex/chatBot.png" alt="메인이미지"></div>
 <!--@@@@@@@@@@@@@@@@@@@@@메인 인덱스@@@@@@@@@@@@@@@@@@@@@@@@@-->
     <div class="chat-body">
         <!-- 챗봇 대화창 컨테이너 -->
@@ -96,32 +116,45 @@
             <!-- 챗봇 헤더 -->
             <!-- 버튼 컨테이너 -->
             <div class="button-container" id="button-container">
-              <h6><pre id="textToReveal">
+              <h6><pre id="textToReveal" style="font-family: 'Noto sans KR', sans-serif;">
 
-안녕하세요 NILILI입니다
+안녕하세요 
+
+AI가 되고싶은 챗봇
+
+NILILI 입니다
 
 
 무엇을 도와드릴까요?
                 </pre></h6>
-                <button onclick="introduceArea()">홈페이지소개</button>
+                <button onclick="introduceArea()">홈페이지소개 시켜줘</button>
                 <button onclick="whatSubscribeArea()">구독을 시작하면?</button>
-                <button onclick="goEnrollArea()">회원가입</button>
-                <button onclick="goFindIDPwdArea()">아이디를 잃어버렸어</button>
-                <button onclick="goSubscribeArea()">구독하기</button>
+                <button onclick="goEnrollArea()">회원가입 하고 싶어</button>
+                <button onclick="goFindIDPwdArea()">아이디를 잃어버렸어 </button>
+                <button onclick="goSubscribeArea()">구독하고 싶어</button>
             </div>
         </div>
         <div class="chat-container" id="introduce" style="display: none;">
 <!--@@@@@@@@@@@@@@@@@@@@@홈페이지 소개@@@@@@@@@@@@@@@@@@@@@@@@@-->
             <div class="button-container" id="button-container-introduce">
-               <h6> <pre id="text2">
+               <h6> <pre id="text2" style="font-family: 'Noto sans KR', sans-serif;">
+
 저희 홈페이지는 여행가고 싶은 분들을 위한 
+
 기본적인 서울 소개 홈페이지 입니다
+
 주말에 간단하게 나들이 가고싶은데
+
 어딜 갈지 모르는 당신에게 
+
 서울의 방방곳곳 숨어있는 명소를 
+
 간단하게 소개시켜드리거나 
+
 간단한 게임을 통해 여행지를 추천해드리는
+
 사이트입니다.
+ 
                                 </pre></h6>
              
                 <button onclick="toggleChat()" id="backsite">이전 목록으로</button>
@@ -132,12 +165,18 @@
         <div class="chat-container" id="whatSubscribe" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
-<h6> <pre id="text4">
+<h6> <pre id="text4" style="font-family: 'Noto sans KR', sans-serif;">
+
 닐리리는 구독을 신청하시면
+
 보다 재밌게 여행지를 고를수있게
+
 간단한 게임을 구현해놨습니다
+
 더구나 한달에 한번씩 레터를 보내
+
 닐리리가 추천한 여행지를 소개해드립니다
+
 </pre></h6>
                
                 <button onclick="toggleChat()" id="backsite3">이전 목록으로</button>
@@ -148,11 +187,16 @@
         <div class="chat-container" id="goEnrollForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
-<h6> <pre id="text3">
-밑에 버튼을 클릭하시면 
-회원가입 페이지로 이동합니다
+<h6> <pre id="text3" style="font-family: 'Noto sans KR', sans-serif;">
+
+NILILI의 멤버가 되고싶으시다구요?
+
+요청을 듣고 제가 밑에 회원가입 버튼을 만들어왔습니다 
+
+어서 닐리리의 든든한 친구가 되어주세요!
+
 </pre></h6>
-                <button id="">회원가입</button>
+           <a href="http://localhost:8888/semi/enrollForm.mb"><button>회원가입</button></a>     
                 <button onclick="toggleChat()" id="backsite2">이전 목록으로</button>
             </div>
         </div>
@@ -162,12 +206,18 @@
         <div class="chat-container" id="goFindPwdForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
-<h6> <pre id="text5">
-아이디 비밀번호를 까먹으셨나요?
-밑에 버튼을 클릭하셔서 찾으시고
-닐리리를 즐겨주세요!
+<h6> <pre id="text5" style="font-family: 'Noto sans KR', sans-serif;">
+
+아이디 비밀번호를 까먹으셨다구요?
+
+제가 바로 버튼을 만들어왔습니다
+
+어서 찾으시고 로그인 하신다음에
+
+NILILI를 즐겨주세요!
+
 </pre></h6>
-                <button id="">ID PW 찾기</button>
+               <a href="http://localhost:8888/semi/views/member/find_Id_Pwd.jsp"><button id="">ID PW 찾기</button></a> 
                 <button onclick="toggleChat()" id="backsite4">이전 목록으로</button>
             </div>
         </div>
@@ -177,9 +227,17 @@
         <div class="chat-container" id="goSubscribeForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
-<h6> <pre id="text6">
+<h6> <pre id="text6" style="font-family: 'Noto sans KR', sans-serif;">
+
 닐리리의 매력에 더욱더 빠지고 싶으신가요?
-구독을 하셔서 닐리리와 함께 고민을 해결해보세요!
+
+제가 바로 구독버튼을 만들어왔습니다
+
+어서 구독을 하셔서 닐리리와 함께 고민을 해결해보세요!
+
+구독자 분들한테는 더욱더 프리미엄한 서비스가 제공됩니다!
+
+
 </pre></h6>
                 <button id="">구독하기</button>
                 <button onclick="toggleChat()" id="backsite5">이전 목록으로</button>
