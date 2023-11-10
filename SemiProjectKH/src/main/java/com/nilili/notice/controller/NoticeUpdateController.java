@@ -148,7 +148,7 @@ public class NoticeUpdateController extends HttpServlet {
 					new File(savePath+multiRequest.getParameter("originFileName")).delete();
 				}
 				
-				session.setAttribute("alertMsg", "공지사항 수정 성공");
+				session.setAttribute("alertMsg", "공지사항 수정");
 				response.sendRedirect(request.getContextPath()+"/list.no?currentPage=1");
 			}else {
 				session.setAttribute("alertMsg", "공지사항 수정 실패");
