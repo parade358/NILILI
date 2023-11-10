@@ -1,7 +1,8 @@
+<%@page import="com.nilili.recommend.model.vo.Recommend"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,9 +31,10 @@
 
 <title>늴리리</title>
 
-<!-- jQuery -->
+<!-- jQuery
 <script src="resources/js/code.jquery.com_jquery-3.7.1.min.js"></script>
-
+ -->
+ 
 <!-- 링크들 -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -129,8 +131,24 @@
 
 			<h2>
 				<b>여행지를 추천해드릴게요</b>
+
 			</h2>
-			<div class="resultname"></div>
+ 			<div class="resultname">
+
+<%-- 				${r.plName } --%>
+<%-- 				<c:choose> --%>
+<%-- 				    <c:when test="${not empty r}"> --%>
+<%-- 				        ${r.plName} --%>
+<%-- 				    </c:when> --%>
+<%-- 				    <c:otherwise> --%>
+<!-- 				        No data available -->
+<%-- 				    </c:otherwise> --%>
+<%-- 				</c:choose> --%>
+
+
+
+			</div>
+
 			<div id="resultImg"
 				class="my-3 col-lg-12 col-md-6 col-sm-6 col-12 mx-auto py-5"></div>
 			<div class="resultDesc"></div>
@@ -154,7 +172,7 @@
 		<script src="${contextPath }/resources/js/startReco.js" charset="UTF-8"></script>
 		<script src="${contextPath }/resources/js/share.js" charset="utf-8"></script>
 	</div>
-
+	<%@ include file="../common/footerBar.jsp"%>
 
 </body>
 </html>
