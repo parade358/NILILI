@@ -25,7 +25,7 @@
 
 /*답변 박스에 대한 호버와 포커스*/
 .answerList:hover, .answerList:focus{
-    background-color: burlywood;
+    background-color: #9A0A0A;
     color: white;
 }
 
@@ -41,8 +41,8 @@
 /*질문 페이지 상단의 진행정도바 안에 채워지는 바*/
 .statusBar{
     height: 100%;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f3e2c7+0,c19e67+50,b68d4c+51,e9d4b3+100;L+Brown+3D */
-    background: linear-gradient(to bottom,  #f3e2c7 0%,#c19e67 50%,#b68d4c 51%,#e9d4b3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
+    background : #9A0A0A;
 
     border-radius: 20px;
 }
