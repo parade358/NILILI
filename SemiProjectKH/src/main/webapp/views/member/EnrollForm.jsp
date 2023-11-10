@@ -12,30 +12,7 @@
 <title>Document</title>
 <style>
 
-/* 헤더 영역 시작 */
-#header {
-	/* border: 1px solid black; */
-	height: 165px;
-}
 
-#line {
-	height: 35px;
-	background-color: black;
-}
-
-#logo {
-	/* border:1px solid black; */
-	width: 155px;
-	height: 70px;
-	padding-top: 30px;
-	margin-left: 882.5px
-}
-
-#content2 {
-	font-family: 'Nanum Gothic', sans-serif;
-	margin-top: 40px;
-}
-/*-------------------------------헤더 영역 끝 ------------------------------------*/
 
 /*---------------------content 스타일 영역------------------------------*/
 #title {
@@ -303,7 +280,13 @@
 }
 	
 /*--------------푸터----------------------*/
-
+.foot{
+border:1px solid black;
+width: 1920px;
+float: left;
+margin:0;
+text-align: center;
+}
 
  @keyframes shake {
   0% { transform: translateX(0); }
@@ -435,7 +418,7 @@
     <div class="custAddress_postCode" >
 <span style="padding-bottom: 100px; position: relative; top: 80px;">*&nbsp;&nbsp; 주소</span>
         <div class="address-inputs">
-            <input type="text" class="custAddress" id="sample6_postcode" placeholder="우편번호" readonly="readonly" name="memberPostCode">
+            <input type="text" class="custAddress" id="sample6_postcode" placeholder="우편번호" readonly="readonly" name="memberPostCode">0
             <input type="text" class="custAddress" id="sample6_address" placeholder="주소" readonly="readonly" name="memberAddress">
             <button type="button" id="btnPostCode" onclick="sample6_execDaumPostcode()"  class="btn_post_search" 
 						style="width: 140px; height: 45px; background-color: #7d7d7d; border: none; color: aliceblue;">우편번호 찾기</button>
@@ -654,7 +637,6 @@
 	</div>
 
 
-	<%@ include file="../common/footerBar.jsp"%>
 
 
 
@@ -998,6 +980,34 @@
 			  });	
 	});
 	</script>
+	
+	
+	
+	<div class="foot">
+	   <div class="fcon">
+	      <hr>
+	       <span id="f_text" >
+            고객문의  |  이용약관  | 개인정보취급방침  |  사이트맵
+            <br><br>
+            서울시 영등포구 선유동 2로 57 이레빌딩 20층 E강의장  TEL 1544-9970
+            <br>
+            COPYRIGHT ⓒ  1988-2023 KH IEI ALL Right Reserved
+        
+        </span>
+	   </div>
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
-	<%@ include file="../common/footerBar.jsp"%>
+	
 </html>

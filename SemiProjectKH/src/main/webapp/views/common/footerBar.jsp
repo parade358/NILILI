@@ -16,6 +16,7 @@
         margin-top: 60px;
         width: 1920px;
         color: gray;
+        text-align: center;
       }
       #f_text{
         padding-top: 40px;
@@ -30,7 +31,7 @@
 <!--인클루드 하실때 제일 밑에다가 해주세요 -->
 
     <div class="wrap"> <!-- div wrap 는 무조건 가지고 다니셔야 합니다. -->
-    <div id="footer" align="center">
+    <div id="footer" >
         <hr>
         <span id="f_text" >
             고객문의  |  이용약관  | 개인정보취급방침  |  사이트맵
