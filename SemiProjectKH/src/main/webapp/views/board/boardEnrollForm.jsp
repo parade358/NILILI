@@ -299,10 +299,10 @@
                     선언석함수를 내부에 작성할때 해당 이벤트가 발생한시점에 요소객체를 전달하는 방법
                     함수(this) 
                 -->
-				<input type="file" id="file1" name="file1" onchange="loadImg(this,1)"> <!-- 대표이미지 필수  -->
-				<input type="file" id="file2" name="file2" onchange="loadImg(this,2)" >
-				<input type="file" id="file3" name="file3" onchange="loadImg(this,3)" >
-				<input type="file" id="file4" name="file4" onchange="loadImg(this,4)" >
+				<input type="file" id="file1" name="file1" onchange="loadImg(this,1)" required> <!-- 대표이미지 필수  -->
+				<input type="file" id="file2" name="file2" onchange="loadImg(this,2)" required>
+				<input type="file" id="file3" name="file3" onchange="loadImg(this,3)" required>
+				<input type="file" id="file4" name="file4" onchange="loadImg(this,4)" required>
 			
 			</div>
 
