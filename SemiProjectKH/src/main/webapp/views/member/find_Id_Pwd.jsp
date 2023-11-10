@@ -16,7 +16,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=
     , initial-scale=1.0">
-<title>Document</title>
+<title>은지누나의 아이디 비번 찾기</title>
+
 <style>
 #area1 {
 	height: 1000px;
@@ -122,7 +123,7 @@
 							aria-label="Small select example">
 								<option selected>이메일을 선택해주세요</option>
 								<option value="@naver.com">naver.com</option>
-								<option value="@google.com">gmail.com</option>
+								<option value="@gmail.com">gmail.com</option>
 								<option value="@daum.net">daum.net</option>
 								<option value="@nate.com">nate.com</option>
 								<option value="@khacademy.com">kh.com</option>
