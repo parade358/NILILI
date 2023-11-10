@@ -49,42 +49,45 @@ public class BoardService {
 		return list;
 	}
 	
+	
 	//게시글 등록 메소드
-	public int insertBoard(Board b, Attachment at) {
+	public int insertBoard(Board b, ArrayList<Attachment> list) {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		//게시글 정보 등록부터 하기 (첨부파일은 해당 게시글 번호를 갖고 추가되어야하기 때문에)
 		int result = new BoardDao().insertBoard(conn,b);
 		
 		//첨부파일이 있다면 등록하기 
-		int result2 = 1;  //만약 첨부파일이 없다면 아래 조건식을 보드처리로만 확인해야하니 1로 초기화
+		int result2 = new BoardDao().insertAttachmentList(conn, list);
+		//int result2 = 0;  //만약 첨부파일이 없다면 아래 조건식을 보드처리로만 확인해야하니 1로 초기화
 		
-		if(at!=null) {
-			result2 = new BoardDao().insertAttachment(conn,at);//요청시 0으로 되면 조건식 판별 
-		}
 		
-		if(result*result2>0) { //성공시 (두 dml다 0이아닌경우 )
-			
+		//둘중 하나라도 실패하면 rollback 둘다 성공해야 commit 
+		if(result*result2>0) {
 			JDBCTemplate.commit(conn);
-		}else { //둘중하나라도 0으로 돌아오면 실패 (되돌리기)
+		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		
-		return result*result2; //처리결과 리턴
+		JDBCTemplate.close(conn);
+		
+		
+		return result*result2;
 	}
-	
-	//첨부파일 조회 메소드
-		public Attachment selectAttachment(int boardNo) {
+		
+		
+
+		public ArrayList<Attachment> selectAttachmentList(int boardNo) {
 			Connection conn = JDBCTemplate.getConnection();
 			
-			Attachment at = new BoardDao().selectAttachment(conn,boardNo);
+			ArrayList<Attachment> AttachmentList = new BoardDao().selectAttachmentList(conn, boardNo);
 			
-			//조회구문이니 트랜잭션 처리는 필요하지 않다.
-			//자원반납 처리만 할것
 			JDBCTemplate.close(conn);
 			
-			return at; //조회해온 첨부파일 정보 
+			
+			return AttachmentList;
 		}
+		
 
 		public int increaseCount(int boardNo) {
 			Connection conn = JDBCTemplate.getConnection();
@@ -115,7 +118,10 @@ public class BoardService {
 			return b;
 		}
 
-		public int updateBoard(Board b, Attachment at) {
+
+		
+		//게시글 수정
+		public int updateBoard(Board b, ArrayList<Attachment> list) {
 			Connection conn = JDBCTemplate.getConnection();
 			
 			//게시글 정보 수정 
@@ -126,16 +132,20 @@ public class BoardService {
 			int result2 = 1;
 			
 			//첨부파일이 있다면 수정 또는 추가 작업 수행 
-			if(at!=null) {
+			if(!list.isEmpty()) {//비어있는지 확인
 				//기존 첨부파일이 있다면 (update) - fileNo가 있는지 확인
-				if(at.getFileNo() != 0) {
-					result2 = new BoardDao().updateAttachment(conn,at);
-				}else {//기존에 첨부파일이 없었다면 - insert
-					//기존에 첨부파일 추가 메소드에서는 sql구문이 
-					//refBno(참조게시글번호) 부분이 currval(현재시퀀스번호)로 들어가있어서 사용할 수 없다. 
-					//controller에서 가져온 boardNo를 넣어서 추가하여야한다.
-					
-					result2 = new BoardDao().insertNewAttachment(conn,at);
+				for(Attachment at : list) {
+					if(at.getFileNo() != 0) {
+						result2 = new BoardDao().updateAttachment(conn,at);
+					}else {//기존에 첨부파일이 없었다면 - insert
+						//기존에 첨부파일 추가 메소드에서는 sql구문이 
+						//refBno(참조게시글번호) 부분이 currval(현재시퀀스번호)로 들어가있어서 사용할 수 없다. 
+						//controller에서 가져온 boardNo를 넣어서 추가하여야한다.
+						
+						result2 = new BoardDao().insertNewAttachment(conn,at);
+						
+						System.out.println(result2);
+					}
 				}
 			}
 			
@@ -151,6 +161,7 @@ public class BoardService {
 			
 			return result*result2;
 		}
+		
 
 		public int deleteBoard(int bno) {
 			Connection conn = JDBCTemplate.getConnection();
@@ -197,7 +208,7 @@ public class BoardService {
 			
 			return rlist;
 		}
-
+		
 		public ArrayList<Board> searchTitleList(PageInfo pi, String searchText) {
 			Connection conn = JDBCTemplate.getConnection();
 			
@@ -227,5 +238,8 @@ public class BoardService {
 			
 			return list; 
 		}
+
+
+
 
 }

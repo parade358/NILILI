@@ -1,17 +1,7 @@
-<%@page import="com.nilili.member.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	//로그인 정보 꺼내놓기 
-	//session객체에 loginUser 객체와 alertMsg 메세지를 담아놓음 
-	//Member loginUser = (Member)session.getAttribute("loginUser");
-	//로그인 전 menubar.jsp 로딩되면 loginUser == null
-	//로그인 후 menubar.jsp 로딩되면 로그인한 회원정보담긴 Member객체
-	//로그인 전 menubar.jsp 로딩되면 alertMsg == null
-	//로그인 후 menubar.jsp 로딩되면 alertMsg == 성공메세지 
-	Member loginMember = (Member)session.getAttribute("loginMember");
-%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,6 +121,7 @@
 		
         td{
             height: 70px;
+
         }
 
         #tdtitle{
@@ -141,6 +132,7 @@
         th{
             text-align: left;
             padding-left: 20px;
+            
             
         }
 
@@ -181,7 +173,7 @@
             padding-top: 7px;
             font-size: 13px;
             font-weight: 600;
-            margin-right: 683px;
+            /* margin-right: 683px; */
             margin-bottom: 15px;
         }
 
@@ -208,17 +200,37 @@
 
         }
 
+        #imgth{
+            text-align: center;
+            padding-right: 30px;
+        }
+
+        #imgtext{
+            height: 30px;
+            font-size: 12px;
+            color: #5e5b5b;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        #img{
+            margin-left: 23px;
+            
+        }
+
     </style>
 </head>
 <body>
-	<!-- ../ 상위폴더로 이동 -->
-	<%@ include file="/views/common/headerBar.jsp" %>	
 
+	
 	<div class="wrap">
+		<!--헤더영역 블랙라인 + 로고 -->
+        <%@ include file="/views/common/headerBar.jsp"%>
+		<br>
 
-     
-		
-        
         <!--인덱스 타이틀-->
         <div id="title1">서울 여행 정보 공유 사이트</div>
 
@@ -228,8 +240,6 @@
         <!--게시글 작성 테이블-->
         
         <form action="${contextPath }/insert.bo" method="post" id="enroll-area" enctype="multipart/form-data">
-        
-         <input type="hidden" name="memberNO" value="<%=loginMember.getMemberNO()%>">
         
         <table class="list-area" align="center">
 			<thead>
@@ -257,23 +267,115 @@
                         
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                        <td colspan="4" >
-                            <label for="input-file" id="file">첨부하기</label>
-                            <input type="file" name="uploadFile" id="input-file" style="display: none;">   
-                        </td>
+             <tbody>
+ 
+				<tr height="225">
+					<th id="imgth">이미지 <br>첨부</th>
+                    
+					<td colspan="4">
+                    <div id="imgtext">이미지를 첨부해서 나만의 여행네컷을 만들어보세요.</div>
+                    
+                <div style="position: relative;">
+                    <img src="${contextPath }/resources/img/board/photoframe_nilili_2.png" alt="인생네컷" width="900" height="170">
+                    
+                    <div id="img" style="position: absolute; top: 10px;" >
+                    <img id="titleImg" width="182" height="150" style="margin-right: 20px;">
+					<img id="contentImg1" width="182" height="150" style="margin-right: 19px;">
+					<img id="contentImg2" width="182" height="150" style="margin-right: 18px;">
+					<img id="contentImg3" width="182" height="150">
+                    </div>
+                    
+                </div>
 
-                </tr>
+					</td>
+				</tr>
+  
             </tbody>
+			</table>
+			<br><br>
 			
-
-		</table>
-
-		
+			<div id="file-area">
+                <!--onchange : 변화가 일어났을때 발생하는 이벤트 
+                    선언석함수를 내부에 작성할때 해당 이벤트가 발생한시점에 요소객체를 전달하는 방법
+                    함수(this) 
+                -->
+				<input type="file" id="file1" name="file1" onchange="loadImg(this,1)"> <!-- 대표이미지 필수  -->
+				<input type="file" id="file2" name="file2" onchange="loadImg(this,2)" >
+				<input type="file" id="file3" name="file3" onchange="loadImg(this,3)" >
+				<input type="file" id="file4" name="file4" onchange="loadImg(this,4)" >
 			
-	   <!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
-       <!--<c:if test="${not empty loginUser}"></c:if> -->
+			</div>
+
+			
+	
+
+        <script>
+            $(function(){
+                $("#file-area").hide(); //file input 숨기기
+                //대표이미지를 클릭하면 input file 요소 1번이 클릭되게 하는 함수
+                $("#titleImg").click(function(){
+                    $("#file1").click();
+                });
+                $("#contentImg1").click(function(){
+                    $("#file2").click();
+                });
+                $("#contentImg2").click(function(){
+                    $("#file3").click();
+                });
+                $("#contentImg3").click(function(){
+                    $("#file4").click();
+                });
+
+            });
+           
+            
+            //이미지를 읽어줄 함수 
+            function loadImg(inputFile,num){
+                //inputFile : 이벤트가 발생된 요소 객체 
+                console.log(inputFile.files);
+                //inputFile.files : 파일업로드 정보를 배열의 형태로 반환해주는 속성
+                //파일을 선택하면 files속성의 length가 1이 반환됨
+                if(inputFile.files.length == 1){ //파일이 등록되면 
+                    //해당 파일을 읽어줄 FileReader라고 하는 자바스크립트 객체를 이용한다.
+                    var reader = new FileReader();
+                    //파일을 읽어줄 메소드 : reader.readAsDataURL(파일)
+                    //해당 파일을 읽어서 고유한 url을 부여해주는 메소드 
+                    //반환받은 url을 미리보기 화면에 넣어주면 된다. 
+                    reader.readAsDataURL(inputFile.files[0]);
+
+                    //해당 reader객체가 읽혀진 시점에 img src속성에 부여된 고유 url을 넣어주기
+                    reader.onload = function(e){//e : event 객체
+                        console.log(e);
+                        //이벤트 객체에서 reader가 부여한 고유 url 정보 
+                        //event.target.result 
+                        console.log(e.target.result);
+
+                        switch(num){
+                            case 1: $("#titleImg").attr("src",e.target.result); break;
+                            case 2: $("#contentImg1").attr("src",e.target.result); break;
+                            case 3: $("#contentImg2").attr("src",e.target.result); break;
+                            case 4: $("#contentImg3").attr("src",e.target.result); break;
+                        }
+
+                    }
+
+                }else{//length가 1이 아니면 
+                    switch(num){
+                            case 1: $("#titleImg").attr("src",null); break;
+                            case 2: $("#contentImg1").attr("src",null); break;
+                            case 3: $("#contentImg2").attr("src",null); break;
+                            case 4: $("#contentImg3").attr("src",null); break;
+                        }
+
+                }
+            }
+
+           
+
+
+        </script>
+
+	 
 		
        <!--버튼-->
        <div align="center" id="bottondiv">

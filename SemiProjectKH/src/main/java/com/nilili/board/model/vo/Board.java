@@ -2,6 +2,7 @@ package com.nilili.board.model.vo;
 
 import java.util.Date;
 
+
 public class Board {
 	
 //	BOARD_NO				NUMBER	
@@ -181,7 +182,8 @@ public class Board {
 				+ ", count=" + count + ", description=" + description + ", regiDate=" + regiDate + ", modiDate="
 				+ modiDate + ", useYn=" + useYn + "]";
 	}
-	
+
+
 	
 	
 	

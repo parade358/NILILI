@@ -61,7 +61,9 @@ public class BoardListController extends HttpServlet {
 		
 		ArrayList<Board> list = new BoardService().selectList(pi);
 		
+		
 		request.setAttribute("list", list);
+		
 		request.setAttribute("pi", pi);
 		
 		// boardListView페이지로 요청 포워딩

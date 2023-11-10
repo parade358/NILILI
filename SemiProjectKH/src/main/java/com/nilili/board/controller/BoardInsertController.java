@@ -1,6 +1,5 @@
 package com.nilili.board.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,7 +17,6 @@ import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
 import com.nilili.board.model.vo.Category;
 import com.nilili.common.model.vo.MyFileRenamePolicy;
-import com.nilili.member.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
@@ -63,6 +61,7 @@ public class BoardInsertController extends HttpServlet {
 			
 			int maxSize = 10 * 1024 * 1024; 
 			
+			//저장경로
 			String savePath = request.getSession().getServletContext().getRealPath("/resources/uploadFiles/");
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8",new MyFileRenamePolicy());
@@ -71,7 +70,7 @@ public class BoardInsertController extends HttpServlet {
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
 			
-			String boardWriter = String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
+			String boardWriter = "1";
 			
 			Board b = new Board();
 			b.setBoardContent(content);
@@ -79,45 +78,64 @@ public class BoardInsertController extends HttpServlet {
 			b.setBoardWriter(boardWriter);
 			b.setBoardCategory(category);
 			
-			Attachment at = null; //첨부파일이 있다면 담아줄 예정
+			//Attachment에 담을 데이터 
+			//첨부파일은 필수로 1개는 넘어오고 여러개가 넘어올수있으니 
+			//각 데이터를 담아주기 위해 list 준비
+			ArrayList<Attachment> list = new ArrayList<>();
 			
-			//multiRequest.getOriginalFileName() 
-			// : 원본파일명을 반환하는 메소드 / 없다면 null을 반환한다. 
-			if(multiRequest.getOriginalFileName("uploadFile") != null) {
-				//원본파일명이 있다면 첨부파일정보 담아주기
+			//각 키값을 반복 돌리면서 요소 꺼내주기 
+			
+			for(int i=1; i<=4; i++) {
+				//키값 
+				String key = "file"+i;
 				
-				at = new Attachment();
-				//원본파일명 담기
-				at.setOriginName(multiRequest.getOriginalFileName("uploadFile"));
-				//변경한 파일명 담기 (서버에 등록된 파일명)
-				at.setChangeName(multiRequest.getFilesystemName("uploadFile"));
-				//경로 담기
-				at.setFilePath("/resources/uploadFiles/");
-				
+				//키값에 해당하는 요소가 있는지 확인하기 
+				if(multiRequest.getOriginalFileName(key)!=null) {
+					//해당 키값에 파일이 있다면 
+					//Attachment 객체 생성후 데이터 담아주기 
+					//여러개가 나올 수 있으니 Attachment객체를 list에 추가하기 
+					//원본명,변경이름,파일경로,파일레벨(썸네일사진/상세사진)
+					
+					Attachment at = new Attachment();
+					at.setOriginName(multiRequest.getOriginalFileName(key));
+					at.setChangeName(multiRequest.getFilesystemName(key));
+					at.setFilePath("/resources/uploadFiles/");
+					
+					if(i==1) { //대표이미지 fileLevel == 1 
+						at.setFileLevel(1);
+					}else { //상세이미지 fileLevel == 2
+						at.setFileLevel(2);
+					}
+					list.add(at); //값 추출 끝났으니 리스트에 추가하기.
+					
+				}
 			}
+
+			//서비스에 요청하기 
 			
-			//3.서비스 요청 (게시글정보와 첨부파일 정보 전달)
-			int result = new BoardService().insertBoard(b,at);
+			int result = new BoardService().insertBoard(b,list);
+			HttpSession session1 = request.getSession();
 			
 			if(result>0) { //성공
-				session.setAttribute("alertMsg", "게시글 등록 성공");
+				//성공메세지와함께 사진게시판 목록 보여주기
+				session1.setAttribute("alertMsg", "게시글을 등록했습니다.");
+				
 				response.sendRedirect(request.getContextPath()+"/list.bo?currentPage=1");
+				
 			}else {//실패
-				//게시글 등록에 실패했다면 서버에 업로드된 파일을 지워야한다.
-				
-				if(at!=null) {//첨부파일이 있다면 삭제 작업 
-					//삭제하고자하는 파일경로로 파일객체 생성하여 delete메소드 수행
-					new File(savePath+at.getChangeName()).delete();
-				}
-				
-				session.setAttribute("alertMsg", "게시글 등록 실패");
+				//실패메세지와함께 사진게시판 목록 보여주기 
+				session1.setAttribute("alertMsg", "게시글 작성을 실패했습니다.");
 				
 				response.sendRedirect(request.getContextPath()+"/list.bo?currentPage=1");
+				
 			}
 			
+			
+
 		}
-		
+	
 		
 	}
 
 }
+

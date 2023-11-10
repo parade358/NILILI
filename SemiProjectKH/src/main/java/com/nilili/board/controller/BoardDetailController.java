@@ -1,12 +1,15 @@
 package com.nilili.board.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nilili.board.model.dao.BoardDao;
 import com.nilili.board.model.service.BoardService;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
@@ -43,15 +46,16 @@ public class BoardDetailController extends HttpServlet {
 				if(result>0) {
 					//게시글 정보 조회
 					Board b = new BoardService().selectBoard(boardNo);
-					
-					System.out.println(b);
 					//첨부파일 정보 조회 selectAttachment();
 					//파일번호,원본이름,변경이름,경로
 					//해당 게시글에 첨부파일이 있다면 조회를 해와야하니 게시글번호를 전달하여야한다.
-					Attachment at = new BoardService().selectAttachment(boardNo);
+					//Attachment at = new BoardService().selectAttachment(boardNo);
+					ArrayList<Attachment> list = new BoardService().selectAttachmentList(boardNo);
+					
 					
 					request.setAttribute("b", b); //게시글 정보 전달
-					request.setAttribute("at", at);//첨부파일정보도 전달
+					request.setAttribute("list", list);//첨부파일정보도 전달
+					
 					
 					
 					request.getRequestDispatcher("views/board/boardDetailView.jsp").forward(request, response);
