@@ -74,21 +74,21 @@ function addAnswer(answerText, qIdx, idx){
   //answer.classList.add('mx-auto');//스타일 추가(부트스트랩)
   answer.classList.add('fadeIn');//시각효과
 
-  // 고유한 아이디 생성
-/*  var answerId = 'box-' + qIdx + '-' + idx;
-  answer.setAttribute('id', answerId);
-  //document.querySelector('.answerList').id = answerId;
-  var answerButtons = document.querySelectorAll('.answerList');
-  answerButtons[idx].id = answerId;*/
+
+  
+
   
   // 고유한 아이디 생성
   var answerId = 'box-' + qIdx + '-' + idx;
     if (answerButtons[idx]) {
         answerButtons[idx].id = answerId;
    }
-   
+
   //ID형태 : box-0-0
   answer.setAttribute('id', answerId);
+  
+  answer.setAttribute('data-box', qIdx); // data-box 속성 추가
+  answer.setAttribute('data-index', idx); // data-index 속성 추가
 
   a.appendChild(answer); //answer를 a의 자식으로 추가하고
   answer.innerHTML = "<span>" + answerText + "</span>"; //answer안에 문구를 추가한다
@@ -158,9 +158,33 @@ function calResult() {
 //결과페이지
 function setResult(){
   let point = calResult(); //point를 위에서 받은 여행지 숫자로 받아줌
+  /*
   const resultName = document.querySelector('.resultname');
   resultName.innerHTML = infoList[point].name;
+  */
 
+  
+  // AJAX 요청을 사용하여 point 값 보내기
+//  var xhr = new XMLHttpRequest();
+//  xhr.open("GET", "/semi/reco.sl?point=" + point, true); 
+//  xhr.send();
+//  
+  
+  $.ajax({
+	url : "/semi/reco.sl",
+	data : {point : point},
+	success : function(result){
+		console.log(result);
+		$(".resultname").html(result.plName);
+		$(".resultDesc").html(result.plAddress + "<br><br>" + result.plInfo);
+	},
+	error : function(){
+		console.log("통신오류");
+	}
+});
+	
+	
+	
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
   var imgURL = 'resources/img/recoImg/result/image-' + point + '.jpg'; //여행지 이미지 이름을 정해줬기때문에 결과에 맞게 보여줄수있음
@@ -169,6 +193,6 @@ function setResult(){
   resultImg.classList.add('img-fluid');
   imgDiv.appendChild(resultImg);
 
-  const resultDesc = document.querySelector('.resultDesc');
-  resultDesc.innerHTML = infoList[point].desc;
+/*  const resultDesc = document.querySelector('.resultDesc'); //여기에다가 db의 PL_INRO값 넣어야됨, 가능하다면은 주소 정보도 넣기
+  resultDesc.innerHTML = infoList[point].desc;*/
 }

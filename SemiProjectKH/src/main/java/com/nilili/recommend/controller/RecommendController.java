@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nilili.recommend.model.service.RecommendService;
+import com.nilili.recommend.model.vo.Recommend;
+
 /**
  * Servlet implementation class RecommendController
  */
@@ -26,10 +29,10 @@ public class RecommendController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		request.getRequestDispatcher("views/recommend/recommend.jsp").forward(request, response);
-		
-		
-		
 		
 		
 		

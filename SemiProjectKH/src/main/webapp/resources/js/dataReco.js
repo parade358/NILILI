@@ -68,6 +68,87 @@ const qnaList = [
   }
 ]
 
+
+/* 2, 3, 4번 답변 = type 값을 컨트롤러로 전달하기  */
+/*
+const buttons = document.querySelectorAll('.answerList');
+
+buttons.forEach((button, index) => {
+  button.addEventListener('click', function() {
+    const buttonIndex = index;
+    console.log('Clicked Button Index:', buttonIndex);
+    
+	// JSON 형태로 변환
+	var jsonData = JSON.stringify({
+	  selectedTypes1: selectedAnswer1,
+	  selectedTypes2: selectedAnswer2,
+	  selectedTypes3: selectedAnswer3  
+	});
+
+  
+  });
+});
+
+
+
+
+// fetch를 사용하여 서버로 데이터 전송
+fetch('reco.sl', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: jsonData
+})
+.then(response => response.json())
+.then(data => {
+  // 서버에서 받은 응답 처리
+  console.log(data);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+*/
+
+
+const buttons = document.querySelectorAll('.answerList');
+
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    const boxIndex = this.getAttribute('data-box');
+    const buttonIndex = this.getAttribute('data-index');
+    console.log('Box Index:', boxIndex);
+    console.log('Button Index:', buttonIndex);
+    
+    
+    // 서버로 전송할 데이터 객체 생성
+    const data = {
+      boxIndex: boxIndex,
+      buttonIndex: buttonIndex
+    };
+
+    // 서버로 데이터를 전송하는 POST 요청 보내기
+    fetch('/reco.sl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // 서버에서 받은 응답 처리
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+
+});
+
+
+
 //결과페이지에 보여질 텍스트
 const infoList = [
   {
