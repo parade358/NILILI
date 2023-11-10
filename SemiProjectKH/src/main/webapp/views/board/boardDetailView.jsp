@@ -1,3 +1,5 @@
+<%@page import="com.nilili.board.model.vo.Board"%>
+<%@page import="com.nilili.member.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -10,6 +12,8 @@
 	//로그인 후 menubar.jsp 로딩되면 로그인한 회원정보담긴 Member객체
 	//로그인 전 menubar.jsp 로딩되면 alertMsg == null
 	//로그인 후 menubar.jsp 로딩되면 alertMsg == 성공메세지 
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	Board b = (Board)request.getAttribute("b");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
@@ -358,6 +362,26 @@ th {
 
 		<!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
 		<!--<c:if test="${not empty loginUser}"></c:if> -->
+		
+		
+		<!-- 트라이캐치 -->
+			<%try {
+				
+				 if(b.getBoardWriter().equals(loginMember.getMemberId())) {
+					%>
+			      	 <div align="center" id="bottondiv">
+			            
+					 	<button id="button1" onclick="confirmDelete()">삭제하기</button>
+			           
+						<button id="button2" onclick="location.href='${contextPath}/update.bo?bno=${b.boardNo }'">수정하기</button>
+					 </div>
+					<%
+					    };
+					%>
+			   
+			<%} catch(NullPointerException e){
+			}%>
+       <!-- 트라이캐치 -->
 
 		<!--버튼-->
 		<div align="center" id="bottondiv">
