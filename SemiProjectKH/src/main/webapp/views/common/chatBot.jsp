@@ -8,7 +8,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
     right: -15px;
     width: 80px;
     height: 80px;
-    background-color: #9A0A0A;
+
     color: #ffffff;
     border-radius: 50%;
     text-align: center;
@@ -108,7 +108,7 @@
     </style>
 </head>
 <body>
-    <div class="chat-toggle-button material-symbols-outlined" onclick="toggleChat()"><img src="resources/mainIndex/chatBot.png" alt="메인이미지"></div>
+    <div class="chat-toggle-button" onclick="toggleChat()"><img src="resources/mainIndex/AiBot.png" alt="메인이미지"></div>
 <!--@@@@@@@@@@@@@@@@@@@@@메인 인덱스@@@@@@@@@@@@@@@@@@@@@@@@@-->
     <div class="chat-body">
         <!-- 챗봇 대화창 컨테이너 -->
@@ -227,19 +227,74 @@ NILILI를 즐겨주세요!
         <div class="chat-container" id="goSubscribeForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
+            <c:choose>
+            <c:when test="${empty loginMember}">
 <h6> <pre id="text6" style="font-family: 'Noto sans KR', sans-serif;">
 
 닐리리의 매력에 더욱더 빠지고 싶으신가요?
 
-제가 바로 구독버튼을 만들어왔습니다
+제가 바로 구독버튼을 만들어오겠습니다
 
-어서 구독을 하셔서 닐리리와 함께 고민을 해결해보세요!
+...... 
 
-구독자 분들한테는 더욱더 프리미엄한 서비스가 제공됩니다!
+.......
 
+아직 로그인을 안하셨네요! 
+
+로그인을 하셔야지만 구독을 하실수 있으세요! 
+
+로그인 먼저 진행 하시고 다시 저를 찾아와주세요!
 
 </pre></h6>
-                <button id="">구독하기</button>
+	
+               
+</c:when>
+<c:when test="${loginMember.memberSubscribe eq 'N'}">
+<h6> <pre id="text6" style="font-family: 'Noto sans KR', sans-serif;">
+
+닐리리의 매력에 더욱더 빠지고 싶으신가요?
+
+제가 바로 구독버튼을 만들어오겠습니다
+
+밑에 생긴 구독버튼을 클릭 하셔서 닐리리의
+
+프리미엄 서비스를 즐겨 주세요!
+
+</pre></h6>
+
+
+ 			<button id="">구독하기</button>
+
+
+</c:when>
+<c:otherwise>
+
+<h6> <pre id="text6" style="font-family: 'Noto sans KR', sans-serif;">
+
+닐리리의 매력에 더욱더 빠지고 싶으신가요?
+
+제가 바로 구독버튼을 만들어오겠습니다
+
+.........
+...........
+.........
+
+이미 구독을 하신 상태이십니다!!
+
+마음껏 닐리리를 즐겨주세요!
+
+</pre></h6>
+
+
+
+
+
+</c:otherwise>
+
+
+
+
+                </c:choose>
                 <button onclick="toggleChat()" id="backsite5">이전 목록으로</button>
             </div>
         </div>       
@@ -280,7 +335,6 @@ NILILI를 즐겨주세요!
         $("#goSubscribeForm").css("display", "none");
         $("#chatContainer").css("display", "block");
         });
-
 
         // 토글하는 함수
         function toggleChat() {
@@ -364,6 +418,7 @@ NILILI를 즐겨주세요!
                 revealText($(this));
             });
         }
+        
 
         function revealText(element) {
             var text = element.html();
@@ -378,9 +433,12 @@ NILILI를 즐겨주세요!
             }, 30);
         }
 
+        </script>
+        
 
+ 
         
         
-    </script>
+   
 </body>
 </html>
