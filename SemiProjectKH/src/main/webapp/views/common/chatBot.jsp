@@ -14,8 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   <style>
-        /* 새로 추가한 스타일 */
-        
+     
+     /*버튼 css입니다*/   
 .chat-toggle-button {
     position: fixed;
     bottom: -25px;
@@ -40,7 +40,7 @@
         0px -2px 10px rgba(10, 37, 64, 0.35) inset;
         }
       
-
+/*버튼 호버시 변하는 css입니다*/
 
         .chat-toggle-button:hover {
             background-color: #D83B44;
@@ -54,7 +54,7 @@
             overflow-y: auto;
         }
 
-        /* 버튼 박스 */
+        /* 버튼 박스(챗봇이 열리면 버튼들의 css입니다) */
         .button-container {
             font-size: 24px;
             margin: 20px;
@@ -97,15 +97,9 @@
           *{font-family: 'Noto sans KR', sans-serif;}
           
         
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
+
 </style>
-    </style>
+   
 </head>
 <body>
     <div class="chat-toggle-button" onclick="toggleChat()"><img src="resources/mainIndex/AiBot.png" alt="메인이미지"></div>
@@ -132,6 +126,7 @@ NILILI 입니다
                 <button onclick="goEnrollArea()">회원가입 하고 싶어</button>
                 <button onclick="goFindIDPwdArea()">아이디를 잃어버렸어 </button>
                 <button onclick="goSubscribeArea()">구독하고 싶어</button>
+                <button onclick="goHotBoardArea()">닐리리의 핫한 게시물</button>
             </div>
         </div>
         <div class="chat-container" id="introduce" style="display: none;">
@@ -300,6 +295,25 @@ NILILI를 즐겨주세요!
         </div>       
 
 
+        <div class="chat-container" id="goHotBoardForm" style="display: none;">
+
+            <div class="button-container" id="button-container-introduce">
+<h6> <pre id="text7" style="font-family: 'Noto sans KR', sans-serif;">
+
+닐리리의 핫한 게시물이 궁금하시다구요?
+
+밑에 버튼을 만들어 놨으니 한번 보러가실까요?
+
+오늘의 핫한 게시물 TOP10을 소개합니다!! 
+
+</pre></h6>
+               <a href=""><button>오늘의 핫한 게시물은?</button></a> 
+                <button onclick="toggleChat()" id="backsite6">이전 목록으로</button>
+            </div>
+        </div>
+
+
+
 
     </div>
 
@@ -335,6 +349,13 @@ NILILI를 즐겨주세요!
         $("#goSubscribeForm").css("display", "none");
         $("#chatContainer").css("display", "block");
         });
+        
+        $("#backsite6").click(function(){
+
+           $("#goHotBoardForm").css("display", "none");
+           $("#chatContainer").css("display", "block");
+            });
+
 
         // 토글하는 함수
         function toggleChat() {
@@ -417,8 +438,19 @@ NILILI를 즐겨주세요!
             text6.each(function () {
                 revealText($(this));
             });
-        }
+        }  
         
+        function goHotBoardArea() {
+            var chatContainer = $("#chat-container");
+            var goHotBoardForm = $("#goHotBoardForm");
+            var text7 = $("#text7");
+
+            chatContainer.css("display", "none");
+            goHotBoardForm.css("display", "block");
+            text7.each(function () {
+                revealText($(this));
+            });
+        } 
 
         function revealText(element) {
             var text = element.html();
