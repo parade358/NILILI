@@ -353,7 +353,10 @@ color:#e6e6e6;
 					<sapn id="subtitle"> <b>늴리리</b></sapn>
 				</div>
 				<!--button영역 호버시 이미지 바꾸기/ 클릭시  서브페이지로 이동하기-->
+				
+
 				<div id="menus">
+			
 					<a class="same2" href="${contextPath}/game.pl" title="본인의 여행취향이 궁금하신가요?"><img
 						src="resources/mainIndex/01_1con.png" id="con1" alt="여행취향"></a>
 					<a class="same2" href="${contextPath}/reco.pl" title="어딜가실지 모르시겠나요?"><img
