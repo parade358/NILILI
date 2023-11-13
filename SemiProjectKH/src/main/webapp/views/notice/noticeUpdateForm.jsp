@@ -283,7 +283,7 @@
                 <tr>
                     <th width="100" height="280">내용</th>
                     <td colspan="4">
-                        <textarea name = "content" id="content" cols="30"
+                        <textarea name = "content" id="summernote" cols="30"
                         rows="10" style="resize: none;">${n.boardContent }</textarea>
                     </td>
                         
@@ -308,9 +308,42 @@
 			
 
 		</table>
-
 		
+		
+		<!-- summernote(게시글 내용) 스크립트 -->
+		<script>
+		
+		$(document).ready(function() {
+ 			$('#summernote').summernote({
+				  height: 300,                 // 에디터 높이
+ 				  minHeight: null,             // 최소 높이
+				  maxHeight: null,             // 최대 높이
+ 				  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+ 				  lang: "ko-KR",					// 한글 설정
+ 				  placeholder: '최대 2048자까지 작성 가능합니다.',	//placeholder 설정
+ 			 	  toolbar: [
+ 				    // [groupName, [list of button]]
+ 				    ['fontname', ['fontname']],
+ 				    ['fontsize', ['fontsize']],
+ 				    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+ 				    ['color', ['forecolor','color']],
+ 				    ['table', ['table']],
+ 				    ['para', ['ul', 'ol', 'paragraph']],
+ 				    ['height', ['height']],
+ 				    ['insert',['picture','link','video']],
+ 				    ['view', ['fullscreen', 'help']]
+ 				  ],
+ 				fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+ 				fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+		          
+ 			});
 			
+		});
+		
+		
+		</script>
+		
+
        <!--버튼-->
        <div align="center" id="bottondiv">
             
