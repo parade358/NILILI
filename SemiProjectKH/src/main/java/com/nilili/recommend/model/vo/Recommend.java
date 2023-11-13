@@ -61,7 +61,7 @@ public class Recommend {
 			String preference, String description, Date regiDate, Date modiDate, String useYn, int recommendNo,
 			int memberNo, int letterNo, int subNo, int taste1, int taste2, int taste3, Date expirationDate) {
 		super();
-		this.plNo = plNo;
+		this.plNo = plNo;	
 		this.plName = plName;
 		this.plAddress = plAddress;
 		this.plLocation = plLocation;
@@ -103,7 +103,7 @@ public class Recommend {
 
 
 
-	public String getPlName() {
+	public String getPlName() {	
 		return plName;
 	}
 

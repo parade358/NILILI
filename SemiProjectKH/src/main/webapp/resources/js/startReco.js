@@ -93,13 +93,44 @@ function addAnswer(answerText, qIdx, idx){
   a.appendChild(answer); //answer를 a의 자식으로 추가하고
   answer.innerHTML = "<span>" + answerText + "</span>"; //answer안에 문구를 추가한다
 
-  answer.addEventListener("click", function(){//답변박스 클릭하는 함수
+  answer.addEventListener("click", function(e){//답변박스 클릭하는 함수
     var children = document.querySelectorAll('.answerList');
+    console.dir(e.target);
+    console.log(e.target.dataset.box);
+    console.log(e.target.dataset.index);
     for(let i = 0; i < children.length; i++){
       children[i].disabled = true;
       children[i].style.WebkitAnimation = "fadeOut 0.5s";
       children[i].style.animation = "fadeOut 0.5s";
     }
+    
+    //답변 데이터 서버로 전송하여 taste에 추가하기
+	var answerData = {
+        aBox: e.target.dataset.box,
+        aIndex: e.target.dataset.index
+    };
+    
+    
+    
+/*    if(box == 1) {
+		var aIndex1 = e.target.dataset.index;
+		console.log("박스1의 인덱스 : " + aIndex1);
+	}*/
+
+    
+    $.ajax({
+    url: "/semi/reco.ts",
+    type: "POST",  // POST 메서드 사용
+    contentType: "application/json",  // 데이터 형식 지정
+    data: JSON.stringify(answerData),  // JSON 형식으로 데이터 변환
+    success: function(response) {
+        console.log(response);
+    },
+    error: function() {
+        console.log("통신오류");
+    }
+	});
+    
     setTimeout(() => {
       var target = qnaList[qIdx].a[idx].type;
       for(let i = 0; i < target.length; i++){
@@ -184,7 +215,8 @@ function setResult(){
 });
 	
 	
-	
+	//이미지는 JS에서 불러오는 것 그대로 사용
+	//이미지의 번호 = 결과번호 = plNo 다 통일시켜야 제대로 나옴	
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
   var imgURL = 'resources/img/recoImg/result/image-' + point + '.jpg'; //여행지 이미지 이름을 정해줬기때문에 결과에 맞게 보여줄수있음
