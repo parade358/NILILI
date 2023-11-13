@@ -5,6 +5,38 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
+<%
+
+String saveId= "";
+String savePwd="";
+String loginFailId = "";
+//쿠키정보
+   Cookie[] cookies = request.getCookies();
+//쿠키배열에서 필요한 쿠비정보를 추출하기
+//반복으로 돌려서 해당쿠키의 이름을 찾고 그 쿠키의 값을 담아두기
+for(Cookie c : cookies){
+	if(c.getName().equals("memberId")){
+		saveId=c.getValue();
+	}
+}
+for(Cookie c : cookies){
+	if(c.getName().equals("memberPwd")){
+		savePwd=c.getValue();
+	}
+}
+
+for(Cookie c : cookies){
+	if(c.getName().equals("loginFailId")){
+		loginFailId=c.getValue();
+	}
+}
+
+
+
+%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +156,7 @@
 	height: 44px;
 }
 
-#chkId {
+#chkId, #loginSave {
 	margin-top: 10px;
 	color: #c2c2c2;
 	font-size: 13px;
@@ -295,7 +327,6 @@ position: absolute;
 
 </head>
 
-
 <%@ include file="views/common/chatBot.jsp"%>
 
 <body>
@@ -313,6 +344,39 @@ position: absolute;
 			<div class="login">
 				<img src="resources/mainIndex/top_img_blure.png" alt="블러">
 					
+					<script>
+					$(function(){
+						
+						var saveId = "<%=saveId%>";
+						var savePwd = "<%=savePwd%>";
+						var loginFailId = "<%=loginFailId%>";
+						
+						$("input[name=memberId]").val(loginFailId);
+						
+						
+						if(saveId!=""){
+							
+							$("input[name=memberId]").val(saveId);
+							$("input[name=saveId]").attr("checked",true);
+						
+						}
+						
+						if(savePwd !="" && saveId !=""){
+							$("input[name=memberId]").val(saveId);
+							$("input[name=memberPwd]").val(savePwd);
+							$("input[name=loginSave]").attr("checked",true);
+							
+						}
+						
+						
+						
+						
+						
+					});
+					
+					
+					</script>
+					
 					<c:choose> 
 			<c:when test="${empty loginMember }">
 					
@@ -325,13 +389,18 @@ position: absolute;
 						<label for="loginPwd">비밀번호</label> <input type="password" id="loginPwd" name="memberPwd">
 					</p>
 					<p id="chkId">
-						<input type="checkbox" id="saveId"> <label for="saveId">아이디저장</label>
+						<input type="checkbox" id="saveId" name="saveId"> <label for="saveId">아이디저장</label>
 					</p>
+					
+					<p id="loginSave">
+					<input type="checkbox" id="saveLg" name="loginSave"> <label for="saveLg">로그인 정보 저장</label>
+					</p>
+					
 					<p id="btnLog">
 						<button type="submit" class="log_btn">로그인</button>
 					</p>
 	
-					<!--회원가입/아이디 비밀번호 찾기-->
+					<!--회원가입/아이디 >>밀번호 찾기-->
 					<div id="login_form_etc">
 
 						<a href="views/member/find_Id_Pwd.jsp" style="color: #C2C2C2;"
