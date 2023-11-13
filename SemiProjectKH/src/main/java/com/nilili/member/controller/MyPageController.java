@@ -1,13 +1,14 @@
 package com.nilili.member.controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.servlet.http.HttpSession;
 
 import com.nilili.member.service.MemberService;
@@ -34,6 +35,16 @@ public class MyPageController extends HttpServlet {
 	    int memberNo = 	member.getMemberNO();
 	  
 	    Subscribe sub=	new MemberService().findSubcribe(memberNo);
+	    
+	  //마이페이지 에서 구독날짜가 년 월 호 까지 다나와서 년 월만 나오게 바꾸는 작업
+	    Date regiDate = sub.getRegiDate();
+	  
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM");
+	    
+	    String fdate = sdf.format(regiDate);
+	    
+	    request.setAttribute("fdate", fdate);
+	    //어짜피 마이페이지에서밖에 안보여질거니까 request영역에서 담는다
 	    
 	    session.setAttribute("sub", sub);
 	    
