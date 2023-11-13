@@ -133,9 +133,6 @@
 	margin-top:-5px;
 }
 
-/* #btnLog { */
-/* 	margin-top: 10px; */
-/* } */
 
 .log_btn {
 	background-color: #9A0A0A;

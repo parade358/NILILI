@@ -19,6 +19,16 @@
 <title>은지누나의 아이디 비번 찾기</title>
 
 <style>
+
+.wrap {
+	width: 1920px;
+}
+
+.wrap>div {
+	width: 100%;
+}
+
+
 #area1 {
 	height: 1000px;
 	display: flex;
@@ -71,8 +81,10 @@
 
 </style>
 </head>
+<div class="wrap">
+	<%@ include file="../common/headerBar.jsp"%>
 
-<%@ include file="../common/headerBar.jsp"%>
+
 
 
 <h1 id="up" align="center">FIND YOUR
@@ -297,7 +309,7 @@
 
 
 </div>
-
+</div>
 
 <%@ include file="../common/footerBar.jsp"%>
 
