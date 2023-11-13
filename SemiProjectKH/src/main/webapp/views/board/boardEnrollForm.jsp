@@ -1,26 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <!-- jQuery library -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-      
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
      <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-  <!-- 기본 필요한 라이브러리 입니다 -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@300;400;700&family=IBM+Plex+Sans+KR&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+  	<!-- 기본 필요한 라이브러리 입니다 -->
     <meta charset="UTF-8">
     
 <title>Insert title here</title>
@@ -80,7 +68,8 @@
             height:100px;
             /* border:1px solid green; */
             float:left;
-            font-family: 'Nanum Gothic', sans-serif;
+            /* font-family: 'Nanum Gothic', sans-serif; */
+            font-family: 'Noto sans KR', sans-serif;
             font-size: 12px;
             color: #A12B2B;
             display: flex;
@@ -100,7 +89,8 @@
             /* border:1px solid red; */
             float:left;
             font-size: 34px;
-            font-family: 'Nanum Gothic', sans-serif;
+            /* font-family: 'Nanum Gothic', sans-serif; */
+            font-family: 'Noto sans KR', sans-serif;
             font-weight: 800;
             display: flex;
             justify-content: center;
@@ -109,8 +99,9 @@
         }
 
         div{
-            font-family: 'Nanum Gothic', sans-serif;
-            font-weight: 100;
+            /* font-family: 'Nanum Gothic', sans-serif; */
+            font-family: 'Noto sans KR', sans-serif;
+            font-weight: 400;
         }
 
 
@@ -262,9 +253,13 @@
                 <tr>
                     <th width="100" height="280">내용</th>
                     <td colspan="4">
-                        <textarea name = "content" id="content" cols="30"
-                        rows="10" style="resize: none;"></textarea></td>
+						<!-- <div id="summernote"></div> -->
+                        <textarea name = "editordata" id="summernote" cols="30" 
+                         rows="10" style="resize: none;" ></textarea> 
                         
+                    
+                    </td>
+                       
                 </tr>
             </thead>
              <tbody>
@@ -293,7 +288,7 @@
             </tbody>
 			</table>
 			<br><br>
-			
+
 			<div id="file-area">
                 <!--onchange : 변화가 일어났을때 발생하는 이벤트 
                     선언석함수를 내부에 작성할때 해당 이벤트가 발생한시점에 요소객체를 전달하는 방법
@@ -306,9 +301,30 @@
 			
 			</div>
 
+		
+		<!-- summernote 스크립트 -->
+		<script>
+		
+		$(function() {
+			//여기 아래 부분
+ 			$('#summernote').summernote({
+				  height: 300,                 // 에디터 높이
+ 				  minHeight: null,             // 최소 높이
+				  maxHeight: null,             // 최대 높이
+ 				  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+ 				  //lang: "ko-KR",					// 한글 설정
+ 				  placeholder: '최대 2048자까지 쓸 수 있습니다.'	//placeholder 설정
+ 	
+		          
+ 			});
 			
-	
+		});
+		
+		
+		</script>
+		
 
+		<!-- 사진 첨부 스크립트 -->
         <script>
             $(function(){
                 $("#file-area").hide(); //file input 숨기기
