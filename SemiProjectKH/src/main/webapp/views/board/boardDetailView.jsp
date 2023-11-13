@@ -41,189 +41,218 @@
     
 <title>Insert title here</title>
 <style>
+.wrap {
+	background-color: white;
+	color: black;
+	width: 1920px;
+	/* height: 1000px; */
+	margin: auto;
+	margin-top: 50px;
+}
 
-        .wrap{
-            background-color: white;
-            color: black;
-            width: 1920px;
-            /* height: 1000px; */
-            margin: auto;
-            margin-top: 50px;
-        }
+.wrap {
+	width: 1920px;
+}
 
-        .wrap{
-            width: 1920px;
-        }
-        .wrap > div{
-            width: 100%;
-        }
-        #header{
-            /* border: 1px solid black; */
-            height: 165px;
-        }
+.wrap>div {
+	width: 100%;
+}
 
-        #line{
-            height: 35px;
-            background-color: black;
-        }
-        #logo{
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            padding-top:30px ;
-            margin-left:882.5px
-            
-        }
-        #footer{
-        margin-top: 60px;
-        color: gray;
-     
-        }
+#header {
+	/* border: 1px solid black; */
+	height: 165px;
+}
 
-        #f_text{
-            padding-top: 40px;
+#line {
+	height: 35px;
+	background-color: black;
+}
 
-        }
+#logo {
+	/* border:1px solid black; */
+	width: 155px;
+	height: 70px;
+	padding-top: 30px;
+	margin-left: 882.5px
+}
 
-        .list-area{
-            border-top: 3px solid #313131;
-            border-bottom: 3px solid #313131;
-            text-align: center;
-            width: 1000px;
-            margin-top: 150px;
-        }
+#footer {
+	margin-top: 60px;
+	color: gray;
+}
 
-        #title1{
-            width:150px;
-            height:100px;
-            /* border:1px solid green; */
-            float:left;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 12px;
-            color: #A12B2B;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 750px;
-            margin-top: 30px;
-            padding-top: 10px;
-            font-weight: 700;
-            
+#f_text {
+	padding-top: 40px;
+}
 
-        }
+.list-area {
+	border-top: 3px solid #313131;
+	border-bottom: 3px solid #313131;
+	/* text-align: center; */
+	width: 1000px;
+	margin-top: 150px;
+}
 
-        #title2{
-            width:240px;
-            height:100px;
-            /* border:1px solid red; */
-            float:left;
-            font-size: 34px;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-weight: 800;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
+#title1 {
+	width: 150px;
+	height: 100px;
+	/* border:1px solid green; */
+	float: left;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 12px;
+	color: #A12B2B;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 750px;
+	margin-top: 30px;
+	padding-top: 10px;
+	font-weight: 700;
+}
 
-        div{
-            font-family: 'Nanum Gothic', sans-serif;
-            font-weight: 100;
-        }
+#title2 {
+	width: 240px;
+	height: 100px;
+	/* border:1px solid red; */
+	float: left;
+	font-size: 34px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 800;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
 
-		
-        td{
-            height: 70px;
-        }
+div {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 100;
+}
 
-        #tdtitle{
-            width: 50px;
+td {
+	height: 70px;
+	width: 400px;
+	text-align: left;
+}
 
-        }
+th {
+	text-align: left;
+	padding-left: 20px;
+	/* width : 100px; */
+}
 
-        th{
-            text-align: left;
-            padding-left: 20px;
-            
-        }
+#trtitle {
+	border-bottom: 1px solid #DDDDDD;
+}
 
-        #trtitle{
-            border-bottom: 1px solid #DDDDDD;
-        }
+#bottondiv {
+	padding-top: 40px;
+}
 
-        #bottondiv{
-            padding-top: 40px;
-            
-        }
+#button1 {
+	width: 160px;
+	height: 50px;
+	background-color: #fff;
+	border: 0.5px solid #000;
+	font-weight: 600;
+}
 
-        #button1{
-            width: 160px;
-            height: 50px;
-            background-color: #fff;
-            border: 0.5px solid #000;
-            font-weight: 600;
-        }
+#button2 {
+	width: 160px;
+	height: 50px;
+	background-color: #A12B2B;
+	color: #ffffff;
+	border: none;
+	font-weight: 1000px;
+}
 
-        #button2{
-            width: 160px; 
-            height: 50px; 
-            background-color: #A12B2B; 
-            color: #ffffff;
-            border: none;
-            font-weight: 1000px;
+#list {
+	border: 1px solid #D2D2D2;
+	font-size: 13px;
+	margin-left: 900px;
+}
 
-        }
+.reply-area {
+	/* border: 1px solid #000; */
+	/* background-color: #D2D2D2; */
+	width: 1000px;
+	margin-top: 50px;
+	margin-left: 460px;
+}
 
-        #list{
-            border: 1px solid #D2D2D2;
-            font-size: 13px;
-            margin-left: 900px;
-        }
+#replywrite {
+	background-color: #D2D2D2;
+	/* border-bottom: 1px solid #444444; */
+}
 
-        .reply-area{
-            /* border: 1px solid #000; */
-            /* background-color: #D2D2D2; */
-            width: 1000px;
-            margin-top: 50px;
-            margin-left: 460px;
-            
-        }
+#replyinput {
+	margin-left: 20px;
+	width: 860px;
+	height: 40px;
+	font-size: 14px;
+}
 
-        #replywrite{
-            background-color: #D2D2D2;
-            /* border-bottom: 1px solid #444444; */
-        }
-        
+#replybutton {
+	width: 90px;
+	height: 40px;
+	margin-right: 20px;
+	background-color: black;
+	color: white;
+	font-size: 14px;
+}
 
-        #replyinput{
-            margin-left: 20px;
-            width: 860px;
-            height: 40px;
-            font-size: 14px;
+#replylist {
+	width: 1000px;
+	font-size: 14px;
+	/* background-color: #e4e4e4; */
+}
 
-        }
+#replylist-tr {
+	border-bottom: 1px solid #DDDDDD;
+}
 
-        #replybutton{
-            width: 90px;
-            height: 40px;
-            margin-right: 20px;
-            background-color: black;
-            color: white;
-            font-size: 14px;
-        }
+#imgth {
+	text-align: center;
+	padding-right: 30px;
+}
 
-          #replylist{
-            width: 1000px;
-            font-size: 14px;
-            /* background-color: #e4e4e4; */
-            
-        }
+#imgtext {
+	height: 30px;
+	font-size: 12px;
+	color: #5e5b5b;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-        #replylist-tr{
-            border-bottom: 1px solid #DDDDDD;
-        }
+#img {
+	margin-left: 23px;
+}
 
-    </style>
+#contentImg2 {
+	margin-left: 20px;
+}
+
+#contentImg3 {
+	width: 182px;
+	height: 150px;
+	position: absolute;
+	right: 726px;
+	bottom: 135px;
+}
+
+#contentImg4 {
+	width: 182px;
+	height: 150px;
+	position: absolute;
+	right: 523px;
+	bottom: 135px;
+}
+
+#imgframe {
+	position: relative;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/views/common/headerBar.jsp" %>	
@@ -243,58 +272,83 @@
         <div id="title2">늴리리 커뮤니티</div>
 
         <!--게시글 상세보기 테이블-->
-        <table class="list-area" align="center">
+		<table class="list-area" align="center">
 			<thead>
 				<tr id="trtitle">
-                    <th>여행공유</th>
-                    <td>${b.boardCategory }</td>
-					<th width="80">제목</th>
-                    <td>${b.boardTitle }</td>
+					<th>여행공유</th>
+					<td>${b.boardCategory }</td>
+					<th>제목</th>
+					<td>${b.boardTitle }</td>
 
-                </tr>
-                <tr id="trtitle">
-                    <th>작성자</th>
-                    <td>${b.boardWriter }</td>
+				</tr>
+
+				<tr id="trtitle">
+					<th>작성자</th>
+					<td>${b.boardWriter }</td>
 					<th>작성일</th>
-                    <td>${b.regiDate }</td>
+					<td>${b.regiDate }</td>
 
-                </tr>
-                <tr id="trtitle">
-                    <th width="100" height="280">내용</th>
-                    <td colspan="4">${b.boardContent }</td>
-                        
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th width="100" height="50">첨부파일</th>
-                        <td colspan="4" >
-                        
-                        <c:choose>
-						<c:when test="${ empty at }">
-							첨부파일이 없습니다.						
-						</c:when>
-						<c:otherwise>
-							<a download="${at.originName }" href="${contextPath}${at.filePath}${at.changeName}">${at.originName }</a>						
-						</c:otherwise>
-						</c:choose>
-                        
-                        </td>
+				</tr>
 
-                </tr>
-            </tbody>
+				<tr id="trtitle">
+					<th width="100" height="280">내용</th>
+					<td colspan="4"
+						style="vertical-align: top; padding-top: 20px; padding-bottom: 20px;">${b.boardContent }</td>
+				</tr>
+				</thead>
 			
+			<tbody>
 
+				<tr height="225">
+
+					<th id="imgth">이미지 <br>첨부
+					</th>
+					<td colspan="4"><c:if test="${ empty list }">
+							첨부된 이미지가 없습니다.		
+
+						</c:if> <c:forEach items="${list}" var="at" varStatus="vs">
+							<c:choose>
+								<c:when test="${vs.index eq 0 }">
+									<div id="imgtext">이미지를 첨부해서 나만의 여행네컷을 만들어보세요.</div>
+									<div style="position: relative;">
+										<img
+											src="${contextPath }/resources/img/board/photoframe_nilili_2.png"
+											id="imgframe" alt="인생네컷" width="900" height="170">
+
+										<div id="img" style="position: absolute; top: 10px;">
+											<img id="titleImg"
+												src="${contextPath }${at.filePath}${at.changeName}"
+												width="182" height="150">
+								</c:when>
+
+								<c:otherwise>
+
+									<!-- 상세이미지 -->
+									<img id="contentImg${vs.count}"
+										src="${contextPath }${at.filePath}${at.changeName}"
+										width="182" height="150">
+
+										</div>
+									</div>
+
+
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</td>
+				</tr>
+
+			</tbody>
 		</table>
 
 
         <br>
 		
 		
+        <!--목록으로 이동하는 버튼-->
         <div align="center">
             <button id="list" onclick="location.href='${header.referer}'">목록으로</button>
         </div>
-        <!--목록으로 이동하는 버튼-->
 			
 	   <!-- 글작성 버튼은 로그인한 회원만 볼수 있도록 작업 -->
        <!--<c:if test="${not empty loginUser}"></c:if> --> 
