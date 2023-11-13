@@ -47,6 +47,22 @@
             align-items: center;
 
         }
+        
+        .start-btn {
+	width: 120px;
+	height: 44px;
+	background-color: #e1e1e1;
+	border-radius: 5px;
+	cursor: pointer;
+	border:2px solid #A90000;
+}
+
+.start-btn:hover {
+	cursor: pointer;
+	background-color: #A90000;
+	color: white;
+}
+
     </style>
     
     <!-- kakao api 위한 토큰 -->
@@ -63,19 +79,20 @@
     <div id="container" class="container">
       
             <section id="main" class="mx-auto my-5 py-5 px-3">
-                <h2><b>텍스트로 여행추천</b></h2>
+                <h2><b>나만을 위한 서울 여행지는?</b></h2>
                
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mx-auto py-5">
                     <img src="${contextPath }/resources/img/mainPh.jpg" alt="mainImage" class="img-fluid">
                 </div>
                 
                 <p>
-                    사용자들에게 질문들을 제공해주고 답변에 맞는 여행지를 추천해준다. <br>
-                    아래 시작하기 버튼을 눌러 시작해 주십시오.
+                    질문에 따른 답변을 통해 여행 취향을 알아봅니다. <br><br>
+                    각자의 취향에 맞게 선별된 여행지를 탐험하며,<br>
+                    여행의 즐거움을 더욱 풍부하게 만들어보세요. <br><br>
+                    시작하기 버튼을 눌러주세요!
                 </p>
                 
-                <button type="button" class="btn btn-outline-danger mt-3"
-                onclick="js:begin()">시작하기</button>
+                <button type="button" class="start-btn" onclick="js:begin()">시작하기</button>
                 
             </section>
 
@@ -122,6 +139,8 @@
             <script src="${contextPath }/resources/js/start.js" charset="UTF-8"></script>
             <script src="${contextPath }/resources/js/share.js" charset="utf-8"></script>
         </div>
+        
+        <%@ include file="../common/footerBar.jsp"%>
    
     
 </body>
