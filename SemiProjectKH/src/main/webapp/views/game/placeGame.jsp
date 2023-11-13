@@ -76,7 +76,7 @@
 	
 
 
-    <div id="container" class="container">
+    <div id="container" class="container" style="margin-bottom: 125px;">
       
             <section id="main" class="mx-auto my-5 py-5 px-3">
                 <h2><b>나만을 위한 서울 여행지는?</b></h2>
