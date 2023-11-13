@@ -7,6 +7,7 @@ import com.nilili.board.model.dao.BoardDao;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
 import com.nilili.board.model.vo.Category;
+import com.nilili.board.model.vo.Like;
 import com.nilili.board.model.vo.Reply;
 import com.nilili.common.JDBCTemplate;
 import com.nilili.common.model.vo.PageInfo;
@@ -244,6 +245,8 @@ public class BoardService {
 			
 			int result = new BoardDao().checkLike(conn,bno,memberNo);
 			
+			JDBCTemplate.close(conn);
+			
 			return result;
 		}
 
@@ -257,6 +260,8 @@ public class BoardService {
 			}else {
 				JDBCTemplate.rollback(conn);
 			}
+			
+			JDBCTemplate.close(conn);
 			
 			return num;
 		}
@@ -272,6 +277,8 @@ public class BoardService {
 				JDBCTemplate.rollback(conn);
 			}
 			
+			JDBCTemplate.close(conn);
+			
 			return num;
 		}
 
@@ -280,7 +287,30 @@ public class BoardService {
 			
 			int result = new BoardDao().countLike(conn, bno);
 			
+			JDBCTemplate.close(conn);
+			
 			return result;
+		}
+
+		public Like searchLike(int boardNo) {
+			
+			Connection conn = JDBCTemplate.getConnection();
+			
+			Like l = new BoardDao().searchLike(conn, boardNo);
+			
+			JDBCTemplate.close(conn);
+
+			return l;
+		}
+
+		public ArrayList<Board> hotList(PageInfo pi) {
+			Connection conn = JDBCTemplate.getConnection();
+			
+			ArrayList<Board> list = new BoardDao().hotList(conn,pi);
+			
+			JDBCTemplate.close(conn);
+			
+			return list; 
 		}
 
 

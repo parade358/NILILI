@@ -13,6 +13,7 @@ import java.util.Properties;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
 import com.nilili.board.model.vo.Category;
+import com.nilili.board.model.vo.Like;
 import com.nilili.board.model.vo.Reply;
 import com.nilili.common.JDBCTemplate;
 import com.nilili.common.model.vo.PageInfo;
@@ -732,6 +733,80 @@ public class BoardDao {
 		}
 		
 		return result;
+	}
+
+	public Like searchLike(Connection conn, int boardNo) {
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		Like l = null;
+		
+		String sql = prop.getProperty("searchLike");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+					l = new Like(rset.getInt("BOARD_NO")
+									  ,rset.getInt("MEMBER_NO"));
+				}
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		
+		return l;
+	}
+
+	public ArrayList<Board> hotList(Connection conn, PageInfo pi) {
+		// 준비물
+				ArrayList<Board> list = new ArrayList<>();
+				ResultSet rset = null;
+				PreparedStatement pstmt = null;
+
+				String sql = prop.getProperty("hotList");
+				// 1페이지 : 1~10 / 5페이지 : 41~50 / 10페이지 91~100
+				// 2페이지 : 11~20
+				int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+				int endRow = pi.getCurrentPage() * pi.getBoardLimit();
+
+				try {
+					pstmt = conn.prepareStatement(sql);
+
+					pstmt.setInt(1, startRow);
+					pstmt.setInt(2, endRow);
+
+					rset = pstmt.executeQuery();
+
+					while (rset.next()) {
+						list.add(new Board(rset.getInt("BOARD_NO"), rset.getString("CATEGORY_NAME"),
+								rset.getString("BOARD_TITLE"), rset.getString("MEMBER_ID"), rset.getInt("COUNT"),
+								rset.getDate("REGI_DATE")));
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					JDBCTemplate.close(rset);
+					JDBCTemplate.close(pstmt);
+				}
+
+				return list;
 	}
 	
 

@@ -277,6 +277,36 @@
 		FROM BO_LIKE WHERE BOARD_NO = ?
 	</entry>
 	
+	<entry key="searchLike">
+		
+		SELECT *
+		FROM BO_LIKE WHERE BOARD_NO = ?
+	
+	</entry>
+	
+	<entry key="hotList">
+	   <![CDATA[
+		SELECT *
+		FROM (SELECT ROWNUM RNUM,A.*
+      		  FROM
+		            (SELECT BOARD_NO
+		                   ,CATEGORY_NAME
+		                   ,BOARD_TITLE
+		                   ,MEMBER_ID
+		                   ,COUNT
+		                   ,B.REGI_DATE
+		            FROM BOARD B 
+		            JOIN MEMBER M ON (BOARD_WRITER=MEMBER_NO)
+		            JOIN CATEGORY ON (BOARD_CATEGORY = CATEGORY_NO)
+		            WHERE B.USE_YN = 'Y' AND BOARD_TYPE = 3
+		            ORDER BY B.COUNT DESC) A
+              )
+		WHERE RNUM BETWEEN ? AND ? and ROWNUM <= 10
+	   ]]>
+	</entry>
+	
+	
+	
 
 
 

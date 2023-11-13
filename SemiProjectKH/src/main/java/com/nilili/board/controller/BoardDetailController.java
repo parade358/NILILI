@@ -13,6 +13,7 @@ import com.nilili.board.model.dao.BoardDao;
 import com.nilili.board.model.service.BoardService;
 import com.nilili.board.model.vo.Attachment;
 import com.nilili.board.model.vo.Board;
+import com.nilili.board.model.vo.Like;
 
 /**
  * Servlet implementation class BoardDetailController
@@ -52,7 +53,11 @@ public class BoardDetailController extends HttpServlet {
 					//Attachment at = new BoardService().selectAttachment(boardNo);
 					ArrayList<Attachment> list = new BoardService().selectAttachmentList(boardNo);
 					
+					Like l = new BoardService().searchLike(boardNo);
 					
+					
+					
+					request.setAttribute("l", l);
 					request.setAttribute("b", b); //게시글 정보 전달
 					request.setAttribute("list", list);//첨부파일정보도 전달
 					
