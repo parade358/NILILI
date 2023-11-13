@@ -359,10 +359,13 @@ color:#e6e6e6;
 			
 					<a class="same2" href="${contextPath}/game.pl" title="본인의 여행취향이 궁금하신가요?"><img
 						src="resources/mainIndex/01_1con.png" id="con1" alt="여행취향"></a>
+						
 					<a class="same2" href="${contextPath}/reco.pl" title="어딜가실지 모르시겠나요?"><img
 						src="resources/mainIndex/01_2con.png" id="con2" alt="여행지추천"></a>
+						
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>
+						
 					<a class="same2" href="views/menu/service.jsp" onclick="return hasSubscribe();" title="여행이 편안해지는 당신"><img
 						src="resources/mainIndex/01_4_con.png" id="con4" alt="구독지서비스"></a>
 				</div>
@@ -383,6 +386,21 @@ function hasSubscribe(){
 		return false;
 	}	
 };
+
+
+
+$("#con2").click(function(){
+if("${loginMember.memberSubscribe}"==='N' ){
+	alert("구독 후 가능한 서비스입니다.");
+	return false;
+}
+if("${loginMember}"== ""){
+	alert("로그인 후 이용해주세요");
+	return false;
+}	
+	
+});
+
 
 
 
