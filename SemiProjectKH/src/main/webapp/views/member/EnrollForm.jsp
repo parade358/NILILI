@@ -283,8 +283,8 @@
 .foot{
 border:1px solid black;
 width: 1920px;
-float: left;
-margin:0;
+right: 10px;
+margin-left:0;
 text-align: center;
 }
 

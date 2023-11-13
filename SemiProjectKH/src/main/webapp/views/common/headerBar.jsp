@@ -45,6 +45,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         #header{
             /* border: 1px solid black; */
             height: 165px;
+            margin: 0 auto;
         }
         #line{
             height: 35px;
@@ -66,9 +67,11 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         #header{
             /* border: 1px solid black; */
             height: 165px;
-            position: relative;
-            text-align: center;
+            position: absolute;
+/*             text-align: center; */
             z-index: 100;
+            margin:0 auto;
+            
         }
  
         /*상단 블랙라인 */
@@ -85,9 +88,9 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             z-index: 101;
             top:60px ;
             /* margin-left:882.5px; */
-            left: 50%;
-            translate: -50%;
-            margin: 0 auto;
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
         }
         
         /*오른쪽상단 a태그 텍스트밑줄 제거*/
@@ -129,6 +132,9 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         .utility #QnA{
         padding-right: 130px;
         }
+        
+
+        
         
 			</c:otherwise>
 	</c:choose>
