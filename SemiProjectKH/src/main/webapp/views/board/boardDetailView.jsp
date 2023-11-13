@@ -370,7 +370,7 @@ th {
       
          
             <c:if test="${empty loginMember }">
-               추천 기능은 <button type="button" id="newLogin" onclick="redirectToAddress();"><b class="w3-text-blue">로그인</b></button> 후 사용 가능합니다.<br />
+               글작성, 추천은 <button type="button" id="newLogin" onclick="redirectToAddress();"><b class="w3-text-blue">로그인</b></button> 후 사용 가능합니다.<br />
                <i class="fa fa-heart" style="font-size:16px;color:red"></i>
                         
             </c:if>
