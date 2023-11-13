@@ -411,9 +411,18 @@ position: absolute;
 						
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>
-						
+					<c:choose>
+					<c:when test="${loginMember.memberSubscribe eq 'N' or loginMember eq null}">	
 					<a class="same2" href="views/menu/service.jsp" onclick="return hasSubscribe();" title="여행이 편안해지는 당신"><img
 						src="resources/mainIndex/01_4_con.png" id="con4" alt="구독지서비스"></a>
+				</c:when>
+				<c:otherwise>
+					<a class="same2" href="views/menu/letterService.jsp"  title="구독한 당신을 위한 프리미엄 서비스"><img
+						src="resources/mainIndex/01_4_con.png" id="con4" alt="레터서비스"></a>
+				
+				</c:otherwise>
+				
+				</c:choose>
 				</div>
 				<!--콘텐츠2 (이미지)-->
 			</div>
@@ -426,6 +435,7 @@ position: absolute;
 		</div>
 </body>
 <script>
+//구독 한사람 재구독 방지 함수
 function hasSubscribe(){
 	if("${loginMember.memberSubscribe}"==='Y'){
 		alert("이미 구독을 하셨습니다");
@@ -434,7 +444,7 @@ function hasSubscribe(){
 };
 
 
-
+//하원누나가 만든 게임은 구독한 사람들만 볼수있게 하는 함수
 $("#con2").click(function(){
 if("${loginMember.memberSubscribe}"==='N' ){
 	alert("구독 후 가능한 서비스입니다.");
@@ -451,7 +461,7 @@ if("${loginMember}"== ""){
 
 
 
-
+//메뉴바에 호버시에  색깔 바뀌게 
 	$(function() {
 
 		$("#con1").on("mouseenter", function() {
