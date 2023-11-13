@@ -364,6 +364,13 @@ NILILI를 즐겨주세요!
             var textToReveal = $("#textToReveal, #textToReveal-open");
             var chatBody = $(".chat-body");
 
+            var introduce = $("#introduce");
+            var whatSubscribe = $("#whatSubscribe");
+            var goEnrollForm = $("#goEnrollForm");
+            var goFindPwdForm = $("#goFindPwdForm");
+            var goSubscribeForm = $("#goSubscribeForm");
+            var goHotBoardForm = $("#goHotBoardForm");
+            
             if (chatContainer.css("display") === "none") {
                 // 채팅창 열기
                 chatContainer.css("display", "block");
@@ -371,14 +378,16 @@ NILILI를 즐겨주세요!
                     revealText($(this));
                 });
             } else {
-                // 채팅창 닫기
-                chatContainer.css("display", "none");
+            	  $(".chat-container").css("display", "none");
+            	
+           
+            	  
             }
-        }
-
-        // 질문하기 버튼을 누르면 새 창으로 전환하는 함수
-  
-
+            	  
+            }
+            
+        
+		//첫번째 옵션인 홈페이지 소개 함수입니다
         function introduceArea() {
             var chatContainer = $("#chat-container");
             var introduce = $("#introduce");
@@ -389,8 +398,9 @@ NILILI를 즐겨주세요!
             text2.each(function () {
                 revealText($(this));
             });
+           
         }
- 
+ 	//두번째 옵션인 구독소개 함수입니다
         function whatSubscribeArea() {
             var chatContainer = $("#chat-container");
             var whatSubscribe = $("#whatSubscribe");
@@ -403,7 +413,7 @@ NILILI를 즐겨주세요!
             });
         }
 
-
+	//세번째 옵션인 회원가입 함수입니다
         function goEnrollArea() {
             var chatContainer = $("#chat-container");
             var goEnrollForm = $("#goEnrollForm");
@@ -415,7 +425,7 @@ NILILI를 즐겨주세요!
                 revealText($(this));
             });
         }
-
+	//네번째 옵션인 아디 찾기 옵션입니다
         function goFindIDPwdArea() {
             var chatContainer = $("#chat-container");
             var goFindPwdForm = $("#goFindPwdForm");
@@ -427,7 +437,7 @@ NILILI를 즐겨주세요!
                 revealText($(this));
             });
         }
-
+	//다섯번째 옵션인 구독하기 옵션입니다
         function goSubscribeArea() {
             var chatContainer = $("#chat-container");
             var goSubscribeForm = $("#goSubscribeForm");
@@ -439,7 +449,7 @@ NILILI를 즐겨주세요!
                 revealText($(this));
             });
         }  
-        
+        //여섯번째 옵션인 핫게시물 옵션입니다
         function goHotBoardArea() {
             var chatContainer = $("#chat-container");
             var goHotBoardForm = $("#goHotBoardForm");
@@ -464,6 +474,34 @@ NILILI를 즐겨주세요!
                 }
             }, 30);
         }
+        //현재 챗봇 이외의 영역을 클릭할시 다 사리지게 하는 옵션입니다
+        $(document).on('click', function(e) {
+            // 클릭된 요소가 채팅 창 또는 관련된 영역인지 확인
+            if (!$(e.target).closest('.chat-container, .chat-toggle-button').length) {
+                // 클릭된 영역이 채팅 창 또는 관련된 영역이 아니면 채팅 창을 숨김
+                $(".chat-container").css("display", "none");
+            }
+        });
+        
+      // 위 함수에 대한 gpt 설명 
+        /*  !$(e.target).closest('.chat-container, .chat-toggle-button').length는 
+        jQuery를 사용하여 클릭된 요소의 부모 중에서 .chat-container 또는 .chat-toggle-button 클래스를 가진 요소를 찾는 것입니다.
+
+        e.target은 클릭된 요소를 나타냅니다.
+        .closest('.chat-container, .chat-toggle-button')은 클릭된 요소부터 시작해서 상위로 올라가며 주어진 선택자들 중에서 가장 가까운 부모를 찾습니다.
+        !는 논리 NOT 연산자로, 결과를 부정합니다.
+        .length는 선택된 요소의 개수를 나타냅니다.
+        따라서 !$(e.target).closest('.chat-container, .chat-toggle-button').length는
+클릭된 요소의 부모 중에서 .chat-container 또는 .chat-toggle-button 클래스를 가진 요소가 없을 경우를 나타냅니다. 
+이 경우, 클릭된 요소가 채팅 창 또는 토글 버튼 영역 외부에 있다는 의미이며, 이때 채팅 창을 숨기는 동작을 수행합니다.
+ */
+
+	
+
+
+
+        
+        
 
         </script>
         
