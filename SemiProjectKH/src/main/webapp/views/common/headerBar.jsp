@@ -19,10 +19,12 @@ String alertMsg = (String)session.getAttribute("alertMsg");
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- summernote(게시판 글쓰기 포맷) -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-  	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-       
+    <!-- summernote css/js (게시판 내용 라이브러리) -->
+    <script src="${contextPath }/resources/summernote/summernote-lite.js"></script>
+	<script src="${contextPath }/resources/summernote/summernote-ko-KR.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+ 
+ 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
