@@ -167,6 +167,20 @@
         	height: 40px
         }
         
+        .borderNone{
+        	
+        	border-bottom: 0px solid #DDDDDD;
+        }
+        
+         .pageBtn {
+            background-color: transparent;
+            border: 0px solid black;
+            color: black; /* 버튼 텍스트 색상 지정 (흰색 예시) */
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
         
         
         
@@ -186,17 +200,17 @@
 			<div>
 					<table>
 						<tr>
-							<td align="center">
+							<td align="center" class="borderNone">
 								<select class="form-control" name="searchField" id="searchField">
 									<option value="title">제목</option>
 									<option value="id">작성자</option>
 									<option value="category">카테고리</option>
 								</select>
 							</td>
-							<td>
+							<td class="borderNone">
 								<input type="text" class="form-control"placeholder="검색어 입력" name="searchText" id="searchText" maxlength="100">
 							</td>
-							<td align="center">
+							<td align="center" class="borderNone">
 								<button class="btn" name="searchButton" id="searchButton">검색</button>
 							</td>
 						</tr>
@@ -258,26 +272,34 @@
 			<!-- 이전 -->
 			<c:choose>
 				<c:when test="${pi.currentPage eq 1}">
-					<button disabled>이전</button>
+					<button disabled class="pageBtn">
+						<img src="${contextPath }/resources/board/left_Icon.png" alt="방향아이콘">
+					</button>
 				</c:when>
 				<c:otherwise>
-					<button onclick="location.href='list.bo?currentPage=${pi.currentPage-1}'">이전</button>
+					<button onclick="location.href='list.bo?currentPage=${pi.currentPage-1}'" class="pageBtn">
+						<img src="${contextPath }/resources/board/left_Icon.png" alt="방향아이콘">
+					</button>
 				</c:otherwise>
 			</c:choose>
 			
 			<c:forEach var="i" begin="${pi.startPage}" end="${pi.endPage }">
 				
-				<button onclick="location.href='list.bo?currentPage=${i}'">${i}</button>
+				<button onclick="location.href='list.bo?currentPage=${i}'" class="pageBtn">${i}</button>
 			
 			</c:forEach>
 			
 			<!-- 다음 -->
 			<c:choose>
 				<c:when test="${pi.currentPage eq pi.maxPage}">
-					<button disabled>다음</button>
+					<button disabled class="pageBtn">
+						<img src="${contextPath }/resources/board/right_Icon.png" alt="방향아이콘">
+					</button>
 				</c:when>
 				<c:otherwise>
-					<button onclick="location.href='list.bo?currentPage=${pi.currentPage+1}'">다음</button>
+					<button onclick="location.href='list.bo?currentPage=${pi.currentPage-1}'" class="pageBtn">
+						<img src="${contextPath }/resources/board/right_Icon.png" alt="방향아이콘">
+					</button>
 				</c:otherwise>
 			</c:choose>
 		
