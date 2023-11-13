@@ -390,7 +390,7 @@ th {
        <!-- 트라이캐치 -->
          <%try {
             
-             if(b.getBoardWriter().equals(loginMember.getMemberId())) {
+             if(b.getBoardWriter().equals(loginMember.getMemberId())||loginMember.getMemberId().equals("admin")) {
                %>
                    <div align="center" id="bottondiv">
                      
