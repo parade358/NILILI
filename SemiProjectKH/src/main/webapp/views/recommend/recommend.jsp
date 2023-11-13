@@ -1,3 +1,4 @@
+<%@page import="com.nilili.member.vo.Member"%>
 <%@page import="com.nilili.recommend.model.vo.Recommend"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,6 +14,12 @@
 <meta name="author" content="Woodangtang">
 <meta name="kewords" content="늴리리">
 <meta name="description" content="늴리리">
+
+<%
+	
+	Member loginMember = (Member)session.getAttribute("loginMember");
+
+%>
 
 <!--카톡 공유-->
 <!-- 
@@ -70,7 +77,7 @@
 
 <!-- kakao api 위한 토큰 -->
 <script>
-        Kakao.init('bc244e477ffd76b0d8b9614c1a0ecb6a');
+        Kaka o.init('bc244e477ffd76b0d8b9614c1a0ecb6a');
         Kakao.isInitialized();
       </script>
 </head>
@@ -95,6 +102,8 @@
 				확인해보세요!
 			</p>
 			<!--  class="btn btn-outline-danger mt-3"  -->
+			<input type="hidden" name="memberNO" value="<%=loginMember.getMemberNO()%>">
+	     
 			<button type="button" class="start-btn" onclick="js:begin()">알아보기</button>
 
 		</section>

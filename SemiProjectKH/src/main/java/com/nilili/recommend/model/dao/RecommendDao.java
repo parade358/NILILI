@@ -29,6 +29,7 @@ public class RecommendDao {
 
 	}
 	
+	//PLACE DB값 조회해오는 것
 	public Recommend resultRecommend(Connection conn, int point) {
 		Recommend r = null;
 		ResultSet rset = null;
@@ -63,10 +64,70 @@ public class RecommendDao {
 			JDBCTemplate.close(pstmt);
 			
 		}
-		System.out.println("SQL Query: " + sql);
-		System.out.println(r);
+		
+//		System.out.println("SQL Query: " + sql);
+//		System.out.println(r);
 
 		return r;
+	}
+
+	//TASTE UPDATE
+//	public int updateTaste(Connection conn, Recommend r) {
+//		
+//		int result = 0;
+//		PreparedStatement pstmt = null;
+//		String sql = prop.getProperty("updateTaste");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, r.getTaste1());
+//			pstmt.setInt(2, r.getTaste2());
+//			pstmt.setInt(3, r.getTaste3());
+//			pstmt.setInt(4, r.getMemberNo());
+//			
+//			result = pstmt.executeUpdate();
+//			
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}finally {
+//			JDBCTemplate.close(pstmt);
+//		}
+//		
+//		
+//		
+//		return result;
+//	}
+
+	public int updateTaste(Connection conn, int taste1, int taste2, int taste3, int memberNo1) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateTaste");
+		Recommend r = new Recommend();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getTaste1());
+			pstmt.setInt(2, r.getTaste2());
+			pstmt.setInt(3, r.getTaste3());
+			pstmt.setInt(4, r.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		return result;
+
 	}
 
 }

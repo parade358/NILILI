@@ -70,48 +70,9 @@ const qnaList = [
 
 
 /* 2, 3, 4번 답변 = type 값을 컨트롤러로 전달하기  */
-/*
-const buttons = document.querySelectorAll('.answerList');
-
-buttons.forEach((button, index) => {
-  button.addEventListener('click', function() {
-    const buttonIndex = index;
-    console.log('Clicked Button Index:', buttonIndex);
-    
-	// JSON 형태로 변환
-	var jsonData = JSON.stringify({
-	  selectedTypes1: selectedAnswer1,
-	  selectedTypes2: selectedAnswer2,
-	  selectedTypes3: selectedAnswer3  
-	});
-
-  
-  });
-});
 
 
-
-
-// fetch를 사용하여 서버로 데이터 전송
-fetch('reco.sl', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: jsonData
-})
-.then(response => response.json())
-.then(data => {
-  // 서버에서 받은 응답 처리
-  console.log(data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-*/
-
-
-const buttons = document.querySelectorAll('.answerList');
+/*const buttons = document.querySelectorAll('.answerList');
 
 buttons.forEach(button => {
   button.addEventListener('click', function() {
@@ -145,11 +106,13 @@ buttons.forEach(button => {
     });
   });
 
-});
+});*/
 
 
 
 //결과페이지에 보여질 텍스트
+//DB에서 가져오기 때문에 사용 안함
+
 const infoList = [
   {
     name: '종로 그리고 경복궁',

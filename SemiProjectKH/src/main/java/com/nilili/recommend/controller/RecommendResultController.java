@@ -39,7 +39,7 @@ public class RecommendResultController extends HttpServlet {
 		
 		
 		int point = Integer.parseInt(request.getParameter("point"))+1;
-		System.out.println("ponit : " + point);
+		//System.out.println("ponit : " + point);
 		Recommend r = new RecommendService().resultRecommend(point);
 //		
 //		request.setAttribute("r", r);
