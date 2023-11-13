@@ -307,7 +307,7 @@ NILILI를 즐겨주세요!
 오늘의 핫한 게시물 TOP10을 소개합니다!! 
 
 </pre></h6>
-               <a href=""><button>오늘의 핫한 게시물은?</button></a> 
+               <a href="${contextPath}/hot.bo?currentPage=1"><button>오늘의 핫한 게시물은?</button></a> 
                 <button onclick="toggleChat()" id="backsite6">이전 목록으로</button>
             </div>
         </div>
