@@ -10,8 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -21,6 +22,7 @@
 
 
 <style>
+*{font-family: 'Noto Sans KR', sans-serif;}
 .wrap {
 	width: 1920px;
 }
@@ -35,6 +37,7 @@
 	position: absolute;
 	text-align: center;
 	z-index: 100;
+	margin:0 auto;
 
 }
 
@@ -92,12 +95,12 @@
 	position: absolute;
 	z-index: 1500px;
 	/* background-color: aqua; */
+	padding-top: 15px;
 	height: 282px;
 }
 
 #id, #pwd {
-	color: antiquewhite;
-	font-family: 'Nanum Gothic', sans-serif;
+	color: #e6e6e6;
 	font-size: 15px;
 }
 
@@ -107,18 +110,16 @@
 	height: 40px;
 	margin-left: 43px;
 	margin-top: 40px;
-	font-family: 'Nanum Gothic', sans-serif;
 	font-size: 20px;
 	font-weight: bolder;
 }
 
 #loginPwd {
-	margin-top: 10px;
+	/*margin-top: px;*/
 	margin-left: 30px;
 	border: #C2C2C2;
 	font-weight: bolder;
 	font-size: 20px;
-	font-family: 'Nanum Gothic', sans-serif;
 	width: 235px;
 	height: 44px;
 }
@@ -127,25 +128,30 @@
 	margin-top: 10px;
 	color: #c2c2c2;
 	font-size: 13px;
+	float: left;
+	margin-left: 5px;
+	margin-top:-5px;
 }
 
-#btnLog {
-	margin-top: 20px;
-}
+/* #btnLog { */
+/* 	margin-top: 10px; */
+/* } */
 
 .log_btn {
 	background-color: #9A0A0A;
 	height: 42px;
 	width: 315px;
-	color: aliceblue;
-	font-family: 'Nanum Gothic', sans-serif;
+	color: #e6e6e6;
 	font-size: 20px;
-	font-weight: 800;
+	font-weight: 600;
+	margin-top:-5px;
+	border: none;
 }
 
 #login_form_etc {
-	margin-left: 73px;
+	/*margin-left: 15px;*/
 	font-size: 13px;
+	margin-top:-5px;
 }
 
 a {
@@ -159,28 +165,69 @@ a {
  <c:otherwise>
  
  /*----------------------------로그인 후 페이지 --------------------------------*/
+ *{font-family: 'Noto Sans KR', sans-serif;}
+.wrap {
+	width: 1920px;
+	margin:0 auto;
+}
+
+.wrap>div {
+	width: 100%;
+	
+}
+ #header {
+	/* border: 1px solid black; */
+	height: 165px;
+	position: absolute;
+/* 	text-align: center; */
+	z-index: 100;
+/* 	margin:0 auto; */
+/* 	text-align: center; */
+}
 
 /* 로그인 후 user정보 입력창 스타일 설정 */
+
+#top {
+	height: 641px;
+    magin-top:130px;
+	margin-bottom: 40px;
+}
+
+#top_bg {
+	position: absolute;
+	/*헤더 밑 메인탑 이미지 부분*/
+}
+
 
 #user_info{
 position: absolute;
 z-index: 500;
 width: 365px;
 height: 273px;
-padding-top: 40px;
+padding-top: 50px;
 font-size: 14px;
 color:#e6e6e6;
+
 }
      .user{
      text-align:left;
+     margin-left: 20px;
      }
      
      #userId{
       	font-size: 30px;
+      	margin-bottom: 30px;
      }
      #welcome,#reguralMem,#generalMem,#date{
      	margin-top:-10px;
+     	font-size:14px;
      }
+     
+
+     #lbtn{
+     margin-top: 80px;
+     }
+     
      
      .logout_btn{
       	background-color:#9a0a0a;
@@ -201,52 +248,51 @@ color:#e6e6e6;
        border: none;
        
      }
+ #content{
+position: absolute;
+ margin: -50px auto;
+ text-align: center;
+
+ 
+}
+#content1 {	height: 354px;}
+
+/* #title {margin-top: 170px;} */
+
+#subtitle {	font-size: 40px;}
+
+#menus {padding-top: 40px;}
+
+#content2 {	padding-top: 30px;}
+
  
  
  </c:otherwise>
 
 </c:choose>
-#content1 {
-	/* border: 1px solid black; */
-	height: 354px;
-	float: left;
-
-
+#content{
+position: absolute;
+ margin: 0 auto;
+ text-align: center;
 }
+#content1 {	height: 354px;}
 
-#title {
-	padding-top: 60px;
-	padding-left: 838px;
-}
+#title {margin-top: 170px;}
 
-#subtitle {
-	font-size: 40px;
-}
+#subtitle {	font-size: 40px;}
 
-#menus {
-	padding-top: 40px;
-	padding-left: 470px;
-	position: absolute;
-}
+#menus {padding-top: 40px;}
 
-#content2 {
-	/* border: 1px solid black; */
-	padding-top: 40px;
-	padding-left: 360px;
-}
+#content2 {	padding-top: 30px;}
 
+
+/*----------------------푸터어어어ㅓ어ㅓ어어----------------------*/
 #footer {
 	margin-top: 60px;
 	color: gray;
 }
-
-#f_text {
-	padding-top: 40px;
-}
-
-.same2 {
-	margin-left: 20px
-}
+#f_text {padding-top: 40px;}
+.same2 {margin-left: 20px;}
 </style>
 
 
@@ -320,15 +366,15 @@ color:#e6e6e6;
             <p id="date"> 구독기간 |  "${sub.regiDate}" ~ "${sub.expirationDate}"</p>
       		</c:if>
     	</div>
-       
+       <div id="lbtn">
 			<form action="${contextPath }/logout.mb" style="display: inline;">
             <button type="submit" class="logout_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700; border: none; margin-right: 10px">로그아웃</button>
             </form>
             
             <form action="mypage.mb" style="display: inline;">
-            <button type="submit" class="mp_btn" style="background-color: #717171; color: aliceblue; font-size: 16px; font-weight: 700; border: none;">마이페이지</button>
+            <button type="submit" class="mp_btn"  style="background-color: #717171; color: aliceblue; font-size: 16px; font-weight: 700; border: none;">마이페이지</button>
 			</form>
-		
+		</div>
       </div>
            
 			</c:otherwise>
