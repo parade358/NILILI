@@ -98,7 +98,8 @@
    height: 100px;
    /* border:1px solid green; */
    float: left;
-   font-family: 'Nanum Gothic', sans-serif;
+   /* font-family: 'Nanum Gothic', sans-serif; */
+   font-family: 'Noto sans KR', sans-serif;
    font-size: 12px;
    color: #A12B2B;
    display: flex;
@@ -116,7 +117,8 @@
    /* border:1px solid red; */
    float: left;
    font-size: 34px;
-   font-family: 'Nanum Gothic', sans-serif;
+   /* font-family: 'Nanum Gothic', sans-serif; */
+   font-family: 'Noto sans KR', sans-serif;
    font-weight: 800;
    display: flex;
    justify-content: center;
@@ -125,8 +127,9 @@
 }
 
 div {
-   font-family: 'Nanum Gothic', sans-serif;
-   font-weight: 100;
+   /* font-family: 'Nanum Gothic', sans-serif; */
+   font-family: 'Noto sans KR', sans-serif;
+   font-weight: 400;
 }
 
 td {
