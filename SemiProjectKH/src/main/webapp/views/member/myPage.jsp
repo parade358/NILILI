@@ -441,8 +441,8 @@ table tr {
 
 </style>
 </head>
-<%@ include file="../common/headerBar.jsp"%>
 
+<%@ include file="../common/headerBar.jsp"%> 
 
 <body>
 
@@ -451,7 +451,7 @@ table tr {
 
 	<div class="wrap">
 
-		<!-- 전체영역 잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 	</div>
 
 	<!--********************************콘텐츠영역*********************************-->
@@ -655,20 +655,13 @@ table tr {
 							<tr>
 								<td>1</td>
 								<td>${sub.regiDate } ~ ${Sub.expirationDate }</td>
-								<td>${sub.regiDate }${sub.regiDate }월호</td>
+								<td>${fdate} ~ ${fdate }월호</td>
 								<td>${sub.regiDate}</td>
 								<td>신용카드</td>
 								<td><span class="red">사용중</span></td>
 							</tr>
 
-							<tr>
-								<td>1</td>
-								<td>2023-11-03~2023-12-03</td>
-								<td>23.11월 호</td>
-								<td>2023-11-03</td>
-								<td>신용카드</td>
-								<td>사용중</td>
-							</tr>
+							
 
 						</tbody>
 					</table>
