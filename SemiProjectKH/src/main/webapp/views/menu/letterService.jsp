@@ -47,6 +47,10 @@
             position: relative;
             text-align: center;
          }
+			#MemberIntroduce{
+				margin-left: 750px;
+			
+			}
 
 
 /*-------------------------------------------푸터영역--------------------------------------*/
@@ -67,9 +71,15 @@
 
             <p id="contitle" >여행 추천 구독지</p>
 			</div>
-
+  <br><br><br><br>  
+  
+  
          <!--*******************************콘텐츠 영역********************************* -->
+        <h3 style="font-family: 'Noto sans KR', sans-serif;"><span id="MemberIntroduce">${loginMember.memberName } 님 안녕하십니까 이번달 구독레터는 아래와 같습니다	</span></h3>
+         
+         <br><br><br><br>
 <div id="content">
+
 
  <img src="../../resources/mainIndex/img.png" alt="구독지레터">
 
