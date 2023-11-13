@@ -143,6 +143,15 @@
         	width: 110px; 
         	height: 40px
         }
+        
+          .pageBtn {
+            background-color: transparent;
+            border: 0px solid black;
+            color: black; /* 버튼 텍스트 색상 지정 (흰색 예시) */
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -224,34 +233,42 @@
 		
 		
         <!-- 페이징바 -->
-        <div align="center" class="paging-area">
+       <div align="center" class="paging-area">
 			
-			<!-- 이전/다음 버튼 만들기 (1페이지에서는 이전버튼 비활성화) 
-				마지막 페이지에서는 다음버튼 비활성화  
+			<!-- 이전/다음 버튼 만들기 (1페이지에서는 이전버튼 비활성화)
+				마지막 페이지에서는 다음버튼 비활성화
 			-->
 			<!-- 이전 -->
 			<c:choose>
 				<c:when test="${pi.currentPage eq 1}">
-					<button disabled>이전</button>
+					<button disabled class="pageBtn">
+						<img src="${contextPath }/resources/board/left_Icon.png" alt="방향아이콘">
+					</button>
 				</c:when>
 				<c:otherwise>
-					<button onclick="location.href='list.no?currentPage=${pi.currentPage-1}'">이전</button>
+					<button onclick="location.href='list.bo?currentPage=${pi.currentPage-1}'" class="pageBtn">
+						<img src="${contextPath }/resources/board/left_Icon.png" alt="방향아이콘">
+					</button>
 				</c:otherwise>
 			</c:choose>
 			
 			<c:forEach var="i" begin="${pi.startPage}" end="${pi.endPage }">
 				
-				<button onclick="location.href='list.no?currentPage=${i}'">${i}</button>
+				<button onclick="location.href='list.bo?currentPage=${i}'" class="pageBtn">${i}</button>
 			
 			</c:forEach>
 			
 			<!-- 다음 -->
 			<c:choose>
 				<c:when test="${pi.currentPage eq pi.maxPage}">
-					<button disabled>다음</button>
+					<button disabled class="pageBtn">
+						<img src="${contextPath }/resources/board/right_Icon.png" alt="방향아이콘">
+					</button>
 				</c:when>
 				<c:otherwise>
-					<button onclick="location.href='list.no?currentPage=${pi.currentPage+1}'">다음</button>
+					<button onclick="location.href='list.bo?currentPage=${pi.currentPage-1}'" class="pageBtn">
+						<img src="${contextPath }/resources/board/right_Icon.png" alt="방향아이콘">
+					</button>
 				</c:otherwise>
 			</c:choose>
 		
