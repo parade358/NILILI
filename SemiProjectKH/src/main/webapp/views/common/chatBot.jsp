@@ -317,7 +317,9 @@ NILILI를 즐겨주세요!
 
     </div>
 
+<!-- 새롭게 창이 열리게 해놓아 경우마다 div를 주었습니다 -->
     <script>
+    //this가 안먹혀 일일히 아이디값 주고 이전으로 설정해놨습니다
         $("#backsite").click(function(){
 
             $("#introduce").css("display", "none");
@@ -357,7 +359,7 @@ NILILI를 즐겨주세요!
             });
 
 
-        // 토글하는 함수
+        // 토글하는 함수(버튼 클릭시 챗봇 영역이 나오게)
         function toggleChat() {
             var chatContainer = $("#chat-container");
             var openChat = $("#openChat");
@@ -377,7 +379,7 @@ NILILI를 즐겨주세요!
                 textToReveal.each(function () {
                     revealText($(this));
                 });
-            } else {
+            } else {//열려있을때는 한번더 클릭하여 없에기 
             	  $(".chat-container").css("display", "none");
             	
            
@@ -461,7 +463,7 @@ NILILI를 즐겨주세요!
                 revealText($(this));
             });
         } 
-
+		//일일히 문자를 타이핑 하듯이 나열해주는 함수입니다.
         function revealText(element) {
             var text = element.html();
             element.html("");
@@ -492,23 +494,10 @@ NILILI를 즐겨주세요!
         !는 논리 NOT 연산자로, 결과를 부정합니다.
         .length는 선택된 요소의 개수를 나타냅니다.
         따라서 !$(e.target).closest('.chat-container, .chat-toggle-button').length는
-클릭된 요소의 부모 중에서 .chat-container 또는 .chat-toggle-button 클래스를 가진 요소가 없을 경우를 나타냅니다. 
-이 경우, 클릭된 요소가 채팅 창 또는 토글 버튼 영역 외부에 있다는 의미이며, 이때 채팅 창을 숨기는 동작을 수행합니다.
- */
-
-	
-
-
-
+		클릭된 요소의 부모 중에서 .chat-container 또는 .chat-toggle-button 클래스를 가진 요소가 없을 경우를 나타냅니다. 
+		이 경우, 클릭된 요소가 채팅 창 또는 토글 버튼 영역 외부에 있다는 의미이며, 이때 채팅 창을 숨기는 동작을 수행합니다.
+		 */
+    </script>
         
-        
-
-        </script>
-        
-
- 
-        
-        
-   
 </body>
 </html>

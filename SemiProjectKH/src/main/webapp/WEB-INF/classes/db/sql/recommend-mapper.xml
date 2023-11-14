@@ -15,7 +15,14 @@
 	</entry>
 	
 
-	
+	<entry key="updateTaste">
+		UPDATE SUBSCRIBE
+		SET TASTE_1 = ?
+		  , TASTE_2 = ?
+		  , TASTE_3 = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+		
 	
 	
 
