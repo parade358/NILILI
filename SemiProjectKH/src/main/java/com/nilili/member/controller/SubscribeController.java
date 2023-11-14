@@ -20,7 +20,7 @@ import com.nilili.subscribe.model.vo.Subscribe;
 @WebServlet("/subscribe.mb")
 public class SubscribeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+         
     /**
      * @see HttpServlet#HttpServlet()
      */

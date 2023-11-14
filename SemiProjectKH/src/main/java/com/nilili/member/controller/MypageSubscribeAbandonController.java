@@ -22,7 +22,7 @@ import com.nilili.subscribe.model.vo.Subscribe;
 @WebServlet("/abandon.mb")
 public class MypageSubscribeAbandonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        
     /**
      * @see HttpServlet#HttpServlet()
      */

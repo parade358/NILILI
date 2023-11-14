@@ -10,7 +10,7 @@ public class SubscribeService {
 
 	public int SubscribeInsert(String memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
-		
+		 
 		int result=new SubscribeDao().SubscribeInsert(conn,memberNo);
 
 		if(result>0) {

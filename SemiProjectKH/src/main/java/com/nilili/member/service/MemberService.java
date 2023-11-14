@@ -20,7 +20,7 @@ public class MemberService {
 		} else {
 			JDBCTemplate.rollback(conn);
 		}
-
+ 
 		return result;
 
 	}

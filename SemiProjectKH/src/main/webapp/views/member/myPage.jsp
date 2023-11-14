@@ -8,7 +8,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 <!DOCTYPE html>
 <html>
 <head>
-
+ 
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
