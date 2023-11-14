@@ -19,6 +19,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style >
+.wrap {  
+	width: 1920px;
+}
+
+.wrap>div {
+	width: 100%;
+}
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
  /*콘텐츠 타이틀 영역 설정*/
         #title{
             position: relative;
@@ -160,7 +172,28 @@
    </style>
 </head>
 <body>
-<%@ include file="../common/headerBar.jsp"%>
+
+	<div class="wrap">
+<%@ include file="../common/headerBar.jsp"%> 
+		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		<style>
+      #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            margin-left:900px;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
+
+	</style>
+
+
         <!--서브페이지 타이틀 -->
          <div id="title">
             <br>

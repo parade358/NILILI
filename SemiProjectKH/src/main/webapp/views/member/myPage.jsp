@@ -32,9 +32,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 /*---------------------content 스타일 영역------------------------------*/
 
-/*콘텐츠 타이을 영역 설정*/
-/*콘텐츠 타이틀 영역 설정*/
-
 #title {
 
 	height: 300px;
@@ -69,7 +66,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	color: #FFECEC;
 	font-weight: 400;
 	font-size: 16px;
-	margin-left: 427px;
+	margin-left: 90px;
 	margin-top: 40px;
 	margin-bottom: 70px;
 	
@@ -83,7 +80,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
  	font-weight: 400;
  	color:#fefefe;
  	font-size: 16px;
- 	margin-left: 427px;
+ 	margin-left: 90px;
     margin-top: 40px;
     margin-bottom: 70px;
  	
@@ -460,9 +457,20 @@ table tr {
 <%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 		<style>
-		#logo{
-margin-left:890px;
-}
+      #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            margin-left:900px;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
+
 	</style>
 
 	<!--********************************콘텐츠영역*********************************-->
@@ -471,7 +479,7 @@ margin-left:890px;
 
 		<div id="title">
 			<br>
-			<p id="title">마이페이지</p>
+	<p id="title" style="font-family: 'Noto Sans KR', sans-serif;">마이페이지</p></h3>
 		</div>
 
 		<!--***********************************콘텐츠 영역***************************************-->

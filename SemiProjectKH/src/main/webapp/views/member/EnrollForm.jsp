@@ -12,7 +12,17 @@
 <title>Document</title>
 <style>
 
+.wrap {  
+	width: 1920px;
+}
 
+.wrap>div {
+	width: 100%;
+}
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
 
 /*---------------------content 스타일 영역------------------------------*/
 #title {
@@ -305,8 +315,13 @@ text-align: center;
 
 </style>
 </head>
-<%@ include file="../common/headerBar.jsp"%>
+
+
 <body>
+
+
+<%@ include file="../common/headerBar.jsp"%> 
+
 
 	<!--****************************콘텐츠 영역******************************-->
 	<div id="title">
@@ -635,7 +650,23 @@ text-align: center;
 			
 	</form>
 	</div>
+	
+	<%@ include file="../common/footerBar.jsp"%>
 
+<style>
+
+      #footer{
+        margin-top: 60px;
+        margin-left:-500px;
+        width: 1920px;
+        color: gray;
+        text-align: center;
+      }
+      #f_text{
+        padding-top: 40px;
+      }
+
+</style>
 
 
 
@@ -983,34 +1014,6 @@ text-align: center;
 			  });	
 	});
 	</script>
-	
-	
-	
-	<div class="foot">
-	   <div class="fcon">
-	      <hr>
-	       <span id="f_text" >
-            고객문의  |  이용약관  | 개인정보취급방침  |  사이트맵
-            <br><br>
-            서울시 영등포구 선유동 2로 57 이레빌딩 20층 E강의장  TEL 1544-9970
-            <br>
-            COPYRIGHT ⓒ  1988-2023 KH IEI ALL Right Reserved
-        
-        </span>
-	   </div>
-	
-	
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </body>
 	
 </html>

@@ -473,7 +473,7 @@ NILILI를 즐겨주세요!
                 index++;
                 if (index === text.length) {
                     clearInterval(timer);//시간(ms)을 간격으로 콜백함수를 반복 호출 하는 함수이다.
-                    출처: https://
+                   //
                 }
             }, 30);//30ms로 설정 아마 0.03초
         }
