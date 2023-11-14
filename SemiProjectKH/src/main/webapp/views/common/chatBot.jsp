@@ -178,7 +178,35 @@ NILILI 입니다
             </div>
         </div>
 <!--@@@@@@@@@@@@@@@@@@@@@회원가입@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<c:if test="${not empty loginMember}">
+        <div class="chat-container" id="goEnrollForm" style="display: none;">
 
+            <div class="button-container" id="button-container-introduce">
+<h6> <pre id="text3" style="font-family: 'Noto sans KR', sans-serif;">
+
+NILILI의 멤버가 되고싶으시다구요?
+
+제가 바로 회원가입 버튼을 만들어 오겠습니다
+
+.....
+
+.............
+
+...zzzzZZzzzZZ
+
+오잉? 이미 로그인이 되어있으십니다.
+
+해당 서비스는 로그아웃 후 이용가능 하니 
+
+참고해주세용
+
+</pre></h6>
+              
+                <button onclick="toggleChat()" id="backsite2">이전 목록으로</button>
+            </div>
+        </div>
+
+</c:if>
         <div class="chat-container" id="goEnrollForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
@@ -197,7 +225,29 @@ NILILI의 멤버가 되고싶으시다구요?
         </div>
 
 <!--@@@@@@@@@@@@@@@@@@@@@아디비번찾기@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<c:if test="${not empty loginMember}">
+<div class="chat-container" id="goFindPwdForm" style="display: none;">
 
+            <div class="button-container" id="button-container-introduce">
+<h6> <pre id="text5" style="font-family: 'Noto sans KR', sans-serif;">
+
+아이디 비밀번호를 까먹으셨다구요?
+
+잠시만 기다려주세요 버튼을 만들어 오겠습니다
+
+...zzzzZZzzzZZ
+
+...zzzzZZzzzZZ
+
+오잉? 이미 로그인 되어 있으신데요?
+
+해당 서비스는 로그아웃 후 이용해주세요
+</pre></h6>
+                <button onclick="toggleChat()" id="backsite4">이전 목록으로</button>
+            </div>
+        </div>
+
+</c:if>
         <div class="chat-container" id="goFindPwdForm" style="display: none;">
 
             <div class="button-container" id="button-container-introduce">
@@ -230,9 +280,9 @@ NILILI를 즐겨주세요!
 
 제가 바로 구독버튼을 만들어오겠습니다
 
-...... 
+...zzzzZZzzzZZ
 
-.......
+...zzzzZZzzzZZ
 
 아직 로그인을 안하셨네요! 
 
@@ -271,7 +321,7 @@ NILILI를 즐겨주세요!
 제가 바로 구독버튼을 만들어오겠습니다
 
 .........
-...........
+...zzzzZZzzzZZzzzzZZZZ
 .........
 
 이미 구독을 하신 상태이십니다!!
