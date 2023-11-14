@@ -24,7 +24,7 @@ public class MyPageController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+ 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

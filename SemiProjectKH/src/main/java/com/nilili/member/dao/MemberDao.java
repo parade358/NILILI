@@ -15,7 +15,7 @@ import com.nilili.subscribe.model.vo.Subscribe;
 public class MemberDao {
 
 	private Properties prop = new Properties();
-
+ 
 	// 기본생성자가 생성되는 시점(메소드호출시점)에 파일 읽어오기
 	public MemberDao() {
 

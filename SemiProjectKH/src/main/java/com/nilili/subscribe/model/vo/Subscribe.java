@@ -3,7 +3,7 @@ package com.nilili.subscribe.model.vo;
 import java.sql.Date;
 
 public class Subscribe {
-/*
+/* 
  * 
  * SUB_NO	NUMBER
 MEMBER_NO	NUMBER
