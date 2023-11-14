@@ -82,7 +82,26 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 </head>
 <body>
 
-	<%@ include file="../common/headerBar.jsp"%>
+		<div class="wrap">
+<%@ include file="../common/headerBar.jsp"%> 
+		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		<style>
+      #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            margin-left:900px;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
+
+	</style>
+
 
 	<div id="container" class="container">
 

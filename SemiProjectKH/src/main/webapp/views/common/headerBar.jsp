@@ -74,7 +74,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         #header{
             /* border: 1px solid black; */
             height: 165px;
-            position: absolute;
+          
 /*             text-align: center; */
             z-index: 2000;
             margin:0px auto ;
@@ -83,7 +83,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
  
         /*상단 블랙라인 */
         #line{
-       	 width:100%;       
+       	       
             height: 35px;
             background-color: black;
         }

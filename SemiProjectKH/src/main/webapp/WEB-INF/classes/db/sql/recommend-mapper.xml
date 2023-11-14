@@ -20,13 +20,16 @@
 		SET TASTE_1 = ?
 		  , TASTE_2 = ?
 		  , TASTE_3 = ?
+		  , MODI_DATE = SYSDATE
 		WHERE MEMBER_NO = ?
 	</entry>
-		
 	
-	
-
-
+	<entry key="updatePlNo">
+		UPDATE SUB_RECOMMEND
+		SET PL_NO = ?
+		  , MODI_DATE = SYSDATE
+		WHERE MEMBER_NO = ?	
+	</entry>
 
 
 </properties>
