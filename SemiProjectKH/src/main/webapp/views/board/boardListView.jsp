@@ -16,163 +16,193 @@
 		<title>Insert title here</title>
 		
 		<style>
-	
-	        .wrap{
-	            background-color: white;
-	            color: black;
-	            width: 1920px;
-	            /* height: 1000px; */
-	            margin: auto;
-	            margin-top: 50px;
-	        }
-	
-	        .wrap{
-	            width: 1920px;
-	        }
-	        .wrap > div{
-	            width: 100%;
-	        }
-	        #header{
-	            /* border: 1px solid black; */
-	            height: 165px;
-	        }
-	
-	        #line{
-	            height: 35px;
-	            background-color: black;
-	        }
-	        #logo{
-	            /* border:1px solid black; */
-	            width: 155px;
-	            height: 70px;
-	            padding-top:30px ;
-	            margin-left:882.5px
-	            
-	        }
-	        #footer{
-	        margin-top: 60px;
-	        color: gray;
-	     
-	        }
-	
-	        #f_text{
-	            padding-top: 40px;
-	
-	        }
-	
-	        .list-area{
-	            border-top: 3px solid #313131;
-	            text-align: center;
-	            margin-bottom: 50px;
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-weight: 400;
-	            color: black;
-	            
-	        }
-			
-			.list-area>tbody tr:hover{
-				background-color:#DADEE8;
-				cursor : pointer;
-				
-			}
-	
-	        td{
-	            border-bottom: 1px solid #DDDDDD;
-	            height: 46px;
-	        }
-	
-	        th{
-	            height: 54px;
-	            text-align: center;
-	        }
-	
-	
-	        #title1{
-	            width:150px;
-	            height:100px;
-	            /* border:1px solid green; */
-	            float:left;
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-size: 12px;
-	            color: #A12B2B;
-	            display: flex;
-	            justify-content: center;
-	            align-items: center;
-	            margin-left: 750px;
-	            margin-top: 30px;
-	            padding-top: 10px;
-	            font-weight: 700;
-	            
-	
-	        }
-	
-	        #title2{
-	            width:240px;
-	            height:100px;
-	            /* border:1px solid red; */
-	            float:left;
-	            font-size: 34px;
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-weight: 800;
-	            display: flex;
-	            justify-content: center;
-	            align-items: center;
-	            margin-top: 30px;
-	        }
-	
-	        div{
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-weight: 100;
-	        }
-	
-	        #write{
-	            padding-left: 850px;
-	        }
-	
-	        table{
-	            width: 1000px;
-	            margin-top: 150px;
-	        }
-	        
-	        #insertBo{
-	        	width: 110px; 
-	        	height: 40px
-	        }
-	        
-	        .borderNone{
-	        	
-	        	border-bottom: 0px solid #DDDDDD;
-	        }
-	        
-	         .pageBtn {
-	            background-color: transparent;
-	            border: 0px solid black;
-	            color: black; /* 버튼 텍스트 색상 지정 (흰색 예시) */
-	            text-decoration: none;
-	            cursor: pointer;
-	            font-size: 16px;
-	        }
-	        
-	    </style>
-	</head>
-	
-	<body>
-	
-		<div class="wrap">
+
+        .wrap{
+            background-color: white;
+            color: black;
+            width: 1920px;
+            margin: auto;
+        }
+
+        .wrap{
+            width: 1920px;
+        }
+        .wrap > div{
+            width: 100%;
+        }
+        #header{
+            /* border: 1px solid black; */
+            height: 165px;
+        }
+
+        #line{
+            height: 35px;
+            background-color: black;
+        }
+        #logo{
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            padding-top:30px ;
+            margin-left:882.5px
+            
+        }
+        #footer{
+        margin-top: 60px;
+        color: gray;
+     
+        }
+
+        #f_text{
+            padding-top: 40px;
+
+        }
+
+        .list-area{
+        	width: 1000px;
+            border-top: 3px solid #313131;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: 400;
+            color: black;
+            
+        }
 		
-	        <!-- 헤더 영역 -->
-	        <%@ include file="/views/common/headerBar.jsp"%>
-	        
-	        <br>
-	        
-	        <div id="title1">서울 여행 정보 공유 사이트</div>
-	        
-	        <div id="title2">늴리리 커뮤니티</div>
-	        
-	        <div class="container" align="center">
-				<div>
-					<table>
-						<tr>
+		.list-area>tbody tr:hover{
+			background-color:#DADEE8;
+			cursor : pointer;
+			
+		}
+
+        td{
+            border-bottom: 1px solid #DDDDDD;
+            height: 46px;
+        }
+
+        th{
+            height: 54px;
+            text-align: center;
+        }
+
+
+        #title1{
+            width:150px;
+            height:100px;
+            /* border:1px solid green; */
+            float:left;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 12px;
+            color: #A12B2B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 750px;
+            /* margin-top: 150px; */
+            padding-top: 10px;
+            font-weight: 700;
+            
+
+        }
+
+        #title2{
+            width:240px;
+            height:100px;
+            /* border:1px solid red; */
+            float:left;
+            font-size: 34px;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-top: 150px; */
+            margin-bottom: 20px;
+        }
+
+        div{
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: 100;
+        }
+
+        #write{
+            padding-left: 850px;
+        }
+        
+        #insertBo{
+        	width: 110px; 
+        	height: 40px
+        }
+        
+        .borderNone{
+        	
+        	border-bottom: 0px solid #DDDDDD;
+        }
+        
+         .pageBtn {
+            background-color: transparent;
+            border: 0px solid black;
+            color: black; /* 버튼 텍스트 색상 지정 (흰색 예시) */
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+       
+        .search-area{
+        	width: 1000px;
+        
+        }
+        
+        .btntd{
+        	width: 120px;
+        	border-bottom: 0px solid #DDDDDD;
+        }
+        
+        
+        #searchButton{
+        	width: 120px;
+        	height: 39px;
+        	border: 1px solid #CED4DA;
+        	       
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+	
+	
+
+	<div class="wrap">
+         <!--헤더영역 블랙라인 + 로고 -->
+        <%@ include file="/views/common/headerBar.jsp"%>
+        <!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		<style>
+      #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            margin-left:900px;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
+	</style>
+        
+		<br>
+        <div id="title1">서울 여행 정보 공유 사이트</div>
+        <div id="title2">늴리리 커뮤니티</div>
+        
+        <div class="container" align="center">
+			<div>
+					<table class="search-area">
+						<tr id=search>
 							<td align="center" class="borderNone">
 								<select class="form-control" name="searchField" id="searchField">
 									<option value="title">제목</option>
@@ -183,25 +213,26 @@
 							<td class="borderNone">
 								<input type="text" class="form-control"placeholder="검색어 입력" name="searchText" id="searchText" maxlength="100">
 							</td>
-							<td align="center" class="borderNone">
+							<td class="btntd">
 								<button class="btn" name="searchButton" id="searchButton">검색</button>
 							</td>
 						</tr>
 					</table>
-				</div>
 			</div>
-			<table class="list-area" id="list-area" align="center" style= "margin-top: 50px">
-				<thead>
-					<tr>
-						<th width="50">번호</th>
-						<th width="100">카테고리</th>
-						<th width="400">제목</th>
-						<th width="100">작성자</th>
-						<th width="150">등록일</th>
-						<th width="50">조회수</th>
-					</tr>
-				</thead>
-				<tbody>
+		</div>
+		
+		<table class="list-area" id="list-area" align="center">
+			<thead>
+				<tr>
+					<th width="50">번호</th>
+					<th width="100">카테고리</th>
+					<th width="400">제목</th>
+					<th width="100">작성자</th>
+					<th width="150">등록일</th>
+					<th width="50">조회수</th>
+				</tr>
+			</thead>
+			<tbody>
 					<!-- 리스트가 비어있는 경우 -->
 	                <c:choose>
 	                	<c:when test="${empty list}">
