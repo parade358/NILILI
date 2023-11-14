@@ -257,24 +257,9 @@
 									<c:forEach items="${cList}" var="c">
 										<option value="${c.categoryNo }">${c.categoryName }</option>
 									</c:forEach>
-							</select> <script>	
-								$(function(){
-									//비교대상 : Board 객체에 담겨있는 category(카테고리이름)
-									//select option 목록에서 똑같은 카테고리이름인 요소를 선택하기 
-									var choose =  "${b.boardCategory}"; //Board 객체에 담겨있는 category(카테고리이름)
-									
-									$("#update-area option").each(function(){
-										
-										//데이터베이스에서 조회해온 게시글의 카테고리와 카테고리목록중 텍스트가 같은 요소
-										if($(this).text()==choose){ // 비교대상이 같다면 
-											$(this).attr("selected",true);//해당 요소객체의 selected속성을 true값으로 변경
-											//선택되어짐
-											return false; //break; 역할 
-										}
-									});
-								});
+							</select> 
 							
-							</script></td>
+							</td>
 	
 	
 							<th>제목</th>
@@ -376,6 +361,25 @@
 		
 		
 		<!----------------------------- SCRIPT 구문 ----------------------------->
+		
+		<!-- 기존 카테고리 가져오기 -->
+		<script>	
+			$(function(){
+				//비교대상 : Board 객체에 담겨있는 category(카테고리이름)
+				//select option 목록에서 똑같은 카테고리이름인 요소를 선택하기 
+				var choose =  "${b.boardCategory}"; //Board 객체에 담겨있는 category(카테고리이름)
+				
+				$("#update-area option").each(function(){
+					
+					//데이터베이스에서 조회해온 게시글의 카테고리와 카테고리목록중 텍스트가 같은 요소
+					if($(this).text()==choose){ // 비교대상이 같다면 
+						$(this).attr("selected",true);//해당 요소객체의 selected속성을 true값으로 변경
+						//선택되어짐
+						return false; //break; 역할 
+					}
+				});
+			});
+		</script>
 		
 		
 		<!-- summernote(게시글 내용) 스크립트 -->
