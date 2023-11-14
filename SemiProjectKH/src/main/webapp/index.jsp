@@ -186,15 +186,7 @@ a {
  
  /*----------------------------로그인 후 페이지 --------------------------------*/
  *{font-family: 'Noto Sans KR', sans-serif;}
-.wrap {
-	width: 1920px;
-	margin:0 auto;
-}
 
-.wrap>div {
-	width: 100%;
-	
-}
  #header {
 	/* border: 1px solid black; */
 	height: 165px;
@@ -205,18 +197,8 @@ a {
 /* 	text-align: center; */
 }
 
-/* 로그인 후 user정보 입력창 스타일 설정 */
 
-#top {
-	height: 641px;
-    magin-top:130px;
-	margin-bottom: 40px;
-}
 
-#top_bg {
-	position: absolute;
-	/*헤더 밑 메인탑 이미지 부분*/
-}
 
 
 #user_info{
@@ -272,7 +254,7 @@ color:#e6e6e6;
 position: absolute;
  margin: -50px auto;
  text-align: center;
-
+width:100%;
  
 }
 #content1 {	height: 354px;}

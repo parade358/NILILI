@@ -34,9 +34,12 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 /*콘텐츠 타이을 영역 설정*/
 /*콘텐츠 타이틀 영역 설정*/
+
 #title {
-	/* border: 1px solid black; */
-	height: 168px;
+
+	height: 300px;
+
+	
 }
 
 /*콘텐츠 타이틀 스타일 설정*/
@@ -44,6 +47,8 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	text-align: center;
 	font-size: 40px;
 	font-weight: 300;
+	margin-top:200px;
+	
 }
 
 /*콘텐츠 영역 설정 */
@@ -67,6 +72,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	margin-left: 427px;
 	margin-top: 40px;
 	margin-bottom: 70px;
+	
 }
 
 #drop{
@@ -440,9 +446,10 @@ table tr {
   }
 
 </style>
+
 </head>
 
-<%@ include file="../common/headerBar.jsp"%> 
+
 
 <body>
 
@@ -450,9 +457,13 @@ table tr {
 
 
 	<div class="wrap">
-
+<%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-	</div>
+		<style>
+		#logo{
+margin-left:890px;
+}
+	</style>
 
 	<!--********************************콘텐츠영역*********************************-->
 	<!--*************************콘텐츠 타이틀 부분 ****************************************-->
@@ -1031,7 +1042,10 @@ var msg = "<%=alertMsg%>";
 		<%session.removeAttribute("alertMsg");%>
 			}
 			//주석
+			
 		</script>
+		</div>
+		</div>
 		<%@ include file="../common/footerBar.jsp"%>
 </body>
 

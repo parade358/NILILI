@@ -116,6 +116,29 @@ public class SubscribeDao {
 		
 		
 	}
+	//리코맨드 멤버 엮음
+	public int updateRecommend(Connection conn, int memberNo) {
+			PreparedStatement pstmt = null;
+			int result = 0;
+			String sql = prop.getProperty("updateRecommend");
+			
+			try {
+				pstmt= conn.prepareStatement(sql);
+				pstmt.setInt(1, memberNo);
+				
+				result = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(pstmt);
+			}
+			
+		return result;
+		
+		
+		
+	}
 
 	
 	

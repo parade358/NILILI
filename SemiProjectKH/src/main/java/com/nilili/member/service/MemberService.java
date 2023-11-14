@@ -208,7 +208,7 @@ public class MemberService {
 		Connection conn = JDBCTemplate.getConnection();
 		//구독 업데이트나 회원 정보의 수정이 있을때 사용하는 메소드입니다(바로 세션영역의loginMember의 정보를 교체하는 작업)
 	Member memberLogin = new MemberDao().selectMember2(conn, memberNo);
-	
+	System.out.println("재혁님 건강을 위해 흡연을 삼가하시고 키보드는 언젠가 훔쳐갑니다.");
 	return memberLogin;
 		
 	}

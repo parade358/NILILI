@@ -56,7 +56,10 @@ public class SubscribeController extends HttpServlet {
 	 
 	 //그리고 바로 매인인덱스에 구독기간 뜨게 subscribe도 세션영역에 업데이트 해놓겠습니다
 	Subscribe sub = new SubscribeService().updateSubscribe(memberNo);
-	 
+	
+	//구독지레터를 위한 조인문
+	int result2=   new SubscribeService().updateRecommend(memberNo);
+	
 	HttpSession session = request.getSession();
 	//세션에 저장되어있는 loginMember를 수정후의 loginMember로 교체
 	session.setAttribute("loginMember", loginMember);
@@ -65,7 +68,9 @@ public class SubscribeController extends HttpServlet {
 	
 	response.setContentType("text/html;charset =UTF-8");//인코딩
 	
-	response.getWriter().print(result);
+	int lastResult	= result * result2; 
+	
+	response.getWriter().print(lastResult);
 
 			
 			

@@ -36,6 +36,22 @@ public class SubscribeService {
 	
 	return sub;	
 	}
+
+	public int updateRecommend(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+	int result =	new SubscribeDao().updateRecommend(conn,memberNo);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		return result;
+		
+	}
 	
 	
 	
