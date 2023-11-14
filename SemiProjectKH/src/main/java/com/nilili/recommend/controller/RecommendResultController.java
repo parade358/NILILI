@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.nilili.member.vo.Member;
 import com.nilili.recommend.model.service.RecommendService;
 import com.nilili.recommend.model.vo.Recommend;
 
@@ -37,7 +39,7 @@ public class RecommendResultController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		
+		//최종 결과화면에 DB에서 plName, plAddress, plInfo 가져다 넣기
 		int point = Integer.parseInt(request.getParameter("point"))+1;
 		//System.out.println("ponit : " + point);
 		Recommend r = new RecommendService().resultRecommend(point);
@@ -62,6 +64,21 @@ public class RecommendResultController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
+		
+		//사용자에게 보여준 최종 결과화면을 SUB_RECOMMEND 테이블의 plNo에 update
+		//로그인 한 사용자 정보, 최종결과값인 point 필요
+		/*
+		 * HttpSession session = request.getSession(); String memberNo =
+		 * String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
+		 * int point = Integer.parseInt(request.getParameter("point"))+1;
+		 * 
+		 * Recommend r = new Recommend(); r.setMemberNo(Integer.parseInt(memberNo));
+		 * r.setPlNo(point);
+		 * 
+		 * int result = new RecommendService().updatePlNo(r);
+		 */
+		
+		
 
 	}
 }

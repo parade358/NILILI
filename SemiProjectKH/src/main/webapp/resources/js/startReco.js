@@ -54,12 +54,9 @@ function goNext(qIdx){
     addAnswer(qnaList[qIdx].a[i].answer, qIdx, i); //qnaList[qIdx].a[i].answer => answerText 로 받아짐 (밑함수에서)
   }
   
- /*
-  var status = document.querySelector('.statusBar');
-  status.style.width = (100/endPoint) * (qIdx+1) + '%'; 
-  //전체를 100으로보고 엔드포인트로 나눈다음 qIdx의 크기만큼 가로를 설정해 qIdx가 커질때마다 진행도가 보여짐
-*/
 }
+
+const clickedValues = [];
 
 //답변박스 뽑아내는 함수
 function addAnswer(answerText, qIdx, idx){
@@ -98,39 +95,21 @@ function addAnswer(answerText, qIdx, idx){
     console.dir(e.target);
     console.log(e.target.dataset.box);
     console.log(e.target.dataset.index);
+    
+    
+	// 클릭한 값들을 배열에 추가
+	clickedValues.push({
+	  boxNum: e.target.dataset.box,
+	  boxIndex: e.target.dataset.index
+	});
+	    
+    
     for(let i = 0; i < children.length; i++){
       children[i].disabled = true;
       children[i].style.WebkitAnimation = "fadeOut 0.5s";
       children[i].style.animation = "fadeOut 0.5s";
     }
-    
-    //답변 데이터 서버로 전송하여 taste에 추가하기
-	var answerData = {
-        aBox: e.target.dataset.box,
-        aIndex: e.target.dataset.index
-    };
-    
-    
-    
-/*    if(box == 1) {
-		var aIndex1 = e.target.dataset.index;
-		console.log("박스1의 인덱스 : " + aIndex1);
-	}*/
 
-    
-    $.ajax({
-    url: "/semi/reco.ts",
-    type: "POST",  // POST 메서드 사용
-    contentType: "application/json",  // 데이터 형식 지정
-    data: JSON.stringify(answerData),  // JSON 형식으로 데이터 변환
-    success: function(response) {
-        console.log(response);
-    },
-    error: function() {
-        console.log("통신오류");
-    }
-	});
-    
     setTimeout(() => {
       var target = qnaList[qIdx].a[idx].type;
       for(let i = 0; i < target.length; i++){
@@ -141,8 +120,29 @@ function addAnswer(answerText, qIdx, idx){
         children[i].style.display = 'none';
       }
       goNext(++qIdx); //클릭하면 답변박스 다 사라지게하고 gonext함수에 qIdx ++ 해서 넘김 
+     // 마지막 질문까지 답한 경우에 서버로 데이터 전송
+	 if (qIdx === endPoint) {
+	     sendClickedValuesToServer();
+	   }
+    
     },450)
   }, false);
+}
+
+function sendClickedValuesToServer() {
+  // 배열 전체를 서버로 전송 - taste DB에 update하기 위함
+  $.ajax({
+    url: "/semi/reco.ts",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(clickedValues),
+    success: function(response) {
+      console.log(response);
+    },
+    error: function() {
+      console.log("통신오류");
+    }
+  });
 }
 
 
@@ -194,13 +194,7 @@ function setResult(){
   resultName.innerHTML = infoList[point].name;
   */
 
-  
-  // AJAX 요청을 사용하여 point 값 보내기
-//  var xhr = new XMLHttpRequest();
-//  xhr.open("GET", "/semi/reco.sl?point=" + point, true); 
-//  xhr.send();
-//  
-  
+  //point값을 컨트롤러로 보내서 조회화면에 DB데이터 넣기
   $.ajax({
 	url : "/semi/reco.sl",
 	data : {point : point},
@@ -215,8 +209,8 @@ function setResult(){
 });
 	
 	
-	//이미지는 JS에서 불러오는 것 그대로 사용
-	//이미지의 번호 = 결과번호 = plNo 다 통일시켜야 제대로 나옴	
+  //이미지는 JS에서 불러오는 것 그대로 사용
+  //이미지의 번호 = 결과번호 = plNo 다 통일시켜야 제대로 나옴	
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
   var imgURL = 'resources/img/recoImg/result/image-' + point + '.jpg'; //여행지 이미지 이름을 정해줬기때문에 결과에 맞게 보여줄수있음
@@ -225,6 +219,6 @@ function setResult(){
   resultImg.classList.add('img-fluid');
   imgDiv.appendChild(resultImg);
 
-/*  const resultDesc = document.querySelector('.resultDesc'); //여기에다가 db의 PL_INRO값 넣어야됨, 가능하다면은 주소 정보도 넣기
+/*  const resultDesc = document.querySelector('.resultDesc'); //여기에다가 db의 PL_INFO값 넣어야됨, 가능하다면은 주소 정보도 넣기
   resultDesc.innerHTML = infoList[point].desc;*/
 }

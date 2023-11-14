@@ -57,6 +57,16 @@ public class Recommend {
 
 
 
+	public Recommend(int memberNo, int taste1, int taste2, int taste3) {
+		super();
+		this.memberNo = memberNo;
+		this.taste1 = taste1;
+		this.taste2 = taste2;
+		this.taste3 = taste3;
+	}
+
+
+
 	public Recommend(int plNo, String plName, String plAddress, String plLocation, String plPhotoPath, String plInfo,
 			String preference, String description, Date regiDate, Date modiDate, String useYn, int recommendNo,
 			int memberNo, int letterNo, int subNo, int taste1, int taste2, int taste3, Date expirationDate) {

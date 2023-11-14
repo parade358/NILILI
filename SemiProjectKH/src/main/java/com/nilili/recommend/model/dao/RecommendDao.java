@@ -100,12 +100,15 @@ public class RecommendDao {
 //		return result;
 //	}
 
-	public int updateTaste(Connection conn, int taste1, int taste2, int taste3, int memberNo1) {
+	//회원 번호에 따라 taste 값을 update
+	public int updateTaste(Connection conn, Recommend r) {
 
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("updateTaste");
-		Recommend r = new Recommend();
+		
+		System.out.println("dao memNum : "+
+		r.getMemberNo());
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -123,11 +126,32 @@ public class RecommendDao {
 		}finally {
 			JDBCTemplate.close(pstmt);
 		}
-		
-		
+		System.out.println(r.getTaste1());
+		System.out.println("Executing SQL : " + sql);
+		System.out.println("DAO result : " + result);
 		
 		return result;
+		
 
 	}
+
+	//구독 회원에게 추천해준 장소를 SUB_RECOMMEND 테이블의 plNo컬럼에 update해주기
+	/*
+	 * public int updatePlNo(Connection conn, Recommend r) {
+	 * 
+	 * int result = 0; PreparedStatement pstmt = null; String sql =
+	 * prop.getProperty("updatePlNo");
+	 * 
+	 * try { pstmt = conn.prepareStatement(sql);
+	 * 
+	 * 
+	 * 
+	 * } catch (SQLException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); }
+	 * 
+	 * 
+	 * 
+	 * return 0; }
+	 */
 
 }

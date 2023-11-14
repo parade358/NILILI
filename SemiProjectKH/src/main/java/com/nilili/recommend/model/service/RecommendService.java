@@ -44,14 +44,13 @@ public class RecommendService {
 	 */
 	
 	//회원 번호에 따라 taste 값을 update
-	public int updateTaste(int taste1, int taste2, int taste3, String memberNo) {
+	public int updateTaste(Recommend r) {
 		
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int memberNo1 = Integer.parseInt(memberNo);
 
-		int result = new RecommendDao().updateTaste(conn, taste1, taste2, taste3, memberNo1);
-
+		int result = new RecommendDao().updateTaste(conn, r);
+		
 		if (result > 0) {
 			JDBCTemplate.commit(conn);
 		} else {
@@ -60,10 +59,28 @@ public class RecommendService {
 
 		JDBCTemplate.close(conn);
 		
+		System.out.println("service : " + result);
 		return result;
+		
 
 		
 	}
+
+	//구독 회원에게 추천해준 장소를 SUB_RECOMMEND 테이블의 plNo컬럼에 update해주기
+	/*
+	 * public int updatePlNo(Recommend r) {
+	 * 
+	 * Connection conn = JDBCTemplate.getConnection();
+	 * 
+	 * int result = new RecommendDao().updatePlNo(conn, r);
+	 * 
+	 * if(result > 0) { JDBCTemplate.commit(conn); }else {
+	 * JDBCTemplate.rollback(conn); }
+	 * 
+	 * JDBCTemplate.close(conn);
+	 * 
+	 * return result; }
+	 */
 	
 
 }
