@@ -53,18 +53,23 @@ public class RecommendTasteController extends HttpServlet {
         
         String jsonData = sb.toString();
         
-        System.out.println(jsonData);
+	    // JSON 데이터를 객체로 파싱 (Gson 사용)
+
+	    int taste1;
+	    int taste2;
+	    int taste3;
         
-        //String을 int로 받아서 taste 컬럼에 숫자로 넣기
+        //int로 받아서 taste 컬럼에 숫자로 넣기
         //taste1 = 0:액티비티 / 1:식도락 / 2:힐링 / 3:쇼핑
         //taste2 = 0:유적지 / 1:관광지 / 2:체험 / 3:반려동물
         //taste3 = 0:사진명소 / 1:시끌벅적한 장소 / 2:자연 속 산책 / 3:카페와 맛집
-        int taste1 = Integer.parseInt(jsonData.substring(22,23));
-        int taste2 = Integer.parseInt(jsonData.substring(22,23));
-        int taste3 = Integer.parseInt(jsonData.substring(22,23));
+        taste1 = Integer.parseInt(jsonData.substring(57,58));
+        taste2 = Integer.parseInt(jsonData.substring(87,88));
+        taste3 = Integer.parseInt(jsonData.substring(117,118));
         
-        //Arraylist<>() = 
-      
+//        System.out.println(taste1);
+//        System.out.println(taste2);
+//        System.out.println(taste3);
         
         
         response.setContentType("text/plain");
@@ -77,20 +82,24 @@ public class RecommendTasteController extends HttpServlet {
         HttpSession session = request.getSession(); 
         String memberNo = String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
 		
+        int memberNum = Integer.parseInt(memberNo);
         
-//        Recommend r = new Recommend();
+        
+        Recommend r = new Recommend(memberNum, taste1, taste2, taste3);
+        
+        
+//        r.setMemberNo(Integer.parseInt(memberNo));
 //        r.setTaste1(taste1);
 //        r.setTaste2(taste2);
 //        r.setTaste3(taste3);
-//        r.setMemberNo(Integer.parseInt(memberNo));
-//        
-        new RecommendService().updateTaste(taste1,taste2,taste3,memberNo);
+//        System.out.println(r.getTaste1());
+//        System.out.println(memberNo);
+        System.out.println("controller : " + r);
         
-       // int result = new RecommendService().updateTaste(r);
         
-       // System.out.println(taste1+","+taste2+","+taste3+","+memberNo);
+        int result = new RecommendService().updateTaste(r);
+        
 
-        
 	
 	}
 
