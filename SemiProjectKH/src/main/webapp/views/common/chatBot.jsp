@@ -466,15 +466,16 @@ NILILI를 즐겨주세요!
 		//일일히 문자를 타이핑 하듯이 나열해주는 함수입니다.
         function revealText(element) {
             var text = element.html();
-            element.html("");
-            var index = 0;
+            element.html("");//처음에는 빈문자열로 시작합니다
+            var index = 0;//시작할 인덱스입니다
             var timer = setInterval(function () {
-                element.html(element.html() + text.charAt(index));
+                element.html(element.html() + text.charAt(index));//빈문자열부터 시작해서 인덱스를 하나하나씩 올려주며 작성한 글들을 뽑습니다
                 index++;
                 if (index === text.length) {
-                    clearInterval(timer);
+                    clearInterval(timer);//시간(ms)을 간격으로 콜백함수를 반복 호출 하는 함수이다.
+                    출처: https://
                 }
-            }, 30);
+            }, 30);//30ms로 설정 아마 0.03초
         }
         //현재 챗봇 이외의 영역을 클릭할시 다 사리지게 하는 옵션입니다
         $(document).on('click', function(e) {

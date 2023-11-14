@@ -1001,7 +1001,7 @@ table tr {
 
 
 		<script>
-
+		//중복 이메일 구현 ajax
 		 $("#custEmailId,#custEmailDomain,#selectEmail").on("input change",function(){
 			 $.ajax({
 				url : "${contextPath}/overLapEmail.mb",

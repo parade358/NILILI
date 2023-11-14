@@ -153,7 +153,6 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 	<c:choose>
 	<!-- 로그인 안했을때 -->
 			<c:when test="${empty loginMember }">
-			<!-- 테스트 -->
 		    <div class="wrap">
 		        <div id="header">
 		            <div id="line"></div>
@@ -165,10 +164,6 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 			</c:when>
 			<!-- 로그인 했을때 -->
 			<c:otherwise>
-			
-			
-	
-        <!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
         <div id="header">
             <div id="line"></div>
             <div id="logo">
@@ -213,12 +208,6 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 
 
 		</c:choose>
-		
-		
-		<!-- 전체영역 잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		
-		
-		
 	<script>
 //왜이러지
 
