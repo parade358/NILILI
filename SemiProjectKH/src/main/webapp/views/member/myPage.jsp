@@ -461,7 +461,7 @@ table tr {
             position:absolute;
             /* border:1px solid black; */
             width: 155px;
-            height: 70px;
+          
             z-index: 101;
             top:60px ;
             margin-left:900px;
