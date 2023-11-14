@@ -151,7 +151,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 
 <!--인클루드 하실때 제일 위에다가 해주세요 -->
 	<c:choose>
-	<!-- 로그인 안했을때 -->
+<%--로그인 안했을때 --%>
 			<c:when test="${empty loginMember }">
 		    <div class="wrap">
 		        <div id="header">
@@ -162,7 +162,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		        </div>
 		        </div>
 			</c:when>
-			<!-- 로그인 했을때 -->
+			<%-- --%>
 			<c:otherwise>
         <div id="header">
             <div id="line"></div>
@@ -170,7 +170,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
       		<a href="http://localhost:8888/semi/"><img src="${contextPath }/resources/mainIndex/logo.png" alt="3조로고"></a>     
           </div>
                   <ul class="utility">
-                <!--로그아웃 버튼 영역-->
+               <%--로그아웃 버튼영역 --%>
 
             <li>
                 <a href="${contextPath }/logout.mb" id="logout" class="nonp">
@@ -179,7 +179,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
                 </a>
              </li>
             
-            <!--마이페이지 버튼 영역-->
+          <%--마이페이지 버튼영역 --%>
             <li>
                <a href="mypage.mb" id="mypage" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/myp_ui.png "alt="mypage_ui"> 
@@ -209,7 +209,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 
 		</c:choose>
 	<script>
-//왜이러지
+
 
 var msg = "<%=alertMsg%>";
 

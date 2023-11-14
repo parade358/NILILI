@@ -1,12 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
 <%
-
 String saveId= "";
 String savePwd="";
 String loginFailId = "";
@@ -30,13 +27,7 @@ for(Cookie c : cookies){
 		loginFailId=c.getValue();
 	}
 }
-
-
-
 %>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,7 +117,7 @@ for(Cookie c : cookies){
 #login {
 	position: absolute;
 	z-index: 1500px;
-	/* background-color: aqua; */
+	/*  background-color: aqua; */
 	padding-top: 15px;
 	height: 282px;
 }
@@ -286,7 +277,7 @@ position: absolute;
 }
 #content1 {	height: 354px;}
 
-/* #title {margin-top: 170px;} */
+
 
 #subtitle {	font-size: 40px;}
 
@@ -379,8 +370,8 @@ position: absolute;
 					
 					<c:choose> 
 			<c:when test="${empty loginMember }">
-					<!-- 로그인전 -->
-				<form action="${contextPath }/login.mb" method="post"><!-- 로그인 폼입니다.  -->
+					<%--로그인전 --%>
+				<form action="${contextPath }/login.mb" method="post"><%--로그인폼입니다 --%>
 				<div id="login" class="log">
 					<p id="id">
 						<label for="loginId">아이디</label> <input type="text" id="loginId" name="memberId">
@@ -400,7 +391,7 @@ position: absolute;
 						<button type="submit" class="log_btn">로그인</button>
 					</p>
 	
-					<!--회원가입/아이디 >>밀번호 찾기-->
+					<%--로그인폼 --%>
 					<div id="login_form_etc">
 
 						<a href="views/member/find_Id_Pwd.jsp" style="color: #C2C2C2;"
@@ -413,7 +404,7 @@ position: absolute;
 		</c:when>
 		
 		<c:otherwise>
-		<!-- 로그인 후 -->
+	<%--로그인후 --%>
 		    <div id="user_info" class="log">
       
          <div class ="user">
@@ -436,7 +427,7 @@ position: absolute;
 			<form action="${contextPath }/logout.mb" style="display: inline;">
             <button type="submit" class="logout_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700; border: none; margin-right: 10px">로그아웃</button>
             </form>
-            
+            <%-- --%>
             <form action="mypage.mb" style="display: inline;">
             <button type="submit" class="mp_btn"  style="background-color: #717171; color: aliceblue; font-size: 16px; font-weight: 700; border: none;">마이페이지</button>
 			</form>
@@ -462,7 +453,7 @@ position: absolute;
 				<!--서브타이틀(늴리리영역)-->
 				<div id="title">
 					<img src="resources/mainIndex/title00.png" alt="">
-					<sapn id="subtitle"> <b>늴리리</b></sapn>
+					<span id="subtitle"> <b>늴리리</b></sapn>
 				</div>
 				<!--button영역 호버시 이미지 바꾸기/ 클릭시  서브페이지로 이동하기-->
 				
