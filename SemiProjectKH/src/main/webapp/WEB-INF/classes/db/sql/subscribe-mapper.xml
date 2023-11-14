@@ -30,6 +30,16 @@
      
 	</entry>
 	
+	<entry key="updateRecommend">
+	
+	INSERT INTO SUB_RECOMMEND(RECOMMEND_NO
+								,MEMBER_NO)
+				VALUES(SEQ_RNO.NEXTVAL
+						,?)						
+	
+	
+	</entry>
+	
 	
 </properties>
 

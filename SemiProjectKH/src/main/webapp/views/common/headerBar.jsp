@@ -77,12 +77,13 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             position: absolute;
 /*             text-align: center; */
             z-index: 100;
-            margin:0 auto;
+            margin:0px auto ;
             
         }
  
         /*상단 블랙라인 */
-        #line{         
+        #line{
+       	 width:100%;       
             height: 35px;
             background-color: black;
         }
@@ -99,7 +100,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 /*             translate: -50%; */
 /*             margin: 0 auto; */
         }
-        
+  
         /*오른쪽상단 a태그 텍스트밑줄 제거*/
         #header a{text-decoration: none;}
         /*오른쪽 상단 메뉴 */
@@ -125,24 +126,20 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         }
         
         .utility #logout{
-        padding-right: 390px;
+        padding-right: 500px;
         }
         
         .utility #mypage{
-        padding-right: 290px;
+        padding-right: 410px;
         }
         
         .utility #notice{
-        padding-right: 200px;
+        padding-right: 320px;
         }
  
         .utility #QnA{
-        padding-right: 130px;
+        padding-right: 250px;
         }
-        
-
-        
-        
 			</c:otherwise>
 	</c:choose>
 </style>
