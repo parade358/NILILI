@@ -94,7 +94,7 @@ public class RecommendTasteController extends HttpServlet {
 //        r.setTaste3(taste3);
 //        System.out.println(r.getTaste1());
 //        System.out.println(memberNo);
-        System.out.println("controller : " + r);
+//        System.out.println("controller : " + r);
         
         
         int result = new RecommendService().updateTaste(r);

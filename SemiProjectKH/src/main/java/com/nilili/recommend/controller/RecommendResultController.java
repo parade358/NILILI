@@ -63,21 +63,6 @@ public class RecommendResultController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
-		
-		//사용자에게 보여준 최종 결과화면을 SUB_RECOMMEND 테이블의 plNo에 update
-		//로그인 한 사용자 정보, 최종결과값인 point 필요
-		/*
-		 * HttpSession session = request.getSession(); String memberNo =
-		 * String.valueOf(((Member)session.getAttribute("loginMember")).getMemberNO());
-		 * int point = Integer.parseInt(request.getParameter("point"))+1;
-		 * 
-		 * Recommend r = new Recommend(); r.setMemberNo(Integer.parseInt(memberNo));
-		 * r.setPlNo(point);
-		 * 
-		 * int result = new RecommendService().updatePlNo(r);
-		 */
-		
 		
 
 	}
