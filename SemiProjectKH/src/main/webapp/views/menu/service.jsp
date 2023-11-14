@@ -324,7 +324,6 @@
          			success: function(result){
          				if(result>0){
          					$("#closeBtn").click();
-         					window.location.href = "serviceFinal.jsp";
          				}else{
          					alert("비정상적인 이유로 구독에 실패하였습니다");
          				}
@@ -344,7 +343,7 @@
          			},
          			success: function(result){
          				if(result>0){
-         					console.log("구독완료")
+         					window.location.href = "serviceFinal.jsp";
          				}else{
          					alert("비정상적인 이유로 구독에 실패하였습니다");
          				}

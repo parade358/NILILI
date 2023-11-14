@@ -25,18 +25,19 @@
         /*-------------------------------헤더 끝 ---------------------------------------*/
 ​
         /*콘텐츠 타이을 영역 설정*/
-        #title{
-             background-color: red;
+        #title2{
+         
             /* border: 1px solid black; */
             height: 900px;
             text-align: center;
+            
             
         }
 ​
 ​
         /*콘텐츠 타이틀 스타일, 영역(중앙정렬) 설정*/
-        #contitle{
-          	background-color : red;
+        #contitle2{
+          
             font-size: 30px;
             font-weight:800;
             margin-top : 50000px;
@@ -44,19 +45,18 @@
          }
 ​
          /*--------------------- 콘텐츠영역------------------------------------*/
-         #content{
-            position: relative;
-            text-align: center;
+         #content1{
+           
         
          }
 ​
-         #textBox{
+         #textBox1{
             width: 955px;
             height:808px;
             border: 1px solid #999999;
             margin: 0 auto;
             text-align: center;
-   		background-color:red;
+  
             font-size: 30px;
             font-weight: 900;
             padding-top: 64px;
@@ -64,80 +64,78 @@
        
 ​
          }
-​
-         #textBox p{
-         
-            font-size: 22px;
-            color: #333333;
-​
-         }
-​
-      #content button{
+
+      #serviceBtn{
        
         font-size: 16px;
         font-weight: 800;
         width: 230px;
         height: 53px;
-        background-color: #a90000;
+         background-color: #a90000;
         color: #f9dede;
         margin: 0 auto;
         border: none;
         margin-top: 60px;
       }
-​
-​
-         
-​
-/*-------------------------------------------푸터영역--------------------------------------*/
+
+		
 
     </style>
 </head>
+<body>
+
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
+     <style>
       #logo{
             position:absolute;
-            /* border:1px solid black; */
+
             width: 155px;
             height: 70px;
             z-index: 101;
             top:60px ;
             margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
+
         }
-</style>	
-
-
-<body>
-
+        </style>
          <!--서브페이지 타이틀 -->
-         <div id="title">
+        <h2>WELCOME NILILI PREMIUM SUBSCRIBE SERVICE</h2> 
+        <br><br><br><br>
+        
+         <div id="title2" style="background-color:red;  background-image: url('../../resources/01_service/service_img.png');    height:605px;">
+       <br><br><br><br><br><br><br><br><br><br>
+         <h3 style="font-weight:bolder;">닐리리만의 고품격 구독 서비스에 오신걸 환영합니다</h3>
             <br>
             <hr>
 ​
-            <p id="contitle" >구독 서비스</p>
+		
 ​
          </div>
 ​
          <!--*******************************콘텐츠 영역********************************* -->
-<div id="content">
- 
-<div id="textBox">WELCOME
-    <p>구독이 완료되었습니다.</p>
-</div>
-<button type="text" id="serviceBtn"> 여행 추천 서비스로 가기</button>
-​
+<div id="content1">
+ <button type="button" id="serviceBtn" >메인홈페이지 가기</button>
 
-
-​
 </div>
 ​
 	<%@ include file="../common/footerBar.jsp"%>
 
 
 </body>
+
+<script>
+
+$("#serviceBtn").click(function(){
+
+	window.location.href = 'http://localhost:8888/semi/';
+	
+	
+});
+
+
+
+
+</script>
+
+
 </html>
