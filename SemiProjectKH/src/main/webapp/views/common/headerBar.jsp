@@ -59,12 +59,17 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             background-color: black;
         }
         #logo{
+   			 position:absolute;
             /* border:1px solid black; */
             width: 155px;
             height: 70px;
-            padding-top:30px ;
-/*             margin-left:882.5px */
-			margin: 0 auto;
+            z-index: 101;
+            top:60px ;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
         }
         </c:when>
 			<c:otherwise>
