@@ -207,6 +207,19 @@ function setResult(){
 		console.log("통신오류");
 	}
 });
+
+//point값을 plno 업데이트용으로 전달
+  $.ajax({
+	url : "/semi/reco.no",
+	type: "POST", 
+	data : {point : point},
+	success : function(result){
+		console.log(result);
+	},
+	error : function(){
+		console.log("통신오류");
+	}
+});
 	
 	
   //이미지는 JS에서 불러오는 것 그대로 사용

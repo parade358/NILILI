@@ -59,7 +59,6 @@ public class RecommendService {
 
 		JDBCTemplate.close(conn);
 		
-		System.out.println("service : " + result);
 		return result;
 		
 
@@ -67,20 +66,26 @@ public class RecommendService {
 	}
 
 	//구독 회원에게 추천해준 장소를 SUB_RECOMMEND 테이블의 plNo컬럼에 update해주기
-	/*
-	 * public int updatePlNo(Recommend r) {
-	 * 
-	 * Connection conn = JDBCTemplate.getConnection();
-	 * 
-	 * int result = new RecommendDao().updatePlNo(conn, r);
-	 * 
-	 * if(result > 0) { JDBCTemplate.commit(conn); }else {
-	 * JDBCTemplate.rollback(conn); }
-	 * 
-	 * JDBCTemplate.close(conn);
-	 * 
-	 * return result; }
-	 */
+	
+	public int updatePlNo(Recommend r) {
+
+		Connection conn = JDBCTemplate.getConnection();
+
+		int result = new RecommendDao().updatePlNo(conn, r);
+
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+
+		JDBCTemplate.close(conn);
+
+		System.out.println("service : " + result);
+		return result;
+
+	  }
+	 
 	
 
 }
