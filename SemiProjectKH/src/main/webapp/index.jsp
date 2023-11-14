@@ -227,7 +227,7 @@ color:#e6e6e6;
      
 
      #lbtn{
-     margin-top: 80px;
+     margin-top: 50px;
      }
      
      
@@ -239,6 +239,7 @@ color:#e6e6e6;
       	height: 42px;
       	border: none;
       	margin-right: 20px;
+      	margin-bottom:500px;
      }
      
      .mp_btn{
@@ -407,7 +408,8 @@ position: absolute;
     	</div>
        <div id="lbtn">
 			<form action="${contextPath }/logout.mb" style="display: inline;">
-            <button type="submit" class="logout_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700; border: none; margin-right: 10px">로그아웃</button>
+            <button type="submit" class="logout_btn" style="background-color: #9a0a0a; color: aliceblue; font-size: 16px; font-weight: 700;
+             border: none; margin-bottom:-10px; margin-right: 10px;" >로그아웃</button>
             </form>
             <%-- --%>
             <form action="mypage.mb" style="display: inline;">
