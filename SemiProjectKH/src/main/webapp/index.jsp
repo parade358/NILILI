@@ -468,8 +468,8 @@ position: absolute;
 				<!--콘텐츠2 (이미지)-->
 			</div>
 			<div id="content2">
-				<a href="http://localhost:8888/semi/views/member/test.jsp"><img
-					src="resources/mainIndex/02_con.png" alt="구독강요서비스ㅋㅋ"></a>
+				<img
+					src="resources/mainIndex/02_con.png" alt="구독강요서비스ㅋㅋ">
 			</div>
 			<!--푸터영역-->
 				<%@ include file="views/common/footerBar.jsp"%>
