@@ -46,9 +46,9 @@ public class EmrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		
-		String memberId = request.getParameter("userId");
-		String memberPwd = request.getParameter("userPwd");
-		String memberName = request.getParameter("userName");
+		String memberId = request.getParameter("userId");//아이디
+		String memberPwd = request.getParameter("userPwd");//비번
+		String memberName = request.getParameter("userName");//이름
 		String beforeMemberBirth = request.getParameter("userYear")+"-"+request.getParameter("userMonth")+"-"
 										+request.getParameter("userDay");//1998718
 																		//이렇게 받아오면 1998-07-18 로 안됨
@@ -66,11 +66,18 @@ public class EmrollController extends HttpServlet {
 		
 		String memberBirth = dateFormat.format(date);		
 		String memberGender = request.getParameter("userGender");
-		String memberPhone = request.getParameter("firstPNum").concat("-").concat(request.getParameter("midPNum").concat("-").concat(request.getParameter("lastPNum")));
-		String memberEmail = request.getParameter("custId")+"@"+request.getParameter("domain");
+		String memberPhone = request.getParameter("firstPNum")
+				.concat("-")
+				.concat(request.getParameter("midPNum")
+						.concat("-")
+						.concat(request.getParameter("lastPNum")));//핸드폰 번호
+		String memberEmail = request.getParameter("custId")+"@"+request.getParameter("domain");//이메일
 		
-		String memberAddress ="("+request.getParameter("memberPostCode")+")"+ "  "+request.getParameter("memberAddress")+", "+request.getParameter("memberDetailAddress")+request.getParameter("memberExtraAddress");
-		System.out.println(memberAddress);
+		String memberAddress ="("+request.getParameter("memberPostCode")+")"
+		+ "  "+request.getParameter("memberAddress")+
+		", "+request.getParameter("memberDetailAddress")+
+		request.getParameter("memberExtraAddress");//집주소
+		
 		Member member = new Member(memberId,memberPwd,memberName,memberBirth,memberGender,memberPhone,memberEmail,memberAddress);
 		
 		int result =new MemberService().insertMember(member);
@@ -78,10 +85,13 @@ public class EmrollController extends HttpServlet {
 		
 		if(result>0) {
 			
-			request.getRequestDispatcher("views/member/afterEnroll.jsp").forward(request, response);
+			request.getRequestDispatcher("views/member/afterEnroll.jsp").forward(request, response);//성공적으로 커밋되면
+																									//회원가입 축하페이지
 			
 		}else {
 			request.getRequestDispatcher("views/member/EnrollForm.jsp").forward(request, response);
+																								//이상 생겨 롤백되면
+																								//회원가입 페이지 그대로
 			
 		}
 		

@@ -124,7 +124,7 @@ a {
 </body>
 
 <script>
-
+//홈페이지로 가게 하는 함수
 $(function(){
 	
 	$("#loginBtn").click(function(){

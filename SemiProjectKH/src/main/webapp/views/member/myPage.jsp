@@ -902,7 +902,7 @@ table tr {
     
     
     
-    
+    //비밀번호랑 비밀번호 확인 다르면 오류문 발생하는 함수
     $("#memberPwd").on("input", function(){
         $.ajax({
             url: "${contextPath}/memberPwdCk.mb",
@@ -931,7 +931,7 @@ table tr {
     	
    
     
-   
+   //성공하기전까지 return false를 줘서 비번 수정 못하게 막음
     function pwdCheck(){
     	var cPwd = $("input[name = updatePwd]");
     	var chkPwd = $("#pwdInput");
@@ -949,7 +949,7 @@ table tr {
     	}
     }
     
-    
+    //모달창 여는 함수 -은지
     function mbDeleOpen(){
 		var modalPop = $('.modal_wrap');
 		var modalBg = $('.modal_bg');
@@ -958,7 +958,7 @@ table tr {
 		$(modalBg).show();
 	};
 	
-
+//회원탈퇴 하는 ajax 함수 -은지
 	$("#mbdele").click(function(){
 		$.ajax({
 			url: "${contextPath}/mbdele.mb",
@@ -983,7 +983,7 @@ table tr {
 	});
 	
 	
-	
+	//모달창 닫는 함수 -은지
 	function mbDeleClose(){
 		var modalPop = $('.modal_wrap');
 		var modalBg = $('.modal_bg');

@@ -288,7 +288,7 @@ margin-left:0;
 text-align: center;
 }
 
- @keyframes shake {
+ @keyframes shake {/*애니메이션 효과 css*/
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
   40% { transform: translateX(5px); }
@@ -322,8 +322,8 @@ text-align: center;
 				<div id="id">
 					 <label for="idInput">* 아이디</label>
 					<input type="text" id="idInput" name="userId" required placeholder="영문/숫자/'_' 만 입력가능 4~16자리">
-					<span id="overLapId">영문/숫자/'_' 만 입력가능 4~16자리</span>
-					<!-- <button type="submit" class="chkId">중복확인</button>-->
+					<span id="overLapId">영문/숫자/'_' 만 입력가능 4~16자리</span><!-- 중복확인 버튼 대신 오류문 발생 -->
+				
 				</div>
 
 				<!--************************************************비밀번호 , 이름*******************************************************-->
@@ -331,18 +331,18 @@ text-align: center;
 				<div id="pwd">
 					<label for="pwdInput">* 비밀번호</label>
 					<input type="password" id="pwdInput" name="userPwd" required placeholder="영문+숫자+특수문자 조합 8~16자리" maxlength="16">
-					<span id="pwdCk1"></span>
+					<span id="pwdCk1"></span><!-- 오류문 발생 span태그 -->
 				</div>
 				
 				<div id="chkpwd">
 					 <label for="pwdInputCk">* 비밀번호 확인</label>
 					<input type="password" required placeholder="영문+숫자+특수문자 조합 8~16자리" maxlength="16" id="pwdInputCk">
-					<span id="pwdCk2"></span>
+					<span id="pwdCk2"></span><!-- 오류문 발생 span태그 -->
 				</div>
 				<div id="name">
 					<label for="nameInput">* 이름</label>
 					<input type="text" id="nameInput" name="userName" required placeholder="두글자 이상(한글 이외의 글자 입력불가)">
-					<span id="nameCk"></span>
+					<span id="nameCk"></span><!-- 오류문 발생 span태그 -->
 				</div>
 
 
@@ -376,7 +376,7 @@ text-align: center;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="radibBoxChspan"></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="radibBoxChspan"></span><!-- 오류문 발생 span태그 -->
 				</div>
 
 
@@ -408,7 +408,7 @@ text-align: center;
             <option value="khacademy.com">KH</option>
             <option value="직접입력">직접입력</option>
         </select>
-        <span id="emailOverLap"></span>
+        <span id="emailOverLap"></span><!-- 오류문 발생 span태그 -->
         <div style="width: 114px; height: 42px; outline-style: none;" class="select-list-box" wck="selectEmail" tabindex="0"></div>
         <div tabindex="0" title="" class="selected-headline" nstyle="width: 114px;"></div>
     </div>
@@ -707,7 +707,7 @@ text-align: center;
 	
 	
 	
-	//아이디 이메일 중복 ajax (일단 아이디부터 구현)
+	//아이디 중복검사 기능 ajax
 	 $(function(){
 	
 		 $("#idInput").on("input",function(){
@@ -744,7 +744,7 @@ text-align: center;
 					 
 			 });
 			 });
-		 
+		 //이메일 중복검사 ajax
 		 $("#custEmailId,#custEmailDomain,#selectEmail").on("input change",function(){
 		 $.ajax({
 			url : "${contextPath}/overLapEmail.mb",
@@ -790,6 +790,7 @@ text-align: center;
 				&& $(".radioBoxCh").is(":checked")
 				&& $("#emailOverLap").html()== ""){//조건이 다 맞을때 버튼을 submit로 바꿔서 서버로 전송	
 				 $('#btnConfirm').prop('type', 'submit');
+				//아이디 비밀번호 성별 체크 이메일 중복검사가 무사히 통과되면 회원 가입 버튼이 submit으로 바뀜
 			}
 			else if (!regExp1.test(idInput) || $("#overLapId").text()=="* 사용중인 아이디입니다."){//아이디 틀렸을때 
 				$("#idInput").focus();
@@ -866,7 +867,7 @@ text-align: center;
 	</script>
 	
 	<script>
-
+	//이메일 직접입력 했을때 뜨는 경고문 하고 셀렉박스의 option값이 바로여ㅠ input태그의 value값으로 들어가게 설정
 	$(document).ready(function () {
 	    $("#selectEmail").change(function () {
 	        let selectedValue = $(this).val();
@@ -893,7 +894,7 @@ text-align: center;
 	            $("#custEmailDomain").prop("readonly", true);
 	        }
 	    });
-
+		//emailId 적는 칸에 @나 . 적을시 오류문 발생 함수
 	    $("#custEmailId").on("input", function () {
 	        if ($("#custEmailId").val().includes('@') || $("#custEmailId").val().includes('.')) {
 	            $("#emailOverLap").html("이메일의 아이디만 입력해주세요");
@@ -925,12 +926,14 @@ text-align: center;
 		</script>
 	<script>//생년월일 셀렉트태그 함수 월에 맞게 맞는 일수 선택
 		var start_year = "1960";// 시작할 년도
-		var today = new Date();
-		var today_year = today.getFullYear();
+		var today = new Date();//date 객체 생성
+		var today_year = today.getFullYear(); // getFullyear 을쓰자
+											//getyear은 앞자리가 2000년 대면 짤려서 나오는데 (ex 2019년은 119년이라 나옴)
+											//getFullYear은 1000년도부터 9999년까지 적용가능
 		var index = 0;
 		for (var y = start_year; y <= today_year; y++) { //start_year ~ 현재 년도
 			document.getElementById('birth_year').options[index] = new Option(
-					y, y);
+					y, y);//옵션값을 정해주는 구문
 			index++;
 		}
 		index = 0;

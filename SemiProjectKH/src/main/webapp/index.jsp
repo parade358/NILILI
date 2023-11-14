@@ -351,17 +351,17 @@ position: absolute;
 						var savePwd = "<%=savePwd%>";
 						var loginFailId = "<%=loginFailId%>";
 						
-						$("input[name=memberId]").val(loginFailId);
+						$("input[name=memberId]").val(loginFailId);//로그인 실패시 아이디창에 방금 적은 아이디 적어두움
 						
 						
-						if(saveId!=""){
+						if(saveId!=""){//아이디 저장 
 							
 							$("input[name=memberId]").val(saveId);
 							$("input[name=saveId]").attr("checked",true);
 						
 						}
 						
-						if(savePwd !="" && saveId !=""){
+						if(savePwd !="" && saveId !=""){//로그인 정보 저장
 							$("input[name=memberId]").val(saveId);
 							$("input[name=memberPwd]").val(savePwd);
 							$("input[name=loginSave]").attr("checked",true);
@@ -379,7 +379,7 @@ position: absolute;
 					
 					<c:choose> 
 			<c:when test="${empty loginMember }">
-					
+					<!-- 로그인전 -->
 				<form action="${contextPath }/login.mb" method="post"><!-- 로그인 폼입니다.  -->
 				<div id="login" class="log">
 					<p id="id">
@@ -413,7 +413,7 @@ position: absolute;
 		</c:when>
 		
 		<c:otherwise>
-		
+		<!-- 로그인 후 -->
 		    <div id="user_info" class="log">
       
          <div class ="user">
@@ -478,6 +478,7 @@ position: absolute;
 					<a class="same2" href="${contextPath}/list.bo?currentPage=1" title="현재 가장 이슈있는것은?"><img
 						src="resources/mainIndex/01_3con.png" id="con3" alt="커뮤니티"></a>
 					<c:choose>
+					<!-- 구독페이지 같은 경우 경우를 나누어 구독자일경우 레터서비스로 가고 비구독자일시 구독서비스로 가게한다 -->
 					<c:when test="${loginMember.memberSubscribe eq 'N' or loginMember eq null}">	
 					<a class="same2" href="views/menu/service.jsp" onclick="return hasSubscribe();" title="여행이 편안해지는 당신"><img
 						src="resources/mainIndex/01_4_con.png" id="con4" alt="구독지서비스"></a>

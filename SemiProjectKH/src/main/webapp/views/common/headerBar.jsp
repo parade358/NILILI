@@ -151,6 +151,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 
 <!--인클루드 하실때 제일 위에다가 해주세요 -->
 	<c:choose>
+	<!-- 로그인 안했을때 -->
 			<c:when test="${empty loginMember }">
 			<!-- 테스트 -->
 		    <div class="wrap">
@@ -162,6 +163,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		        </div>
 		        </div>
 			</c:when>
+			<!-- 로그인 했을때 -->
 			<c:otherwise>
 			
 			
