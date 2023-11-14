@@ -76,7 +76,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             height: 165px;
             position: absolute;
 /*             text-align: center; */
-            z-index: 100;
+            z-index: 2000;
             margin:0px auto ;
             
         }

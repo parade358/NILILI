@@ -27,8 +27,9 @@
        	    margin-top : 
             position: relative;
             /* border: 1px solid black; */
-            height: 168px;
+            height: 200px;
             text-align: center;
+         
         
         }
 
@@ -38,7 +39,8 @@
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 30px;
             font-weight:800;
-            margin: 0 30 auto;
+            margin-top: 150px;
+           
           
          }
 
@@ -48,7 +50,7 @@
             text-align: center;
          }
 			#MemberIntroduce{
-				margin-left: 750px;
+				margin-left: 50px;
 			
 			}
 
@@ -59,9 +61,25 @@
     </style>
 </head>
 <body>
-    <div class="wrap">
- <%@ include file="../common/headerBar.jsp"%>
-   </div>
+	<div class="wrap">
+<%@ include file="../common/headerBar.jsp"%> 
+		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+		<style>
+      #logo{
+            position:absolute;
+            /* border:1px solid black; */
+            width: 155px;
+            height: 70px;
+            z-index: 101;
+            top:60px ;
+            margin-left:900px;
+            /* margin-left:882.5px; */
+/*             left: 50%; */
+/*             translate: -50%; */
+/*             margin: 0 auto; */
+        }
+
+	</style>
          <!--*************************헤더 영역 끄으으으으으으읕***********************-->
 
          <!--서브페이지 타이틀 -->
@@ -75,7 +93,7 @@
   
   
          <!--*******************************콘텐츠 영역********************************* -->
-        <h3 style="font-family: 'Noto sans KR', sans-serif;"><span id="MemberIntroduce">${loginMember.memberName } 님 안녕하십니까 이번달 구독레터는 아래와 같습니다	</span></h3>
+      <h3 style="font-family: 'Noto sans KR', sans-serif;"><mark><span id="MemberIntroduce">${loginMember.memberName}님 안녕하십니까 이번달 구독레터는 아래와 같습니다</span></mark></h3>  
          
          <br><br><br><br>
 <div id="content">
