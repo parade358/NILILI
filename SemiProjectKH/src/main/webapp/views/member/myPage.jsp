@@ -66,7 +66,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
  	border: none;
  	font-weight: 400;
  	color:#fefefe;
- 	font-size: 16px;
+ 	font-size: 16px; 
  	margin-left: 90px;
     margin-bottom: 70px;
  	

@@ -15,7 +15,7 @@ import com.nilili.member.service.MemberService;
 import com.nilili.member.vo.Member;
 import com.nilili.subscribe.model.vo.Subscribe;
 
-
+ 
 @WebServlet("/mypage.mb")
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

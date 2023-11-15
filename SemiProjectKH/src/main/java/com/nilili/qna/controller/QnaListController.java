@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class qnaListController
+ * Servlet implementation class qnaListController 
  */
 @WebServlet("/QnaList.bo")
 public class QnaListController extends HttpServlet {
