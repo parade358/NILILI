@@ -23,21 +23,7 @@
     .wrap > div{
         width: 100%;
     }
-    #header{
-        height: 165px;
-    }
 
-    #line{
-        height: 35px;
-        background-color: black;
-    }
-    #logo{
-        width: 155px;
-        height: 70px;
-        padding-top:30px ;
-        margin-left:882.5px
-        
-    }
     #footer{
     margin-top: 60px;
     color: gray;

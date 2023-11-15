@@ -65,6 +65,7 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 
 #container {
 	width: 100%;
+	padding-top: 190px;
 }
 
 #qnaCenter {
@@ -72,6 +73,10 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 	justify-content: center;
 	align-items: center;
 }
+
+
+	    
+	    
 </style>
 
 <!-- kakao api 위한 토큰 -->
@@ -82,30 +87,13 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 </head>
 <body>
 
-		<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
-      #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
 
-	</style>
+	<div class="wrap">
+	<%@ include file="../common/headerBar.jsp"%> 
+	<div id="container" class="container" >
 
-
-	<div id="container" class="container">
-
-		<section id="main" class="mx-auto my-5 py-5 px-3">
+		<section id="main" class="mx-auto px-3">
 			<h2>
 				<b>서울 여행지 추천받기</b>
 			</h2>
@@ -200,6 +188,7 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 		<script src="${contextPath }/resources/js/share.js" charset="utf-8"></script>
 	</div>
 	<%@ include file="../common/footerBar.jsp"%>
+	</div>
 
 </body>
 </html>

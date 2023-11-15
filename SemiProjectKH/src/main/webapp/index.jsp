@@ -53,28 +53,6 @@
 				width: 100%;
 			}
 			
-			#header {
-				height: 165px;
-				position: absolute;
-				text-align: center;
-				z-index: 100;
-				margin:0 auto;
-			}
-			
-			#line {
-				height: 35px;
-				background-color: black;
-			}
-			
-			#logo {
-				width: 155px;
-				height: 70px;
-				z-index: 101;
-				top: 60px;
-				left: 50%;
-				translate: -50%;
-			}
-			
 			#top {
 				height: 641px;
 			    padding-top:160px;

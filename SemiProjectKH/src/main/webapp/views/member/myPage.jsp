@@ -49,7 +49,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 /*콘텐츠 영역 설정 */
 #contents {
 	position: relative;
-	z-index: 200;
 	/* border: 1px solid black; */
 	/* text-align: center; */
 	margin: 0 auto;
@@ -450,24 +449,9 @@ table tr {
 
 
 	<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
+		<%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
-      #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-          
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
-
-	</style>
+		
 
 	<!--********************************콘텐츠영역*********************************-->
 	<!--*************************콘텐츠 타이틀 부분 ****************************************-->
