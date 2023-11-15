@@ -23,9 +23,7 @@
 			    background-color: white;
 			    color: black;
 			    width: 1920px;
-			    /* height: 1000px; */
 			    margin: auto;
-			    margin-top: 50px;
 			}
 			
 			.wrap{
@@ -75,7 +73,7 @@
 			    height:100px;
 			    /* border:1px solid green; */
 			    float:left;
-			    font-family: 'Nanum Gothic', sans-serif;
+			    font-family: 'Noto sans KR', sans-serif;
 			    font-size: 12px;
 			    color: #A12B2B;
 			    display: flex;
@@ -94,8 +92,8 @@
 			    height:100px;
 			    /* border:1px solid red; */
 			    float:left;
-			    font-size: 34px;
-			    font-family: 'Nanum Gothic', sans-serif;
+			    font-size: 30px;
+			 	font-family: 'Noto sans KR', sans-serif;
 			    font-weight: 800;
 			    display: flex;
 			    justify-content: center;
@@ -104,7 +102,7 @@
 			}
 			
 			div{
-			    font-family: 'Nanum Gothic', sans-serif;
+			    font-family: 'Noto sans KR', sans-serif;
 			    font-weight: 100;
 			}
 			
@@ -218,7 +216,7 @@
 			<div id="title1">서울 여행 정보 공유 사이트</div>
 			
 			<!--게시판 타이틀-->
-			<div id="title2">늴리리 커뮤니티</div>
+			<div id="title2">늴리리 공지사항</div>
 			
 			<!--게시글 상세보기 테이블-->
 			<table class="list-area" align="center">
