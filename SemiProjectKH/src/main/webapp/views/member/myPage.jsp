@@ -34,8 +34,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 #title {
 
-	height: 300px;
-
+	
 	
 }
 
@@ -44,8 +43,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	text-align: center;
 	font-size: 40px;
 	font-weight: 300;
-	margin-top:200px;
-	
+	margin-bottom: 50px;
 }
 
 /*콘텐츠 영역 설정 */
@@ -81,7 +79,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
  	color:#fefefe;
  	font-size: 16px;
  	margin-left: 90px;
-    margin-top: 40px;
     margin-bottom: 70px;
  	
 }
@@ -110,7 +107,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 }
 
 #con2_3 {
-	margin-top: 60px;
 }
 
 /*기본입력정보 영역 설정 */

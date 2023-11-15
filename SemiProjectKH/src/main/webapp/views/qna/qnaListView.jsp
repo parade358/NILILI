@@ -15,7 +15,6 @@
         color: black;
         width: 1920px;
         margin: auto;
-        margin-top: 50px;
     }
 
     .wrap{
