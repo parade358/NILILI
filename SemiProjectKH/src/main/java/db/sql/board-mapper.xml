@@ -308,7 +308,7 @@
 	<entry key="likeMemCheck">
 		SELECT MEMBER_NO
 		FROM BO_LIKE WHERE BOARD_NO = ? AND MEMBER_NO = ?
-	</entry>
+	</entry> 
 	
 
 

@@ -811,7 +811,7 @@ public class BoardDao {
 
 	public int likeMemCheck(Connection conn, int bno, int memberNo) {
 		
-		int result = 0;
+		int result = 0; 
 		
 		PreparedStatement pstmt = null;
 		

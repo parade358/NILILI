@@ -42,7 +42,7 @@ public class LikeCountController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		System.out.println("여기왔나");
+		System.out.println("여기왔나"); 
 		
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		
