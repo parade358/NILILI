@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fuggles&family=Merriweather:wght@900&family=Noto+Sans+KR:wght@100&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>늴리리</title>
     <style>
-          
+   
         /*헤어 영역 사이즈값 (높이/세로영역)*/
     
         /*-------------------------------헤더 끝 ---------------------------------------*/
@@ -45,7 +45,7 @@
 			#MemberIntroduce{
 				margin-left: 50px;
 			
-			}
+		}
 
 
 /*-------------------------------------------푸터영역--------------------------------------*/
@@ -83,5 +83,6 @@
 		
 <!--*****************푸우우ㅜ우우우ㅜㅇ터어어어어어ㅓ어어어어어*******************-->
      	<%@ include file="../common/footerBar.jsp"%>
+</div>
 </body>
 </html>

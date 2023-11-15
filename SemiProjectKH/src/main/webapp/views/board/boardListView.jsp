@@ -16,7 +16,6 @@
 		
 		<style>
 		
-
         #footer{
         margin-top: 60px;
         color: gray;

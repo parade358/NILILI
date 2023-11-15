@@ -106,7 +106,7 @@
     
     <div class="wrap">
 	<!--헤더영역 블랙라인 + 로고 -->
-       <%@ include file="../common/headerBar.jsp"%>
+       <%@ include file="/views/common/headerBar.jsp"%>
 	<br>
       
       
