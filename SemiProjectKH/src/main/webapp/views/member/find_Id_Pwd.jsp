@@ -76,6 +76,7 @@
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
 
+
 <h1 id="up" align="center">FIND YOUR
 	ID&nbsp;&nbsp;/&nbsp;&nbsp;PASSWORD</h1>
 

@@ -38,7 +38,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         #container{
-            width: 1920px;
+			width: 100%;
+			padding-top: 190px;
+		}
         }
         #qnaCenter{
 
@@ -49,19 +51,20 @@
         }
         
         .start-btn {
-	width: 120px;
-	height: 44px;
-	background-color: #e1e1e1;
-	border-radius: 5px;
-	cursor: pointer;
-	border:2px solid #A90000;
-}
+			width: 120px;
+			height: 44px;
+			background-color: #e1e1e1;
+			border-radius: 5px;
+			cursor: pointer;
+			border:2px solid #A90000;
+		}
 
-.start-btn:hover {
-	cursor: pointer;
-	background-color: #A90000;
-	color: white;
-}
+		.start-btn:hover {
+			cursor: pointer;
+			background-color: #A90000;
+			color: white;
+		}
+		
 
     </style>
     
@@ -76,10 +79,10 @@
       </script>
 </head>
 <body>
-	<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 
+<div class="wrap">
+<%@ include file="../common/headerBar.jsp"%> 
     <div id="container" class="container" style="margin-bottom: 125px;">
       
             <section id="main" class="mx-auto my-5 py-5 px-3">
@@ -146,6 +149,7 @@
         
         <%@ include file="../common/footerBar.jsp"%>
    
+</div>
     
 </body>
 </html>

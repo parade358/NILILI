@@ -315,6 +315,7 @@ text-align: center;
 
 <%@ include file="../common/headerBar.jsp"%> 
 
+
 	<!--****************************콘텐츠 영역******************************-->
 	<div id="title">
 		<br> <hr>

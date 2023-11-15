@@ -9,7 +9,6 @@
 		
   		<!-- 라이브러리 + 링크  -->
    		<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-    	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@300;400;700&family=IBM+Plex+Sans+KR&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     	<meta charset="UTF-8">
@@ -17,7 +16,7 @@
 		<title>늴리리</title>
 		
 		<style>
-	
+
 	        #footer{
 	        margin-top: 60px;
 	        color: gray;
@@ -40,8 +39,7 @@
 	            height:100px;
 	            /* border:1px solid green; */
 	            float:left;
-	            /* font-family: 'Nanum Gothic', sans-serif; */
-	            font-family: 'Noto sans KR' sans-serif;
+	            font-family: 'Noto sans KR', sans-serif;
 	            font-size: 12px;
 	            color: #A12B2B;
 	            display: flex;
@@ -61,6 +59,7 @@
 	            /* border:1px solid red; */
 	            float:left;
 	            font-size: 34px;
+
 	            /* font-family: 'Nanum Gothic', sans-serif; */
 	            font-family: 'Noto sans KR' sans-serif;
 	            font-weight: 800;
@@ -71,9 +70,11 @@
 	        }
 	
 	        div{
+
 	            /* font-family: 'Nanum Gothic', sans-serif; */
 	            font-family: 'Noto sans KR' sans-serif;
 	            font-weight: 400;
+
 	        }
 	
 	

@@ -9,7 +9,6 @@
 	<head>
 	
 		<!-- 라이브러리 + 링크  -->
-	    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@300;400;700&family=IBM+Plex+Sans+KR&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	    <meta charset="UTF-8">
 	    
@@ -53,8 +52,7 @@
 			    height:100px;
 			    /* border:1px solid green; */
 			    float:left;
-			    /* font-family: 'Nanum Gothic', sans-serif; */
-			    font-family: 'Noto sans KR' sans-serif;
+			    font-family: 'Noto sans KR', sans-serif;
 			    font-size: 12px;
 			    color: #A12B2B;
 			    display: flex;
@@ -84,6 +82,7 @@
 			}
 			
 			div{
+
 			    /* font-family: 'Nanum Gothic', sans-serif; */
 			    font-family: 'Noto sans KR' sans-serif;
 			    font-weight: 400;
@@ -122,7 +121,6 @@
 	
 			<!-- 헤더바 -->		
 			<%@ include file="/views/common/headerBar.jsp" %>	
-			
 			<br>
 			
 			<!-- 공지사항 로고 1 -->
@@ -181,7 +179,7 @@
 			
 			
 	        <!-- 페이징바 -->
-	       <div align="center" class="paging-area">
+	        <div align="center" class="paging-area">
 				
 				<!-- 이전/다음 버튼 만들기 (1페이지에서는 이전버튼 비활성화) 마지막 페이지에서는 다음버튼 비활성화-->
 				

@@ -10,7 +10,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 
     <!-- jQuery library -->
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   
   	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -38,7 +38,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 <style >
 
 
-      .wrap{
+       .wrap{
             width: 1920px;
               text-align: center;
         }
@@ -56,7 +56,9 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             margin: 0 auto;
             
         }
+ 
         #line{
+       	       
             height: 35px;
             background-color: black;
         }
@@ -76,19 +78,17 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 	
 	}
         
-
         </c:when>
 			<c:otherwise>
 			
-	 *{font-family: 'Noto sans KR', sans-serif;}
+	 	*{font-family: 'Noto sans KR', sans-serif;}
         /*헤어 영역 사이즈값 (높이/세로영역)*/
         #header{
             /* border: 1px solid black; */
             height: 165px;
           	width: 1920px;
-/*             text-align: center; */
             z-index: 2000;
-            margin:0px auto ;
+            margin:0px auto;
             
         }
  
@@ -98,7 +98,9 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             height: 35px;
             background-color: black;
         }
+        
         /*헤더 중앙 로고 위치값 */
+
         
         #logo {
 		/* border:1px solid black; */
@@ -113,6 +115,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 		translate: -50%;
 	
 	}
+
         
   
         /*오른쪽상단 a태그 텍스트밑줄 제거*/

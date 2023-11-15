@@ -10,7 +10,7 @@
    <title>늴리리</title>
    
    <style>
-   
+
     #footer{
     margin-top: 60px;
     color: gray;

@@ -65,6 +65,7 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 
 #container {
 	width: 100%;
+	padding-top: 190px;
 }
 
 #qnaCenter {
@@ -72,6 +73,10 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 	justify-content: center;
 	align-items: center;
 }
+
+
+	    
+	    
 </style>
 
 <!-- kakao api 위한 토큰 -->
@@ -82,12 +87,12 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 </head>
 <body>
 
-<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
-
-	<div id="container" class="container">
+	<div class="wrap">
+	<%@ include file="../common/headerBar.jsp"%> 
+	<div id="container" class="container" >
 
 		<section id="main" class="mx-auto my-5 py-5 px-3">
+
 			<h2>
 				<b>서울 여행지 추천받기</b>
 			</h2>
@@ -182,6 +187,7 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 		<script src="${contextPath }/resources/js/share.js" charset="utf-8"></script>
 	</div>
 	<%@ include file="../common/footerBar.jsp"%>
+	</div>
 
 </body>
 </html>
