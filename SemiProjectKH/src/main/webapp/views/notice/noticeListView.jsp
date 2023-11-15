@@ -19,7 +19,6 @@
 			    background-color: white;
 			    color: black;
 			    width: 1920px;
-			    /* height: 1000px; */
 			    margin: auto;
 			}
 	
@@ -29,23 +28,8 @@
 			.wrap > div{
 			    width: 100%;
 			}
-			#header{
-			    /* border: 1px solid black; */
-			    height: 165px;
-			}
 			
-			#line{
-			    height: 35px;
-			    background-color: black;
-			}
-			#logo{
-			    /* border:1px solid black; */
-			    width: 155px;
-			    height: 70px;
-			    padding-top:30px ;
-			    margin-left:882.5px
-			    
-			}
+			
 			#footer{
 			margin-top: 60px;
 			color: gray;
@@ -149,7 +133,6 @@
 	
 			<!-- 헤더바 -->		
 			<%@ include file="/views/common/headerBar.jsp" %>	
-			
 			<br>
 		
 	        <div id="title1">서울 여행 정보 공유 사이트</div>

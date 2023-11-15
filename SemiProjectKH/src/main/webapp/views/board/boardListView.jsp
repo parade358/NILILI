@@ -29,22 +29,7 @@
         .wrap > div{
             width: 100%;
         }
-        #header{
-            /* border: 1px solid black; */
-            height: 165px;
-        }
-
-        #line{
-            height: 35px;
-            background-color: black;
-        }
-        #logo{
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            padding-top:30px ;
-            margin-left:882.5px
-            
+       
         }
         #footer{
         margin-top: 60px;
@@ -182,21 +167,7 @@
          <!--헤더영역 블랙라인 + 로고 -->
         <%@ include file="/views/common/headerBar.jsp"%>
        
-	<style>
-      #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
-	</style>
+	
         
 		<br>
 		<!-- 게시판 로고 1 -->
