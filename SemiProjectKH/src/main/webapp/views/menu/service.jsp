@@ -5,7 +5,6 @@
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,15 +16,8 @@
 	crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style >
-.wrap {  
-	width: 1920px;
-}
-
-.wrap>div {
-	width: 100%;
-}
+<title>늴리리</title>
+<style>
 
 * {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -175,23 +167,6 @@
 
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
-      #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
-
-	</style>
 
 
         <!--서브페이지 타이틀 -->

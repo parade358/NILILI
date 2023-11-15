@@ -16,15 +16,8 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap"
 	rel="stylesheet">
 
-<title>Insert title here</title>
+<title>늴리리</title>
 <style>
-.wrap {  
-	width: 1920px;
-}
-
-.wrap>div {
-	width: 100%;
-}
 
 * {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -32,26 +25,15 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 /*---------------------content 스타일 영역------------------------------*/
 
-#title {
-
-	height: 300px;
-
-	
-}
-
-/*콘텐츠 타이틀 스타일 설정*/
 #title>p {
 	text-align: center;
 	font-size: 40px;
 	font-weight: 300;
-	margin-top:200px;
-	
+	margin-bottom: 50px;
 }
-
 /*콘텐츠 영역 설정 */
 #contents {
 	position: relative;
-	z-index: 200;
 	/* border: 1px solid black; */
 	/* text-align: center; */
 	margin: 0 auto;
@@ -71,7 +53,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 	margin-bottom: 70px;
 	
 }
-
 #drop{
  	width:195px;
  	height: 50px;
@@ -81,7 +62,6 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
  	color:#fefefe;
  	font-size: 16px;
  	margin-left: 90px;
-    margin-top: 40px;
     margin-bottom: 70px;
  	
 }
@@ -89,107 +69,87 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 #content1 tr {
 	height: 71px;
 }
-
 #content1 th {
 	color: #333333;
 	font-size: 16px;
 	font-weight: 400;
 }
-
 #content1 td {
 	height: 71px;
 	width: 100%;
 	padding-top: 20px;
 	text-align: left;
 	float: left;
-	border-bottom: 1px solid #dcdcdc;
+	border-bottom: 1px solid #DCDCDC;
 }
-
 #tCon2 {
 	margin-top: 10px;
 }
-
 #con2_3 {
-	margin-top: 60px;
 }
-
 /*기본입력정보 영역 설정 */
-
 /*필수 입력 특수문자 강조 컬러 스타일설정 */
 .red {
-	color: #a90000;
+	color: #A90000;
 	font-weight: 900;
 }
-
 .tTitle {
 	font-size: 20px;
 	font-weight: 400;
 	float: left;
 	margin-bottom: 10px;
 }
-
 /*---------------------생일,번호 select,option스타일-----------------*/
 .bBox, .pbox, .pmiddle, .plast {
 	height: 42px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 /*-------------------생일-------------------------*/
 #birth_year, #front {
 	width: 125px;
 }
-
 #birth_month, #birth_day, #middle, #last {
 	width: 125px;
 }
-
 /*-------------------------이메일-------------------------*/
 #selectEmail {
 	width: 100px;
 	height: 45px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 #custEmailId {
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 #custEmailDomein {
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 /*---------------------------------주소--------------------*/
 #custAddress {
 	width: 400px;
 	height: 42px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 #btnPostCode {
 	margin-left: 10px;
 	font-weight: 600;
 	font-size: 14px;
 }
-
 #custInputAddress {
 	width: 400px;
 	height: 42px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 	/* margin-left: 269px; */
 	margin-top: 24px;
 	margin-bottom: 15px;
 }
-
 .userInfo {
 	border: none;
 }
-
 /*------------------------회원 구독 정보 ------------------------------*/
 #con2_1, #con2_2, #con2_3 {
 	padding-bottom: 30px;
 	font-weight: 600;
 }
-
 table {
 	font-weight: 600;
 	width: 100%;
@@ -197,35 +157,30 @@ table {
 	border-top: 3px solid black;
 	height: 160px;
 }
-
 table thead {
 	font-weight: 600;
 	height: 50px;
 }
-
 table th {
 	font-weight: 500;
-	background-color: #e7e7e7;
-	border-bottom: 1px solid #dcdcdc;
+	background-color: #E7E7E7;
+	border-bottom: 1px solid #DCDCDC;
 	text-align: center;
 }
-
 table tr {
 	text-align: center;
 	font-weight: 400;
 	font-size: 14px;
 	color: #333333;
-	border-bottom: 1px solid #dcdcdc;
+	border-bottom: 1px solid #DCDCDC;
 }
-
 .cont3 td {
 	text-align: left;
 	font-weight: 600;
 	font-size: 14px;
 	color: #333333;
-	border-bottom: 1px solid #dcdcdc;
+	border-bottom: 1px solid #DCDCDC;
 }
-
 .con2_1 {
 	margin-bottom: 45px;
 }
@@ -235,15 +190,12 @@ table tr {
 	font-weight: 400;
 	color: #333333;
 }
-
 .btnInput {
 	width: 400px;
 	height: 42px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #DCDCDC;
 }
-
 /*---------------------푸터--------------------------------------*/
-
 /*----------------- 모달 스타일------------------------------*/
 .modal_bg {
 	display: none;
@@ -256,7 +208,6 @@ table tr {
 	background: rgba(0, 0, 0, 0.6);
 	z-index: 999;
 }
-
 .modal_wrap {
 	display: none;
 	position: absolute;
@@ -265,25 +216,22 @@ table tr {
 	transform: translate(-50%, -50%);
 	width: 500px;
 	height: 260px;
-	background-color: #f7f7f7;
+	background-color: #F7F7F7;
 	z-index: 1000;
 	text-align: center;
 }
-
 .modal_wrap img {
 	padding-top: 50px;
 }
-
 .modal_wrap pre {
 	font-family: 'Noto Sans KR', sans-serif;
 	padding-top: 20px;
 	padding-bottom: 30px;
 	font-size: 18px;
 	font-weight: 400;
-	color: #4d4d4d;
+	color: #4D4D4D;
 	/* text-align: center;*/
 }
-
 /*--- 팝업버튼-----	*/
 .btn_box .btn_open {
 	display: block;
@@ -292,36 +240,32 @@ table tr {
 	border: none;
 	margin: 0 auto;
 	line-height: 50px;
-	background: #a90000;
+	background: #A90000;
 	text-align: center;
 	box-sizing: border-box;
 }
-
 .btn_box .btn_open p {
 	color: #fff;
 }
-
 #aban_no {
 	width: 180px;
 	height: 50px;
-	background-color: #a90000;
+	background-color: #A90000;
 	border: none;
-	color: #ffecec;
+	color: #FFECEC;
 	font-weight: 400;
 	font-size: 16px;
 	margin-left: 15px;
 }
-
 #abandon {
 	width: 180px;
 	height: 50px;
 	background-color: #444444;
 	border: none;
-	color: #fefefe;
+	color: #FEFEFE;
 	font-weight: 400;
 	font-size: 16px;
 }
-
   /*----------------- 모달 회원탈퇴 스타일------------------------------*/
   .modal_bg{
    display:none;
@@ -334,7 +278,6 @@ table tr {
    background: rgba(0,0,0,0.6);
    z-index: 999;
   }
-  
   .modal_wrap{
     display: none;
     position: absolute;
@@ -343,15 +286,13 @@ table tr {
     transform: translate(-50%,-50%);
     width: 500px;
     height: 260px;
-    background-color: #f7f7f7;
+    background-color: #F7F7F7;
     z-index: 1000;
       text-align: center;
   }
-  
   .modal_wrap img{
     padding-top : 50px;
   }
-  
   .modal_wrap pre{
   	font-family: 'Noto Sans KR', sans-serif;
   	padding-top:20px;
@@ -373,7 +314,6 @@ table tr {
    background: rgba(0,0,0,0.6);
    z-index: 999;
   }
-  
   .modal_wrap1{
     display: none;
     position: absolute;
@@ -382,15 +322,13 @@ table tr {
     transform: translate(-50%,-50%);
     width: 500px;
     height: 260px;
-    background-color: #f7f7f7;
+    background-color: #F7F7F7;
     z-index: 1000;
       text-align: center;
   }
-  
   .modal_wrap1 img{
     padding-top : 50px;
   }
-  
   .modal_wrap1 pre{
   	font-family: 'Noto Sans KR', sans-serif;
   	padding-top:20px;
@@ -400,10 +338,7 @@ table tr {
   color:#4d4d4d;
  /* text-align: center;*/
   }
-  
-  
   /*--- 팝업버튼-----	*/
- 
   .btn_box .btn_open{
   	display: block;
   	width: 195px;
@@ -411,27 +346,23 @@ table tr {
   	border:none;
   	margin: 0 auto;
   	line-height: 50px;
-  	background: #a90000;
+  	background: #A90000;
   	text-align: center;
   	box-sizing: border-box;
   }
-  
   .btn_box .btn_open p{
       color: #fff;
   }
-  
   #aban_no,#mbdele_no{
      width: 180px;
      height: 50px;
-     background-color: #a90000;
+     background-color: #A90000;
      border:none;
-     color: #ffecec;
+     color: #FFECEC;
      font-weight:400;
      font-size: 16px;
      margin-left: 15px;
-  
   }
-  
   #abandon,#mbdele{
     width: 180px;
     height: 50px;
@@ -441,6 +372,9 @@ table tr {
     font-weight: 400;
     font-size: 16px;
   }
+
+
+
 
 </style>
 
@@ -455,23 +389,7 @@ table tr {
 
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
-      #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-          
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
-
-	</style>
+		
 
 	<!--********************************콘텐츠영역*********************************-->
 	<!--*************************콘텐츠 타이틀 부분 ****************************************-->

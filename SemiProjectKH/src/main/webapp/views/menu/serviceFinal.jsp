@@ -7,16 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ​
 
-    <title>Document</title>
+    <title>늴리리</title>
     <style>
           
-          .wrap{
-            width: 1920px;
-        }
-        .wrap > div{
-            width: 100%;
-        }
-​
         *{
             font-family: 'Noto sans KR' sans-serif;
         }
@@ -86,18 +79,7 @@
 
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
-     <style>
-      #logo{
-            position:absolute;
 
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            margin-left:900px;
-
-        }
-        </style>
          <!--서브페이지 타이틀 -->
         <h2>WELCOME NILILI PREMIUM SUBSCRIBE SERVICE</h2> 
         <br><br><br><br>

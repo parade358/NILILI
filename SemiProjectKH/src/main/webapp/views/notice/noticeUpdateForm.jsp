@@ -11,42 +11,10 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	    <meta charset="UTF-8">
 	    
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		
 		<style>
 	
-	        .wrap{
-	            background-color: white;
-	            color: black;
-	            width: 1920px;
-	            /* height: 1000px; */
-	            margin: auto;
-	            margin-top: 50px;
-	        }
-	
-	        .wrap{
-	            width: 1920px;
-	        }
-	        .wrap > div{
-	            width: 100%;
-	        }
-	        #header{
-	            /* border: 1px solid black; */
-	            height: 165px;
-	        }
-	
-	        #line{
-	            height: 35px;
-	            background-color: black;
-	        }
-	        #logo{
-	            /* border:1px solid black; */
-	            width: 155px;
-	            height: 70px;
-	            padding-top:30px ;
-	            margin-left:882.5px
-	            
-	        }
 	        #footer{
 	        margin-top: 60px;
 	        color: gray;
@@ -69,7 +37,8 @@
 	            height:100px;
 	            /* border:1px solid green; */
 	            float:left;
-	            font-family: 'Nanum Gothic', sans-serif;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR' sans-serif;
 	            font-size: 12px;
 	            color: #A12B2B;
 	            display: flex;
@@ -89,7 +58,8 @@
 	            /* border:1px solid red; */
 	            float:left;
 	            font-size: 34px;
-	            font-family: 'Nanum Gothic', sans-serif;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR' sans-serif;
 	            font-weight: 800;
 	            display: flex;
 	            justify-content: center;
@@ -98,8 +68,9 @@
 	        }
 	
 	        div{
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-weight: 100;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR' sans-serif;
+	            font-weight: 400;
 	        }
 	
 	
@@ -198,13 +169,13 @@
 			
 			<br>
 	       
-	        <!--인덱스 타이틀-->
+	        <!-- 공지사항 로고 1 -->
 	        <div id="title1">서울 여행 정보 공유 사이트</div>
 	
-	        <!--게시판 타이틀-->
+	        <!-- 공지사항 로고 2 -->
 	        <div id="title2">늴리리 공지사항</div>
 	
-	        <!--게시글 작성 테이블-->
+	        <!--공지사항 수정 테이블-->
 	        
 	        <form action="${contextPath }/update.no" method="post" id="update-area" enctype="multipart/form-data">
 		        <input type="hidden" name="boardNo" value="${n.boardNo }">

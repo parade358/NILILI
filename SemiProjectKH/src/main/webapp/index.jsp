@@ -45,172 +45,139 @@ for(Cookie c : cookies){
 
 
 <style>
-*{font-family: 'Noto Sans KR', sans-serif;}
-.wrap {
-	width: 1920px;
-}
-
-.wrap>div {
-	width: 100%;
-}
-
-#header {
-	/* border: 1px solid black; */
-	height: 165px;
-	position: absolute;
-	text-align: center;
-	z-index: 100;
-	margin:0 auto;
-
-}
-
-#line {
-	height: 35px;
-	background-color: black;
-}
-
-#logo {
-	/* border:1px solid black; */
-
-	width: 155px;
-	height: 70px;
-
-	z-index: 101;
-	top: 60px;
-	left: 50%;
-	translate: -50%;
-
-}
-
-#top {
-	height: 641px;
-    padding-top:160px;
-	margin-bottom: 40px;
-}
-
-#top_bg {
-	position: absolute;
-	/*헤더 밑 메인탑 이미지 부분*/
-}
-
-
-  
-.login {
-	/*로그인 bg부분 position - z-index로 위치설정 */
-	position: relative;
-	padding-left: 1195px;
-	padding-top: 200px;
-	z-index: 1000;
-}
-
-
-
-.log {
-	position: relative;
-	/* background-color: yellow; */
-	top: 170px;
-	padding-left: 25px;
-}
- <c:choose>
-  <c:when test="${empty loginMember }">
-
-#login {
-	position: absolute;
-	z-index: 1500px;
-	/*  background-color: aqua; */
-	padding-top: 15px;
-	height: 282px;
-}
-
-#id, #pwd {
-	color: #e6e6e6;
-	font-size: 15px;
-}
-
-#loginId {
-	border: #C2C2C2;
-	width: 235px;
-	height: 40px;
-	margin-left: 43px;
-	margin-top: 40px;
-	font-size: 20px;
-	font-weight: bolder;
-}
-
-#loginPwd {
-	/*margin-top: px;*/
-	margin-left: 30px;
-	border: #C2C2C2;
-	font-weight: bolder;
-	font-size: 20px;
-	width: 235px;
-	height: 44px;
-}
-
-#chkId, #loginSave {
-	margin-top: 10px;
-	color: #c2c2c2;
-	font-size: 13px;
-	float: left;
-	margin-left: 5px;
-	margin-top:-5px;
-}
-
-
-.log_btn {
-	background-color: #9A0A0A;
-	height: 42px;
-	width: 315px;
-	color: #e6e6e6;
-	font-size: 20px;
-	font-weight: 600;
-	margin-top:-5px;
-	border: none;
-}
-
-#login_form_etc {
-	/*margin-left: 15px;*/
-	font-size: 13px;
-	margin-top:-5px;
-}
-
-a {
-	text-decoration: none;
-}
-
-#btn_join {
-	margin-left: 10px;
-}
-</c:when>
+	*{font-family: 'Noto Sans KR', sans-serif;}
+	
+	#line {
+		height: 35px;
+		background-color: black;
+	}
+	
+	#top {
+		height: 641px;
+	    /* padding-top:160px; */
+		margin-bottom: 40px;
+	}
+	
+	#top_bg {
+		position: absolute;
+		/*헤더 밑 메인탑 이미지 부분*/
+	}
+	
+	
+	  
+	.login {
+		/*로그인 bg부분 position - z-index로 위치설정 */
+		position: relative;
+		padding-left: 1195px;
+		padding-top: 200px;
+		z-index: 1000;
+	}
+	
+	
+	
+	.log {
+		position: relative;
+		/* background-color: yellow; */
+		top: 170px;
+		padding-left: 25px;
+	}
+	 <c:choose>
+	  <c:when test="${empty loginMember }">
+	 
+	
+	#login {
+		position: absolute;
+		z-index: 1500px;
+		/*  background-color: aqua; */
+		padding-top: 15px;
+		height: 282px;
+	}
+	
+	
+	#id, #pwd {
+		color: #e6e6e6;
+		font-size: 15px;
+	}
+	
+	#loginId {
+		border: #C2C2C2;
+		width: 235px;
+		height: 40px;
+		margin-left: 43px;
+		margin-top: 40px;
+		font-size: 20px;
+		font-weight: bolder;
+	}
+	
+	#loginPwd {
+		/*margin-top: px;*/
+		margin-left: 30px;
+		border: #C2C2C2;
+		font-weight: bolder;
+		font-size: 20px;
+		width: 235px;
+		height: 44px;
+	}
+	
+	#chkId, #loginSave {
+		margin-top: 10px;
+		color: #c2c2c2;
+		font-size: 13px;
+		float: left;
+		margin-left: 5px;
+		margin-top:-5px;
+	}
+	
+	
+	.log_btn {
+		background-color: #9A0A0A;
+		height: 42px;
+		width: 315px;
+		color: #e6e6e6;
+		font-size: 20px;
+		font-weight: 600;
+		margin-top:-5px;
+		border: none;
+	}
+	
+	#login_form_etc {
+		/*margin-left: 15px;*/
+		font-size: 13px;
+		margin-top:-5px;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	#btn_join {
+		margin-left: 10px;
+	}
+	</c:when>
  <c:otherwise>
  
  /*----------------------------로그인 후 페이지 --------------------------------*/
  *{font-family: 'Noto Sans KR', sans-serif;}
 
- #header {
-	/* border: 1px solid black; */
-	height: 165px;
+	
+	 #top {
+		height: 641px;
+	    /* padding-top:160px; */
+		margin-bottom: 40px;
+	}
+
+
+
+	#user_info{
 	position: absolute;
-/* 	text-align: center; */
-	z-index: 100;
-/* 	margin:0 auto; */
-/* 	text-align: center; */
-}
-
-
-
-
-
-#user_info{
-position: absolute;
-z-index: 500;
-width: 365px;
-height: 273px;
-padding-top: 50px;
-font-size: 14px;
-color:#e6e6e6;
-
-}
+	z-index: 500;
+	width: 365px;
+	height: 273px;
+	padding-top: 50px;
+	font-size: 14px;
+	color:#e6e6e6;
+	
+	}
      .user{
      text-align:left;
      margin-left: 20px;
@@ -251,53 +218,56 @@ color:#e6e6e6;
        border: none;
        
      }
- #content{
-position: absolute;
- margin: -50px auto;
- text-align: center;
-width:100%;
- 
-}
-#content1 {	height: 354px;}
-
-
-
-#subtitle {	font-size: 40px;}
-
-#menus {padding-top: 40px;}
-
-#content2 {	padding-top: 30px;}
+	 #content{
+	 position: absolute;
+	 margin: -50px auto;
+	 text-align: center;
+	 width:100%;
+	 
+	}
+	#content1 {	height: 354px;}
+	
+	#subtitle {	font-size: 40px;}
+	
+	#menus {padding-top: 40px;}
+	
+	#content2 {	padding-top: 30px;}
 
  
  
  </c:otherwise>
 
-</c:choose>
-#content{
-position: absolute;
- margin: 0 auto;
- text-align: center;
-}
-#content1 {	height: 354px;}
+	</c:choose>
+	
+	#content{
+	position: absolute;
+	 margin: 0 auto;
+	 text-align: center;
+	}
+	
+	#content1 {	height: 354px;}
+	
+	#title {margin-top: 170px;}
+	
+	#subtitle {	font-size: 40px;}
+	
+	#menus {padding-top: 40px;}
+	
+	#content2 {	padding-top: 30px;}
 
-#title {margin-top: 170px;}
 
-#subtitle {	font-size: 40px;}
-
-#menus {padding-top: 40px;}
-
-#content2 {	padding-top: 30px;}
-
-
-/*----------------------푸터어어어ㅓ어ㅓ어어----------------------*/
-#footer {
+/*----------------------푸터----------------------*/
+	#footer {
 	margin-top: 60px;
 	color: gray;
-}
-#f_text {padding-top: 40px;}
-.same2 {margin-left: 20px;}
+	}
+	
+	#f_text {padding-top: 40px;}
+	.same2 {margin-left: 20px;}
+	
 </style>
 
+<!-------------------------------------------------스타일 끝-------------------------------------------->
 
 </head>
 

@@ -7,38 +7,10 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    
    <meta charset="UTF-8">
-   <title>Document</title>
+   <title>늴리리</title>
    
    <style>
-   	.wrap{
-        background-color: white;
-        color: black;
-        width: 1920px;
-        margin: auto;
-        margin-top: 50px;
-    }
-
-    .wrap{
-        width: 1920px;
-    }
-    .wrap > div{
-        width: 100%;
-    }
-    #header{
-        height: 165px;
-    }
-
-    #line{
-        height: 35px;
-        background-color: black;
-    }
-    #logo{
-        width: 155px;
-        height: 70px;
-        padding-top:30px ;
-        margin-left:882.5px
-        
-    }
+   
     #footer{
     margin-top: 60px;
     color: gray;
@@ -132,10 +104,10 @@
 	<br>
       
       
-      <!--인덱스 타이틀-->
+      <!-- Q&A 로고 1 -->
       <div id="title1">서울 여행 정보 공유 사이트</div>
 
-      <!--게시판 타이틀-->
+      <!-- Q&A 로고 2 -->
       <div id="title2">Q&A</div>
 
       <br>

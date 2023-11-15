@@ -51,21 +51,32 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         
         #header{
             /* border: 1px solid black; */
+            width: 1920px;
             height: 165px;
             margin: 0 auto;
+            
         }
         #line{
             height: 35px;
             background-color: black;
         }
-        #logo{
-           position:absolute;
-            width: 155px;
-            height: 70px;
-            padding-top:30px ;
-/*             margin-left:882.5px */
-			margin: 0 auto;
-        }
+        
+        
+        #logo {
+		/* border:1px solid black; */
+		/* 인덱스 로고 */
+		width: 155px;
+		height: 70px;
+		position:absolute;
+	
+		z-index: 101;
+		top: 60px;
+		left: 50%;
+		translate: -50%;
+	
+	}
+        
+
         </c:when>
 			<c:otherwise>
 			
@@ -74,7 +85,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         #header{
             /* border: 1px solid black; */
             height: 165px;
-          
+          	width: 1920px;
 /*             text-align: center; */
             z-index: 2000;
             margin:0px auto ;
@@ -88,18 +99,21 @@ String alertMsg = (String)session.getAttribute("alertMsg");
             background-color: black;
         }
         /*헤더 중앙 로고 위치값 */
-        #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
+        
+        #logo {
+		/* border:1px solid black; */
+		/* 인덱스 로고 */
+		width: 155px;
+		height: 70px;
+		position:absolute;
+	
+		z-index: 101;
+		top: 60px;
+		left: 50%;
+		translate: -50%;
+	
+	}
+        
   
         /*오른쪽상단 a태그 텍스트밑줄 제거*/
         #header a{text-decoration: none;}

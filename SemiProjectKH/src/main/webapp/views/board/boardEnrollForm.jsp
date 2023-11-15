@@ -10,36 +10,7 @@
 		<title>늴리리</title>
 		
 		<style>
-	        .wrap{
-	            background-color: white;
-	            color: black;
-	            width: 1920px;
-	            margin: auto;
-	        }
-	
-	        .wrap{
-	            width: 1920px;
-	        }
-	        .wrap > div{
-	            width: 100%;
-	        }
-	        #header{
-	            /* border: 1px solid black; */
-	            height: 165px;
-	        }
-	
-	        #line{
-	            height: 35px;
-	            background-color: black;
-	        }
-	        #logo{
-	            /* border:1px solid black; */
-	            width: 155px;
-	            height: 70px;
-	            padding-top:30px ;
-	            margin-left:882.5px
-	            
-	        }
+	      
 	        #footer{
 	        margin-top: 60px;
 	        color: gray;
