@@ -65,7 +65,6 @@ url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;
 
 #container {
 	width: 100%;
-	padding-top: 190px;
 }
 
 #qnaCenter {

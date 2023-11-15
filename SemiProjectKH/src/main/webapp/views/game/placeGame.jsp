@@ -39,7 +39,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         #container{
 			width: 100%;
-			padding-top: 190px;
 		}
         }
         #qnaCenter{
