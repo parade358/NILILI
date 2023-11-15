@@ -178,8 +178,8 @@
 	<div class="wrap">
          <!--헤더영역 블랙라인 + 로고 -->
         <%@ include file="/views/common/headerBar.jsp"%>
-        <!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		<style>
+       
+	<style>
       #logo{
             position:absolute;
             /* border:1px solid black; */
@@ -196,9 +196,13 @@
 	</style>
         
 		<br>
+		<!-- 닐리리 홈 로고 -->
         <div id="title1">서울 여행 정보 공유 사이트</div>
+        
+        <!-- 닐리리 커뮤니티 로고 -->
         <div id="title2">늴리리 커뮤니티</div>
         
+        <!-- 게시판 검색 -->
         <div class="container" align="center">
 			<div>
 					<table class="search-area">
@@ -221,6 +225,7 @@
 			</div>
 		</div>
 		
+		<!-- 게시판 리스트 -->
 		<table class="list-area" id="list-area" align="center">
 			<thead>
 				<tr>
@@ -233,13 +238,15 @@
 				</tr>
 			</thead>
 			<tbody>
-					<!-- 리스트가 비어있는 경우 -->
+					<!-- 게시판 리스트가 비어있는 경우 -->
 	                <c:choose>
 	                	<c:when test="${empty list}">
 							<tr>
 								<td colspan='6'>게시글이 없습니다.</td>
 							</tr>
 						</c:when>
+						
+						<!-- 게시판 리스트가 비어있지 않다면 채워주기 -->
 						<c:otherwise>
 							<c:forEach items="${list}" var="b">
 								<tr>
