@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.nilili.subscribe.model.vo.Subscribe"%>
 
@@ -25,12 +24,19 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
 
 /*---------------------content 스타일 영역------------------------------*/
 
-#title>p {
+
+
+#title2{
 	text-align: center;
-	font-size: 40px;
-	font-weight: 300;
+	font-size: 34px;
+	font-weight: 800;
 	margin-bottom: 50px;
+	margin-top : 40px;
+	
+
+
 }
+
 /*콘텐츠 영역 설정 */
 #contents {
 	position: relative;
@@ -60,7 +66,7 @@ Subscribe mySub = (Subscribe) session.getAttribute("mySub");
  	border: none;
  	font-weight: 400;
  	color:#fefefe;
- 	font-size: 16px;
+ 	font-size: 16px; 
  	margin-left: 90px;
     margin-bottom: 70px;
  	
@@ -395,10 +401,12 @@ table tr {
 	<!--*************************콘텐츠 타이틀 부분 ****************************************-->
 	<div id="contents">
 
-		<div id="title">
-			<br>
-	<p id="title" style="font-family: 'Noto Sans KR', sans-serif;">마이페이지</p></h3>
-		</div>
+	<div id="title">
+	<br>
+	
+	<!-- 마이페이지 로고 2 -->
+	<p id="title2">마이페이지</p>
+	</div>
 
 		<!--***********************************콘텐츠 영역***************************************-->
 		<div class="tTitle">기본정보 입력</div>

@@ -1,16 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    
    <meta charset="UTF-8">
    <title>늴리리</title>
    
    <style>
-
+   
+   	.wrap{
+   		width: 1920px;
+   		height: 1084px;
+   	}
+   
     #footer{
     margin-top: 60px;
     color: gray;
@@ -98,6 +103,7 @@
   
 </head>
 <body>
+    
     <div class="wrap">
 	<!--헤더영역 블랙라인 + 로고 -->
        <%@ include file="/views/common/headerBar.jsp"%>
@@ -116,67 +122,67 @@
 
    	  <table class="list-area" align="center">
 	      <tr class="question">
-	           <td><img src="../../resources/qna/Q_lcon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/Q_lcon.png" alt="질문">
 	           NILILI 이용 방법에 대해 알고 싶어요.
-	           <img src="../../resources/qna/down_Icon.png" alt="방향아이콘">
+	           <img src="${contextPath}/resources/qna/down_Icon.png" alt="방향아이콘">
 	           </td>
 	           
 	      </tr>
 	      <tr class="answer">
-	           <td><img src="../../resources/qna/A_icon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/A_icon.png" alt="질문">
 	           NILILI는 여행을 사랑하는 당신의 취향을 파악하여 그에 맞는 여행 정보를 제공합니다.
 	           </td>
 	      </tr>
 	
 	      <tr class="question">
-	           <td><img src="../../resources/qna/Q_lcon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/Q_lcon.png" alt="질문">
 	           여행 구독 서비스는 어떻게 이용하나요?
-	           <img src="../../resources/qna/down_Icon.png" alt="방향아이콘">
+	           <img src="${contextPath}/resources/qna/down_Icon.png" alt="방향아이콘">
 	           </td>
 	           
 	      </tr>
 	      <tr class="answer">
-	           <td><img src="../../resources/qna/A_icon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/A_icon.png" alt="질문">
 	           구독 서비스 > 구독하기 신청을 완료하면 구독자의 취향을 반영한 맞춤형 여행을 정기적으로 추천해드립니다.
 	           </td>
 	      </tr>
 	
 	      <tr class="question">
-	           <td><img src="../../resources/qna/Q_lcon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/Q_lcon.png" alt="질문">
 	           여행 정보를 알고 싶을 땐? 
-	           <img src="../../resources/qna/down_Icon.png" alt="방향아이콘">
+	           <img src="${contextPath}/resources/qna/down_Icon.png" alt="방향아이콘">
 	           </td>
 	           
 	      </tr>
 	      <tr class="answer">
-	           <td><img src="../../resources/qna/A_icon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/A_icon.png" alt="질문">
 	           '커뮤니티'를 이용해보세요! 늴리리 사용자들의 여행 후기나 정보를 열람하실 수 있고,
 	           나의 여행 정보도 공유할 수 있습니다. 
 	           </td>
 	      </tr>
 	
 	      <tr class="question">
-	           <td><img src="../../resources/qna/Q_lcon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/Q_lcon.png" alt="질문">
 	               커뮤니티에서 글 작성이 안돼요.
-	           <img src="../../resources/qna/down_Icon.png" alt="방향아이콘">
+	           <img src="${contextPath}/resources/qna/down_Icon.png" alt="방향아이콘">
 	           </td>
 	           
 	      </tr>
 	      <tr class="answer">
-	           <td><img src="../../resources/qna/A_icon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/A_icon.png" alt="질문">
 	               로그인 시 이용 가능한 서비스입니다.
 	           </td>
 	      </tr>
 	
 	      <tr class="question">
-	           <td><img src="../../resources/qna/Q_lcon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/Q_lcon.png" alt="질문">
 	               회원 정보를 수정하고 싶을 땐 어떻게 해야 하나요?
-	           <img src="../../resources/qna/down_Icon.png" alt="방향아이콘">
+	           <img src="${contextPath}/resources/qna/down_Icon.png" alt="방향아이콘">
 	           </td>
 	           
 	      </tr>
 	      <tr class="answer">
-	           <td><img src="../../resources/qna/A_icon.png" alt="질문">
+	           <td><img src="${contextPath}/resources/qna/A_icon.png" alt="질문">
 	               홈 > 마이페이지에서 수정 가능합니다.
 	           </td>
 	      </tr>

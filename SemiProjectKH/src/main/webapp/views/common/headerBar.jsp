@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <% 
 String contextPath = request.getContextPath();
 String alertMsg = (String)session.getAttribute("alertMsg");
@@ -207,7 +207,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
               </a>
             </li>
             <li>
-              <a href="views/qna/qnaListView.jsp" id="QnA" class="nonp">
+              <a href="${contextPath}/QnaList.bo" id="QnA" class="nonp">
                 <img src="${contextPath }/resources/mainIndex/qna_ui.png" alt="qna_ui"> 
                Q&A
               </a>  

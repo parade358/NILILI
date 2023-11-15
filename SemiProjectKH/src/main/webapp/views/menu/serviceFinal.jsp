@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-​
-
-    <title>늴리리</title>
+    <title>늴리리</title> 
     <style>
           
         *{
             font-family: 'Noto sans KR' sans-serif;
         }
+        
+
 
 ​
         /*-------------------------------헤더 끝 ---------------------------------------*/
@@ -24,9 +24,8 @@
             height: 900px;
             text-align: center;
             
-            
         }
-​
+        
 ​
         /*콘텐츠 타이틀 스타일, 영역(중앙정렬) 설정*/
         #contitle2{
@@ -39,8 +38,11 @@
 ​
          /*--------------------- 콘텐츠영역------------------------------------*/
          #content1{
-           
-        
+         
+         }
+         
+         #content1 button {
+         	
          }
 ​
          #textBox1{
@@ -78,41 +80,50 @@
 <body>
 
 	<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
+	<%@ include file="../common/headerBar.jsp"%> 
 
          <!--서브페이지 타이틀 -->
-        <h2>WELCOME NILILI PREMIUM SUBSCRIBE SERVICE</h2> 
+        <hr style=" border:0; height: 2px; background: #ccc;">
+        <h2 style="margin-top:10px;">구독 서비스</h2> 
         <br><br><br><br>
         
-         <div id="title2" style="background-color:red;  background-image: url('../../resources/01_service/service_img.png');    height:605px;">
-       <br><br><br><br><br><br><br><br><br><br>
-         <h3 style="font-weight:bolder;">닐리리만의 고품격 구독 서비스에 오신걸 환영합니다</h3>
+         <div id="title2" style="background-color:red;  
+         background-size: cover; 
+         background-image: url('../../resources/01_service/service_img.png');  
+         border: 1px solid lightgrey;  
+         box-sizing:border-box;
+         height:400px;
+         width: 1200px;
+         position: absolute;
+         left:50%;
+         translate:-50%;">
+       <br><br><br><br><br><br>
+         <h3><span style="font-weight:bolder;">WELCOME</span><br><br>구독이 완료되었습니다.</h3>
             <br>
-            <hr>
 ​
 		
 ​
          </div>
 ​
          <!--*******************************콘텐츠 영역********************************* -->
-<div id="content1">
- <button type="button" id="serviceBtn" >메인홈페이지 가기</button>
-
-</div>
-​
-	<%@ include file="../common/footerBar.jsp"%>
-
-
-</body>
-
-<script>
-
-$("#serviceBtn").click(function(){
-
-	window.location.href = 'http://localhost:8888/semi/';
+	<div id="content1" >
+	 <button type="button" id="serviceBtn" style="margin-top: 450px;" >메인홈페이지 가기</button>
+	
+	</div>
+	​
+		<%@ include file="../common/footerBar.jsp"%>
 	
 	
-});
+	</body>
+	
+	<script>
+	
+	$("#serviceBtn").click(function(){
+	
+		window.location.href = 'http://localhost:8888/semi/';
+		
+		
+	});
 
 
 
