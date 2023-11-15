@@ -774,39 +774,74 @@ public class BoardDao {
 
 	public ArrayList<Board> hotList(Connection conn, PageInfo pi) {
 		// 준비물
-				ArrayList<Board> list = new ArrayList<>();
-				ResultSet rset = null;
-				PreparedStatement pstmt = null;
+		ArrayList<Board> list = new ArrayList<>();
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
 
-				String sql = prop.getProperty("hotList");
-				// 1페이지 : 1~10 / 5페이지 : 41~50 / 10페이지 91~100
-				// 2페이지 : 11~20
-				int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-				int endRow = pi.getCurrentPage() * pi.getBoardLimit();
+		String sql = prop.getProperty("hotList");
+		// 1페이지 : 1~10 / 5페이지 : 41~50 / 10페이지 91~100
+		// 2페이지 : 11~20
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = pi.getCurrentPage() * pi.getBoardLimit();
 
-				try {
-					pstmt = conn.prepareStatement(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
 
-					pstmt.setInt(1, startRow);
-					pstmt.setInt(2, endRow);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 
-					rset = pstmt.executeQuery();
+			rset = pstmt.executeQuery();
 
-					while (rset.next()) {
-						list.add(new Board(rset.getInt("BOARD_NO"), rset.getString("CATEGORY_NAME"),
-								rset.getString("BOARD_TITLE"), rset.getString("MEMBER_ID"), rset.getInt("COUNT"),
-								rset.getDate("REGI_DATE")));
-					}
+			while (rset.next()) {
+				list.add(new Board(rset.getInt("BOARD_NO"), rset.getString("CATEGORY_NAME"),
+						rset.getString("BOARD_TITLE"), rset.getString("MEMBER_ID"), rset.getInt("COUNT"),
+						rset.getDate("REGI_DATE")));
+			}
 
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} finally {
-					JDBCTemplate.close(rset);
-					JDBCTemplate.close(pstmt);
-				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
 
-				return list;
+		return list;
+	}
+
+	public int likeMemCheck(Connection conn, int bno, int memberNo) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("likeMemCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			pstmt.setInt(2, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				result = rset.getInt("MEMBER_NO");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		System.out.println(result);
+		
+		return result;
 	}
 	
 

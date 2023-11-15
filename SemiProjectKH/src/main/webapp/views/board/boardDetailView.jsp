@@ -403,10 +403,15 @@ Board b = (Board) request.getAttribute("b");
 		<script>
 		
 			$(function(){
+				likeCheck();
+			});
+		
+			$(function(){
 				// 추천버튼 클릭시(추천 추가 또는 추천 제거)
 				$("#rec_update").click(function(){
 					
-					if($("#rec_update>i").hasClass('bi bi-heart')){
+					if($("#rec_update>i").hasClass('bi-heart bi')){
+						console.log("chk");
 						$("#rec_update>i").removeClass('bi bi-heart');
 						$("#rec_update>i").addClass('bi bi-heart-fill');
 					}else{
@@ -470,9 +475,11 @@ Board b = (Board) request.getAttribute("b");
 					},
 					success: function(result){
 						if(result == "${memberNo}"){
+							console.log("hi");
 							$("#rec_update>i").removeClass('bi bi-heart');
 							$("#rec_update>i").addClass('bi bi-heart-fill');
 						}else{
+							console.log("bye");
 							$("#rec_update>i").removeClass('bi bi-heart-fill');
 							$("#rec_update>i").addClass('bi bi-heart');
 						}
