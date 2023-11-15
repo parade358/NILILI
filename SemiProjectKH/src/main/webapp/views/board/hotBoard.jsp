@@ -6,11 +6,10 @@
 	<head>
 	
 		<!-- 링크 + 라이브러리 -->
-		<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@300;400;700&family=IBM+Plex+Sans+KR&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	    <meta charset="UTF-8">
 	
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		
 		<style>
 	
@@ -20,7 +19,6 @@
 	            width: 1920px;
 	            /* height: 1000px; */
 	            margin: auto;
-	            margin-top: 50px;
 	        }
 	
 	        .wrap{
@@ -61,7 +59,8 @@
 	            border-top: 3px solid #313131;
 	            text-align: center;
 	            margin-bottom: 50px;
-	            font-family: 'Nanum Gothic', sans-serif;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR', sans-serif;
 	            font-weight: 400;
 	            color: black;
 	            
@@ -89,7 +88,8 @@
 	            height:100px;
 	            /* border:1px solid green; */
 	            float:left;
-	            font-family: 'Nanum Gothic', sans-serif;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR', sans-serif;
 	            font-size: 12px;
 	            color: #A12B2B;
 	            display: flex;
@@ -109,7 +109,8 @@
 	            /* border:1px solid red; */
 	            float:left;
 	            font-size: 34px;
-	            font-family: 'Nanum Gothic', sans-serif;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR', sans-serif;
 	            font-weight: 800;
 	            display: flex;
 	            justify-content: center;
@@ -118,8 +119,9 @@
 	        }
 	
 	        div{
-	            font-family: 'Nanum Gothic', sans-serif;
-	            font-weight: 100;
+	            /* font-family: 'Nanum Gothic', sans-serif; */
+	            font-family: 'Noto sans KR', sans-serif;
+	            font-weight: 400;
 	        }
 	
 	        #write{
@@ -136,6 +138,29 @@
 	        	height: 40px
 	        }
 	        
+	        .borderNone{
+        	
+        	border-bottom: 0px solid #DDDDDD;
+        	}
+	        
+	        .search-area{
+        	width: 1000px;
+        
+        	}
+        
+       		.btntd{
+        	width: 120px;
+        	border-bottom: 0px solid #DDDDDD;
+        	}
+        
+        
+      		#searchButton{
+        	width: 120px;
+        	height: 39px;
+        	border: 1px solid #CED4DA;
+        	       
+        	}
+	        
 	        
 	        
 	        
@@ -148,29 +173,37 @@
 	        <!-- 헤더영역 -->
 	        <%@ include file="/views/common/headerBar.jsp"%>
 			<br>
+			
+			<!--top10 로고 1-->
 	        <div id="title1">서울 여행 정보 공유 사이트</div>
+	        
+	        <!--top10 로고 2-->
 	        <div id="title2">늴리리 TOP10</div>
+	        
+	        <!-- 게시판 검색 테이블-->
 	        <div class="container" align="center">
 				<div>
-						<table>
-							<tr>
-								<td align="center">
+						<table class="search-area">
+							<tr id=search>
+								<td align="center" class="borderNone">
 									<select class="form-control" name="searchField" id="searchField">
 										<option value="title">제목</option>
 										<option value="id">작성자</option>
 										<option value="category">카테고리</option>
 									</select>
 								</td>
-								<td>
+								<td class="borderNone">
 									<input type="text" class="form-control"placeholder="검색어 입력" name="searchText" id="searchText" maxlength="100">
 								</td>
-								<td align="center">
+								<td class="btntd">
 									<button class="btn" name="searchButton" id="searchButton">검색</button>
 								</td>
 							</tr>
 						</table>
 				</div>
 			</div>
+			
+			<!-- 게시판 리스트 테이블 -->
 			<table class="list-area" id="list-area" align="center" style= "margin-top: 50px">
 				<thead>
 					<tr>
@@ -261,6 +294,9 @@
 	        </div>
 	        </div>
 	
+	
+	
+			<!----------------------------- SCRIPT 구문 ----------------------------->
 	        <script>
 		        $(document).on('click', '.list-area>tbody>tr', function() {
 		            // $(this).children().eq(0).text() : 글번호 추출

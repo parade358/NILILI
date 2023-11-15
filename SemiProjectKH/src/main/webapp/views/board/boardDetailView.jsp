@@ -2,7 +2,7 @@
 <%@page import="com.nilili.member.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!-- 있어야합니다. -->
+<!-- 로그인 시 사용 가능한 기능이 포함되어 있어 필수 구문입니다. -->
 <%
 Member loginMember = (Member) session.getAttribute("loginMember");
 Board b = (Board) request.getAttribute("b");
@@ -22,7 +22,7 @@ Board b = (Board) request.getAttribute("b");
 	
 		<meta charset="UTF-8">
 	
-		<title>Insert title here</title>
+		<title>늴리리</title>
 
 		<style>
 			.wrap {
@@ -31,7 +31,6 @@ Board b = (Board) request.getAttribute("b");
 				width: 1920px;
 				/* height: 1000px; */
 				margin: auto;
-				margin-top: 50px;
 			}
 			
 			.wrap {
@@ -250,10 +249,10 @@ Board b = (Board) request.getAttribute("b");
 	
 	<body>
 		<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
+			<%@ include file="../common/headerBar.jsp"%> 
 		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 		<style>
-      #logo{
+      	#logo{
             position:absolute;
             /* border:1px solid black; */
             width: 155px;
@@ -267,13 +266,13 @@ Board b = (Board) request.getAttribute("b");
 /*             margin: 0 auto; */
         }
 
-	</style>
+		</style>
 
 	
-			<!--인덱스 타이틀-->
+			<!--게시판 로고 1-->
 			<div id="title1">서울 여행 정보 공유 사이트</div>
 	
-			<!--게시판 타이틀-->
+			<!--게시판 로고 2-->
 			<div id="title2">늴리리 커뮤니티</div>
 	
 			<!--게시글 상세보기 테이블-->
@@ -316,18 +315,20 @@ Board b = (Board) request.getAttribute("b");
 									<c:when test="${vs.index eq 0 }">
 										<div id="imgtext">이미지를 첨부해서 나만의 여행네컷을 만들어보세요.</div>
 										
+										<!-- 인생네컷 프레임 이미지 -->
 										<div style="position: relative;">
 											<img src="${contextPath }/resources/img/board/photoframe_nilili_2.png"
 											id="imgframe" alt="인생네컷" width="900" height="170">
 											
-						
+											<!-- 인생네컷 안에 들어가는 이미지 4개 -->
+											<!-- titleImg 1개 -->
 											<div id="img" style="position: absolute; top: 10px;">
 												<img id="titleImg" src="${contextPath }${at.filePath}${at.changeName}" 
 												width="182" height="150">
 									</c:when>
 				
 									<c:otherwise>
-												<!-- 상세이미지 -->
+												<!-- contentImg 3개 -->
 												<img id="contentImg${vs.count}"
 												src="${contextPath }${at.filePath}${at.changeName}"
 												width="182" height="150">
@@ -386,7 +387,6 @@ Board b = (Board) request.getAttribute("b");
 				} catch (NullPointerException e) {
 				}
 			%>
-			<!-- 트라이캐치 -->
 			
 			<!-- boardNo와 memberNo 변수 생성-->
 			<c:set var="boardNo" value="${b.boardNo}" />
