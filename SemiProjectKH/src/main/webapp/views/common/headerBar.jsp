@@ -39,7 +39,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 
 
       .wrap{
-            width: 1920px;
+            width: 100%;
               text-align: center;
         }
         .wrap > div{
@@ -62,7 +62,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
            position:absolute;
             width: 155px;
             height: 70px;
-            padding-top:30px ;
+          /*   padding-top:30px ; */
 /*             margin-left:882.5px */
 			margin: 0 auto;
         }
