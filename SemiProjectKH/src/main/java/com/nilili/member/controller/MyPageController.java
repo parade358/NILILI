@@ -27,7 +27,7 @@ public class MyPageController extends HttpServlet {
  
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		HttpSession session = request.getSession();
 		
 		Member member =(Member)session.getAttribute("loginMember");
@@ -44,7 +44,7 @@ public class MyPageController extends HttpServlet {
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM");
 	    
 	    String fdate = sdf.format(regiDate);
-	   
+	    
 	    request.setAttribute("fdate", fdate);
 	    //어짜피 마이페이지에서밖에 안보여질거니까 request영역에서 담는다
 	    }
