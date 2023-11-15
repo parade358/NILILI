@@ -13,7 +13,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Fuggles&family=Merriweather:wght@900&family=Noto+Sans+KR:wght@100&family=Roboto:wght@300&display=swap"
 	rel="stylesheet">
-<title>Document</title>
+<title>늴리리</title>
 <style>
 
 /*헤더 바로밑 이미지 높이값*/

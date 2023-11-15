@@ -27,305 +27,258 @@
 	}
 %>
 <!DOCTYPE html>
-<html lang="ko">
 
-	<head>
-	
-		<!-- 링크 + 라이브러리 -->
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		
-		<title>늴리리</title>
-		
-		<style>
-		
-			*{font-family: 'Noto Sans KR', sans-serif;}
-			
-			.wrap {
-				width: 1920px;
-			}
-			
-			.wrap>div {
-				width: 100%;
-			}
-			
-			#top {
-				height: 641px;
-			    padding-top:160px;
-				margin-bottom: 40px;
-			}
-			
-			/*헤더 밑 메인탑 이미지 부분*/
-			#top_bg {
-				position: absolute;
-			}
-			
-			
-			/*로그인 bg부분 position - z-index로 위치설정 */
-			.login {
-				position: relative;
-				padding-left: 1195px;
-				padding-top: 200px;
-				z-index: 1000;
-			}
-			
-			.log {
-				position: relative;
-				top: 170px;
-				padding-left: 25px;
-			}
-			<c:choose>
-				<c:when test="${empty loginMember }">
-			
-					#login {
-						position: absolute;
-						z-index: 1500px;
-						padding-top: 15px;
-						height: 282px;
-					}
-					
-					#id, #pwd {
-						color: #e6e6e6;
-						font-size: 15px;
-					}
-					
-					#loginId {
-						border: #C2C2C2;
-						width: 235px;
-						height: 40px;
-						margin-left: 43px;
-						margin-top: 40px;
-						font-size: 20px;
-						font-weight: bolder;
-					}
-					
-					#loginPwd {
-						margin-left: 30px;
-						border: #C2C2C2;
-						font-weight: bolder;
-						font-size: 20px;
-						width: 235px;
-						height: 44px;
-					}
-					
-					#chkId, #loginSave {
-						margin-top: 10px;
-						color: #c2c2c2;
-						font-size: 13px;
-						float: left;
-						margin-left: 5px;
-						margin-top:-5px;
-					}
-					
-					
-					.log_btn {
-						background-color: #9A0A0A;
-						height: 42px;
-						width: 315px;
-						color: #e6e6e6;
-						font-size: 20px;
-						font-weight: 600;
-						margin-top:-5px;
-						border: none;
-					}
-					
-					#login_form_etc {
-						font-size: 13px;
-						margin-top:-5px;
-					}
-					
-					a {
-						text-decoration: none;
-					}
-					
-					#btn_join {
-						margin-left: 10px;
-					}
-				</c:when>
-				
-				<c:otherwise>
-			 
-					/*--------로그인 후 페이지 --------*/
-					*{font-family: 'Noto Sans KR', sans-serif;}
-					
-					#header {
-					/* border: 1px solid black; */
-					height: 165px;
-					position: absolute;
-					/* 	text-align: center; */
-					z-index: 100;
-					/* 	margin:0 auto; */
-					/* 	text-align: center; */
-					}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-					#user_info {
-						position: absolute;
-						z-index: 500;
-						width: 365px;
-						height: 273px;
-						padding-top: 50px;
-						font-size: 14px;
-						color:#e6e6e6;
-					}
-					
-			        .user {
-				        text-align:left;
-				        margin-left: 20px;
-			        }
-			     
-			        #userId {
-				      	font-size: 30px;
-				      	margin-bottom: 30px;
-			        }
-			        
-			        #welcome, #reguralMem, #generalMem, #date {
-				     	margin-top:-10px;
-				     	font-size:14px;
-			    	}
-			     
-			
-			        #lbtn {
-			     		margin-top: 50px;
-			        }
-			        
-			        .logout_btn{
-				      	background-color:#9a0a0a;
-				      	color: #ffecec;
-				      	font-size: 16px;
-				      	width: 148px;
-				      	height: 42px;
-				      	border: none;
-				      	margin-right: 20px;
-				      	margin-bottom:500px;
-			        }
-			     
-			        .mp_btn {
-				    	background-color: #717171;
-				        color: #f7f7f7;
-				        font-size: 16px;
-				        width: 148px;
-				        height:42px;
-				        border: none;
-			        }
-			        
-					#content {
-						position: absolute;
-						margin: -50px auto;
-						text-align: center;
-						width:100%;
-					}
-					
-					#content1 {	
-						height: 354px;
-					}
-			
-				    #subtitle {
-				    	font-size: 40px;
-				    }
-			
-					#menus {
-						padding-top: 40px;
-						}
-			
-					#content2 {	
-						padding-top: 30px;
-					}
-			 
-				</c:otherwise>
-			
-			</c:choose>
-			
-			#content {
-			position: absolute;
-			 margin: 0 auto;
-			 text-align: center;
-			}
-			
-			#content1 {
-				height: 354px;
-			}
-			
-			#title {
-				margin-top: 170px;
-			}
-			
-			#subtitle {
-				font-size: 40px;
-			}
-			
-			#menus {
-				padding-top: 40px;
-			}
-			
-			#content2 {	
-				padding-top: 30px;
-			}
-			
-			
-			/*----- 푸터영역 -----*/
-			#footer {
-				margin-top: 60px;
-				color: gray;
-			}
-			
-			#f_text {
-				padding-top: 40px;
-			}
-			
-			.same2 {
-				margin-left: 20px;
-			}
-			
-			/* 로그인 전 버튼들 스타일*/
-			#findLogin{
-				color: #C2C2C2;
-			}
-			
-			#btn_join{
-				color: #C2C2C2;
-			}
-			
-			/* 로그인 후 버튼들 스타일*/
-			#mypageBtn{ 
-				background-color: #717171; 
-				color: aliceblue; 
-				font-size: 16px; 
-				font-weight: 700; 
-				border: none;
-			}
-			
-			#logoutBtn {
-				background-color: #9a0a0a; 
-				color: aliceblue; 
-				font-size: 16px; 
-				font-weight: 700;
-				border: none; 
-				margin-bottom:-10px; 
-				margin-right: 10px;
-			}
-			
-			.lgForm {
-				display: inline;
-			}
-			
-		</style>
+
+<title>Document</title>
+<!--  -->
+
+
+<style>
+	*{font-family: 'Noto Sans KR', sans-serif;}
 	
-	</head>
+	#line {
+		height: 35px;
+		background-color: black;
+	}
 	
-		<%@ include file="views/common/chatBot.jsp"%>
+	#top {
+		height: 641px;
+	    /* padding-top:160px; */
+		margin-bottom: 40px;
+	}
 	
-	<body>
-		<!---------------- 로그인전메뉴바--------------- -->
-		<div class="wrap">
-			
-			<!-- 헤더바 -->
-			<%@ include file="views/common/headerBar.jsp"%>	
+	#top_bg {
+		position: absolute;
+		/*헤더 밑 메인탑 이미지 부분*/
+	}
 	
-			<!--TOP상단 이미지 영역 (로그인 부분  ) 로그인전 ------------------------->
+	
+	  
+	.login {
+		/*로그인 bg부분 position - z-index로 위치설정 */
+		position: relative;
+		padding-left: 1195px;
+		padding-top: 200px;
+		z-index: 1000;
+	}
+	
+	
+	
+	.log {
+		position: relative;
+		/* background-color: yellow; */
+		top: 170px;
+		padding-left: 25px;
+	}
+	 <c:choose>
+	  <c:when test="${empty loginMember }">
+	 
+	
+	#login {
+		position: absolute;
+		z-index: 1500px;
+		/*  background-color: aqua; */
+		padding-top: 15px;
+		height: 282px;
+	}
+	
+	
+	#id, #pwd {
+		color: #e6e6e6;
+		font-size: 15px;
+	}
+	
+	#loginId {
+		border: #C2C2C2;
+		width: 235px;
+		height: 40px;
+		margin-left: 43px;
+		margin-top: 40px;
+		font-size: 20px;
+		font-weight: bolder;
+	}
+	
+	#loginPwd {
+		/*margin-top: px;*/
+		margin-left: 30px;
+		border: #C2C2C2;
+		font-weight: bolder;
+		font-size: 20px;
+		width: 235px;
+		height: 44px;
+	}
+	
+	#chkId, #loginSave {
+		margin-top: 10px;
+		color: #c2c2c2;
+		font-size: 13px;
+		float: left;
+		margin-left: 5px;
+		margin-top:-5px;
+	}
+	
+	
+	.log_btn {
+		background-color: #9A0A0A;
+		height: 42px;
+		width: 315px;
+		color: #e6e6e6;
+		font-size: 20px;
+		font-weight: 600;
+		margin-top:-5px;
+		border: none;
+	}
+	
+	#login_form_etc {
+		/*margin-left: 15px;*/
+		font-size: 13px;
+		margin-top:-5px;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	#btn_join {
+		margin-left: 10px;
+	}
+	</c:when>
+ <c:otherwise>
+ 
+ /*----------------------------로그인 후 페이지 --------------------------------*/
+ *{font-family: 'Noto Sans KR', sans-serif;}
+
+	
+	 #top {
+		height: 641px;
+	    /* padding-top:160px; */
+		margin-bottom: 40px;
+	}
+
+
+
+	#user_info{
+	position: absolute;
+	z-index: 500;
+	width: 365px;
+	height: 273px;
+	padding-top: 50px;
+	font-size: 14px;
+	color:#e6e6e6;
+	
+	}
+     .user{
+     text-align:left;
+     margin-left: 20px;
+     }
+     
+     #userId{
+      	font-size: 30px;
+      	margin-bottom: 30px;
+     }
+     #welcome,#reguralMem,#generalMem,#date{
+     	margin-top:-10px;
+     	font-size:14px;
+     }
+     
+
+     #lbtn{
+     margin-top: 50px;
+     }
+     
+     
+     .logout_btn{
+      	background-color:#9a0a0a;
+      	color: #ffecec;
+      	font-size: 16px;
+      	width: 148px;
+      	height: 42px;
+      	border: none;
+      	margin-right: 20px;
+      	margin-bottom:500px;
+     }
+     
+     .mp_btn{
+       background-color: #717171;
+       color: #f7f7f7;
+       font-size: 16px;
+       width: 148px;
+       height:42px;
+       border: none;
+       
+     }
+	 #content{
+	 position: absolute;
+	 margin: -50px auto;
+	 text-align: center;
+	 width:100%;
+	 
+	}
+	#content1 {	height: 354px;}
+	
+	#subtitle {	font-size: 40px;}
+	
+	#menus {padding-top: 40px;}
+	
+	#content2 {	padding-top: 30px;}
+
+ 
+ 
+ </c:otherwise>
+
+	</c:choose>
+	
+	#content{
+	position: absolute;
+	 margin: 0 auto;
+	 text-align: center;
+	}
+	
+	#content1 {	height: 354px;}
+	
+	#title {margin-top: 170px;}
+	
+	#subtitle {	font-size: 40px;}
+	
+	#menus {padding-top: 40px;}
+	
+	#content2 {	padding-top: 30px;}
+
+
+/*----------------------푸터----------------------*/
+	#footer {
+	margin-top: 60px;
+	color: gray;
+	}
+	
+	#f_text {padding-top: 40px;}
+	.same2 {margin-left: 20px;}
+	
+</style>
+
+<!-------------------------------------------------스타일 끝-------------------------------------------->
+
+</head>
+
+<%@ include file="views/common/chatBot.jsp"%>
+
+<body>
+<!---------------- 로그인전메뉴바--------------- -->
+	<div class="wrap">
+	<%@ include file="views/common/headerBar.jsp"%>	<!--헤더 영역 상단 블랙 라인이랑 로고 까지가 헤더영역입니다 ~-->
+
+		<!--TOP상단 이미지 영역 (로그인 부분  ) 로그인전 ------------------------->
+
 			<div id="top">
 				<div id="top_bg">
 					<img src="resources/mainIndex/top_img.png" alt="메인이미지">

@@ -38,11 +38,11 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 <style >
 
 
-       .hWrap{
+       .wrap{
             width: 1920px;
               text-align: center;
         }
-        .hWrap > div{
+        .wrap > div{
             width: 100%;
         }
         
@@ -51,37 +51,33 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         
         #header{
             /* border: 1px solid black; */
+            width: 1920px;
             height: 165px;
-            position: absolute;
-/*             text-align: center; */
-            z-index: 100;
-            margin:0px auto;
-            text-align: center;
+            margin: 0 auto;
             
         }
  
-        /*상단 블랙라인 */
         #line{
        	       
             height: 35px;
             background-color: black;
         }
         
-        /*헤더 중앙 로고 위치값 */
-        #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 101;
-            top:60px ;
-            left: 50%;
-			translate: -50%;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
+        
+        #logo {
+		/* border:1px solid black; */
+		/* 인덱스 로고 */
+		width: 155px;
+		height: 70px;
+		position:absolute;
+	
+		z-index: 101;
+		top: 60px;
+		left: 50%;
+		translate: -50%;
+	
+	}
+        
         </c:when>
 			<c:otherwise>
 			
@@ -90,11 +86,9 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         #header{
             /* border: 1px solid black; */
             height: 165px;
-            position: absolute;
-/*             text-align: center; */
-            z-index: 100;
+          	width: 1920px;
+            z-index: 2000;
             margin:0px auto;
-            text-align: center;
             
         }
  
@@ -106,20 +100,22 @@ String alertMsg = (String)session.getAttribute("alertMsg");
         }
         
         /*헤더 중앙 로고 위치값 */
-        #logo{
-            position:absolute;
-            /* border:1px solid black; */
-            width: 155px;
-            height: 70px;
-            z-index: 1000;
-            top:60px ;
-            left: 50%;
-			translate: -50%;
-            /* margin-left:882.5px; */
-/*             left: 50%; */
-/*             translate: -50%; */
-/*             margin: 0 auto; */
-        }
+
+        
+        #logo {
+		/* border:1px solid black; */
+		/* 인덱스 로고 */
+		width: 155px;
+		height: 70px;
+		position:absolute;
+	
+		z-index: 101;
+		top: 60px;
+		left: 50%;
+		translate: -50%;
+	
+	}
+
         
   
         /*오른쪽상단 a태그 텍스트밑줄 제거*/
@@ -171,7 +167,7 @@ String alertMsg = (String)session.getAttribute("alertMsg");
 	<c:choose>
 <%--로그인 안했을때 --%>
 			<c:when test="${empty loginMember }">
-		    <div class="hWrap">
+		    <div class="wrap">
 		        <div id="header">
 		            <div id="line"></div>
 		            <div id="logo">

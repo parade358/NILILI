@@ -7,22 +7,9 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    
    <meta charset="UTF-8">
-   <title>Document</title>
+   <title>늴리리</title>
    
    <style>
-   	.wrap{
-        background-color: white;
-        color: black;
-        width: 1920px;
-        margin: auto;
-    }
-
-    .wrap{
-        width: 1920px;
-    }
-    .wrap > div{
-        width: 100%;
-    }
 
     #footer{
     margin-top: 60px;
@@ -117,10 +104,10 @@
 	<br>
       
       
-      <!--인덱스 타이틀-->
+      <!-- Q&A 로고 1 -->
       <div id="title1">서울 여행 정보 공유 사이트</div>
 
-      <!--게시판 타이틀-->
+      <!-- Q&A 로고 2 -->
       <div id="title2">Q&A</div>
 
       <br>

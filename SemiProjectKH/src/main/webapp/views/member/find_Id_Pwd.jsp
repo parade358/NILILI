@@ -16,18 +16,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=
     , initial-scale=1.0">
-<title>은지누나의 아이디 비번 찾기</title>
+<title>늴리리</title>
 
 <style>
-
-.wrap {
-	width: 1920px;
-}
-
-.wrap>div {
-	width: 100%;
-}
-
 
 #area1 {
 	height: 1000px;
@@ -84,7 +75,7 @@
 
 	<div class="wrap">
 <%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
+
 
 <h1 id="up" align="center">FIND YOUR
 	ID&nbsp;&nbsp;/&nbsp;&nbsp;PASSWORD</h1>

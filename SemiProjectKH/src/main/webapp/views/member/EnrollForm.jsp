@@ -9,16 +9,8 @@
 	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<title>Document</title>
+<title>늴리리</title>
 <style>
-
-.wrap {  
-	width: 1920px;
-}
-
-.wrap>div {
-	width: 100%;
-}
 
 * {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -322,9 +314,6 @@ text-align: center;
 
 
 <%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
-		
-
 
 
 	<!--****************************콘텐츠 영역******************************-->

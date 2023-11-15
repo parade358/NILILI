@@ -67,7 +67,7 @@ public class BoardDetailController extends HttpServlet {
 				}
 				
 				
-				//조회수가 성공적으로 증가되었다면 -> 게시글 정보 조회해오기 
+				//조회수가 성공적으로 증가되었다면 -> 게시글 정보 조회해오기
 				//조회해온 데이터를 상세보기 페이지로 전달하여 페이지에 값 출력해주기
 				
 	}

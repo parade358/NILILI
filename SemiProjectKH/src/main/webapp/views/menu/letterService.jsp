@@ -8,18 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fuggles&family=Merriweather:wght@900&family=Noto+Sans+KR:wght@100&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>늴리리</title>
     <style>
-    
-    
-          
-        .wrap{
-            width: 1920px;
-        }
-        .wrap > div{
-            width: 100%;
-        }
-
+   
         /*헤어 영역 사이즈값 (높이/세로영역)*/
     
         /*-------------------------------헤더 끝 ---------------------------------------*/
@@ -63,12 +54,9 @@
     </style>
 </head>
 <body>
-
-<div class="wrap">
-<%@ include file="../common/headerBar.jsp"%> 
-		<!-- 전체영역잡는 wrap 이어서 페이지에 들어갈 내용들 밑에있는 div 영역에 집어넣으시길 바랍니다 -->
 	
-         <!--*************************헤더 영역 끄으으으으으으읕***********************-->
+	<div class="wrap">
+<%@ include file="../common/headerBar.jsp"%> 
 
          <!--서브페이지 타이틀 -->
          <div id="title">

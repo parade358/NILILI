@@ -13,22 +13,6 @@
 		
 		<style>
 	
-	        .wrap{
-	            background-color: white;
-	            color: black;
-	            width: 1920px;
-	            /* height: 1000px; */
-	            margin: auto;
-	        }
-	
-	        .wrap{
-	            width: 1920px;
-	        }
-	        .wrap > div{
-	            width: 100%;
-	        }
-	        
-	        }
 	        #footer{
 	        margin-top: 60px;
 	        color: gray;

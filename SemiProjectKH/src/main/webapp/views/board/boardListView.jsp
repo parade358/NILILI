@@ -15,22 +15,7 @@
 		<title>늴리리</title>
 		
 		<style>
-
-        .wrap{
-            background-color: white;
-            color: black;
-            width: 1920px;
-            margin: auto;
-        }
-
-        .wrap{
-            width: 1920px;
-        }
-        .wrap > div{
-            width: 100%;
-        }
-       
-        }
+		
         #footer{
         margin-top: 60px;
         color: gray;
@@ -160,14 +145,10 @@
     </style>
 </head>
 <body>
-	
-	
 
 	<div class="wrap">
          <!--헤더영역 블랙라인 + 로고 -->
         <%@ include file="/views/common/headerBar.jsp"%>
-       
-	
         
 		<br>
 		<!-- 게시판 로고 1 -->

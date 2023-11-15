@@ -12,24 +12,9 @@
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	    <meta charset="UTF-8">
 	    
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		<style>
 		
-			.wrap{
-			    background-color: white;
-			    color: black;
-			    width: 1920px;
-			    margin: auto;
-			}
-	
-			.wrap{
-			    width: 1920px;
-			}
-			.wrap > div{
-			    width: 100%;
-			}
-			
-			
 			#footer{
 			margin-top: 60px;
 			color: gray;
@@ -87,7 +72,8 @@
 			    /* border:1px solid red; */
 			    float:left;
 			    font-size: 34px;
-			    font-family: 'Noto sans KR', sans-serif;
+			    /* font-family: 'Nanum Gothic', sans-serif; */
+			    font-family: 'Noto sans KR' sans-serif;
 			    font-weight: 800;
 			    display: flex;
 			    justify-content: center;
@@ -96,8 +82,10 @@
 			}
 			
 			div{
-			    font-family: 'Noto sans KR', sans-serif;
-			    font-weight: 100;
+
+			    /* font-family: 'Nanum Gothic', sans-serif; */
+			    font-family: 'Noto sans KR' sans-serif;
+			    font-weight: 400;
 			}
 			
 			#write{
@@ -134,9 +122,11 @@
 			<!-- 헤더바 -->		
 			<%@ include file="/views/common/headerBar.jsp" %>	
 			<br>
-		
+			
+			<!-- 공지사항 로고 1 -->
 	        <div id="title1">서울 여행 정보 공유 사이트</div>
-	
+	        
+			<!-- 공지사항 로고 2 -->
 	        <div id="title2">늴리리 공지사항</div>
 	
 			<table class="list-area" align="center">
