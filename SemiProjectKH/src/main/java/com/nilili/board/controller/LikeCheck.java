@@ -42,7 +42,7 @@ public class LikeCheck extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		System.out.println("일로왔나"); 
+		System.out.println("일로왔나");
 		
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));

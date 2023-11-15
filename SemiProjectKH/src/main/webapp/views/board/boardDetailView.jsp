@@ -355,7 +355,7 @@ Board b = (Board) request.getAttribute("b");
 			<%
 				} catch (NullPointerException e) {
 				}
-			%>
+			%> 
 			
 			<!-- boardNo와 memberNo 변수 생성-->
 			<c:set var="boardNo" value="${b.boardNo}" />

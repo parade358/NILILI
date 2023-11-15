@@ -309,7 +309,7 @@ public class BoardService {
 			ArrayList<Board> list = new BoardDao().hotList(conn,pi);
 			
 			JDBCTemplate.close(conn);
-			
+			 
 			return list; 
 		}
 
