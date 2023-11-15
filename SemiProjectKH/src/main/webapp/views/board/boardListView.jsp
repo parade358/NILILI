@@ -12,7 +12,7 @@
 		
 		<meta charset="UTF-8">
 		
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		
 		<style>
 
@@ -199,13 +199,13 @@
 	</style>
         
 		<br>
-		<!-- 닐리리 홈 로고 -->
+		<!-- 게시판 로고 1 -->
         <div id="title1">서울 여행 정보 공유 사이트</div>
         
-        <!-- 닐리리 커뮤니티 로고 -->
+        <!-- 게시판 로고 2 -->
         <div id="title2">늴리리 커뮤니티</div>
         
-        <!-- 게시판 검색 -->
+        <!-- 게시판 검색 테이블-->
         <div class="container" align="center">
 			<div>
 					<table class="search-area">
@@ -228,7 +228,7 @@
 			</div>
 		</div>
 		
-		<!-- 게시판 리스트 -->
+		<!-- 게시판 리스트 테이블-->
 		<table class="list-area" id="list-area" align="center">
 			<thead>
 				<tr>

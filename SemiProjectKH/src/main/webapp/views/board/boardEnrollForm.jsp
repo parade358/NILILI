@@ -7,16 +7,14 @@
 	
 	    <meta charset="UTF-8">
 	    
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		
 		<style>
 	        .wrap{
 	            background-color: white;
 	            color: black;
 	            width: 1920px;
-	            /* height: 1000px; */
 	            margin: auto;
-	            margin-top: 50px;
 	        }
 	
 	        .wrap{
@@ -218,10 +216,10 @@
 	        <%@ include file="/views/common/headerBar.jsp"%>
 			<br>
 	
-	        <!--인덱스 타이틀-->
+	        <!--게시판 로고 1-->
 	        <div id="title1">서울 여행 정보 공유 사이트</div>
 	
-	        <!--게시판 타이틀-->
+	        <!--게시판 로고 2-->
 	        <div id="title2">늴리리 커뮤니티</div>
 	
 	        <!--게시글 작성 테이블-->
@@ -231,8 +229,9 @@
 	        	<table class="list-area" align="center">
 					<thead>
 						<tr id="trtitle">
-		                    <th width="30">여행공유</th>
+		                    <th width="30">카테고리</th>
 		                    <td>
+		                    	<!-- 카테고리 선택 말머리 -->
 		                        <select name="tripselect" id="tripselect">
 		                            <c:forEach items="${cList}" var="c">
 										<option value="${c.categoryNo }">${c.categoryName }</option>
@@ -245,17 +244,18 @@
 	                	<tr>
 		                    <th width="100" height="280">내용</th>
 		                    <td colspan="4">
-								<!-- <div id="summernote"></div> -->
+								<!-- summernote api -->
 		                        <textarea name = "content" id="summernote" cols="30" 
 		                         rows="10" style="resize: none;" ></textarea> 
 		                    </td>
 	                	</tr>
 	           	    </thead>
 	            	<tbody>
-	 
+	 					
 						<tr height="225">
 							<th id="imgth">이미지 <br>첨부</th>
 		                    
+		                    <!-- 여행네컷 이미지툴 -->
 							<td colspan="4">
 		                    <div id="imgtext">이미지를 첨부해서 나만의 여행네컷을 만들어보세요.</div>
 		                    
@@ -279,18 +279,21 @@
 				
 				<br><br>
 	
+				<!-- 여행네컷 input 창 -->
 				<div id="file-area">
 	                <!--onchange : 변화가 일어났을때 발생하는 이벤트 
 	                    선언석함수를 내부에 작성할때 해당 이벤트가 발생한시점에 요소객체를 전달하는 방법
 	                    함수(this) 
 	                -->
-					<input type="file" id="file1" name="file1" onchange="loadImg(this,1)" required> <!-- 대표이미지 필수  -->
+	                <!-- 이미지 4개 전부 required(필수첨부) / 4개 미만 첨부하면 수정이 불가하기 때문에 4개로 적용해야함-->
+					<input type="file" id="file1" name="file1" onchange="loadImg(this,1)" required>
 					<input type="file" id="file2" name="file2" onchange="loadImg(this,2)" required>
 					<input type="file" id="file3" name="file3" onchange="loadImg(this,3)" required>
 					<input type="file" id="file4" name="file4" onchange="loadImg(this,4)" required>
 				
 			    </div>
 	
+				<!-- 뒤로가기/작성하기 버튼 -->
 		        <div align="center" id="bottondiv">
 		            
 		            <button type="button" id="button1" onclick="history.back();">뒤로가기</button>

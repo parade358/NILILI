@@ -8,12 +8,11 @@
 	<head>
 		<!-- 링크 + 라이브러리 -->
 	
-		<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@300;400;700&family=IBM+Plex+Sans+KR&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 		
 		<meta charset="UTF-8">
 	
-		<title>Insert title here</title>
+		<title>늴리리</title>
 		
 		<style>
 			.wrap {
@@ -22,7 +21,6 @@
 				width: 1920px;
 				/* height: 1000px; */
 				margin: auto;
-				margin-top: 50px;
 			}
 			
 			.wrap {
@@ -232,18 +230,18 @@
 	
 		<div class="wrap">
 		
-			<!--헤더영역 -->
+			<!--헤더영역 블랙라인 + 로고 -->
 	        <%@ include file="/views/common/headerBar.jsp"%>
 	        
 			<br>
 	
-	        <!--인덱스 타이틀-->
+	        <!--게시판 로고 1-->
 	        <div id="title1">서울 여행 정보 공유 사이트</div>
 	
-	        <!--게시판 타이틀-->
+	        <!--게시판 로고 1-->
 	        <div id="title2">늴리리 커뮤니티</div>
 	
-			<!--게시글 작성 테이블-->
+			<!--게시글 수정 테이블-->
 	
 			<form action="${contextPath }/update.bo" method="post"
 				id="update-area" enctype="multipart/form-data">
@@ -252,8 +250,10 @@
 				<table class="list-area" align="center">
 					<thead>
 						<tr id="trtitle">
-							<th width="30">여행공유</th>
-							<td><select name="tripselect" id="tripselect">
+							<th width="30">카테고리</th>
+							<td>
+							<!-- 카테고리 선택 말머리 -->
+							<select name="tripselect" id="tripselect">
 									<c:forEach items="${cList}" var="c">
 										<option value="${c.categoryNo }">${c.categoryName }</option>
 									</c:forEach>
@@ -270,9 +270,12 @@
 	
 						<tr>
 							<th width="100" height="280">내용</th>
-							<td colspan="4"><textarea name="content" id="summernote"
-									cols="30" rows="10" style="resize: none;">${b.boardContent }</textarea>
-							</td>
+								<td colspan="4">
+									<!-- summernote api -->
+									<textarea name="content" id="summernote"
+									cols="30" rows="10" style="resize: none;">${b.boardContent }
+									</textarea>
+								</td>
 	
 						</tr>
 					</thead>
@@ -281,9 +284,8 @@
 	
 						<tr height="225">
 	
-							<th id="imgth">이미지 <br>첨부
-							</th>
-	
+							<th id="imgth">이미지 <br>첨부</th>
+							<!-- 여행네컷 이미지-->
 							<td colspan="4"><c:if test="${atlist != null }">
 									<c:forEach items="${atlist }" var="at" varStatus="vs">
 										<%--첨부파일이 있다면 해당 정보를 보여줘야한다. --%>
@@ -291,11 +293,13 @@
 	
 										<c:choose>
 											<c:when test="${vs.count eq 1 }">
-											
+											<!-- 여행네컷 이미지 프레임과 그 안에 들어갈 이미지 4개 position을 이용해 겹쳐서 사용 -->
+											<!-- 여행네컷 이미지 프레임 -->
 											<div id="imgtext">이미지를 첨부해서 나만의 여행네컷을 만들어보세요.</div>
 											<div style="position: relative;">
 											<img src="${contextPath }/resources/img/board/photoframe_nilili_2.png" id="imgframe" alt="인생네컷" width="900" height="170">
-		
+											
+											<!-- 여행네컷에 들어갈 titleImg 1개, contentImg 3개-->
 											<div id="img" style="position: absolute; top: 10px;">
 												<img id="titleImg"
 													src="${contextPath }${at.filePath}${at.changeName}"
@@ -324,18 +328,18 @@
 									<!-- onchange : 변화가 일어났을때 발생하는 이벤트 
 			                    	 선언석함수를 내부에 작성할때 해당 이벤트가 발생한시점에 요소객체를 전달하는 방법
 			                    	 함수(this) -->
-									<input type="file" id="file1" name="file1" onchange="loadImg(this,1)">
-									
-									<!-- 대표이미지 필수  -->
-									<input type="file" id="file2" name="file2" onchange="loadImg(this,2)">
-									<input type="file" id="file3" name="file3" onchange="loadImg(this,3)"> 
-									<input type="file" id="file4" name="file4" onchange="loadImg(this,4)">
+			                    	<!-- 이미지 4개 전부 required(필수첨부) / 4개 미만 첨부하면 수정이 불가하기 때문에 4개로 적용해야함-->
+									<input type="file" id="file1" name="file1" onchange="loadImg(this,1)" required>
+									<input type="file" id="file2" name="file2" onchange="loadImg(this,2)" required>
+									<input type="file" id="file3" name="file3" onchange="loadImg(this,3)" required> 
+									<input type="file" id="file4" name="file4" onchange="loadImg(this,4)" required>
 								</div> 
 							</td>
 						</tr>
 					</tbody>
 				</table>
 	
+				<!-- 뒤로가기/수정하기 버튼 -->
 		        <div align="center" id="bottondiv">
 		            
 		            <button type="button" id="button1" onclick="history.back();">뒤로가기</button>
@@ -417,7 +421,7 @@
 		</script>
 
 			
-
+		<!-- 사진 첨부 스크립트 -->
 		<script>
 			$(function(){
 				$("#file-area").hide(); //file input 숨기기
