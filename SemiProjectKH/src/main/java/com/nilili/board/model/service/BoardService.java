@@ -313,6 +313,17 @@ public class BoardService {
 			return list; 
 		}
 
+		public int likeMemCheck(int bno, int memberNo) {
+			
+			Connection conn = JDBCTemplate.getConnection();
+			
+			int result = new BoardDao().likeMemCheck(conn,bno,memberNo);
+			
+			JDBCTemplate.close(conn);
+			
+			return result;
+		}
+
 
 
 
