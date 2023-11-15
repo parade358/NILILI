@@ -14,6 +14,8 @@ Board b = (Board) request.getAttribute("b");
 	<head>
 	
 		<!-- 라이브러리 + 링크  -->
+		<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 		<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 		rel="stylesheet"
@@ -191,7 +193,7 @@ Board b = (Board) request.getAttribute("b");
 				height: 150px;
 				position: absolute;
 				right: 726px;
-				bottom: 135px;
+				bottom: 0px;
 			}
 			
 			#contentImg4 {
@@ -199,7 +201,7 @@ Board b = (Board) request.getAttribute("b");
 				height: 150px;
 				position: absolute;
 				right: 523px;
-				bottom: 135px;
+				bottom: 0px;
 			}
 			
 			#imgframe {
@@ -307,17 +309,33 @@ Board b = (Board) request.getAttribute("b");
 			<!-- 추천 기능 -->
 			<!-- 로그인 안했을 시에 로그인 유도 -->
 			<c:if test="${empty loginMember }">
-		        글작성, 추천은 
+		        글작성, 추천은
 		        <button type="button" id="newLogin"onclick="redirectToAddress();">
 					<b class="w3-text-blue">로그인</b>
 				</button> 후 사용 가능합니다.<br>
 			</c:if>
 			<c:if test="${ loginMember != null }">
-				<button id="rec_update">
-					<img src="${contextPath }/resources/img/like-button.png" alt="추천 아이콘" width="50" height="50">
+				<button class="btn" id="rec_update">
+					<i class="bi bi-heart"></i>
 					<div class="rec_count"></div>
 				</button>
 			</c:if>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 			
 	
@@ -387,13 +405,28 @@ Board b = (Board) request.getAttribute("b");
 			$(function(){
 				// 추천버튼 클릭시(추천 추가 또는 추천 제거)
 				$("#rec_update").click(function(){
+					
+					if($("#rec_update>i").hasClass('bi bi-heart')){
+						$("#rec_update>i").removeClass('bi bi-heart');
+						$("#rec_update>i").addClass('bi bi-heart-fill');
+					}else{
+						$("#rec_update>i").removeClass('bi bi-heart-fill');
+						$("#rec_update>i").addClass('bi bi-heart');
+					}
+					
 					$.ajax({
 						url: "likeInsert.bo",
 						type: "POST",
 						data: {bno : ${boardNo},
-						memberNo:"${memberNo}"},
-						success: function () {
+							   memberNo:"${memberNo}"
+						},
+						
+						success: function (){
+							
+							console.log($("#rec_update>i").hasClass('bi bi-heart'));
+							
 							console.log("여기까진성공");
+							
 							recCount();
 						},
 						error: function(xhr, status, error) {
@@ -424,6 +457,31 @@ Board b = (Board) request.getAttribute("b");
 				recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
 			});
 		
+		</script>
+		
+		<script>
+			function likeCheck(){
+				$.ajax({
+					url: "likeCheck.bo",
+					type: "POST",
+					data: {
+						bno: ${boardNo},
+						memberNo: "${memberNo}"
+					},
+					success: function(result){
+						if(result == "${memberNo}"){
+							$("#rec_update>i").removeClass('bi bi-heart');
+							$("#rec_update>i").addClass('bi bi-heart-fill');
+						}else{
+							$("#rec_update>i").removeClass('bi bi-heart-fill');
+							$("#rec_update>i").addClass('bi bi-heart');
+						}
+					},
+					error: function(){
+						console.log("통신에러");
+					}
+				});
+			}
 		</script>
 		
 		<!-- 글삭제시 필요한 함수 -->

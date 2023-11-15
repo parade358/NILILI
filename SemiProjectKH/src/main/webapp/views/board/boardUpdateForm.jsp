@@ -175,7 +175,7 @@
 				height: 150px;
 				position: absolute;
 				right: 726px;
-				bottom: -5px;
+				bottom: -32px;
 			}
 			
 			#contentImg3 {
@@ -183,7 +183,7 @@
 				height: 150px;
 				position: absolute;
 				right: 523px;
-				bottom: -5px;
+				bottom: -32px;
 			}
 			
 			#imgframe {

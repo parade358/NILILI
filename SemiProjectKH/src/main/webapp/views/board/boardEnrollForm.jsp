@@ -234,8 +234,8 @@
 		                    
 		                    <div id="img" style="position: absolute; top: 10px;" >
 		                    <img id="titleImg" width="182" height="150" style="margin-right: 20px;">
-							<img id="contentImg1" width="182" height="150" style="margin-right: 19px;">
-							<img id="contentImg2" width="182" height="150" style="margin-right: 18px;">
+							<img id="contentImg1" width="182" height="150" style="margin-right: 20px;">
+							<img id="contentImg2" width="182" height="150" style="margin-right: 20px;">
 							<img id="contentImg3" width="182" height="150">
 		                    </div>
 		                    
